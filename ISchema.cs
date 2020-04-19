@@ -30,4 +30,5 @@ public interface ISchema
     bool StartNewActivity();
     void Update();
     void Update(bool Effective);
+
 }
