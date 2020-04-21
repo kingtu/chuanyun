@@ -140,6 +140,13 @@ public class Schema : ISchema
         this.CurrentPostValue = postData;
         Init();
     }
+    public Schema(H3.IEngine Engine, H3.SmartForm.ListViewPostValue postData, string tableName)
+    {
+        this.Engine = Engine;
+        this.tableID = Code(tableName);
+        this.CurrentPostValue2 = postData;
+        Init();
+    }
 
     public Schema(H3.IEngine Engine, string appID, string tableID)
     {
