@@ -4,8 +4,8 @@ using System.Text;
 
 namespace H3.Data.Filter
 {
-    public class Filter
+    public class Filter 
     {
-        public object Matcher { get; internal set; }
+        public IMatcher Matcher { get; internal set; }
     }
 }

@@ -13,5 +13,8 @@ namespace H3
         {
             public Dictionary<string, string> Data { get; set; }
         }
+        public class SubmitSmartFormResponse
+        {
+        }
     }
 }

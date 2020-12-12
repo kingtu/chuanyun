@@ -2,11 +2,16 @@
 
 namespace H3.Data.Filter
 {
-    internal class And
+    internal class And: IMatcher
     {
         internal void Add(ItemMatcher itemMatcher)
         {
-            throw new NotImplementedException();
+           
+        }
+
+        internal void Add(Or orMatcher)
+        {
+            
         }
     }
 }

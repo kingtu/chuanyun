@@ -5,8 +5,15 @@ using System.Text;
 using H3;
 using H3.DataModel;
 
-public class Schema : ISchema
+public  class PropertySchema
 {
+    public string Name { get;  set; }
+    public string DisplayName { get;  set; }
+}
+
+
+
+public class Schema{
     //#Region  属性和初始化
     public H3.IEngine Engine = null;
     private string appID = "D001419";
@@ -36,62 +43,40 @@ public class Schema : ISchema
     { "A-B生产订单", "ec318333645544f2b2606b71fb3f1d75"},
     { "A-B-C生产任务", "c6d04ca47af148a886539db711a1eef6"},
     { "A-B-C-D产品计划表", "3a1066eb19cf4ab79b0ac8fb1b14554c"},
-    { "锯切", "ba65c69eb46c4156b0eb25930bf50b93"},
-    { "锻压", "91f7d70310e94b1482010c6c7bfb3bed"},
-    { "辗环", "2d3e0018f778406386964c6580e29ddb"},
-    { "热处理", "ad33a9451cb6493aa479b645e799d9a8"},
-    { "毛坯", "ae3db5afbfae43c395a407e490871be3"},
-    { "粗车", "c7965aa8ba594bb9af82e380e6ae4eaf"},
-    { "精车", "cda5ef72fb694a7b8fcd52d6849b98e2"},
-    { "钻孔", "e17ff7e2aa2f42edb7b88fc9132f1936"},
-    { "粗焊", "4851abf7cf294285a4977a02c2810459"},
-    { "精焊", "1be4a53701a84da598d12944bc84cc39"},
-    { "成品库", "7071c4b0c8444f10a226a71514b1c0cc"},
-    { "再生库", "a3b71d50b275427eacc82bfa12fb48f2"},
+
+    { "订单批次规格表", "Sh8z1xnes2iju59dzn4ett4bb2"},
+    { "订单规格表", "Skniz33124ryujrhb4hry7md21"},
+
     { "其他物流任务", "ecb579eec8704a128b92fed6c8ae2c70"},
-    { "冷加工设备表", "7beb1c7d16a54b2eb58331a2c807fa39"},
-    { "车间设备", "f57558a43c944e73b2f1a6b1bfc32b94"},
     { "产品类别", "50a743c942da4709821d273780730402"},
     { "产品小类", "31e1fc7e25d8417dbe2f54a5bf6218bf"},
     { "工序表", "9016d53506b44f7d95ebbab5a05faf50"},
     { "工作中心", "34249153f48b41699801e38a93e62449"},
     { "设备工时系数表", "5ed7e837ecee4f97800877820d9a2f05"},
     { "产品参数表", "6b62f7decd924e1e8713025dc6a39aa5"},
-    { "红绿灯", "ef522660ca8742599ddc0d54c02d3f2a"},
-    { "锯切修改表", "JuQie"}
-};
-    public static Dictionary<string, string> ProcessState = new Dictionary<string, string> {
-{ "01", "待上机"},
-{ "02", "待下机"},
-{ "03", "待检验"},
-{ "04", "待转运"},
-{ "05", "加工中"},
-{ "06", "待装炉"},
-{ "07", "加热中"},
-{ "08", "待出炉"},
-{ "09", "待出炉"},
-{ "10", "冷却中"},
-{ "11", "待上机"},
-{ "12", "待下机"},
-{ "13", "待检验"},
-{ "14", "待转运"},
-{ "15", "加工中"},
-{ "16", "待装炉"},
-{ "17", "加热中"},
-{ "18", "待出炉"},
-{ "19", "待出炉"},
-{ "20", "冷却中"},
-{ "21", "冷却中"},
-{ "22", "待下机"},
-{ "23", "待检验"},
-{ "24", "待转运"},
-{ "25", "加工中"},
-{ "26", "待装炉"},
-{ "27", "加热中"},
-{ "28", "待出炉"},
-{ "29", "待出炉"},
-{ "30", "冷却中"}
-};
+    { "外协库", "045a636e21854dfc854307d5139deaf5"},
+    { "外协管理", "32799b2af0fd4a7fa776d9a7be710080"},
+
+    { "工序计划表", "Szlywopbivyrv1d64301ta5xv4"},
+    { "质量异议", "Sw5x3oekte0p227mti924vmf21"},
+
+    { "工艺流程表", "Sq0biizim9l50i2rl6kgbpo3u4"},
+    { "设备档案", "Sq0biizim9l50i2rl6kgbpo3u4"},
+    { "再生库", "Sfb3zsjf4iglhv1sjs995pmho4"}};
+    //Sfb3zsjf4iglhv1sjs995pmho4
+    public static Dictionary<string, string> ProcessState = new Dictionary<string, string>
+    {  { "01", "待上机"}, { "02", "待下机"}, { "03", "待检验"}, { "04", "待转运"}, { "05", "加工中"}, { "06", "待装炉"}, { "07", "加热中"}, { "08", "待出炉"},{ "09", "待出炉"},{ "10", "冷却中"},
+       { "11", "待上机"}, { "12", "待下机"}, { "13", "待检验"}, { "14", "待转运"}, { "15", "加工中"}, { "16", "待装炉"}, { "17", "加热中"}, { "18", "待出炉"},{ "19", "待出炉"},{ "20", "冷却中"},
+       { "21", "冷却中"}, { "22", "待下机"}, { "23", "待检验"}, { "24", "待转运"}, { "25", "加工中"}, { "26", "待装炉"}, { "27", "加热中"}, { "28", "待出炉"},{ "29", "待出炉"},{ "30", "冷却中"}
+    };
+
+    public string tableName { get; set; }
+
+    public Schema(H3.IEngine Engine)
+    {
+        this.Engine = Engine;
+
+    }
 
     public Schema(H3.IEngine Engine, string tableID)
     {
@@ -115,8 +100,7 @@ public class Schema : ISchema
         if (IsAllName) { appID = ""; }
         Init();
     }
-    //H3.SmartForm.ListViewPostValue postValue
-
+    //IsAllName为真时
     public Schema(H3.IEngine Engine, string tableID, H3.SmartForm.ListViewPostValue postData, bool IsAllName)
     {
         this.Engine = Engine;
@@ -136,14 +120,16 @@ public class Schema : ISchema
     public Schema(H3.IEngine Engine, H3.SmartForm.SmartFormPostValue postData, string tableName)
     {
         this.Engine = Engine;
-        this.tableID = Code(tableName);
         this.CurrentPostValue = postData;
+        this.tableName = tableName;
+        this.tableID = Code(tableName);        
         Init();
     }
     public Schema(H3.IEngine Engine, H3.SmartForm.ListViewPostValue postData, string tableName)
     {
         this.Engine = Engine;
         this.tableID = Code(tableName);
+        this.tableName = tableName;
         this.CurrentPostValue2 = postData;
         Init();
     }
@@ -185,10 +171,22 @@ public class Schema : ISchema
         TableSchema = Get();
         foreach (PropertySchema p in TableSchema.Properties)
         {
+            if (Columns.ContainsKey(p.DisplayName))
+            {
+                throw new Exception("存在相同的字段：" + p.DisplayName);
+            }
             Columns.Add(p.DisplayName, p.Name);
             if (p.Name.StartsWith(appID)) { SubTables.Add(p.DisplayName, p.Name); }
 
         }
+    }
+    public bool CheckColumnName(string columnName)
+    {
+        if (!Columns.ContainsKey(columnName))
+        {
+            throw new Exception("表【" + this.tableName + "】不存在字段：" + columnName);
+        }
+        return true;
     }
     public static string Code(string tableName)
     {
@@ -198,31 +196,49 @@ public class Schema : ISchema
     //#EndRegion
     public string Cell(string columnName)
     {
-        return (string)CurrentRow[Columns[columnName]];
+        CheckColumnName(columnName);
+        if (CurrentRow[Columns[columnName]] != null) { return (string)CurrentRow[Columns[columnName]]; }
+        return null;
     }
     public object CellAny(string columnName)
     {
+        CheckColumnName(columnName);
         return CurrentRow[Columns[columnName]];
     }
     public void Cell(string columnName, string value)
     {
+        CheckColumnName(columnName);
+        if (Columns.ContainsKey(columnName)) { CurrentRow[Columns[columnName]] = value; }
+        return;
+    }
+    public void Cell(string columnName, int value)
+    {
+        CheckColumnName(columnName);
+        if (Columns.ContainsKey(columnName)) { CurrentRow[Columns[columnName]] = value; }
+        return;
+    }
+    public void CellAny(string columnName, object value)
+    {   CheckColumnName(columnName);
         if (Columns.ContainsKey(columnName)) { CurrentRow[Columns[columnName]] = value; }
         return;
     }
 
     public string Cell(string columnName, H3.DataModel.BizObject row)
     {
+        CheckColumnName(columnName);
         return (string)row[Columns[columnName]];
     }
 
     public void Cell(string columnName, string value, H3.DataModel.BizObject row)
     {
+        CheckColumnName(columnName);
         row[Columns[columnName]] = value;
         return;
     }
 
     public string PostValue(string columnName)
-    {
+    {    
+        CheckColumnName(columnName);
         if (CurrentPostValue == null && !(CurrentPostValue2 == null))
         {
             return (string)CurrentPostValue2.Data[Columns[columnName]];
@@ -234,9 +250,24 @@ public class Schema : ISchema
         return null;
 
     }
+    public object PostValueAny(string columnName)
+    {    
+        CheckColumnName(columnName);
+        if (CurrentPostValue == null && !(CurrentPostValue2 == null))
+        {
+            return CurrentPostValue2.Data[Columns[columnName]];
+        }
+        if (CurrentPostValue.Data.ContainsKey(Columns[columnName]))
+        {
+            return CurrentPostValue.Data[Columns[columnName]];
+        }
+        return null;
+
+    }
     //H3.SmartForm.SmartFormPostValue CurrentPostData;
     public string PostValue(string columnName, H3.SmartForm.SmartFormPostValue postValue)
-    {
+    {    
+        CheckColumnName(columnName);
         if (postValue.Data.ContainsKey(Columns[columnName]))
         {
             return (string)postValue.Data[Columns[columnName]];
@@ -259,7 +290,7 @@ public class Schema : ISchema
         return this;
     }
 
-    public Schema AndFilter(string filed, string Operator, string value)
+    public Schema AndFilter(string columnName, string Operator, string value)
     {
         //构建过滤器
         if (Filter.Matcher == null)
@@ -267,12 +298,13 @@ public class Schema : ISchema
             Filter.Matcher = new H3.Data.Filter.And();
         }
         H3.Data.Filter.And matcher = (H3.Data.Filter.And)Filter.Matcher;//构造And匹配器
+        var filed = Columns[columnName];
         matcher.Add(new H3.Data.Filter.ItemMatcher(filed, OperatorType.Get(Operator), value));
         Filter.Matcher = matcher;
         return this;
     }
 
-    public Schema OrFilter(string filed, string Operator, string value)
+    public Schema OrFilter(string columnName, string Operator, string value)
     {
         //构建过滤器
         if (Filter.Matcher == null)
@@ -280,7 +312,23 @@ public class Schema : ISchema
             Filter.Matcher = new H3.Data.Filter.Or();
         }
         H3.Data.Filter.Or matcher = (H3.Data.Filter.Or)Filter.Matcher;//构造Or匹配器
+        var filed = Columns[columnName];
         matcher.Add(new H3.Data.Filter.ItemMatcher(filed, OperatorType.Get(Operator), value));
+        Filter.Matcher = matcher;
+        return this;
+    }
+    public Schema AppendOrFilter(string columnName, string Operator, string value )
+    {
+        //构建过滤器
+        if (Filter.Matcher == null)
+        {
+            Filter.Matcher = new H3.Data.Filter.Or();
+        }
+        H3.Data.Filter.And matcher = (H3.Data.Filter.And)Filter.Matcher;//构造Or匹配器
+        var filed = Columns[columnName];
+        H3.Data.Filter.Or orMatcher = new H3.Data.Filter.Or();
+        orMatcher.Add(new H3.Data.Filter.ItemMatcher(filed, OperatorType.Get(Operator), value));
+        matcher.Add(orMatcher);
         Filter.Matcher = matcher;
         return this;
     }
@@ -461,12 +509,6 @@ public class Schema : ISchema
 
 }
 
-public  class PropertySchema
-{
-    public string Name { get;  set; }
-    public string DisplayName { get;  set; }
-}
-
 public class OperatorType
 {
     private string Operator;
@@ -480,9 +522,6 @@ public class OperatorType
         if (Operator == ">=") { return H3.Data.ComparisonOperatorType.NotBelow; }
         if (Operator == "<=") { return H3.Data.ComparisonOperatorType.NotAbove; }
         if (Operator == "in") { return H3.Data.ComparisonOperatorType.In; }
-
         return H3.Data.ComparisonOperatorType.Equal;
     }
 }
-
-
