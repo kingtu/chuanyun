@@ -10,7 +10,7 @@ namespace H3.Data.Filter
 
         internal void Add(ItemMatcher itemMatcher)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
