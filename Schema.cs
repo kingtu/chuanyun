@@ -242,16 +242,8 @@ public class Schema{
         if (Columns.ContainsKey(columnName)) { CurrentRow[Columns[columnName]] = value; }
         return;
     }
-    public void Cell(string columnName, int value)
-    {
-        if (Columns.ContainsKey(columnName)) { CurrentRow[Columns[columnName]] = value; }
-        return;
-    }
-    public void CellAny(string columnName, object value)
-    {
-        if (Columns.ContainsKey(columnName)) { CurrentRow[Columns[columnName]] = value; }
-        return;
-    }
+   
+  
 
     public string Cell(string columnName, H3.DataModel.BizObject row)
     {
