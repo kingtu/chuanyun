@@ -54,21 +54,41 @@ public class Schema{
     { "工作中心", "34249153f48b41699801e38a93e62449"},
     { "设备工时系数表", "5ed7e837ecee4f97800877820d9a2f05"},
     { "产品参数表", "6b62f7decd924e1e8713025dc6a39aa5"},
-    { "外协库", "045a636e21854dfc854307d5139deaf5"},
-    { "外协管理", "32799b2af0fd4a7fa776d9a7be710080"},
-
-    { "工序计划表", "Szlywopbivyrv1d64301ta5xv4"},
-    { "质量异议", "Sw5x3oekte0p227mti924vmf21"},
-
-    { "工艺流程表", "Sq0biizim9l50i2rl6kgbpo3u4"},
-    { "设备档案", "Sq0biizim9l50i2rl6kgbpo3u4"},
-    { "再生库", "Sfb3zsjf4iglhv1sjs995pmho4"}};
-    //Sfb3zsjf4iglhv1sjs995pmho4
-    public static Dictionary<string, string> ProcessState = new Dictionary<string, string>
-    {  { "01", "待上机"}, { "02", "待下机"}, { "03", "待检验"}, { "04", "待转运"}, { "05", "加工中"}, { "06", "待装炉"}, { "07", "加热中"}, { "08", "待出炉"},{ "09", "待出炉"},{ "10", "冷却中"},
-       { "11", "待上机"}, { "12", "待下机"}, { "13", "待检验"}, { "14", "待转运"}, { "15", "加工中"}, { "16", "待装炉"}, { "17", "加热中"}, { "18", "待出炉"},{ "19", "待出炉"},{ "20", "冷却中"},
-       { "21", "冷却中"}, { "22", "待下机"}, { "23", "待检验"}, { "24", "待转运"}, { "25", "加工中"}, { "26", "待装炉"}, { "27", "加热中"}, { "28", "待出炉"},{ "29", "待出炉"},{ "30", "冷却中"}
-    };
+    { "红绿灯", "ef522660ca8742599ddc0d54c02d3f2a"},
+    { "锯切修改表", "JuQie"}
+};
+    public static Dictionary<string, string> ProcessState = new Dictionary<string, string> {
+{ "01", "待上机"},
+{ "02", "待下机"},
+{ "03", "待检验"},
+{ "04", "待转运"},
+{ "05", "加工中"},
+{ "06", "待装炉"},
+{ "07", "加热中"},
+{ "08", "待出炉"},
+{ "09", "待出炉"},
+{ "10", "冷却中"},
+{ "11", "待上机"},
+{ "12", "待下机"},
+{ "13", "待检验"},
+{ "14", "待转运"},
+{ "15", "加工中"},
+{ "16", "待装炉"},
+{ "17", "加热中"},
+{ "18", "待出炉"},
+{ "19", "待出炉"},
+{ "20", "冷却中"},
+{ "21", "冷却中"},
+{ "22", "待下机"},
+{ "23", "待检验"},
+{ "24", "待转运"},
+{ "25", "加工中"},
+{ "26", "待装炉"},
+{ "27", "加热中"},
+{ "28", "待出炉"},
+{ "29", "待出炉"},
+{ "30", "冷却中"}
+};
 
     public string tableName { get; set; }
 
@@ -219,6 +239,16 @@ public class Schema{
     }
     public void CellAny(string columnName, object value)
     {   CheckColumnName(columnName);
+        if (Columns.ContainsKey(columnName)) { CurrentRow[Columns[columnName]] = value; }
+        return;
+    }
+    public void Cell(string columnName, int value)
+    {
+        if (Columns.ContainsKey(columnName)) { CurrentRow[Columns[columnName]] = value; }
+        return;
+    }
+    public void CellAny(string columnName, object value)
+    {
         if (Columns.ContainsKey(columnName)) { CurrentRow[Columns[columnName]] = value; }
         return;
     }
