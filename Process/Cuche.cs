@@ -73,7 +73,7 @@ class Cuche
         { slyScm.Update(true); } 
     }
 
-    protected void UpdateSalaryByJGJL(Schema me, H3.SmartForm.SubmitSmartFormResponse response, string 工序名称)
+    protected void UpdateSalaryCC(Schema me, H3.SmartForm.SubmitSmartFormResponse response, string 工序名称,string 任务类别)
     {
         //JGJL=加工记录          
         //var 工序名称 = "粗车";
@@ -83,13 +83,14 @@ class Cuche
         var rows=scmJGJL.ClearFilter()
                         .AndFilter("ID", "=", ID)
                         .AndFilter("工序名称", "=", 工序名称)
+                        .AndFilter("任务类别", "=", 任务类别)
                         .AndFilter("检验结论", "=","合格")
                         .GetList();
         foreach(var row in rows  )
         {
             scmJGJL.CurrentRow = row;
             var 单件拟定工时 = Convert.ToDouble(scmJGJL.Cell("单件拟定工时"));
-            var 加工数量 = Convert.ToDouble(scmJGJL.Cell("单件拟定工时"));
+            var 加工数量 = Convert.ToDouble(scmJGJL.Cell("加工数量"));
             var 工价 = 28; 
             var 加工难度 = 1;
             var 加工人员 = scmJGJL.Cell("加工人员");
@@ -104,7 +105,7 @@ class Cuche
             var smRow = scmJGJL.ClearFilter()
                                .AndFilter("ID", "=", ID)
                                .AndFilter("工序名称", "=", 工序名称)
-                               .AndFilter("任务名称", "=", "四面见光")
+                               .AndFilter("任务类别", "=", "四面见光")
                                .GetFirst();
             var 分配比例 = 1.0;
             if (smRow != null) { 分配比例 = 0.8; }
@@ -130,8 +131,8 @@ class Cuche
             scmGZ.CellAny("所属部门", 所属部门);
             scmGZ.CellAny("设备名称", 设备名称);
             scmGZ.CellAny("单件拟定工时", 单件拟定工时);
-            scmGZ.CellAny("总工时", 总工时);
             scmGZ.CellAny("加工数量", 加工数量);
+            scmGZ.CellAny("总工时", 总工时);            
             scmGZ.CellAny("工价", 工价);
             scmGZ.CellAny("总工资", 总工资);
             scmGZ.CellAny("工艺下屑重量", 工艺下屑重量);
@@ -144,23 +145,23 @@ class Cuche
 
     }
 
-    protected void UpdateSalaryOfSMG(Schema me, H3.SmartForm.SubmitSmartFormResponse response, string 工序名称)
+    protected void UpdateSalaryJC(Schema me, H3.SmartForm.SubmitSmartFormResponse response, string 工序名称, string 任务类别)
     {
         //JGJL=加工记录          
-        //var 工序名称 = "粗车";
+        //var 工序名称 = "精车";
 
         var ID = me.PostValue("ID");
         var scmJGJL = new Schema(me.Engine, me.CurrentPostValue, "加工任务记录");
         var rows = scmJGJL.ClearFilter()
                         .AndFilter("ID", "=", ID)
-                        .AndFilter("工序名称", "=", 工序名称)
+                        .AndFilter("工序名称", "=", 工序名称)                        
                         .AndFilter("检验结论", "=", "合格")
                         .GetList();
         foreach (var row in rows)
         {
             scmJGJL.CurrentRow = row;
             var 单件拟定工时 = Convert.ToDouble(scmJGJL.Cell("单件拟定工时"));
-            var 加工数量 = Convert.ToDouble(scmJGJL.Cell("单件拟定工时"));
+            var 加工数量 = Convert.ToDouble(scmJGJL.Cell("加工数量"));
             var 工价 = 28;
             var 加工难度 = 1;
             var 加工人员 = scmJGJL.Cell("加工人员");
@@ -175,7 +176,7 @@ class Cuche
             var smRow = scmJGJL.ClearFilter()
                                .AndFilter("ID", "=", ID)
                                .AndFilter("工序名称", "=", 工序名称)
-                               .AndFilter("任务名称", "=", "四面见光")
+                               .AndFilter("任务类别", "=", "四面见光")
                                .GetFirst();
             var 分配比例 = 1.0;
             if (smRow != null) { 分配比例 = 0.8; }
@@ -201,8 +202,8 @@ class Cuche
             scmGZ.CellAny("所属部门", 所属部门);
             scmGZ.CellAny("设备名称", 设备名称);
             scmGZ.CellAny("单件拟定工时", 单件拟定工时);
-            scmGZ.CellAny("总工时", 总工时);
             scmGZ.CellAny("加工数量", 加工数量);
+            scmGZ.CellAny("总工时", 总工时);
             scmGZ.CellAny("工价", 工价);
             scmGZ.CellAny("总工资", 总工资);
             scmGZ.CellAny("工艺下屑重量", 工艺下屑重量);
@@ -214,6 +215,79 @@ class Cuche
         }
 
     }
+
+    protected void UpdateSalaryOfSMG(Schema me, H3.SmartForm.SubmitSmartFormResponse response, string 工序名称, string 任务类别)
+    {
+        //JGJL=加工记录          
+        //var 工序名称 = "粗车";
+
+        var ID = me.PostValue("ID");
+        var scmJGJL = new Schema(me.Engine, me.CurrentPostValue, "加工任务记录");
+        var rows = scmJGJL.ClearFilter()
+                        .AndFilter("ID", "=", ID)
+                        .AndFilter("工序名称", "=", 工序名称)
+                        .AndFilter("任务类别", "=", 任务类别)
+                        .AndFilter("检验结论", "=", "合格")
+                        .GetList();
+        foreach (var row in rows)
+        {
+            scmJGJL.CurrentRow = row;
+            var 单件拟定工时 = Convert.ToDouble(scmJGJL.Cell("单件拟定工时"));
+            var 加工数量 = Convert.ToDouble(scmJGJL.Cell("加工数量"));
+            var 工价 = 28;
+            var 加工难度 = 1;
+            var 加工人员 = scmJGJL.Cell("加工人员");
+            var 设备名称 = scmJGJL.Cell("设备名称");
+            var 所属部门 = scmJGJL.Cell("所属部门");
+            var 检验结果 = scmJGJL.Cell("检验结果");
+            var 任务名称 = scmJGJL.Cell("任务名称");
+
+            var 总工时 = 单件拟定工时 * 加工数量;
+            var 总工资 = 总工时 * 工价 * 加工难度;
+
+            //var smRow = scmJGJL.ClearFilter()
+            //                   .AndFilter("ID", "=", ID)
+            //                   .AndFilter("工序名称", "=", 工序名称)
+            //                   .AndFilter("任务类别", "=", "四面见光")
+            //                   .GetFirst();
+            var 分配比例 = 0.2;
+            //if (smRow != null) { 分配比例 = 0.8; }
+
+            var 工艺下屑重量 = Convert.ToDouble(scmJGJL.Cell("下屑量"));
+            var 总下屑量 = 工艺下屑重量 * 加工数量 * 分配比例;
+            var 外径 = Convert.ToDouble(scmJGJL.Cell("外径"));
+            var 补助标准 = 外径 >= 0 && 外径 < 4000 ? 18 : (外径 >= 4000 && 外径 < 5000 ? 23 : (外径 >= 5000 && 外径 < 6000 ? 30 : 30));
+            var 补刀金额 = 补助标准 * 总下屑量 / 1000;
+
+            var 总工作量 = 0;
+
+            var scmGZ = new Schema(me.Engine, me.CurrentPostValue, "任务绩效表");
+            scmGZ.GetNew();
+
+
+            scmGZ.CellAny("工序名称", 工序名称);
+            scmGZ.CellAny("任务名称", 任务名称);
+
+            scmGZ.CellAny("ID", ID);
+            scmGZ.CellAny("检验结果", 检验结果);
+            scmGZ.CellAny("加工人员", 加工人员);
+            scmGZ.CellAny("所属部门", 所属部门);
+            scmGZ.CellAny("设备名称", 设备名称);
+            scmGZ.CellAny("单件拟定工时", 单件拟定工时);
+            scmGZ.CellAny("加工数量", 加工数量);
+            scmGZ.CellAny("总工时", 总工时);
+            scmGZ.CellAny("工价", 工价);
+            scmGZ.CellAny("总工资", 总工资);
+            scmGZ.CellAny("工艺下屑重量", 工艺下屑重量);
+            scmGZ.CellAny("总下屑量", 总下屑量);
+            scmGZ.CellAny("总工作量", 总工作量);
+            scmGZ.CellAny("补刀金额", 补刀金额);
+            scmGZ.Create(true);
+
+        }
+    }
+
+
     protected void AutoUpdateTask(Schema me, H3.SmartForm.SubmitSmartFormResponse response)
     {
         var row = me.GetRow(Request.BizObjectId);
