@@ -8,6 +8,6 @@ scm.ClearFilter()
    .AndFilter(scm.Columns["订单编号"], "=", OrderNum)
    .AndFilter(scm.Columns["产品编号"], "=", ProductNum)
    .GetFirst(true);
-var Quantity = scm.Cell("订单数量");    //取道本条记录订单数量的值。
+var Quantity = scm.Cell("订单数量");    //取出本条记录订单数量的值。
 scm.Cell("订单数量",Quantity + 10);    //将订单数量加十后保存。
 scm.Update(true);  //更新到数据库。
