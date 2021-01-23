@@ -16,7 +16,7 @@ public  class PropertySchema
 public class Schema{
     //#Region  属性和初始化
     public H3.IEngine Engine = null;
-    private string appID = "D001419";
+    private string appID = "D00001";
     private string tableID;
     public H3.DataModel.BizObjectSchema TableSchema;
     public string UserId;
@@ -38,56 +38,15 @@ public class Schema{
     };
     public static Dictionary<string, string> Codes = new Dictionary<string, string> {
     { "客户表", "a591077834db41ef80b149a5f3bc26d5"},
-    { "A销售订单", "870afcb18d9f457b9214693574e084b1"},
-    { "A-C工艺要求", "a92c3799f0f04e96925633745b875ec1"},
-    { "A-B生产订单", "ec318333645544f2b2606b71fb3f1d75"},
-    { "A-B-C生产任务", "c6d04ca47af148a886539db711a1eef6"},
-    { "A-B-C-D产品计划表", "3a1066eb19cf4ab79b0ac8fb1b14554c"},
-
-    { "订单批次规格表", "Sh8z1xnes2iju59dzn4ett4bb2"},
-    { "订单规格表", "Skniz33124ryujrhb4hry7md21"},
-
-    { "其他物流任务", "ecb579eec8704a128b92fed6c8ae2c70"},
     { "产品类别", "50a743c942da4709821d273780730402"},
-    { "产品小类", "31e1fc7e25d8417dbe2f54a5bf6218bf"},
+    { "产品表", "31e1fc7e25d8417dbe2f54a5bf6218bf"},
     { "工序表", "9016d53506b44f7d95ebbab5a05faf50"},
     { "工作中心", "34249153f48b41699801e38a93e62449"},
-    { "设备工时系数表", "5ed7e837ecee4f97800877820d9a2f05"},
-    { "产品参数表", "6b62f7decd924e1e8713025dc6a39aa5"},
-    { "红绿灯", "ef522660ca8742599ddc0d54c02d3f2a"},
-    { "锯切修改表", "JuQie"}
+    { "产品参数表", "6b62f7decd924e1e8713025dc6a39aa5"}
 };
     public static Dictionary<string, string> ProcessState = new Dictionary<string, string> {
 { "01", "待上机"},
-{ "02", "待下机"},
-{ "03", "待检验"},
-{ "04", "待转运"},
-{ "05", "加工中"},
-{ "06", "待装炉"},
-{ "07", "加热中"},
-{ "08", "待出炉"},
-{ "09", "待出炉"},
-{ "10", "冷却中"},
-{ "11", "待上机"},
-{ "12", "待下机"},
-{ "13", "待检验"},
-{ "14", "待转运"},
-{ "15", "加工中"},
-{ "16", "待装炉"},
-{ "17", "加热中"},
-{ "18", "待出炉"},
-{ "19", "待出炉"},
-{ "20", "冷却中"},
-{ "21", "冷却中"},
-{ "22", "待下机"},
-{ "23", "待检验"},
-{ "24", "待转运"},
-{ "25", "加工中"},
-{ "26", "待装炉"},
-{ "27", "加热中"},
-{ "28", "待出炉"},
-{ "29", "待出炉"},
-{ "30", "冷却中"}
+{ "02", "待下机"}
 };
 
     public string tableName { get; set; }
