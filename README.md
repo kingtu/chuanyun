@@ -2,7 +2,7 @@
 
 使用例子：
 //获取订单表架构
-var scm = new Schema(this.Engine, me.CurrentPostValue, "订单表");
+var scm = new Schema(this.Engine, postValue, "订单表");
 //获取订单表中的符合条件的订单。“订单编号”为控件显示的名称，“OrderNum”为数据库中的值。
 scm.ClearFilter()
    .And("订单编号", "=", OrderNum)
