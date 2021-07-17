@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Chuanyun.BIZ
-{
-    class ProductTime
-    {
-    }
-}
+//namespace Chuanyun.BIZ
+//{
+//    class ProductTime
+//    {
+//    }
+//}
 //public class ProductTime
 //{
 //    private Schema pScm;
@@ -185,9 +185,9 @@ public class ProductTime
     public double GetTime(string 订单号, string 规格号, string 工件号, string 设备类型, string 工序名称)
     {
         idScm.ClearFilter()
-            .AndFilter("订单号", "=", 订单号)
-            .AndFilter("规格号", "=", 规格号)
-            .AndFilter("工件号", "=", 工件号)
+            .And("订单号", "=", 订单号)
+            .And("规格号", "=", 规格号)
+            .And("工件号", "=", 工件号)
             .GetFirst(true);
         var 胚体类型 = idScm.Cell("轧制方式");
         return GetTime(订单号, 规格号, 工件号, 设备类型, 工序名称, 胚体类型);
@@ -197,8 +197,8 @@ public class ProductTime
     {
         double 所需工时 = 0;
         pScm.ClearFilter()
-            .AndFilter("订单号", "=", 订单号)
-            .AndFilter("规格号", "=", 规格号)
+            .And("订单号", "=", 订单号)
+            .And("规格号", "=", 规格号)
             .GetFirst(true);
 
         var test = pScm;
@@ -212,15 +212,15 @@ public class ProductTime
         if (工序名称 == "钻孔")
         {
             dScm.ClearFilter()
-                .AndFilter("工序名称", "=", 工序名称)
-                .AndFilter("产品小类", "=", 产品小类)
+                .And("工序名称", "=", 工序名称)
+                .And("产品小类", "=", 产品小类)
                 .GetFirst(true);
         }
         else
         {
             dScm.ClearFilter()
-                .AndFilter("工序名称", "=", 工序名称)
-                .AndFilter("产品类别", "=", 产品类别)
+                .And("工序名称", "=", 工序名称)
+                .And("产品类别", "=", 产品类别)
                 .GetFirst(true);
         }
 
@@ -229,17 +229,17 @@ public class ProductTime
         if (工序名称 == "钻孔")
         {
             dScm_1.ClearFilter()
-                .AndFilter(Schema.PID, "=", dScm.Cell(Schema.RID))
-                .AndFilter("设备类型", "=", 设备类型)
+                .And(Schema.PID, "=", dScm.Cell(Schema.RID))
+                .And("设备类型", "=", 设备类型)
                 .GetFirst(true);
         }
         else
         {
             dScm_1.ClearFilter()
-                .AndFilter(Schema.PID, "=", dScm.Cell(Schema.RID))
-                .AndFilter("设备类型", "=", 设备类型)
-                .AndFilter("外径下限", "<", 外径)
-                .AndFilter("外径上限", ">", 外径)
+                .And(Schema.PID, "=", dScm.Cell(Schema.RID))
+                .And("设备类型", "=", 设备类型)
+                .And("外径下限", "<", 外径)
+                .And("外径上限", ">", 外径)
                 .GetFirst(true);
 
         }

@@ -2,6 +2,9 @@
 {
     public class Token
     {
-        public object UnspecifiedId { get; internal set; }
+        public  int[] PreTokens;
+
+        public object UnspecifiedId { get;  set; }
+        public string[] Participants { get;  set; }
     }
 }

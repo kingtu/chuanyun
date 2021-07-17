@@ -8,11 +8,11 @@ namespace H3.DataModel
         private IEngine engine;
         private BizObjectSchema tableSchema;
         private string userId;
-        internal object ObjectId;
+        public  string  ObjectId;
 
         public object Status { get; internal set; }
         public string WorkflowInstanceId { get; internal set; }
-        public TSchema Schema { get; internal set; }
+        public H3.DataModel.BizObjectSchema Schema { get; internal set; }
 
         public BizObject(IEngine engine, BizObjectSchema tableSchema, string userId)
         {

@@ -7,5 +7,6 @@ namespace H3.DataModel
     public class BizObjectSchema
     {
         public IEnumerable<PropertySchema> Properties { get; internal set; }
+        public object SchemaCode { get; internal set; }
     }
 }

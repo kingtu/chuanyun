@@ -19,5 +19,10 @@ namespace H3
         {
             throw new NotImplementedException();
         }
+
+        internal void SendMessage(AdjustParticipantMessage adjustMessage)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

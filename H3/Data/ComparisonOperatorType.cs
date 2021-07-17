@@ -8,5 +8,6 @@
         internal static ComparisonOperatorType NotBelow;
         internal static ComparisonOperatorType NotAbove;
         internal static ComparisonOperatorType In;
+        internal static ComparisonOperatorType NotEqual;
     }
 }

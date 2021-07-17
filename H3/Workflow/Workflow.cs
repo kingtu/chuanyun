@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Chuanyun.H3.Workflow
+namespace H3.Workflow
 {
-    class Workflow
+    public class Workflow
     {
+        public Token[] Tokens { get;  set; }
+
+        public Token GetRunningToken(string activityCode)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

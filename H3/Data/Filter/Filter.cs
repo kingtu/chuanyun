@@ -6,6 +6,6 @@ namespace H3.Data.Filter
 {
     public class Filter 
     {
-        public IMatcher Matcher { get; internal set; }
+        public ItemMatcher Matcher { get; internal set; }
     }
 }

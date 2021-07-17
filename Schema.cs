@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 using H3;
 using H3.DataModel;
@@ -10,93 +11,54 @@ public  class PropertySchema
     public string Name { get;  set; }
     public string DisplayName { get;  set; }
 }
+public class OperatorType
+{
+    private string Operator;
+    public OperatorType() { }
 
-
-
-public class Schema{
+    public static H3.Data.ComparisonOperatorType Get(string Operator)
+    {
+        if (Operator == "=") { return H3.Data.ComparisonOperatorType.Equal; }
+        //add by zzx
+        if (Operator == "!=") { return H3.Data.ComparisonOperatorType.NotEqual; }
+        if (Operator == ">") { return H3.Data.ComparisonOperatorType.Above; }
+        if (Operator == "<") { return H3.Data.ComparisonOperatorType.Below; }
+        if (Operator == ">=") { return H3.Data.ComparisonOperatorType.NotBelow; }
+        if (Operator == "<=") { return H3.Data.ComparisonOperatorType.NotAbove; }
+        if (Operator == "in") { return H3.Data.ComparisonOperatorType.In; }
+        return H3.Data.ComparisonOperatorType.Equal;
+    }
+}
+public class Schema
+{
     //#Region  属性和初始化
-    public H3.IEngine Engine = null;
-    private string appID = "D001419";
-    private string tableID;
-    public H3.DataModel.BizObjectSchema TableSchema;
-    public string UserId;
-    public H3.Data.Filter.Filter Filter = new H3.Data.Filter.Filter();
-    public Dictionary<string, string> Columns = new Dictionary<string, string>();
-    public Dictionary<string, string> SubTables = new Dictionary<string, string>();
-
-    public static string PID = "ParentObjectId";
-    public static string RID = "ObjectId";
-
-    public H3.DataModel.BizObject CurrentRow;
-    public H3.SmartForm.SmartFormPostValue CurrentPostValue;
-    public H3.SmartForm.ListViewPostValue CurrentPostValue2;
-
+    public const string RegisterTable = "i_D001419bfcf04a7402c410593ba4cec28953075";//RegisterTable
+    public const string PID = "ParentObjectId";
+    public const string RID = "ObjectId";
+    //public const string WorkflowInstanceID = "workflowinstanceid";   
+    private static Dictionary<string, string> Codes = new Dictionary<string, string> { };
     public static string[] SysColumns = {
         "objectid", "name", "createdby", "ownerid", "ownerdeptid", "createdtime",
         "modifiedby", "modifiedtime", "workflowinstanceid", "status", "parentobjectid",
         "创建人", "拥有者", "所属部门", "创建时间", "修改时间", "数据标题"
     };
-    public static Dictionary<string, string> Codes = new Dictionary<string, string> {
-    { "客户表", "a591077834db41ef80b149a5f3bc26d5"},
-    { "A销售订单", "870afcb18d9f457b9214693574e084b1"},
-    { "A-C工艺要求", "a92c3799f0f04e96925633745b875ec1"},
-    { "A-B生产订单", "ec318333645544f2b2606b71fb3f1d75"},
-    { "A-B-C生产任务", "c6d04ca47af148a886539db711a1eef6"},
-    { "A-B-C-D产品计划表", "3a1066eb19cf4ab79b0ac8fb1b14554c"},
 
-    { "订单批次规格表", "Sh8z1xnes2iju59dzn4ett4bb2"},
-    { "订单规格表", "Skniz33124ryujrhb4hry7md21"},
+    private string appID = "D001419";
+    private string tableID;
+    private string tableName;
 
-    { "其他物流任务", "ecb579eec8704a128b92fed6c8ae2c70"},
-    { "产品类别", "50a743c942da4709821d273780730402"},
-    { "产品小类", "31e1fc7e25d8417dbe2f54a5bf6218bf"},
-    { "工序表", "9016d53506b44f7d95ebbab5a05faf50"},
-    { "工作中心", "34249153f48b41699801e38a93e62449"},
-    { "设备工时系数表", "5ed7e837ecee4f97800877820d9a2f05"},
-    { "产品参数表", "6b62f7decd924e1e8713025dc6a39aa5"},
-    { "红绿灯", "ef522660ca8742599ddc0d54c02d3f2a"},
-    { "锯切修改表", "JuQie"}
-};
-    public static Dictionary<string, string> ProcessState = new Dictionary<string, string> {
-{ "01", "待上机"},
-{ "02", "待下机"},
-{ "03", "待检验"},
-{ "04", "待转运"},
-{ "05", "加工中"},
-{ "06", "待装炉"},
-{ "07", "加热中"},
-{ "08", "待出炉"},
-{ "09", "待出炉"},
-{ "10", "冷却中"},
-{ "11", "待上机"},
-{ "12", "待下机"},
-{ "13", "待检验"},
-{ "14", "待转运"},
-{ "15", "加工中"},
-{ "16", "待装炉"},
-{ "17", "加热中"},
-{ "18", "待出炉"},
-{ "19", "待出炉"},
-{ "20", "冷却中"},
-{ "21", "冷却中"},
-{ "22", "待下机"},
-{ "23", "待检验"},
-{ "24", "待转运"},
-{ "25", "加工中"},
-{ "26", "待装炉"},
-{ "27", "加热中"},
-{ "28", "待出炉"},
-{ "29", "待出炉"},
-{ "30", "冷却中"}
-};
+    public string UserId;
+    public H3.IEngine Engine = null;
+    public H3.DataModel.BizObjectSchema TableSchema;
+    public H3.Data.Filter.Filter Filter = new H3.Data.Filter.Filter();
+    public Dictionary<string, string> Columns = new Dictionary<string, string>();
+    public Dictionary<string, string> SubTables = new Dictionary<string, string>();
 
-    public string tableName { get; set; }
+    public H3.DataModel.BizObject CurrentRow;
+    public H3.SmartForm.SmartFormPostValue CurrentPostValue;
+    public H3.SmartForm.ListViewPostValue CurrentPostValue2;
 
-    public Schema(H3.IEngine Engine)
-    {
-        this.Engine = Engine;
 
-    }
 
     public Schema(H3.IEngine Engine, string tableID)
     {
@@ -140,16 +102,16 @@ public class Schema{
     public Schema(H3.IEngine Engine, H3.SmartForm.SmartFormPostValue postData, string tableName)
     {
         this.Engine = Engine;
-        this.CurrentPostValue = postData;
         this.tableName = tableName;
-        this.tableID = Code(tableName);        
+        this.tableID = Code(tableName, Engine);
+        this.CurrentPostValue = postData;
         Init();
     }
     public Schema(H3.IEngine Engine, H3.SmartForm.ListViewPostValue postData, string tableName)
     {
         this.Engine = Engine;
-        this.tableID = Code(tableName);
         this.tableName = tableName;
+        this.tableID = Code(tableName, Engine);
         this.CurrentPostValue2 = postData;
         Init();
     }
@@ -186,9 +148,14 @@ public class Schema{
         this.CurrentPostValue = postData;
         Init();
     }
-    private void Init()
+    public Schema(H3.IEngine Engine, H3.DataModel.BizObject bo)
     {
-        TableSchema = Get();
+        TableSchema = bo.Schema;
+        Init(false);
+    }
+    private void Init(bool bo = true)
+    {
+        if (bo) { TableSchema = Get(); }
         foreach (PropertySchema p in TableSchema.Properties)
         {
             if (Columns.ContainsKey(p.DisplayName))
@@ -200,6 +167,26 @@ public class Schema{
 
         }
     }
+
+    public static string Code(string tableName, H3.IEngine engine)
+    {
+        if (Codes.ContainsKey(tableName)) return Codes[tableName];
+        if (engine == null) return "";
+        string sql = string.Format("select tableID from " + RegisterTable + "  where tableName ='{0}'", tableName); //从RegisterTable取TableID
+        DataTable dt = engine.Query.QueryTable(sql, null);
+        int Count = dt.Rows.Count;
+        if (Count > 0)
+        {
+            var r = (string)dt.Rows[0][0];
+            Codes.Add(tableName, r);
+            return r;
+        }
+        else
+        {
+            return "";
+        }
+    }
+    //#EndRegion
     public bool CheckColumnName(string columnName)
     {
         if (!Columns.ContainsKey(columnName))
@@ -208,21 +195,17 @@ public class Schema{
         }
         return true;
     }
-    public static string Code(string tableName)
-    {
-        if (Codes.ContainsKey(tableName)) { return Codes[tableName]; }
-        return "";
-    }
-    //#EndRegion
     public string Cell(string columnName)
     {
         CheckColumnName(columnName);
-        if (CurrentRow[Columns[columnName]] != null) { return (string)CurrentRow[Columns[columnName]]; }
-        return null;
+        if (CurrentRow == null || CurrentRow[Columns[columnName]] == null) { return null; }
+        return (string)CurrentRow[Columns[columnName]];
+
     }
     public object CellAny(string columnName)
     {
         CheckColumnName(columnName);
+        if (CurrentRow == null || CurrentRow[Columns[columnName]] == null) { return null; }
         return CurrentRow[Columns[columnName]];
     }
     public void Cell(string columnName, string value)
@@ -238,20 +221,23 @@ public class Schema{
         return;
     }
     public void CellAny(string columnName, object value)
-    {   CheckColumnName(columnName);
+    {
+        CheckColumnName(columnName);
         if (Columns.ContainsKey(columnName)) { CurrentRow[Columns[columnName]] = value; }
         return;
     }
-   
-  
-
-    public string Cell(string columnName, H3.DataModel.BizObject row)
+    public object this[string columnName]
+    {
+        get { return CellAny(columnName); }
+        set { CellAny(columnName, value); }
+    }
+    public object CellAny(string columnName, H3.DataModel.BizObject row)
     {
         CheckColumnName(columnName);
-        return (string)row[Columns[columnName]];
+        return row[Columns[columnName]];
     }
 
-    public void Cell(string columnName, string value, H3.DataModel.BizObject row)
+    public void CellAny(string columnName, object value, H3.DataModel.BizObject row)
     {
         CheckColumnName(columnName);
         row[Columns[columnName]] = value;
@@ -259,7 +245,7 @@ public class Schema{
     }
 
     public string PostValue(string columnName)
-    {    
+    {
         CheckColumnName(columnName);
         if (CurrentPostValue == null && !(CurrentPostValue2 == null))
         {
@@ -273,7 +259,7 @@ public class Schema{
 
     }
     public object PostValueAny(string columnName)
-    {    
+    {
         CheckColumnName(columnName);
         if (CurrentPostValue == null && !(CurrentPostValue2 == null))
         {
@@ -288,7 +274,7 @@ public class Schema{
     }
     //H3.SmartForm.SmartFormPostValue CurrentPostData;
     public string PostValue(string columnName, H3.SmartForm.SmartFormPostValue postValue)
-    {    
+    {
         CheckColumnName(columnName);
         if (postValue.Data.ContainsKey(Columns[columnName]))
         {
@@ -311,7 +297,8 @@ public class Schema{
         Filter = new H3.Data.Filter.Filter();
         return this;
     }
-
+    //该方法已经过期,即将去除
+    [Obsolete("Will be removed in next version. Please use ‘And’ method instead.")]
     public Schema AndFilter(string columnName, string Operator, string value)
     {
         //构建过滤器
@@ -320,12 +307,14 @@ public class Schema{
             Filter.Matcher = new H3.Data.Filter.And();
         }
         H3.Data.Filter.And matcher = (H3.Data.Filter.And)Filter.Matcher;//构造And匹配器
+        CheckColumnName(columnName);
         var filed = Columns[columnName];
         matcher.Add(new H3.Data.Filter.ItemMatcher(filed, OperatorType.Get(Operator), value));
         Filter.Matcher = matcher;
         return this;
     }
-
+    //该方法已经过期,即将去除
+    [Obsolete("Will be removed in next version. Please use ‘Or’ method instead.")]
     public Schema OrFilter(string columnName, string Operator, string value)
     {
         //构建过滤器
@@ -334,27 +323,38 @@ public class Schema{
             Filter.Matcher = new H3.Data.Filter.Or();
         }
         H3.Data.Filter.Or matcher = (H3.Data.Filter.Or)Filter.Matcher;//构造Or匹配器
+        CheckColumnName(columnName);
         var filed = Columns[columnName];
         matcher.Add(new H3.Data.Filter.ItemMatcher(filed, OperatorType.Get(Operator), value));
         Filter.Matcher = matcher;
         return this;
     }
-    public Schema AppendOrFilter(string columnName, string Operator, string value )
+    public Schema And(string columnName, string Operator, string value)
     {
-        //构建过滤器
-        if (Filter.Matcher == null)
-        {
-            Filter.Matcher = new H3.Data.Filter.Or();
-        }
-        H3.Data.Filter.And matcher = (H3.Data.Filter.And)Filter.Matcher;//构造Or匹配器
+        CheckColumnName(columnName);
         var filed = Columns[columnName];
-        H3.Data.Filter.Or orMatcher = new H3.Data.Filter.Or();
-        orMatcher.Add(new H3.Data.Filter.ItemMatcher(filed, OperatorType.Get(Operator), value));
-        matcher.Add(orMatcher);
+        H3.Data.Filter.And matcher = new H3.Data.Filter.And();//构造And匹配器        
+        matcher.Add(new H3.Data.Filter.ItemMatcher(filed, OperatorType.Get(Operator), value));
+        if (Filter.Matcher != null)
+        {
+            matcher.Add(Filter.Matcher);
+        }
         Filter.Matcher = matcher;
         return this;
     }
-
+    public Schema Or(string columnName, string Operator, string value)
+    {
+        CheckColumnName(columnName);
+        var filed = Columns[columnName];
+        H3.Data.Filter.Or matcher = new H3.Data.Filter.Or();//构造Or匹配器        
+        matcher.Add(new H3.Data.Filter.ItemMatcher(filed, OperatorType.Get(Operator), value));
+        if (Filter.Matcher != null)
+        {
+            matcher.Add(Filter.Matcher);
+        }
+        Filter.Matcher = matcher;
+        return this;
+    }
     public H3.DataModel.BizObject[] GetList()
     {
         H3.DataModel.BizObject[] Objects = H3.DataModel.BizObject.GetList(Engine, UserId, TableSchema, H3.DataModel.GetListScopeType.GlobalAll, Filter); //查询返回的结果对象
@@ -384,7 +384,7 @@ public class Schema{
         this.ClearFilter();
         foreach (string obj in objs)
         {
-            this.OrFilter("ObjectId", "=", obj);
+            this.Or("ObjectId", "=", obj);
         }
         return GetList();
 
@@ -392,9 +392,14 @@ public class Schema{
     public H3.DataModel.BizObject GetRow(string BizObjectId)
     {  //Load对象（schemaCode为表单编码，this.Request.BizObjectId为当前表单objectid）
         H3.DataModel.BizObject obj = H3.DataModel.BizObject.Load(UserId, Engine, appID + tableID, BizObjectId, false); //查询返回的结果对象
-                                                                                                                       //obj.Status = H3.DataModel.BizObjectStatus.Effective; // 将对象状态设为生效
+        //obj.Status = H3.DataModel.BizObjectStatus.Effective; // 将对象状态设为生效
         CurrentRow = obj;
         return obj;
+    }
+    public Schema GetSubSchema(string tableName)
+    {
+        CheckColumnName(tableName);
+        return new Schema(Engine, Columns[tableName], true);
     }
     public void Update()
     {
@@ -447,11 +452,22 @@ public class Schema{
     {
         foreach (string p in srcSchema.Columns.Keys)
         {
-            if (Schema.IsSysColumn(p) || srcSchema.SubTables.ContainsKey(p))
+            if (Schema.IsSysColumn(p) || srcSchema.SubTables.ContainsKey(p) || !this.Columns.ContainsKey(p))
             {
                 continue;
             }
-            Cell(p, srcSchema.Cell(p));
+            CellAny(p, srcSchema.CellAny(p));
+        }
+    }
+    public void Copy(Schema srcSchema, Dictionary<string, string> mapping)
+    {
+        foreach (string p in mapping.Keys)
+        {
+            if (Schema.IsSysColumn(p) || srcSchema.SubTables.ContainsKey(mapping[p]))
+            {
+                continue;
+            }
+            CellAny(p, srcSchema.CellAny(mapping[p]));
         }
     }
     public void CopyPostValue()
@@ -462,14 +478,15 @@ public class Schema{
             {
                 continue;
             }
-            var v = PostValue(p);
+            var v = PostValueAny(p);
             if (v == null || v == "")
             {
                 continue;
             }
-            Cell(p, v);
+            CellAny(p, v);
         }
     }
+
 
     public bool RunActivity(string currentActivityCode, string nextActivityCode)
     {
@@ -522,28 +539,31 @@ public class Schema{
         }//第七个参数 false/true 为是否提交流程操作
         return true;
     }
-
+    public void AdjustCurrentParticipant(string[] participant)
+    {
+        string activityCode = null;
+        H3.Workflow.Instance.IToken tok = Engine.WorkflowInstanceManager.GetWorkflowInstance(CurrentRow.WorkflowInstanceId).GetLastToken();
+        activityCode = tok.Activity;
+        /*        
+        tok.Activity：流程节点编码，string类型        
+        tok.Approval：是否同意，H3.Data.BoolValue类型：
+           H3.Data.BoolValue.True 是同意，        
+           H3.Data.BoolValue.False 是不同意，        
+           H3.Data.BoolValue.Unspecified 是未处理或节点被取消      
+                
+        tok.TokenId：流程步骤表（H_Token）ObjectId字段值，string类型        
+        tok.Participants：流程审批人，string[]类型，每一个数组元素对应一个审批人用户ID        
+        tok.CreatedTime：流程节点创建时间，DateTime类型        
+        tok.FinishedTime：流程节点结束事件，DateTime类型        
+        tok.UsedTime：当前节点从开始到结束耗时，TimeSpan类型           
+        */
+        H3.Workflow.Messages.AdjustParticipantMessage AdjustMessage = new H3.Workflow.Messages.AdjustParticipantMessage(CurrentRow.WorkflowInstanceId, activityCode, participant);
+        Engine.WorkflowInstanceManager.SendMessage(AdjustMessage);
+    }
 
     public static bool IsSysColumn(string columnName)
     {
         return Array.IndexOf(SysColumns, columnName.ToLower()) >= 0;
     }
 
-}
-
-public class OperatorType
-{
-    private string Operator;
-    public OperatorType() { }
-
-    public static H3.Data.ComparisonOperatorType Get(string Operator)
-    {
-        if (Operator == "=") { return H3.Data.ComparisonOperatorType.Equal; }
-        if (Operator == ">") { return H3.Data.ComparisonOperatorType.Above; }
-        if (Operator == "<") { return H3.Data.ComparisonOperatorType.Below; }
-        if (Operator == ">=") { return H3.Data.ComparisonOperatorType.NotBelow; }
-        if (Operator == "<=") { return H3.Data.ComparisonOperatorType.NotAbove; }
-        if (Operator == "in") { return H3.Data.ComparisonOperatorType.In; }
-        return H3.Data.ComparisonOperatorType.Equal;
-    }
 }

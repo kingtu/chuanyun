@@ -4,8 +4,8 @@ using System.Text;
 
 namespace  H3.Workflow
 {
-    class ActivityTemplate
+    public  class ActivityTemplate
     {
-        public object DisplayName { get; internal set; }
+        public string DisplayName { get;  set; }
     }
 }

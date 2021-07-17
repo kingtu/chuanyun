@@ -2,13 +2,13 @@
 
 namespace H3.Data.Filter
 {
-    internal class Or: IMatcher
+    public class Or: ItemMatcher
     {
         public Or()
         {
         }
 
-        internal void Add(ItemMatcher itemMatcher)
+        public void Add(ItemMatcher itemMatcher)
         {
             
         }

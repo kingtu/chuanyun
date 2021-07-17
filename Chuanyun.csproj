@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="H3\DataModel\TSchema.cs" />
     <Compile Remove="H3\SmartForm\SubmitSmartFormResponse.cs" />
   </ItemGroup>
 

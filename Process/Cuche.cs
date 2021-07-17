@@ -1,9 +1,11 @@
-﻿
+﻿using H3;
 using H3.Workflow;
 using System;
 
 class Cuche
 {
+    IEngine Engine;
+    Request Request;
     protected void UpdateSalary(Schema me, H3.SmartForm.SubmitSmartFormResponse response,string 任务名称 )
     {
         var 工序名称 = me.PostValue("当前工序");
@@ -27,10 +29,10 @@ class Cuche
 
         var slyScm = new Schema(me.Engine, me.CurrentPostValue, "任务绩效表");
         var smRow = slyScm.ClearFilter()
-                          .AndFilter("产品编号", "=", 产品编号)
-                          .AndFilter("工件号", "=", 工件号)
-                          .AndFilter("工序名称", "=", 工序名称)
-                          .AndFilter("任务名称", "=", "四面见光")
+                          .And("产品编号", "=", 产品编号)
+                          .And("工件号", "=", 工件号)
+                          .And("工序名称", "=", 工序名称)
+                          .And("任务名称", "=", "四面见光")
                           .GetFirst();
         var 分配比例 = 1.0;
         if (smRow != null) { 分配比例 = 0.8; }
@@ -44,10 +46,10 @@ class Cuche
         var 补刀金额 = 补助标准 * 实际下屑重量 / 1000; //粗车补刀金额
 
         var existRow = slyScm.ClearFilter()
-                             .AndFilter("产品编号", "=", 产品编号)
-                             .AndFilter("工件号", "=", 工件号)
-                             .AndFilter("工序名称", "=", 工序名称)
-                             .AndFilter("任务名称", "=", 任务名称)
+                             .And("产品编号", "=", 产品编号)
+                             .And("工件号", "=", 工件号)
+                             .And("工序名称", "=", 工序名称)
+                             .And("任务名称", "=", 任务名称)
                              .GetFirst();
         if (existRow == null) { slyScm.GetNew(); }
 
@@ -81,9 +83,9 @@ class Cuche
         var ID = me.PostValue("ID");
         var scmJGJL = new Schema(me.Engine, me.CurrentPostValue, "加工任务记录");
         var rows = scmJGJL.ClearFilter()
-            .AndFilter("ID", "=", ID)
-            .AndFilter("工序名称", "=", 工序名称)
-            .AndFilter("检验结果", "=", "合格")
+            .And("ID", "=", ID)
+            .And("工序名称", "=", 工序名称)
+            .And("检验结果", "=", "合格")
             .GetList();
         foreach (var row in rows)
         {
@@ -103,9 +105,9 @@ class Cuche
 
             var 分配比例 = 1.0;
             var smRow = scmJGJL.ClearFilter()
-                .AndFilter("ID", "=", ID)
-                .AndFilter("工序名称", "=", 工序名称)
-                .AndFilter("任务名称", "=", "四面见光")
+                .And("ID", "=", ID)
+                .And("工序名称", "=", 工序名称)
+                .And("任务名称", "=", "四面见光")
                 .GetFirst();
             if (smRow != null) { 分配比例 = 0.8; }
 
@@ -153,9 +155,9 @@ class Cuche
         var ID = me.PostValue("ID");
         var scmJGJL = new Schema(me.Engine, me.CurrentPostValue, "加工任务记录");
         var rows = scmJGJL.ClearFilter()
-                        .AndFilter("ID", "=", ID)
-                        .AndFilter("工序名称", "=", 工序名称)                        
-                        .AndFilter("检验结果", "=", "合格")
+                        .And("ID", "=", ID)
+                        .And("工序名称", "=", 工序名称)                        
+                        .And("检验结果", "=", "合格")
                         .GetList();
         foreach (var row in rows)
         {
@@ -212,10 +214,10 @@ class Cuche
         var ID = me.PostValue("ID");
         var scmJGJL = new Schema(me.Engine, me.CurrentPostValue, "加工任务记录");
         var rows = scmJGJL.ClearFilter()
-                        .AndFilter("ID", "=", ID)
-                        .AndFilter("工序名称", "=", 工序名称)
-                        .AndFilter("任务类别", "=", 任务类别)
-                        .AndFilter("检验结果", "=", "合格")
+                        .And("ID", "=", ID)
+                        .And("工序名称", "=", 工序名称)
+                        .And("任务类别", "=", 任务类别)
+                        .And("检验结果", "=", "合格")
                         .GetList();
         foreach (var row in rows)
         {
@@ -283,10 +285,10 @@ class Cuche
         var ID = me.PostValue("ID");
         var scmJGJL = new Schema(me.Engine, me.CurrentPostValue, "加工任务记录");
         var rows = scmJGJL.ClearFilter()
-                        .AndFilter("ID", "=", ID)
-                        .AndFilter("工序名称", "=", 工序名称)
-                        .AndFilter("任务类别", "=", 任务类别)
-                        .AndFilter("检验结果", "=", "合格")
+                        .And("ID", "=", ID)
+                        .And("工序名称", "=", 工序名称)
+                        .And("任务类别", "=", 任务类别)
+                        .And("检验结果", "=", "合格")
                         .GetList();
         foreach (var row in rows)
         {
@@ -356,9 +358,3 @@ class Cuche
     }
 }
 
-internal class Request
-{
-    public static string BizObjectId { get; internal set; }
-    public static string ActivityCode { get; internal set; }
-    public static ActivityTemplate ActivityTemplate { get; internal set; }
-}
