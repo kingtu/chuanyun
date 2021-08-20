@@ -1,6 +1,7 @@
 ﻿using H3.DataModel;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 public class Salary
@@ -238,5 +239,20 @@ public class Salary
         return ProcessTime * difficulty * price;
 
     }
-}
 
+    private DataRow GetRow(string selector,string table,string where)
+    {
+        string sql = "select " + selector + " from " + table + " where " + where;
+
+         DataTable dt = this.Engine.Query.QueryTable(sql, null);
+        int Count = dt.Rows.Count;
+        if (Count > 0)
+        {
+            return dt.Rows[0];
+        }
+        else
+        {
+            return null;
+        }
+    }
+}

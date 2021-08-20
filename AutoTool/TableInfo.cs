@@ -2,12 +2,7 @@
 //using System.Collections.Generic;
 //using System.Text;
 
-//namespace Chuanyun.AutoTool
-//{
-//    class TableInfo
-//    {
-//    }
-//}
+
 
 using System;
 using System.Collections.Generic;
