@@ -7,6 +7,11 @@
   <ItemGroup>
     <Compile Remove="H3\DataModel\TSchema.cs" />
     <Compile Remove="H3\SmartForm\SubmitSmartFormResponse.cs" />
+    <Compile Remove="Process\Cuche.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Dict.zip" />
   </ItemGroup>
 
 </Project>

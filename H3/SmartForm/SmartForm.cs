@@ -18,6 +18,8 @@ namespace H3
         public class SubmitSmartFormResponse
         {
             internal Errors Errors;
+
+            public string Message { get; internal set; }
         }
 
         public class LoadSmartFormResponse
@@ -27,11 +29,12 @@ namespace H3
 
         public class SmartFormController
         {
-            private SmartFormRequest request;
+            public SmartFormRequest Request ;
+            public IEngine Engine;
 
             public SmartFormController(SmartFormRequest request)
             {
-                this.request = request;
+                this.Request = request;
             }
             protected virtual  void OnLoad(H3.SmartForm.LoadSmartFormResponse response)
             {

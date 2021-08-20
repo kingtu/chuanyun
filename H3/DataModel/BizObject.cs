@@ -13,6 +13,7 @@ namespace H3.DataModel
         public object Status { get; internal set; }
         public string WorkflowInstanceId { get; internal set; }
         public H3.DataModel.BizObjectSchema Schema { get; internal set; }
+        public object State { get; internal set; }
 
         public BizObject(IEngine engine, BizObjectSchema tableSchema, string userId)
         {

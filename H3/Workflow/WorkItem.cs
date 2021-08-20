@@ -5,6 +5,7 @@
         public static ActionEventType ActionEventType { get;  set; }
         public static AccessMethod AccessMethod { get;  set; }
         public string Participant { get;  set; }
+        public string ActivityDisplayName { get; internal set; }
     }
 
  

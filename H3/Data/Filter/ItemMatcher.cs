@@ -4,11 +4,11 @@
     {
         private string filed;
         private ComparisonOperatorType comparisonOperatorType;
-        private string value;
+        private object value;
 
         public ItemMatcher() { }
 
-        public ItemMatcher(string filed, ComparisonOperatorType comparisonOperatorType, string value)
+        public ItemMatcher(string filed, ComparisonOperatorType comparisonOperatorType, object value)
         {
             this.filed = filed;
             this.comparisonOperatorType = comparisonOperatorType;

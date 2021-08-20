@@ -15,6 +15,8 @@ namespace H3.Workflow
         {
             public Token[] Tokens;
 
+            public string BizObjectId { get; internal set; }
+
             internal Token GetRunningToken(object activityCode)
             {
                 throw new NotImplementedException();

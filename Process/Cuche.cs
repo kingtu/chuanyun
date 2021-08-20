@@ -27,7 +27,7 @@ class Cuche
         var 工价 = 28.0;
         var 粗车工资 = 拟定工时 * 加工数量 * 工价 * 1.0;
 
-        var slyScm = new Schema(me.Engine, me.CurrentPostValue, "任务绩效表");
+        var slyScm = new Schema(me.Engine,  "任务绩效表");
         var smRow = slyScm.ClearFilter()
                           .And("产品编号", "=", 产品编号)
                           .And("工件号", "=", 工件号)
@@ -72,7 +72,18 @@ class Cuche
         if (existRow == null)
         { slyScm.Create(true); }
         else 
-        { slyScm.Update(true); } 
+        { slyScm.Update(true); }
+
+        //switch (工价)
+        //{
+        //    case 分配比例:
+        //        break;
+        //    default:
+        //        break;
+        //}
+            
+
+
     }
 
     protected void UpdateSalaryCC(Schema me, H3.SmartForm.SubmitSmartFormResponse response, string 工序名称,string 任务类别)
@@ -81,7 +92,7 @@ class Cuche
         //var 工序名称 = "粗车";
 
         var ID = me.PostValue("ID");
-        var scmJGJL = new Schema(me.Engine, me.CurrentPostValue, "加工任务记录");
+        var scmJGJL = new Schema(me.Engine, "加工任务记录");
         var rows = scmJGJL.ClearFilter()
             .And("ID", "=", ID)
             .And("工序名称", "=", 工序名称)
@@ -119,7 +130,7 @@ class Cuche
 
             var 总工作量 = 0;
 
-            var scmGZ = new Schema(me.Engine, me.CurrentPostValue, "任务绩效表");
+            var scmGZ = new Schema(me.Engine, "任务绩效表");
             scmGZ.GetNew();
 
 
@@ -153,7 +164,7 @@ class Cuche
         //JGJL=加工记录          
         //var 工序名称 = "精车";
         var ID = me.PostValue("ID");
-        var scmJGJL = new Schema(me.Engine, me.CurrentPostValue, "加工任务记录");
+        var scmJGJL = new Schema(me.Engine, "加工任务记录");
         var rows = scmJGJL.ClearFilter()
                         .And("ID", "=", ID)
                         .And("工序名称", "=", 工序名称)                        
@@ -181,7 +192,7 @@ class Cuche
             var 补刀金额 = 计件工资 * 0.0875;
             var 总工作量 = 0;
 
-            var scmGZ = new Schema(me.Engine, me.CurrentPostValue, "任务绩效表");
+            var scmGZ = new Schema(me.Engine,  "任务绩效表");
             scmGZ.GetNew();
             scmGZ.CellAny("工序名称", 工序名称);
             scmGZ.CellAny("任务名称", 任务名称);
@@ -212,7 +223,7 @@ class Cuche
         //var 工序名称 = "粗车";
 
         var ID = me.PostValue("ID");
-        var scmJGJL = new Schema(me.Engine, me.CurrentPostValue, "加工任务记录");
+        var scmJGJL = new Schema(me.Engine, "加工任务记录");
         var rows = scmJGJL.ClearFilter()
                         .And("ID", "=", ID)
                         .And("工序名称", "=", 工序名称)
@@ -251,7 +262,7 @@ class Cuche
 
             var 总工作量 = 0;
 
-            var scmGZ = new Schema(me.Engine, me.CurrentPostValue, "任务绩效表");
+            var scmGZ = new Schema(me.Engine,  "任务绩效表");
             scmGZ.GetNew();
 
 
@@ -283,7 +294,7 @@ class Cuche
         //var 工序名称 = "钻孔";
 
         var ID = me.PostValue("ID");
-        var scmJGJL = new Schema(me.Engine, me.CurrentPostValue, "加工任务记录");
+        var scmJGJL = new Schema(me.Engine,  "加工任务记录");
         var rows = scmJGJL.ClearFilter()
                         .And("ID", "=", ID)
                         .And("工序名称", "=", 工序名称)
@@ -316,7 +327,7 @@ class Cuche
             var 总工作量 = 片厚 * 孔数 * 加工数量 * 工作量系数 ;           
             var 补刀金额 = 0;
 
-            var scmGZ = new Schema(me.Engine, me.CurrentPostValue, "任务绩效表");
+            var scmGZ = new Schema(me.Engine,  "任务绩效表");
             scmGZ.GetNew();
 
             scmGZ.CellAny("工序名称", 工序名称);
