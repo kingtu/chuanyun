@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 using H3;
 using H3.DataModel;
@@ -71,7 +72,7 @@ public class Schema
         this.Engine = Engine;
         this.tableName = tableName;
         this.tableID = GetTableID(tableName, Engine);
-        this.IsLongID = false;
+        this.IsLongID = true;
         Init();
     }
     public Schema(H3.IEngine Engine, string tableID, bool IsLongID)
@@ -571,5 +572,35 @@ public class Schema
     }
 
 
+    //public static bool IsNumeric(this Type dataType)
+    //{
+    //    if (dataType == null)
+    //        throw new ArgumentNullException("dataType");
 
+    //    return (dataType == typeof(int)
+    //            || dataType == typeof(double)
+    //            || dataType == typeof(long)
+    //            || dataType == typeof(short)
+    //            || dataType == typeof(float)
+    //            || dataType == typeof(Int16)
+    //            || dataType == typeof(Int32)
+    //            || dataType == typeof(Int64)
+    //            || dataType == typeof(uint)
+    //            || dataType == typeof(UInt16)
+    //            || dataType == typeof(UInt32)
+    //            || dataType == typeof(UInt64)
+    //            || dataType == typeof(sbyte)
+    //            || dataType == typeof(Single)
+    //           );
+    //}
+
+    //public static bool IsNumericType(this Type o)
+    //{
+    //    return !o.IsClass && !o.IsInterface && o.GetInterfaces().Any(q => q == typeof(IFormattable));
+    //}
+    //public static bool IsNullableNumericType(this Type o)
+    //{
+    //    if (!o.Name.StartsWith("Nullable")) return false;
+    //    return o.GetGenericArguments()[0].IsNumericType();
+    //}
 }
