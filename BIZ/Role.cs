@@ -1,4 +1,5 @@
 ﻿using H3.Workflow;
+using H3.Workflow.Instance;
 
 public class Role
 {
@@ -27,6 +28,7 @@ public class Role
     {
         H3.Organization.User employee = engine.Organization.GetUnit(userId) as H3.Organization.User;
         if (employee == null) { return null; }
+        //string s = $"bbc{userId}";
         return employee.DepartmentName;
     }
 

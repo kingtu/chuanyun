@@ -1,4 +1,5 @@
 ﻿using H3.Workflow;
+using H3.Workflow.Instance;
 using H3.Workflow.Messages;
 using System;
 
@@ -6,7 +7,7 @@ namespace H3
 {
     public class WorkflowInstanceManager
     {
-        internal Instance.WorkflowInstance GetWorkflowInstance(string workflowInstanceId)
+        internal WorkflowInstance GetWorkflowInstance(string workflowInstanceId)
         {
             throw new NotImplementedException();
         }

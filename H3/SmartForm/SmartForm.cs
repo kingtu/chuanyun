@@ -20,11 +20,14 @@ namespace H3
             internal Errors Errors;
 
             public string Message { get; internal set; }
+            public bool ClosePage { get; internal set; }
         }
 
         public class LoadSmartFormResponse
         {
             internal Errors Errors;
+
+            public Dictionary <string ,object> ReturnData { get; internal set; }
         }
 
         public class SmartFormController
@@ -62,6 +65,15 @@ namespace H3
             public H3.Workflow.Workflow WorkflowInstance { get; set; }
             public WorkItem WorkItem { get; set; }
             public H3.IEngine Engine { get;  set; }
+        }
+
+        internal class SmartFormResponseDataItem
+        {
+            public SmartFormResponseDataItem()
+            {
+            }
+
+            public string Value { get; internal set; }
         }
     }
     public class SmartFormController

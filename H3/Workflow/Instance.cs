@@ -1,11 +1,8 @@
 ﻿using System;
 
-namespace H3.Workflow
+namespace H3.Workflow.Instance
 {
-    public  class Instance
-    {
-        public static Token Token { get; internal set; }
-
+           
         internal interface IToken
         {
             string Activity { get; set; }
@@ -16,8 +13,9 @@ namespace H3.Workflow
             public Token[] Tokens;
 
             public string BizObjectId { get; internal set; }
+        public bool IsUnfinished { get; internal set; }
 
-            internal Token GetRunningToken(object activityCode)
+        internal Token GetRunningToken(object activityCode)
             {
                 throw new NotImplementedException();
             }
@@ -27,5 +25,7 @@ namespace H3.Workflow
                 throw new NotImplementedException();
             }
         }
-    }
+
+        
+    
 }
