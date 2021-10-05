@@ -8,7 +8,7 @@
 
         public ItemMatcher() { }
 
-        public ItemMatcher(string filed, ComparisonOperatorType comparisonOperatorType, object value)
+        public ItemMatcher(string filed, ComparisonOperatorType comparisonOperatorType, object value, bool isColumn=false)
         {
             this.filed = filed;
             this.comparisonOperatorType = comparisonOperatorType;

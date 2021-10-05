@@ -37,7 +37,7 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
             if (r.Length >= 2)
             {
                 me[Roughing.CurrentWorkshop] = r[0];
-                me[Roughing.CurrentPosition] = r[1];
+                me[Roughing.CurrentLocation] = r[1];
             }
         }
         UserId(response);

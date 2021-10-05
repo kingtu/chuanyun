@@ -6792,7 +6792,7 @@ public class Roughing
 	/// <summary>
 	/// 当前位置
 	/// </summary>
-	public static readonly string CurrentPosition = "F0000081";
+	public static readonly string CurrentLocation = "F0000081";
 	/// <summary>
 	/// ID
 	/// </summary>

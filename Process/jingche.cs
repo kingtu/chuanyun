@@ -1,4 +1,5 @@
 ﻿
+
 using System;
 using System.Data;
 using System.Collections.Generic;
@@ -15,64 +16,47 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
     static string ActivityJY = "Activity17"; //检验活动。
     static string ActionSubmit = "Submit"; //检验活动。
 
-    private String RID = null;
-    H3.DataModel.BizObject me = null;
     String ProcessName = "精车";
-    Dispatch dp = null;//派工信息
-    //本表单数据
-    H3.DataModel.BizObject thisObj;
-    //布尔值转换
-    Dictionary<string, bool> boolConfig;
+    H3.DataModel.BizObject me;
+
     public D001419Sqy2b1uy8h8cahh17u9kn0jk10(H3.SmartForm.SmartFormRequest request) : base(request)
     {
-        thisObj = this.Request.BizObject;
-        boolConfig = new Dictionary<string, bool>();
-        boolConfig.Add("是", true);
-        boolConfig.Add("否", false);
-        RID = this.Request.BizObjectId;
-        //me = new Schema(this.Request.Engine, this.Request.BizObject);
-        me=this.Request.BizObject;
-        dp = new Dispatch(this.Request.Engine, (string)me[Finishing.ID]);//派工信息 
+        me = this.Request.BizObject;
     }
 
     protected override void OnLoad(H3.SmartForm.LoadSmartFormResponse response)
     {
         var code = this.Request.ActivityCode;
-
-        //var t=this.JavaScriptSerializer; //.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-
-
-        //var r = this.Serialize(this.Request.BizObject);
-        //var t=Newtonsoft.Json.JsonConvert;
-
-        if (code == ActivityRK) 
+        //var t=this.JavaScriptSerializer;
+        if (code == ActivityRK)
         {
-            string[] r = dp.GetWorkShop(ProcessName);
-            if (r.Length >= 2)
+            //派工信息
+            string[] d = (new Dispatch(this.Request.Engine, (string)me[Finishing.ID])).GetWorkShop(ProcessName);
+            if (d.Length >= 2)
             {
-                me[Finishing.CurrentWorkshop] = r[0];
-                me[Finishing.CurrentLocation] = r[1];
+                me[Finishing.CurrentWorkshop] = d[0];
+                me[Finishing.CurrentLocation] = d[1];
             }
-            //dp.FillWorkShop(me, ProcessName);
+
         }
 
         if (!this.Request.IsCreateMode)
         {
             //当前工序
-            if (thisObj[Finishing.CurrentOperation] + string.Empty == string.Empty) { thisObj[Finishing.CurrentOperation] = "精车"; }
+            if (me[Finishing.CurrentOperation] + string.Empty == string.Empty) { me[Finishing.CurrentOperation] = "精车"; }
             //获取多阶段加工子表
-            H3.DataModel.BizObject[] thisLstArray = thisObj[Finishing.MachiningInformation] as H3.DataModel.BizObject[];
+            H3.DataModel.BizObject[] thisLstArray = me[Finishing.MachiningInformation] as H3.DataModel.BizObject[];
             //初始化产品类别
             ProductCategoryUpdate();
             //初始化任务名称
-            thisObj[Finishing.TaskName] = thisObj[Finishing.TaskName] + string.Empty != string.Empty ? thisObj[Finishing.TaskName] + string.Empty : "1";
+            me[Finishing.TaskName] = me[Finishing.TaskName] + string.Empty != string.Empty ? me[Finishing.TaskName] + string.Empty : "1";
 
             if (thisLstArray == null)
             {
                 //本表单纲目结构
                 H3.DataModel.BizObjectSchema schema = this.Request.Engine.BizObjectManager.GetPublishedSchema(this.Request.SchemaCode);
                 //初始化子表
-                CreatSublist(thisObj, schema, thisLstArray);
+                CreatSublist(me, schema, thisLstArray);
             }
 
             //统计机加工耗时
@@ -85,11 +69,11 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
                 //获取工序计划表数据
                 H3.DataModel.BizObject planObj = LoadingConfig.GetPlanningData(this.Engine, this.Request.WorkflowInstance);
                 //加载质量配置
-                LoadingQAConfiguration(planObj, boolConfig);
+                LoadingQAConfiguration(planObj);
             }
 
             //更新本表单
-            thisObj.Update();
+            me.Update();
         }
 
         base.OnLoad(response);
@@ -117,18 +101,18 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
             string activityCode = this.Request.ActivityCode;
             //多阶段加工流程逻辑
             MultistageProcessingLogic(activityCode);
-            var b = this.Request.BizObject;
+            var dp = new Dispatch(this.Request.Engine, (string)me[Finishing.ID]);//派工信息
             if (activityCode == ActivityRK && actionName == ActionSubmit)
-            {              
-                b[Finishing.Worker] = dp.GetPerson(ProcessName, (string)b[Finishing.CurrentWorkshop], (BizObject[])b[Finishing.MachiningInformation]);
+            {
+                me[Finishing.Worker] = dp.GetPerson(ProcessName, (string)me[Finishing.CurrentWorkshop], (BizObject[])me[Finishing.MachiningInformation]);
             }
             if (activityCode == ActivityXJ && actionName == ActionSubmit)
             {
-                b[Finishing.Worker] = dp.GetPerson(ProcessName, (string)b[Finishing.CurrentWorkshop], (BizObject[])b[Finishing.MachiningInformation]);
+                me[Finishing.Worker] = dp.GetPerson(ProcessName, (string)me[Finishing.CurrentWorkshop], (BizObject[])me[Finishing.MachiningInformation]);
             }
             if (activityCode == ActivitySJ && actionName == ActionSubmit)
             {
-                b[Finishing.Worker] = this.Request.ParticipantId;                          
+                me[Finishing.Worker] = this.Request.ParticipantId;
             }
 
             base.OnSubmit(actionName, postValue, response);
@@ -142,7 +126,7 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
             }
 
             //发起异常
-            string strInitiateException = this.Request.BizObject[Roughing.InitiateException] + string.Empty;
+            string strInitiateException = this.Request.BizObject[Finishing.InitiateException] + string.Empty;
             if (strInitiateException == "是")
             {
                 //异常工步
@@ -158,7 +142,7 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
      */
     protected void MachiningTime()
     {
-        string bizid = thisObj.ObjectId;
+        string bizid = me.ObjectId;
         //查询精车加工中所有耗时
         string command = string.Format
             ("Select b.bizobjectid,b.activitycode, sum(b.usedtime) as utime  From i_{0}" +
@@ -172,7 +156,7 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
             {
                 string utimestr = data.Rows[0]["utime"] + string.Empty;
                 double utime = double.Parse(utimestr) / 10000000 / 60;
-                thisObj[Finishing.ActualProcessingTime] = utime;
+                me[Finishing.ActualProcessingTime] = utime;
             }
         }
     }
@@ -184,9 +168,9 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
     protected void ProductCategoryUpdate()
     {
         //产品类别更新
-        if (thisObj[Finishing.ProductCategory] + string.Empty == string.Empty)
+        if (me[Finishing.ProductCategory] + string.Empty == string.Empty)
         {   //订单规格号
-            string orderSpec = thisObj[Finishing.OrderSpecificationNumber] + string.Empty;
+            string orderSpec = me[Finishing.OrderSpecificationNumber] + string.Empty;
             //以订单规格号相同为条件，查询产品参数表中的车加工类别
             string mysql = string.Format("Select ObjectId,{0} From i_{1} Where {2} = '{3}'",
                 ProductParameter.ProductMachiningCategory, ProductParameter.TableCode,
@@ -194,9 +178,9 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
             DataTable typeData = this.Engine.Query.QueryTable(mysql, null);
             if (typeData != null && typeData.Rows != null && typeData.Rows.Count > 0)
             {   //赋值产品参数表
-                thisObj[Finishing.ProductParameterTable] = typeData.Rows[0][ProductParameter.Objectid] + string.Empty;
+                me[Finishing.ProductParameterTable] = typeData.Rows[0][ProductParameter.Objectid] + string.Empty;
                 //赋值车加工类别
-                thisObj[Finishing.ProductCategory] = typeData.Rows[0][ProductParameter.ProductMachiningCategory] + string.Empty;
+                me[Finishing.ProductCategory] = typeData.Rows[0][ProductParameter.ProductMachiningCategory] + string.Empty;
             }
         }
     }
@@ -207,8 +191,13 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
      * @param planObj 工序计划数据
      * @param boolConfig 布尔值字典
      */
-    protected void LoadingQAConfiguration(H3.DataModel.BizObject planObj, Dictionary<string, bool> boolConfig)
+    protected void LoadingQAConfiguration(H3.DataModel.BizObject planObj)
     {
+        //布尔值转换
+        Dictionary<string, bool> boolConfig;
+        boolConfig = new Dictionary<string, bool>();
+        boolConfig.Add("是", true);
+        boolConfig.Add("否", false);
         //读取《质量配置表》上机前互检优先级顺序
         string crossCheck = LoadingConfig.GetQualityConfigForm(this.Engine, QAConfig.PriorityLevelfineCarMutualInspection);
         //读取《质量配置表》全局上机前互检配置
@@ -223,33 +212,33 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
         {
             case "配置表":
                 //全局上机前互检
-                thisObj[Finishing.MutualInspectionBeforeMachineOperation] = boolConfig[globalCrossCheck] + string.Empty;
+                me[Finishing.MutualInspectionBeforeMachineOperation] = boolConfig[globalCrossCheck] + string.Empty;
                 break;
             case "计划表":
                 if (planCrossCheck != string.Empty)
                 {   //计划上机前互检
-                    thisObj[Finishing.MutualInspectionBeforeMachineOperation] = boolConfig[planCrossCheck] + string.Empty;
+                    me[Finishing.MutualInspectionBeforeMachineOperation] = boolConfig[planCrossCheck] + string.Empty;
                 }
                 else
                 {   //全局上机前互检
-                    thisObj[Finishing.MutualInspectionBeforeMachineOperation] = boolConfig[globalCrossCheck] + string.Empty;
+                    me[Finishing.MutualInspectionBeforeMachineOperation] = boolConfig[globalCrossCheck] + string.Empty;
                 }
                 break;
             case "产品表":
                 if (productCrossCheck != string.Empty)
                 {
                     //产品上机前互检
-                    thisObj[Finishing.MutualInspectionBeforeMachineOperation] = boolConfig[productCrossCheck] + string.Empty;
+                    me[Finishing.MutualInspectionBeforeMachineOperation] = boolConfig[productCrossCheck] + string.Empty;
                 }
                 else
                 {
                     if (planCrossCheck != string.Empty)
                     {   //计划上机前互检
-                        thisObj[Finishing.MutualInspectionBeforeMachineOperation] = boolConfig[planCrossCheck] + string.Empty;
+                        me[Finishing.MutualInspectionBeforeMachineOperation] = boolConfig[planCrossCheck] + string.Empty;
                     }
                     else
                     {   //全局上机前互检
-                        thisObj[Finishing.MutualInspectionBeforeMachineOperation] = boolConfig[globalCrossCheck] + string.Empty;
+                        me[Finishing.MutualInspectionBeforeMachineOperation] = boolConfig[globalCrossCheck] + string.Empty;
                     }
                 }
                 break;
@@ -263,18 +252,18 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
     protected void InitFlawDetectionForm()
     {
         //探伤表数据Id
-        string tsFormId = thisObj[Finishing.FlawDetectionTable] + string.Empty;
+        string tsFormId = me[Finishing.FlawDetectionTable] + string.Empty;
         //流程节点名称
         string activityName = this.Request.WorkItem.ActivityDisplayName;
         //探伤表为空时，查询探伤表中ID相同的数据放入本表单中
         if (tsFormId == string.Empty)
         {
-            string thisId = thisObj[Finishing.ID] + string.Empty; //ID
-            string mySql = string.Format("Select ObjectId From i_" + InspectionTable.TableCode + " Where F0000001 = '{0}'", thisId);
+            string thisId = me[Finishing.ID] + string.Empty; //ID
+            string mySql = string.Format("Select {0} From i_{1} Where {2} = '{3}'", InspectionTable.Objectid, InspectionTable.TableCode, InspectionTable.ID, thisId);
             DataTable tsData = this.Engine.Query.QueryTable(mySql, null);
             if (tsData != null && tsData.Rows != null && tsData.Rows.Count > 0)
             {
-                thisObj[Finishing.FlawDetectionTable] = thisId = tsData.Rows[0][InspectionTable.Objectid] + string.Empty;
+                me[Finishing.FlawDetectionTable] = thisId = tsData.Rows[0][InspectionTable.Objectid] + string.Empty;
             }
         }
 
@@ -285,7 +274,7 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
             //获取探伤子表
             H3.DataModel.BizObject[] lstArray = tsForm[InspectionTable.FlawDetectionRecord] as H3.DataModel.BizObject[];
             tsForm[InspectionTable.CurrentOperation] = "精车";
-            tsForm[InspectionTable.RoughCutting] = thisObj.ObjectId;
+            tsForm[InspectionTable.RoughCutting] = me.ObjectId;
             if (lstArray[lstArray.Length - 1][InspectionSubTable.ThisFlawDetectionResult] + string.Empty == string.Empty) //探伤结果
             {   //写入工序
                 lstArray[lstArray.Length - 1][InspectionSubTable.Process] = "精车";
@@ -306,12 +295,12 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
     {
         //获取多阶段加工子表
         H3.DataModel.BizObjectSchema schema = this.Request.Engine.BizObjectManager.GetPublishedSchema(this.Request.SchemaCode);
-        H3.DataModel.BizObject[] lstArray = thisObj[Finishing.MachiningInformation] as H3.DataModel.BizObject[];
+        H3.DataModel.BizObject[] lstArray = me[Finishing.MachiningInformation] as H3.DataModel.BizObject[];
 
         //修正任务数-----任务名称
-        thisObj[Finishing.TaskName] = lstArray != null ? lstArray.Length + string.Empty : "1";
+        me[Finishing.TaskName] = lstArray != null ? lstArray.Length + string.Empty : "1";
         //获取任务数
-        int taskNum = thisObj[Finishing.TaskName] + string.Empty != string.Empty ? int.Parse(thisObj[Finishing.TaskName] + string.Empty) - 1 : 0;
+        int taskNum = me[Finishing.TaskName] + string.Empty != string.Empty ? int.Parse(me[Finishing.TaskName] + string.Empty) - 1 : 0;
 
         if (activityCode == "Activity3") //精车上机
         {   //当前加工者
@@ -323,12 +312,12 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
         if (activityCode == "Activity24") //精车下机
         {
             //完成总量小于1时
-            if ((thisObj[Finishing.TotalAmountCompleted] + string.Empty) != string.Empty && decimal.Parse(thisObj[Finishing.TotalAmountCompleted] + string.Empty) < 1)
+            if ((me[Finishing.TotalAmountCompleted] + string.Empty) != string.Empty && decimal.Parse(me[Finishing.TotalAmountCompleted] + string.Empty) < 1)
             {
                 //递增计数器，并更新
-                thisObj[Finishing.TaskName] = lstArray.Length + 1;
+                me[Finishing.TaskName] = lstArray.Length + 1;
                 //创建添加新的子表行数据
-                CreatSublist(thisObj, schema, lstArray);
+                CreatSublist(me, schema, lstArray);
             }
 
             if (lstArray[taskNum][FinishSubTable.Processor] + string.Empty == string.Empty)
@@ -338,13 +327,13 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
         }
 
         //探伤表
-        string objId = thisObj[Finishing.FlawDetectionTable] + string.Empty;
+        string objId = me[Finishing.FlawDetectionTable] + string.Empty;
         //返回探伤结果
         if (activityCode == "Activity86" && objId != string.Empty)
         {
             H3.DataModel.BizObject tsForm = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, Finishing.MachiningInformation, objId, false);
             //赋值探伤认定
-            thisObj[Finishing.FlawDetectionIdentification] = tsForm[InspectionTable.FlawDetectionIdentification] + string.Empty;
+            me[Finishing.FlawDetectionIdentification] = tsForm[InspectionTable.FlawDetectionIdentification] + string.Empty;
         }
     }
 
@@ -419,11 +408,12 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
             if (productType != string.Empty)
             {
                 //获取设备工时系数模块
-                string command = string.Format("Select ObjectId From i_" + DeviceWorkingHour.TableCode + "  Where " + DeviceWorkingHour.OperationName + "= '精车' and " + DeviceWorkingHour.ProductMachiningCategory + " = '{0}'", productType);//产品类别
+                string command = string.Format("Select {0} From i_{1}  Where {2}= '精车' and {3} = '{4}'",
+                    DeviceWorkingHour.ObjectId, DeviceWorkingHour.TableCode, DeviceWorkingHour.OperationName, DeviceWorkingHour.ProductMachiningCategory, productType);
                 DataTable data = this.Engine.Query.QueryTable(command, null);
                 if (data != null && data.Rows != null && data.Rows.Count > 0)
                 {
-                    mtObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, DeviceWorkingHour.TableCode, data.Rows[0]["ObjectId"] + string.Empty, true);
+                    mtObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, DeviceWorkingHour.TableCode, data.Rows[0][DeviceWorkingHour.ObjectId] + string.Empty, true);
                 }
 
             }
@@ -556,7 +546,7 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
    */
     protected void AbnormalStep()
     {
-        H3.DataModel.BizObject exceptionBo = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, Roughing.TableCode, this.Request.BizObjectId, false);
+        H3.DataModel.BizObject exceptionBo = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, Finishing.TableCode, this.Request.BizObjectId, false);
         //写日志返回记录id
         string logObjectID = null;
         //当前节点
@@ -567,28 +557,28 @@ public class D001419Sqy2b1uy8h8cahh17u9kn0jk10 : H3.SmartForm.SmartFormControlle
             //设置异常权限
             this.Request.BizObject["OwnerId"] = this.Request.UserContext.UserId;
             //创建发起异常的日志
-            logObjectID = ExceptionLog.CreateLog(Roughing.ID, Roughing.CurrentWorkStep, Roughing.CurrentOperation,
-                Roughing.ExceptionCategory, Roughing.ExceptionDescription, this.Request.BizObject, this.Engine);
-            exceptionBo[Roughing.ObjectIDForUpdateTheExceptionLog] = logObjectID;
+            logObjectID = ExceptionLog.CreateLog(Finishing.ID, Finishing.CurrentWorkStep, Finishing.CurrentOperation,
+                Finishing.ExceptionCategory, Finishing.ExceptionDescription, this.Request.BizObject, this.Engine);
+            exceptionBo[Finishing.ObjectIDForUpdateTheExceptionLog] = logObjectID;
             exceptionBo.Update();
         }
         //确认调整意见
         if (strActivityCode == "Activity127")
         {
             //更新发起异常创建的日志记录，异常类型，异常描述进行同步更新
-            ExceptionLog.UpdateLog(Roughing.ID, Roughing.CurrentWorkStep, Roughing.ExceptionCategory,
-                Roughing.ExceptionDescription, this.Request.BizObject, exceptionBo[Roughing.ObjectIDForUpdateTheExceptionLog] + string.Empty, this.Engine);
+            ExceptionLog.UpdateLog(Finishing.ID, Finishing.CurrentWorkStep, Finishing.ExceptionCategory,
+                Finishing.ExceptionDescription, this.Request.BizObject, exceptionBo[Finishing.ObjectIDForUpdateTheExceptionLog] + string.Empty, this.Engine);
         }
         //审批确认
         if (strActivityCode == "Activity128")
         {
             //清空异常信息
             //发起异常赋值
-            exceptionBo[Roughing.InitiateException] = "否";
+            exceptionBo[Finishing.InitiateException] = "否";
             //异常描述赋值
-            exceptionBo[Roughing.ExceptionDescription] = "误流入本节点，修正本工序操作错误";
+            exceptionBo[Finishing.ExceptionDescription] = "误流入本节点，修正本工序操作错误";
             //异常类型赋值
-            exceptionBo[Roughing.ExceptionCategory] = "安全异常";
+            exceptionBo[Finishing.ExceptionCategory] = "安全异常";
             exceptionBo.Update();
         }
     }

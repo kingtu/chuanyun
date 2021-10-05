@@ -11,16 +11,18 @@ public class Tools
     {
 
         /// <summary>
-        /// 构建符合条件的And过滤器
+        /// 构建符合条件的And过滤器       
         /// </summary>
         /// <param name="filter">需要构建的过滤器</param>
         /// <param name="componentCode">控件编码</param>
         /// <param name="operators">操作符</param>
         /// <param name="value">控件值</param>
-        public static void And(H3.Data.Filter.Filter filter, string componentCode, H3.Data.ComparisonOperatorType operators, string value)
+        /// <param name="isColumn"></param>
+        /// <Author>fubin</Author>
+        public static void And(H3.Data.Filter.Filter filter, string componentCode, H3.Data.ComparisonOperatorType operators, object value, bool isColumn = false)
         {
             H3.Data.Filter.And andMatcher = new H3.Data.Filter.And();    //构造And匹配器
-            andMatcher.Add(new H3.Data.Filter.ItemMatcher(componentCode, operators, value)); //添加查询条件
+            andMatcher.Add(new H3.Data.Filter.ItemMatcher(componentCode, operators, value, isColumn)); //添加查询条件
             if (filter.Matcher != null)
             {
                 andMatcher.Add(filter.Matcher);
@@ -36,7 +38,7 @@ public class Tools
         * @param operators 操作符
         * @param value 控件值
         */
-        public static void Or(H3.Data.Filter.Filter filter, string componentCode, H3.Data.ComparisonOperatorType operators, string value)
+        public static void Or(H3.Data.Filter.Filter filter, string componentCode, H3.Data.ComparisonOperatorType operators, object value, bool isColumn = false)
         {
             H3.Data.Filter.Or orMatcher = new H3.Data.Filter.Or();    //构造And匹配器
             orMatcher.Add(new H3.Data.Filter.ItemMatcher(componentCode, operators, value)); //添加查询条件
@@ -47,8 +49,8 @@ public class Tools
             filter.Matcher = orMatcher;
         }
 
-
     }
+
     public class BizOperation
     {
         /*
@@ -93,7 +95,7 @@ public class Tools
 
         /*
          * -- Author:mc
-         * 根据过滤器筛选符合条件的所有数据
+         * 根据过滤器筛选符合条件的首条数据
          * @param engine 编译引擎
          * @param schemacode 表单编码
          * @param filter 构建完成的过滤器
@@ -102,13 +104,9 @@ public class Tools
         {
             H3.DataModel.BizObjectSchema schema = engine.BizObjectManager.GetPublishedSchema(schemacode);
             H3.DataModel.BizObject[] bizObjects = H3.DataModel.BizObject.GetList(engine, H3.Organization.User.SystemUserId, schema, H3.DataModel.GetListScopeType.GlobalAll, filter);
-            if (bizObjects != null && bizObjects.Length > 0)
-                return bizObjects[0];
-            else
-                return null;
+            return bizObjects[0];
         }
     }
-
 
     public class Role
     {
@@ -159,36 +157,33 @@ public class Tools
             if (employee == null) { return null; }
             return employee.DepartmentName;
         }
-
     }
 
     public class WorkFlow
     {
-
         /*
-          * -- Author:zlm
-          * 调整节点参与者
-          * @param engine 编译引擎 
-          * @param workflowInstandId 工作流实例的ID
-          * @param activity 流程节点编码
-          * @param worker 人员ID
-          */
+         * -- Author:zlm
+         * 调整节点参与者
+         * @param engine 编译引擎 
+         * @param workflowInstandId 工作流实例的ID
+         * @param activity 流程节点编码
+         * @param worker 人员ID
+         */
         public void AdjustParticipant(H3.IEngine engine, string workflowInstandId, string activity, string[] worker)
         {
-
             H3.Workflow.Messages.AdjustParticipantMessage AdjustMessage = new H3.Workflow.Messages.AdjustParticipantMessage(workflowInstandId, activity, worker);
             engine.WorkflowInstanceManager.SendMessage(AdjustMessage);
-
         }
+
         /*
-     * -- Author:zzx
-     * 开启流程
-     * @param engine 编译引擎
-     * @param refBizObject 业务对象
-     * @param userId 发起人
-     * @param flag 是否提交流程操作，默认true为提交
-     */
-        public static void StartWorkflow(H3.IEngine engine, H3.DataModel.BizObject refBizObject, string userId = null, bool flag = true)
+         * -- Author:zzx
+         * 开启流程
+         * @param engine 编译引擎
+         * @param refBizObject 业务对象
+         * @param userId 发起人
+         * @param flag 是否提交流程操作，默认true为提交
+         */
+        public static void StartWorkflow(H3.IEngine engine, H3.DataModel.BizObject refBizObject, string userId , bool flag = true)
         {
             string instanceId = System.Guid.NewGuid().ToString();
 
