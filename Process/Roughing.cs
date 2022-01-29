@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Data;
 using System.Collections.Generic;
 using System.Text;
@@ -9,138 +8,359 @@ using H3.DataModel;
 
 public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormController
 {
-
+    private const string ActivityFQ = "Activity28"; //发起节点
     private const string ActivityRK = "Activity75"; //转运活动
     private const string ActivitySJ = "Activity14"; //上机活动
     private const string ActivityXJ = "cuchexiaji"; //下机活动
     private const string ActivityJY = "jianyan";     //检验活动
-    private const string ActivitySMGXJ = "Activity140";     //四面光下机
+    private const string ActivitySMGXJ = "Activity140";//四面光下机
     private const string ActivitySMGSJ = "Activity152";// 四面光上机
+    private const string ProcessName = "粗车";
 
-    string activityCode = "";    
-    string ProcessName = "粗车";
-    Dispatch dp = null;    
+    string activityCode = "";
+    Dispatch dp = null;
+    //布尔值字典
+    Dictionary<string, bool> boolConfig;
     H3.DataModel.BizObject me;
-
+    H3.DataModel.BizObject[] lstArray;
+    H3.SmartForm.SmartFormResponseDataItem item;  //用户提示信息
+    string info = string.Empty;  //值班信息
+    string userName = ""; //当前用户
     public D001419Szzswrfsp91x3heen4dykgwus0(H3.SmartForm.SmartFormRequest request) : base(request)
     {
         me = this.Request.BizObject;
         activityCode = this.Request.ActivityCode;  //活动节点编码  
+        lstArray = me[RoughSubTable.TableCode] as H3.DataModel.BizObject[];  //获取粗加工子表
         dp = new Dispatch(this.Request.Engine, (string)me[Roughing.ID]);//派工信息 
+        item = new H3.SmartForm.SmartFormResponseDataItem();
+        userName = this.Request.UserContext.User.FullName;
+        //转换工艺配置为布尔值
+        boolConfig = new Dictionary<string, bool>();
+        boolConfig.Add("是", true);
+        boolConfig.Add("否", false);
     }
     protected override void OnLoad(H3.SmartForm.LoadSmartFormResponse response)
     {
-        var code = this.Request.ActivityCode;
-        if (code == ActivityRK)
-        {
-            string[] r = dp.GetWorkShop(ProcessName);
-            if (r.Length >= 2)
-            {
-                me[Roughing.CurrentWorkshop] = r[0];
-                me[Roughing.CurrentLocation] = r[1];
-            }
-        }
-        UserId(response);
-
-        if (!this.Request.IsCreateMode)
-        {
-            //当前工序
-            if (me[Roughing.CurrentOperation] + string.Empty == string.Empty) { me[Roughing.CurrentOperation] = "粗车"; }
-            //初始化产品类别
-            ProductCategoryUpdate();
-            //获取多阶段加工子表
-            H3.DataModel.BizObject[] thisLstArray = me[RoughSubTable.TableCode] as H3.DataModel.BizObject[];
-            //初始化任务名称
-            me[Roughing.TaskBusinessName] = me[Roughing.TaskBusinessName] + string.Empty != string.Empty ? me[Roughing.TaskBusinessName] + string.Empty : "1";
-
-            if (thisLstArray == null)
-            {
-                //本表单纲目结构
-                H3.DataModel.BizObjectSchema schema = this.Request.Engine.BizObjectManager.GetPublishedSchema(this.Request.SchemaCode);
-                //初始化子表
-                CreatSublist(me, schema, thisLstArray);
-            }
-
-            //统计机加工耗时
-            MachiningTime();
-            //初始化探伤表
-            InitFlawDetectionForm();
-
-            if (this.Request.WorkflowInstance.IsUnfinished)
-            {
-                //获取工序计划表数据
-                H3.DataModel.BizObject planObj = LoadingConfig.GetPlanningData(this.Engine, this.Request.WorkflowInstance);
-                //布尔值转换
-                //Dictionary < string, bool > boolConfig;
-                var boolConfig = new Dictionary<string, bool>();
-                boolConfig.Add("是", true);
-                boolConfig.Add("否", false);
-                //加载质量配置
-                LoadingQAConfiguration(planObj, boolConfig);
-            }
-
-            //更新本表单
-            me.Update();
-        }
-
-        base.OnLoad(response);
-
         try
-        {            //同步实时制造情况
-            DataSync.instance.CCSyncData(this.Engine);
+        {
+            if (!this.Request.IsCreateMode)
+            {
+                //填充车间
+                FillWorkShop();
+
+                //缺少注释
+                UserId(response);
+
+                if (!this.Request.IsCreateMode)
+                {
+                    //初始化控件
+                    InitTableComponent();
+                    //清除转至工步
+                    ClearTransferToWorkStep();
+                    //初始化产品类别规格
+                    ProductCategoryUpdate();
+
+                    if (this.Request.WorkflowInstance.IsUnfinished)
+                    {
+                        //统计机加工耗时
+                        MachiningTime();
+                        //初始化探伤表
+                        InitFlawDetectionForm();
+                        //获取工序计划表数据
+                        H3.DataModel.BizObject planObj = LoadingConfig.GetPlanningData(this.Engine, this.Request.WorkflowInstance);
+                        //加载四面光配置数据
+                        LoadingFourSideLightConfiguration(planObj, boolConfig);
+                    }
+
+
+                    me.Update();
+                }
+                //填写派工计划
+                FillDispatchPlan();
+                //同步实时制造情况
+                DataSync.instance.CCSyncData(this.Engine);
+            }
         }
         catch (Exception ex)
         {
-            response.Errors.Add(System.Convert.ToString(ex));
+            info = Tools.Log.ErrorLog(this.Engine, me, ex, activityCode, userName);
+            item.Value = string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
+        }
+
+        response.ReturnData.Add("key1", item);
+        base.OnLoad(response);
+
+        //--------------------------加载前后分割线-------------------------//
+
+        try
+        {
+            if (!this.Request.IsCreateMode)
+            {
+                //加载后代码
+                this.Request.BizObject["PlanDevices"] = "1295a4bd-1033-4425-922d-f5071349bacf";
+            }
+        }
+        catch (Exception ex)
+        {
+            info = Tools.Log.ErrorLog(this.Engine, me, ex, activityCode, userName);
+            item.Value = string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
         }
     }
+
+    protected override void OnSubmit(string actionName, H3.SmartForm.SmartFormPostValue postValue, H3.SmartForm.SubmitSmartFormResponse response)
+    {
+        try
+        {
+            //多阶段加工流程逻辑
+            MultistageProcessingLogic(activityCode);
+            //派工
+            Dispatcher(actionName);
+            //四面光任务记录
+            ProcessRecord(actionName);
+            //审批人追加
+            Authority.Approver(this.Request);
+            //计算产品工时
+            TheProductWorkingHours(actionName);
+            //校验异常信息是否与数据库保持一致
+            bool checkedResult = CheckExceptionInfo(response);
+            if (checkedResult) { return; }
+            base.OnSubmit(actionName, postValue, response);
+        }
+        catch (Exception ex)
+        {		//负责人信息
+            string info = Tools.Log.ErrorLog(this.Engine, me, ex, activityCode, userName);
+            response.Message =
+                string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
+        }
+
+        //-------------------------提交前后分割线-----------------------//
+
+        try
+        {
+            //多阶段加工新方案升级机加工任务记录
+            UpdateRecordForm(actionName, activityCode);
+            //工资计算
+            SalaryCalculation(actionName);
+
+            //异常工步
+            AbnormalStep();
+        }
+        catch (Exception ex)
+        {		//负责人信息
+            string info = Tools.Log.ErrorLog(this.Engine, me, ex, activityCode, userName);
+            response.Message =
+                string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
+        }
+    }
+
+    /**
+       * Auther：zlm
+       *  填写派工计划关联表单
+       */
+    private void FillDispatchPlan()
+    {
+        try
+        {
+            H3.Data.Filter.Filter filter = new H3.Data.Filter.Filter();
+            Tools.Filter.And(filter, Dispatchs.ID, H3.Data.ComparisonOperatorType.Equal, this.Request.BizObject[Roughing.ID]);
+            var theDispatch = Tools.BizOperation.GetFirst(this.Engine, Dispatchs.TableCode, filter);
+            this.Request.BizObject["DispatchPlan"] = theDispatch[Dispatchs.Objectid] + string.Empty;
+        }
+        catch (Exception ex)
+        {
+
+        }
+    }
+    /**
+    * Auther：zlm
+    * Create: 2021-11-10
+    * Last modified：2021-12-9
+    */
+    private void FillWorkShop()
+
+    {
+        if (activityCode != ActivityRK)
+        {
+            return;
+        }
+        string[] r = dp.GetPlanWorkShop(ProcessName);
+        if (r.Length >= 2)
+        {
+            me[Roughing.CurrentWorkshop] = r[0];
+            me[Roughing.CurrentLocation] = r[1];
+        }
+    }
+    /**
+      * Auther：zlm
+      * 
+      */
     private void UserId(H3.SmartForm.LoadSmartFormResponse response)
     {
         H3.SmartForm.SmartFormResponseDataItem sd = new H3.SmartForm.SmartFormResponseDataItem();
         sd.Value = this.Request.UserContext.UserId;
         response.ReturnData.Add("UserId", sd);
-
     }
 
-    protected override void OnSubmit(string actionName, H3.SmartForm.SmartFormPostValue postValue, H3.SmartForm.SubmitSmartFormResponse response)
+
+    //zlm
+    private void SalaryCalculation(string actionName)
     {
 
-        //提交
-        if (actionName == "Submit")
+
+        if (actionName == "Submit" && activityCode == ActivityJY)
         {
-            //66-87  做整理
-            //me.CurrentPostValue = postValue;
-            MultistageProcessingLogic(activityCode);
-            //me.CurrentRow = this.Request.BizObject;
-            Dispatcher(activityCode, actionName);
-            ProcessRecord(activityCode, actionName);//加工记录
+            ActivePayroll(MachiningTaskRecord.TableCode, lstArray, H3.Organization.User.SystemUserId);
 
+        }
+    }
 
-            base.OnSubmit(actionName, postValue, response);
+    //派工
+    //zlm
+    private void Dispatcher(string actionName)
+    {
+        var theBizObject = this.Request.BizObject;
 
+        var totalLoad = Convert.ToDouble(this.Request.BizObject[Roughing.TotalAmountCompleted]);
 
+        if (activityCode == ActivityFQ && actionName == "Submit")
+        {
+            theBizObject[Roughing.Worker] = dp.GetPerson(ProcessName, (BizObject[])theBizObject[Roughing.RoughProcessing]);
 
-            //多阶段加工新方案升级机加工任务记录
-            UpdateRecordForm(actionName, activityCode);
+            FillDispatchInfo();
+        }
+        if (activityCode == ActivityRK && actionName == "Submit")
+        {
+            theBizObject[Roughing.Worker] = dp.GetPerson(ProcessName, (BizObject[])theBizObject[Roughing.RoughProcessing]);
 
-            if (activityCode == ActivityJY && actionName == "Submit")
-            {
-                Salary slr = new Salary(this.Engine, (string)postValue.Data[Roughing.ID]);
-                slr.Save(ProcessName);
-                slr.Save("四面光");
+            FillDispatchInfo();
+        }
+        if (activityCode == ActivityXJ && actionName == "Submit" && totalLoad < 1)
+        {
+            theBizObject[Roughing.Worker] = dp.GetPerson(ProcessName, (BizObject[])theBizObject[Roughing.RoughProcessing]);
+            FillDispatchInfo();
+        }
+
+        if ((activityCode == ActivitySJ) && actionName == "Submit")
+        {
+            theBizObject[Roughing.Worker] = this.Request.UserContext.UserId;
+        }
+        if ((activityCode == ActivitySMGSJ) && actionName == "Submit")
+        {
+            theBizObject[Roughing.Worker] = this.Request.UserContext.UserId;
+        }
+    }
+    /*
+          *--Author:zhanglimin
+          * 填写派工计划信息
+          * @param activityCode 流程节点编码
+          */
+    private void FillDispatchInfo()
+    {
+
+        var theBizObject = this.Request.BizObject;
+
+        Dispatch.PlanData[] planDevices = dp.PlanInfos;
+        if (planDevices != null)
+        {
+            string plansDevice = "";
+            Double plansMonHour = 0;
+            double plansWorkLoad = 0;
+            foreach (Dispatch.PlanData item in planDevices)
+            {   //计划设备 
+                plansDevice = item.DeviceName;
+                //计划工时
+                plansMonHour = item.MonHour;
+                //计划加工量
+                plansWorkLoad = item.WorkLoad;
+
             }
-
-
-            //发起异常
-            string strInitiateException = this.Request.BizObject[Roughing.InitiateException] + string.Empty;
-            if (strInitiateException == "是")
-            {
-                //异常工步
-                AbnormalStep();
-            }
+            theBizObject["PlanDevices"] = plansDevice;
+            theBizObject["PlanMonHour"] = plansMonHour;
+            theBizObject["PlanWorkLoad"] = plansWorkLoad;
         }
 
     }
+    /**
+     * --Author: zzx
+     * 初始化控件
+     * 
+*/
+    public void InitTableComponent()
+    {
+        //初始化当前工序:粗车
+        if (me[Roughing.CurrentOperation] + string.Empty == string.Empty)
+        {
+            me[Roughing.CurrentOperation] = "粗车";
+        }
+        //发起探伤 :否
+        if (me[Roughing.InitiateFlawDetection] + string.Empty == string.Empty)
+        {
+            me[Roughing.InitiateFlawDetection] = "否";
+        }
+        //质检结论赋予默认值:合格
+        if (me[Roughing.QualityInspectionConclusion] + string.Empty == string.Empty)
+        {
+            me[Roughing.QualityInspectionConclusion] = "合格";
+        }
+
+
+        //获取多阶段加工子表
+        H3.DataModel.BizObject[] thisLstArray = me[RoughSubTable.TableCode] as H3.DataModel.BizObject[];
+        //初始化任务名称
+        me[Roughing.TaskBusinessName] = me[Roughing.TaskBusinessName] + string.Empty != string.Empty ? me[Roughing.TaskBusinessName] + string.Empty : "1";
+
+        if (thisLstArray == null)
+        {
+            //初始化子表
+            CreatSublist(me);
+        }
+
+        //加工难度设置默认值1。
+        if (me[Roughing.ProcessingDifficulty] + string.Empty == "") { me[Roughing.ProcessingDifficulty] = 1; }
+        //更新本表单
+        me.Update();
+    }
+    /**
+           * --Author: zzx
+           * 清空转至工步信息。
+           * 
+    */
+    public void ClearTransferToWorkStep()
+    {             //正常节点 转至工步复位
+        if (activityCode != "Activity92" && activityCode != "Activity93")
+        {
+            me[Roughing.GoToWorkStep] = null;
+        }
+    }
+    /**
+  * --Author: zzx
+  * 检查发起异常控件是否被其它异常代表更改
+  * 
+  */
+    protected bool CheckExceptionInfo(H3.SmartForm.SubmitSmartFormResponse response)
+    {
+        //表单中发起异常
+        string strInitiateException = me[Roughing.InitiateException] + string.Empty;
+        if (strInitiateException == "是")
+        {
+            return false;
+        }
+        H3.DataModel.BizObject thisObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, this.Request.SchemaCode, this.Request.BizObjectId, false);
+        //数据库中发起异常的值
+        string sqlInitiateException = thisObj[Roughing.InitiateException] + string.Empty;
+        if (strInitiateException != sqlInitiateException)
+        {
+            //发起异常不为是时执行与数据库值是否一致的校验
+            response.Message = "异常数据有更新，请刷新页面！";
+            return true;
+        }
+        else
+        {
+            //与数据库相同
+            return false;
+        }
+    }
+
 
     /**
     * --Author: zzx
@@ -149,6 +369,50 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
     */
     protected void AbnormalStep()
     {
+        string strInitiateException = me[Roughing.InitiateException] + string.Empty;
+        if (strInitiateException != "是") { return; }
+        //关联其它异常工件
+        String[] bizObjectIDArray = me[Roughing.AssociatedWithOtherAbnormalWorkpieces] as string[];
+        //遍历其他ID
+        foreach (string bizObjectID in bizObjectIDArray)
+        {
+            //加载其他异常ID 的业务对象
+            H3.DataModel.BizObject currentObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, RealTimeDynamicProduction.TableCode, bizObjectID, false);
+            //实时生产动态 - 工序表数据ID
+            string otherExceptionId = currentObj[RealTimeDynamicProduction.OperationTableDataID] + string.Empty;
+            //实时生产动态 - 工序表SchemaCode
+            string currentSchemaCode = currentObj[RealTimeDynamicProduction.CurrentPreviousOperationTableSchemacode] + string.Empty;
+
+            //加载工序表中的业务对象
+            H3.DataModel.BizObject otherObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, currentSchemaCode, otherExceptionId, false);
+
+            //父流程实例ID
+            string parentInstanceId = this.Request.WorkflowInstance.ParentInstanceId;
+            //获取父流程实例对象
+            H3.Workflow.Instance.WorkflowInstance parentInstance = this.Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(parentInstanceId);
+
+            //传递异常信息
+            foreach (H3.DataModel.PropertySchema activex in otherObj.Schema.Properties)
+            {
+                if (activex.DisplayName.Contains("发起异常"))
+                {
+                    otherObj[activex.Name] = "是";
+                }
+
+                if (activex.DisplayName.Contains("异常类别"))
+                {
+                    otherObj[activex.Name] = me[Roughing.ExceptionCategory] + string.Empty;
+                }
+
+                if (activex.DisplayName.Contains("异常代表"))
+                {
+                    otherObj[activex.Name] = parentInstance.BizObjectId;
+                }
+            }
+
+            otherObj.Update();
+        }
+
         H3.DataModel.BizObject exceptionBo = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, Roughing.TableCode, this.Request.BizObjectId, false);
         //写日志返回记录id
         string logObjectID = null;
@@ -158,9 +422,9 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
         if (strActivityCode != "Activity127" && strActivityCode != "Activity128")
         {
             //设置异常权限
-            this.Request.BizObject[Roughing.Owner] = this.Request.UserContext.UserId;
+            exceptionBo[Roughing.Owner] = this.Request.UserContext.UserId;
             //创建发起异常的日志
-            logObjectID = ExceptionLog.CreateLog(Roughing.ID, Roughing.CurrentWorkStep, Roughing.CurrentOperation,
+            logObjectID = AbnormalLog.CreateLog(Roughing.ID, Roughing.CurrentWorkStep, Roughing.CurrentOperation,
                 Roughing.ExceptionCategory, Roughing.ExceptionDescription, this.Request.BizObject, this.Engine);
             exceptionBo[Roughing.ObjectIDForUpdateTheExceptionLog] = logObjectID;
             exceptionBo.Update();
@@ -169,11 +433,11 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
         if (strActivityCode == "Activity127")
         {
             //更新发起异常创建的日志记录，异常类型，异常描述进行同步更新
-            ExceptionLog.UpdateLog(Roughing.ID, Roughing.CurrentWorkStep, Roughing.ExceptionCategory,
+            AbnormalLog.UpdateLog(Roughing.ID, Roughing.CurrentWorkStep, Roughing.ExceptionCategory,
                 Roughing.ExceptionDescription, this.Request.BizObject, exceptionBo[Roughing.ObjectIDForUpdateTheExceptionLog] + string.Empty, this.Engine);
         }
         //审批确认
-        if (strActivityCode == "Activity128")
+        if (strActivityCode == "Activity93")
         {
             //清空异常信息
             //发起异常赋值
@@ -182,51 +446,45 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
             exceptionBo[Roughing.ExceptionDescription] = "误流入本节点，修正本工序操作错误";
             //异常类型赋值
             exceptionBo[Roughing.ExceptionCategory] = "安全异常";
+            //异常代表
+            exceptionBo[Roughing.ExceptionRepresentative] = string.Empty;
             exceptionBo.Update();
         }
     }
 
-    //派工
-    private void Dispatcher(string activityCode, string actionName)
+
+
+
+    /*
+      *--Author:zhanglimin
+      * 四面光任务记录
+      * @param activityCode 流程节点编码
+      */
+
+    private void ProcessRecord(string actionName)
     {
-
-        var b = this.Request.BizObject;
-
-        if (activityCode == ActivityRK && actionName == "Submit")
+        if ((activityCode == ActivitySMGSJ) && actionName == "Submit" && this.Request.BizObject["F0000202"] == "否")
         {
-            b[Roughing.Worker] = dp.GetPerson(ProcessName, (string)b[Roughing.CurrentWorkshop], (BizObject[])b[Roughing.RoughProcessing]);
-            //dp.FillPerson(me, ProcessName, "四面光");
+            ProductManHour manHourComputer = new ProductManHour(this.Request.Engine);
+            H3.DataModel.BizObject[] fourLightSubTable = this.Request.BizObject[Roughing.FourSideLight] as H3.DataModel.BizObject[];
+            string deviceType = fourLightSubTable[0][RoughFourLathe.DeviceType] + string.Empty;
+            double manHour = manHourComputer.GetTime("四面光", this.Request.BizObject[Roughing.ID] + string.Empty, deviceType, false);
+            fourLightSubTable[0][RoughFourLathe.WorkingHours] = manHour;
+
+
+
         }
-        if (activityCode == ActivityXJ && actionName == "Submit")
-        {
-            b[Roughing.Worker] = dp.GetPerson(ProcessName, (string)b[Roughing.CurrentWorkshop], (BizObject[])b[Roughing.RoughProcessing]);
-        }
-
-        if ((activityCode == ActivitySJ) && actionName == "Submit")
-        {
-            b[Roughing.Worker] = this.Request.ParticipantId;
-        }
-        if ((activityCode == ActivitySMGSJ) && actionName == "Submit")
-        {
-            b[Roughing.Worker] = this.Request.ParticipantId;
-        }
-
-
-    }
-    //-- Author:zlm
-    // 四面光任务记录     
-    private void ProcessRecord(string activityCode, string actionName)
-    {
-
-
-        if ((activityCode == ActivitySMGXJ) && actionName == "Submit")
+        if ((activityCode == ActivitySMGXJ) && actionName == "Submit" && this.Request.BizObject["F0000202"] == "否")
         {
             TaskRecorder taskRecorder = new TaskRecorder(this.Request.Engine, this.Request.BizObject);
-
             H3.DataModel.BizObject[] subTable = this.Request.BizObject[Roughing.FourSideLight] as H3.DataModel.BizObject[];
 
-            subTable[0][RoughFourLathe.ProcessRecord] = taskRecorder.TaskRecord("粗车", subTable[0]);
+            if (subTable != null && subTable.Length > 0)
+            {
+                subTable[subTable.Length - 1][RoughFourLathe.ProcessRecord] = taskRecorder.TaskRecord("粗车四面光", subTable[subTable.Length - 1]);
+            }
         }
+
 
     }
 
@@ -234,14 +492,11 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
      *--Author:fubin
      * 多阶段加工流程逻辑
      * @param activityCode 流程节点编码
-     * @param actionName 按钮名称
      */
     private void MultistageProcessingLogic(string activityCode)
     {
         //获取多阶段加工子表
-        H3.DataModel.BizObjectSchema schema = this.Request.Engine.BizObjectManager.GetPublishedSchema(this.Request.SchemaCode);
         H3.DataModel.BizObject[] lstArray = me[RoughSubTable.TableCode] as H3.DataModel.BizObject[];
-
 
         {   //修正任务数-----任务名称
             me[Roughing.TaskBusinessName] = lstArray != null ? lstArray.Length + string.Empty : "1";
@@ -263,8 +518,7 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
                     //递增计数器，并更新
                     me[Roughing.TaskBusinessName] = lstArray.Length + 1;
                     //创建添加新的子表行数据
-                    CreatSublist(me, schema, lstArray);
-
+                    CreatSublist(me);
                 }
 
                 if (lstArray[taskNum][RoughSubTable.Processor] + string.Empty == string.Empty)
@@ -273,15 +527,7 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
                 }
             }
 
-            //探伤表Id
-            string objId = me[Roughing.FlawDetectionTable] + string.Empty;
-            //返回探伤结果
-            if (activityCode == "Activity85" && objId != string.Empty)
-            {
-                H3.DataModel.BizObject tsForm = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, InspectionTable.TableCode, objId, false);
-                //赋值探伤认定
-                me[Roughing.FlawDetectionIdentification] = tsForm[InspectionTable.FlawDetectionIdentification] + string.Empty;
-            }
+
         }
     }
 
@@ -311,16 +557,16 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
 
     /*
      *--Author:fubin
-     * 产品类别为空时，查询产品参数表中的车加工类别
+     * 产品类别、规格为空时，查询产品参数表中的车加工类别、规格
      */
     protected void ProductCategoryUpdate()
     {
         //产品类别更新
-        if (me[Roughing.ProductCategory] + string.Empty == string.Empty)
+        if (me[Roughing.ProductCategory] + string.Empty == string.Empty || me[Roughing.Specification] + string.Empty == string.Empty)
         {   //订单规格号
             string orderSpec = me[Roughing.OrderSpecificationNumber] + string.Empty;
             //以订单规格号相同为条件，查询产品参数表中的车加工类别
-            string mySql = string.Format("Select ObjectId,{0} From i_{1} Where {2} = '{3}'",
+            string mySql = string.Format("Select * From i_{1} Where {2} = '{3}'",
                 ProductParameter.ProductMachiningCategory, ProductParameter.TableCode,
                 ProductParameter.OrderSpecificationNumber, orderSpec);
             DataTable typeData = this.Engine.Query.QueryTable(mySql, null);
@@ -329,62 +575,9 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
                 me[Roughing.ProductParameterTable] = typeData.Rows[0][ProductParameter.Objectid] + string.Empty;
                 //赋值车加工类别
                 me[Roughing.ProductCategory] = typeData.Rows[0][ProductParameter.ProductMachiningCategory] + string.Empty;
+                //赋值产品规格
+                me[Roughing.Specification] = typeData.Rows[0][ProductParameter.ProductSpecification] + string.Empty;
             }
-        }
-    }
-
-    /*
-    *--Author:fubin
-    * 加载质量配置数据
-    * @param planObj 工序计划数据
-    * @param boolConfig 布尔值字典
-    */
-    protected void LoadingQAConfiguration(H3.DataModel.BizObject planObj, Dictionary<string, bool> boolConfig)
-    {
-        //读取《质量配置表》上机前互检优先级顺序
-        string crossCheck = LoadingConfig.GetQualityConfigForm(this.Engine, QAConfig.PriorityLevelRoughCarMutualInspection);
-        //读取《质量配置表》全局上机前互检配置
-        string globalCrossCheck = LoadingConfig.GetQualityConfigForm(this.Engine, QAConfig.RoughCarMutualInspectionBeforeLoading);
-        //读取《工序计划表》单件上机前互检配置
-        string planCrossCheck = planObj != null ? planObj[ABCDProcessPlan.MutualInspectionBeforeSinglePieceMachineOperation] + string.Empty : string.Empty;
-        //加载《订单规格表》数据
-        H3.DataModel.BizObject productObj = LoadingConfig.GetProductData(this.Engine, planObj);
-        //获取《订单规格表》产品上机前互检配置
-        string productCrossCheck = productObj != null ? productObj[OrderSpecification.MutualInspectionBeforeProductOnMachine] + string.Empty : string.Empty;
-        switch (crossCheck)
-        {
-            case "配置表":
-                //全局上机前互检
-                me[Roughing.MutualInspectionBeforeStartingTheMachine] = boolConfig[globalCrossCheck] + string.Empty;
-                break;
-            case "计划表":
-                if (planCrossCheck != string.Empty)
-                {   //计划上机前互检
-                    me[Roughing.MutualInspectionBeforeStartingTheMachine] = boolConfig[planCrossCheck] + string.Empty;
-                }
-                else
-                {   //全局上机前互检
-                    me[Roughing.MutualInspectionBeforeStartingTheMachine] = boolConfig[globalCrossCheck] + string.Empty;
-                }
-                break;
-            case "产品表":
-                if (productCrossCheck != string.Empty)
-                {
-                    //产品上机前互检
-                    me[Roughing.MutualInspectionBeforeStartingTheMachine] = boolConfig[productCrossCheck] + string.Empty;
-                }
-                else
-                {
-                    if (planCrossCheck != string.Empty)
-                    {   //计划上机前互检
-                        me[Roughing.MutualInspectionBeforeStartingTheMachine] = boolConfig[planCrossCheck] + string.Empty;
-                    }
-                    else
-                    {   //全局上机前互检
-                        me[Roughing.MutualInspectionBeforeStartingTheMachine] = boolConfig[globalCrossCheck] + string.Empty;
-                    }
-                }
-                break;
         }
     }
 
@@ -398,12 +591,13 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
         //当前用户ID
         string userId = this.Request.UserContext.UserId;
         //流程节点名称
-        string activityName = this.Request.WorkItem.ActivityDisplayName;
+        string activityName = this.Request.WorkItem + string.Empty == string.Empty
+            ? string.Empty : this.Request.WorkItem.ActivityDisplayName;
         //探伤表为空时，查询探伤表中ID相同的数据放入本表单中
         if (tsFormId == string.Empty)
         {
             string thisId = me[Roughing.ID] + string.Empty; //ID
-            string mySql = string.Format("Select ObjectId From " + InspectionTable.TableCode + " Where " + InspectionTable.ID + " = '{0}'", thisId);
+            string mySql = string.Format("Select " + InspectionTable.Objectid + " From i_" + InspectionTable.TableCode + " Where " + InspectionTable.ID + " = '{0}'", thisId);
             DataTable tsData = this.Engine.Query.QueryTable(mySql, null);
             if (tsData != null && tsData.Rows != null && tsData.Rows.Count > 0)
             {
@@ -411,8 +605,7 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
             }
             else
             {
-                H3.DataModel.BizObjectSchema aSchema = this.Engine.BizObjectManager.GetPublishedSchema(InspectionTable.TableCode);
-                H3.DataModel.BizObject tsForm = new H3.DataModel.BizObject(this.Engine, aSchema, userId);
+                H3.DataModel.BizObject tsForm = Tools.BizOperation.New(this.Engine, InspectionTable.TableCode);
                 tsForm.Status = H3.DataModel.BizObjectStatus.Effective; //生效
                 tsForm[InspectionTable.ID] = me[Roughing.ID] + string.Empty;  //ID
                 tsForm[InspectionTable.CurrentOperation] = "粗车";
@@ -420,7 +613,7 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
                 //new子表数据集合
                 List<H3.DataModel.BizObject> lstObject = new List<H3.DataModel.BizObject>();
                 //new一个子表业务对象
-                H3.DataModel.BizObject lstArray = new H3.DataModel.BizObject(this.Engine, aSchema.GetChildSchema(InspectionSubTable.TableCode), H3.Organization.User.SystemUserId);//子表对象
+                H3.DataModel.BizObject lstArray = Tools.BizOperation.New(this.Engine, InspectionSubTable.TableCode);//子表对象
                 lstArray[InspectionSubTable.Process] = "粗车"; //工序
                 lstArray[InspectionSubTable.WorkStep] = "";     //工步
                 lstObject.Add(lstArray);//将这个子表业务对象添加至子表数据集合中
@@ -434,14 +627,15 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
         //探伤表不为空时,写入工序信息
         if (tsFormId != string.Empty)
         {
-            H3.DataModel.BizObject tsForm = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, InspectionTable.TableCode, tsFormId, false);
+            H3.DataModel.BizObject tsForm = Tools.BizOperation.Load(this.Engine, InspectionTable.TableCode, tsFormId);
             H3.DataModel.BizObject[] lstArray = tsForm[InspectionSubTable.TableCode] as H3.DataModel.BizObject[];  //获取子表数据
             tsForm[InspectionTable.CurrentOperation] = "粗车";
             tsForm[InspectionTable.RoughCutting] = me.ObjectId;
             if (lstArray[lstArray.Length - 1][InspectionSubTable.ThisFlawDetectionResult] + string.Empty == string.Empty) //探伤结果
             {
                 lstArray[lstArray.Length - 1][InspectionSubTable.Process] = "粗车"; //工序
-                lstArray[lstArray.Length - 1][InspectionSubTable.WorkStep] = activityName != "Activity85" ? me[Roughing.CurrentWorkStep] + string.Empty : lstArray[lstArray.Length - 1][InspectionSubTable.WorkStep] + string.Empty;     //工步
+                lstArray[lstArray.Length - 1][InspectionSubTable.WorkStep] = activityName != "Activity85"
+                    ? me[Roughing.CurrentWorkStep] + string.Empty : lstArray[lstArray.Length - 1][InspectionSubTable.WorkStep] + string.Empty; //工步
                 lstArray[lstArray.Length - 1].Update();
             }
             tsForm.Update();
@@ -449,213 +643,73 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
     }
 
     /*
-   *--Author:fubin
-   * 创建添加新的子表行数据
-   * @param thisObj 本表单数据
-   * @param schema 多阶段加工子表纲目结构
-   * @param lstArray 多阶段加工子表
-   */
-    protected void CreatSublist(H3.DataModel.BizObject thisObj, H3.DataModel.BizObjectSchema schema, H3.DataModel.BizObject[] lstArray)
+     *--Author:fubin
+     * 创建添加新的子表行数据
+     * @param thisObj 本表单数据
+     */
+    protected void CreatSublist(H3.DataModel.BizObject thisObj)
     {
-        //new子表数据集合
-        List<H3.DataModel.BizObject> lstObject = new List<H3.DataModel.BizObject>();
-
-        if (lstArray != null)
-        {
-            foreach (H3.DataModel.BizObject obj in lstArray)
-            {
-                lstObject.Add(obj);
-            }
-        }
-
         //new一个子表业务对象
-        H3.DataModel.BizObject zibiao = new H3.DataModel.BizObject(this.Request.Engine, schema.GetChildSchema(RoughSubTable.TableCode), H3.Organization.User.SystemUserId);//子表对象
-        zibiao[RoughSubTable.TaskName] = thisObj[Roughing.TaskBusinessName] + string.Empty == string.Empty ? "1" : thisObj[Roughing.TaskBusinessName] + string.Empty; //任务名称
-        lstObject.Add(zibiao);//将这个子表业务对象添加至子表数据集合中
-        thisObj[RoughSubTable.TableCode] = lstObject.ToArray(); //子表数据赋值
-
-        thisObj.Update();   //更新对象
+        H3.DataModel.BizObject childObj = Tools.BizOperation.New(this.Engine, RoughSubTable.TableCode);
+        childObj[RoughSubTable.TaskName] = thisObj[Roughing.TaskBusinessName] + string.Empty == string.Empty ? "1" : thisObj[Roughing.TaskBusinessName] + string.Empty; //任务名称
+        //将这个子表业务对象添加至子表数据集合中
+        Tools.BizOperation.AddChildBizObject(this.Engine, thisObj, RoughSubTable.TableCode, childObj);
     }
 
-    protected void Init(H3.SmartForm.LoadSmartFormResponse response)
+    protected void LoadingFourSideLightConfiguration(H3.DataModel.BizObject planObj, Dictionary<string, bool> boolConfig)
     {
-        if (!this.Request.IsCreateMode)
+        //获取工艺配置四面光优先级层级
+        string lighting = LoadingConfig.GetProcessForm(this.Engine, ProcessConfig.PriorityLevelFourSideLight);
+        //读取《配置表》四面光配置
+        string globalLighting = LoadingConfig.GetProcessForm(this.Engine, ProcessConfig.GlobalFourSideLightConfiguration);
+        //加载对应订单规格表的数据
+        H3.DataModel.BizObject productObj = LoadingConfig.GetProductData(this.Engine, planObj);
+        //读取《规格表》四面光配置
+        string productLighting = productObj != null ? productObj[OrderSpecification.WhetherRoughTurningIsSmoothOnAllSides] + string.Empty : string.Empty;
+        //读取《计划表》四面光设置
+        string planLighting = planObj != null ? planObj[ABCDProcessPlan.SinglePieceFourSideLightConfiguration] + string.Empty : string.Empty;
+
+        switch (lighting)
         {
-            H3.DataModel.BizObject thisObj = this.Request.BizObject;
-            string userId = this.Request.UserContext.UserId; //当前用户ID
-            string activityName = this.Request.ActivityCode; //活动节点
-            string tsFormId = thisObj[Roughing.FlawDetectionTable] + string.Empty;  //探伤表
-            H3.DataModel.BizObjectSchema schema = this.Request.Engine.BizObjectManager.GetPublishedSchema(this.Request.SchemaCode); //子表schema
-            H3.DataModel.BizObject[] thisLstArray = thisObj[RoughSubTable.TableCode] as H3.DataModel.BizObject[];  //获取子表数据
-
-            thisObj[Roughing.TaskBusinessName] = thisObj[Roughing.TaskBusinessName] + string.Empty != string.Empty ? thisObj[Roughing.TaskBusinessName] + string.Empty : "1"; //初始化计数器
-            if (thisLstArray == null)
-            {   //初始化子表
-                CreatSublist(thisObj, schema, thisLstArray);
-            }
-
-            string bizid = thisObj.ObjectId;
-
-            string command = string.Format("Select b.bizobjectid,b.activitycode, sum(b.usedtime) as utime  From " + Roughing.TableCode + " a left join H_WorkItem b on a.objectid = b.BizObjectId  where b.ActivityCode = 'cuchexiaji' and b.BizObjectId = '{0}'  group by b.bizobjectid", bizid);
-            DataTable data = this.Engine.Query.QueryTable(command, null);
-            //机加工耗时计算
-            if (data != null && data.Rows != null && data.Rows.Count > 0)
-            {
-                if (data.Rows[0]["utime"] != null)
+            case "配置表":
+                //全局四面光配置
+                me[Roughing.WhetherFourSidesArePolished] = boolConfig[globalLighting] + string.Empty;
+                break;
+            case "规格表":
+                if (productLighting != string.Empty)
                 {
-                    string utimestr = data.Rows[0]["utime"] + string.Empty;
-                    double utime = double.Parse(utimestr) / 10000000 / 60;
-                    thisObj[Roughing.ActualProcessingTime] = utime;
-                }
-            }
-
-            //当前工序
-            if (thisObj[Roughing.CurrentOperation] + string.Empty == string.Empty)
-            {           //当前工序
-                thisObj[Roughing.CurrentOperation] = "粗车";
-            }
-            //产品类别更新
-            if (thisObj[Roughing.ProductCategory] + string.Empty == string.Empty)
-            {
-                string orderSpec = thisObj[Roughing.OrderSpecificationNumber] + string.Empty; //订单规格号
-                string mySql = string.Format("Select ObjectId,F0000004 From " + ProductParameter.TableCode + " Where F0000073 = '{0}'", orderSpec);
-                DataTable typeData = this.Engine.Query.QueryTable(mySql, null);
-                if (typeData != null && typeData.Rows != null && typeData.Rows.Count > 0)
-                {
-                    thisObj[Roughing.ProductParameterTable] = typeData.Rows[0][ProductParameter.Objectid] + string.Empty; //产品参数表
-                    thisObj[Roughing.ProductCategory] = typeData.Rows[0][ProductParameter.ProductMachiningCategory] + string.Empty; //产品类型
-                }
-            }
-
-            if (tsFormId == string.Empty)  //探伤表为空时，查询探伤表中ID相同的数据放入本表单中
-            {
-                string thisId = thisObj[Roughing.ID] + string.Empty; //ID
-                string mySql = string.Format("Select ObjectId From " + InspectionTable.TableCode + " Where F0000001 = '{0}'", thisId);
-                DataTable tsData = this.Engine.Query.QueryTable(mySql, null);
-                if (tsData != null && tsData.Rows != null && tsData.Rows.Count > 0)
-                {
-                    thisObj[Roughing.FlawDetectionTable] = thisId = tsData.Rows[0][InspectionTable.Objectid] + string.Empty;
+                    //规格四面光配置
+                    me[Roughing.WhetherFourSidesArePolished] = boolConfig[productLighting] + string.Empty;
                 }
                 else
                 {
-                    H3.DataModel.BizObjectSchema aSchema = this.Engine.BizObjectManager.GetPublishedSchema(InspectionTable.TableCode);
-                    H3.DataModel.BizObject tsForm = new H3.DataModel.BizObject(this.Engine, aSchema, userId);
-                    tsForm.Status = H3.DataModel.BizObjectStatus.Effective; //生效
-                    tsForm[InspectionTable.ID] = thisObj[Roughing.ID] + string.Empty;  //ID
-                    tsForm[InspectionTable.CurrentOperation] = "粗车";
-                    tsForm[InspectionTable.SampleProcess] = thisObj.ObjectId;
-                    List<H3.DataModel.BizObject> lstObject = new List<H3.DataModel.BizObject>();   //new子表数据集合
-                    //new一个子表业务对象
-                    H3.DataModel.BizObject lstArray = new H3.DataModel.BizObject(this.Engine, aSchema.GetChildSchema(InspectionSubTable.TableCode), H3.Organization.User.SystemUserId);//子表对象
-                    lstArray[InspectionSubTable.Process] = "粗车"; //工序
-                    lstArray[InspectionSubTable.WorkStep] = "";     //工步
-                    lstObject.Add(lstArray);//将这个子表业务对象添加至子表数据集合中
-                    tsForm[InspectionSubTable.TableCode] = lstObject.ToArray(); //子表数据赋值
-                    tsForm.Create();
-                    thisObj[Roughing.FlawDetectionTable] = tsFormId = tsForm.ObjectId; //探伤表
-                    thisObj.Update();
+                    //全局四面光配置
+                    me[Roughing.WhetherFourSidesArePolished] = boolConfig[globalLighting] + string.Empty;
                 }
-            }
-
-            if (tsFormId != string.Empty) //探伤表不为空时,写入工序信息
-            {
-                H3.DataModel.BizObject tsForm = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, InspectionTable.TableCode, tsFormId, false);
-                H3.DataModel.BizObject[] lstArray = tsForm[InspectionSubTable.TableCode] as H3.DataModel.BizObject[];  //获取子表数据
-                tsForm[InspectionTable.CurrentOperation] = "粗车";
-                tsForm[InspectionTable.RoughCutting] = thisObj.ObjectId;
-                if (lstArray[lstArray.Length - 1][InspectionSubTable.ThisFlawDetectionResult] + string.Empty == string.Empty) //探伤结果
+                break;
+            case "计划表":
+                if (planLighting != string.Empty)
                 {
-                    lstArray[lstArray.Length - 1][InspectionSubTable.Process] = "粗车"; //工序
-                    lstArray[lstArray.Length - 1][InspectionSubTable.WorkStep] = activityName != "Activity85" ? thisObj[Roughing.CurrentWorkStep] + string.Empty : lstArray[lstArray.Length - 1][InspectionSubTable.WorkStep] + string.Empty;     //工步
-                    lstArray[lstArray.Length - 1].Update();
+                    //计划四面光配置
+                    me[Roughing.WhetherFourSidesArePolished] = boolConfig[planLighting] + string.Empty;
                 }
-                tsForm.Update();
-            }
-
-            //上机前互检字段
-            if (this.Request.WorkflowInstance.IsUnfinished)
-            {
-                //获取父流程实例对象
-                H3.Workflow.Instance.WorkflowInstance instance = this.Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(this.Request.WorkflowInstance.ParentInstanceId);
-
-                var parentId = instance != null ? instance.BizObjectId : "";
-                //获取父流程业务对象
-                H3.DataModel.BizObject parentObj = H3.DataModel.BizObject.Load(this.Request.UserContext.UserId, this.Engine, ProcessFlow.TableCode, parentId, false);
-                string planId = parentObj != null ? parentObj[ProcessFlow.OperationSchedule] + string.Empty : string.Empty;
-                //获取工序计划业务对象
-                H3.DataModel.BizObject planObj = H3.DataModel.BizObject.Load(this.Request.UserContext.UserId, this.Engine, ABCDProcessPlan.TableCode, planId, false);
-                //获取产品的数据Id
-                string acObjId = planObj != null && planObj[ABCDProcessPlan.OrderSpecificationTable] != null ? planObj[ABCDProcessPlan.OrderSpecificationTable] + string.Empty : string.Empty;
-                //加载产品数据
-                H3.DataModel.BizObject acObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, OrderSpecification.TableCode, acObjId, false);
-                //查询质量配置
-                string mySql = string.Format("Select * from " + QAConfig.TableCode + " ");
-                DataTable qcForm = this.Engine.Query.QueryTable(mySql, null);
-                //查询订单规格号相同的AC表配置
-                string mySqlAC = string.Format("Select F0000136 from " + OrderSpecification.TableCode + " where F0000076 = '{0}'", thisObj[Roughing.OrderSpecificationNumber] + string.Empty);
-                DataTable gyFormAC = this.Engine.Query.QueryTable(mySqlAC, null);
-                //转换工艺配置为布尔值
-                Dictionary<string, bool> qcConfig = new Dictionary<string, bool>();
-                qcConfig.Add("是", true);
-                qcConfig.Add("否", false);
-                //获取ac表是否四面光的值
-                string smgConfig = gyFormAC != null && gyFormAC.Rows != null && gyFormAC.Rows.Count > 0 ? gyFormAC.Rows[0][OrderSpecification.WhetherRoughTurningIsSmoothOnAllSides] + string.Empty : string.Empty;
-                //获取质量配置上机前互检优先级顺序
-                string hjOrder = qcForm.Rows[0][QAConfig.PriorityLevelRoughCarMutualInspection] + string.Empty;
-                //是否四面光
-                thisObj[Roughing.WhetherFourSidesArePolished] = smgConfig != string.Empty ? qcConfig[smgConfig] + string.Empty : string.Empty;
-
-                if (hjOrder == "配置表")
+                else
                 {
-                    //获取《质量配置表》中“全局上机前互检”并赋值
-                    string hjConfig = qcForm.Rows[0][QAConfig.RoughCarMutualInspectionBeforeLoading] + string.Empty;
-                    thisObj[Roughing.MutualInspectionBeforeStartingTheMachine] = qcConfig[hjConfig] + string.Empty;
-                }
-
-                if (planObj != null)
-                {
-                    if (hjOrder == "计划表")
+                    if (productLighting != string.Empty)
                     {
-                        //获取《工序计划表》中“单件上机前互检”并赋值
-                        string hjConfig = planObj != null ? planObj[ABCDProcessPlan.MutualInspectionBeforeSinglePieceMachineOperation] + string.Empty : string.Empty;
-                        if (hjConfig != "")
-                        {
-                            thisObj[Roughing.MutualInspectionBeforeStartingTheMachine] = qcConfig[hjConfig] + string.Empty;
-                        }
-                        else
-                        {
-                            //获取《订单规格表》中“产品上机前互检”并赋值
-                            hjConfig = acObj != null ? acObj[OrderSpecification.MutualInspectionBeforeProductOnMachine] + string.Empty : string.Empty;
-                            if (hjConfig != "")
-                            {
-                                thisObj[Roughing.MutualInspectionBeforeStartingTheMachine] = qcConfig[hjConfig] + string.Empty;
-                            }
-                            else
-                            {
-                                //获取《质量配置表》中“全局上机前互检”并赋值
-                                hjConfig = qcForm.Rows[0][QAConfig.RoughCarMutualInspectionBeforeLoading] + string.Empty;
-                                thisObj[Roughing.MutualInspectionBeforeStartingTheMachine] = qcConfig[hjConfig] + string.Empty;
-                            }
-                        }
+                        //规格四面光配置
+                        me[Roughing.WhetherFourSidesArePolished] = boolConfig[productLighting] + string.Empty;
+                    }
+                    else
+                    {
+                        //全局四面光配置
+                        me[Roughing.WhetherFourSidesArePolished] = boolConfig[globalLighting] + string.Empty;
                     }
                 }
-            }
-
-
-            //更新本表单
-            thisObj.Update();
-
-            try
-            {            //同步实时制造情况
-                DataSync.instance.CCSyncData(this.Engine);
-            }
-            catch (Exception ex)
-            {
-                response.Errors.Add(System.Convert.ToString(ex));
-            }
+                break;
         }
-    }
 
+    }
 
     // //权限检测，与派工有关 //备用暂不用。
     // protected void AutherCheck(H3.SmartForm.SubmitSmartFormResponse response) {
@@ -702,8 +756,6 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
     public void UpdateRecordForm(string actionName, string activityCode)
     {
         H3.DataModel.BizObject thisObj = this.Request.BizObject;
-        H3.DataModel.BizObjectSchema schema = this.Request.Engine.BizObjectManager.GetPublishedSchema(this.Request.SchemaCode);
-        H3.DataModel.BizObject[] lstArray = thisObj[RoughSubTable.TableCode] as H3.DataModel.BizObject[];  //获取粗加工子表
 
         //完成总量
         decimal count = thisObj[Roughing.TotalAmountCompleted] + string.Empty != string.Empty ? decimal.Parse(thisObj[Roughing.TotalAmountCompleted] + string.Empty) : 0;
@@ -713,91 +765,88 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
         {
             //当前任务记录
             H3.DataModel.BizObject currentTask = lstArray[taskNum];
-            //设备工时系数表-子表
-            H3.DataModel.BizObject[] subObj = null;
-            //设备工时系数表
-            H3.DataModel.BizObject mtObj = null;
+            // //设备工时系数表-子表
+            // H3.DataModel.BizObject[] subObj = null;
+            // //设备工时系数表
+            // H3.DataModel.BizObject mtObj = null;
             //当前加工者
             H3.Organization.User employee = this.Engine.Organization.GetUnit(currentTask[RoughSubTable.Processor] + string.Empty) as H3.Organization.User;
 
-            //总下屑量
-            string totalxx = "";
-            //本工序产品工时
-            string productTime = "";
-            //轧制方式
-            string zzMode = thisObj[Roughing.RollingMethod] + string.Empty;
-            //产品类别
-            string productType = thisObj[Roughing.ProductCategory] + string.Empty;
-            //设备类型
-            string deviceType = currentTask[RoughSubTable.EquipmentType] + string.Empty;
-            //设备工时系数
-            string deviceParam = string.Empty;
+            // //总下屑量
+            // string totalxx = "";
+            // //本工序产品工时
+            // string productTime = "";
+            // //轧制方式
+            // string zzMode = thisObj[Roughing.RollingMethod] + string.Empty;
+            // //产品类别
+            // string productType = thisObj[Roughing.ProductCategory] + string.Empty;
+            // //设备类型
+            // string deviceType = currentTask[RoughSubTable.EquipmentType] + string.Empty;
+            // //设备工时系数
+            // string deviceParam = string.Empty;
 
-            //产品类别
-            if (productType != string.Empty)
-            {
-                //获取设备工时系数模块
-                string command = string.Format("Select ObjectId From " + DeviceWorkingHour.TableCode + " Where F0000001 = '粗车' and F0000002 = '{0}'", productType);//产品类别
-                DataTable data = this.Engine.Query.QueryTable(command, null);
-                if (data != null && data.Rows != null && data.Rows.Count > 0)
-                {
-                    mtObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, DeviceWorkingHour.TableCode, data.Rows[0][DeviceWorkingHour.ObjectId] + string.Empty, true);
-                }
+            // //产品类别
+            // if(productType != string.Empty)
+            // {
+            //     //获取设备工时系数模块
+            //     string command = string.Format("Select {0} From i_{1} Where {2} = '粗车' and {3} = '{4}'",
+            //         DeviceWorkingHour.ObjectId, DeviceWorkingHour.TableCode, DeviceWorkingHour.OperationName, DeviceWorkingHour.ProductMachiningCategory, productType);
+            //     DataTable data = this.Engine.Query.QueryTable(command, null);
+            //     if(data != null && data.Rows != null && data.Rows.Count > 0)
+            //     {
+            //         mtObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, DeviceWorkingHour.TableCode, data.Rows[0][DeviceWorkingHour.ObjectId] + string.Empty, true);
+            //     }
 
-            }
+            // }
 
-            //设备工时系数表-子表
-            subObj = mtObj != null ? mtObj[EquipmentTimeCoefficientSubtabulation.TableCode] as H3.DataModel.BizObject[] : null;
+            // //设备工时系数表-子表
+            // subObj = mtObj != null ? mtObj[EquipmentTimeCoefficientSubtabulation.TableCode] as H3.DataModel.BizObject[] : null;
 
-            if (subObj != null)
-            {
-                foreach (H3.DataModel.BizObject item in subObj)
-                {
-                    if (deviceType != string.Empty)
-                    {        //按设备类型查找
-                        if (item[EquipmentTimeCoefficientSubtabulation.EquipmentType] + string.Empty == deviceType)
-                        {
-                            if (zzMode == "单轧" && item[EquipmentTimeCoefficientSubtabulation.SingleRollingManHourCoefficient] != null)
-                            {               //单轧工时系数
-                                deviceParam = item[EquipmentTimeCoefficientSubtabulation.SingleRollingManHourCoefficient] + string.Empty;
-                            }
-                            else if (zzMode == "双轧" && item[EquipmentTimeCoefficientSubtabulation.DoubleRollingManHourCoefficient] != null)
-                            {               //双轧工时系数
-                                deviceParam = item[EquipmentTimeCoefficientSubtabulation.DoubleRollingManHourCoefficient] + string.Empty;
-                            }
-                        }
-                    }
-                }
-            }
+            // if(subObj != null)
+            // {
+            //     foreach(H3.DataModel.BizObject item in subObj)
+            //     {
+            //         if(deviceType != string.Empty)
+            //         {        //按设备类型查找
+            //             if(item[EquipmentTimeCoefficientSubtabulation.EquipmentType] + string.Empty == deviceType)
+            //             {
+            //                 if(zzMode == "单轧" && item[EquipmentTimeCoefficientSubtabulation.SingleRollingManHourCoefficient] != null)
+            //                 {               //单轧工时系数
+            //                     deviceParam = item[EquipmentTimeCoefficientSubtabulation.SingleRollingManHourCoefficient] + string.Empty;
+            //                 }
+            //                 else if(zzMode == "双轧" && item[EquipmentTimeCoefficientSubtabulation.DoubleRollingManHourCoefficient] != null)
+            //                 {               //双轧工时系数
+            //                     deviceParam = item[EquipmentTimeCoefficientSubtabulation.DoubleRollingManHourCoefficient] + string.Empty;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
 
             //产品参数表
-            H3.DataModel.BizObject productObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId,
-                this.Engine, ProductParameter.TableCode, thisObj[Roughing.ProductParameterTable] + string.Empty, false);
+            H3.DataModel.BizObject productObj = Tools.BizOperation.Load(this.Engine, ProductParameter.TableCode, thisObj[Roughing.ProductParameterTable] + string.Empty);
 
-            if (productObj != null)
-            {
-                //产品参数表-单轧工时
-                if (zzMode == "单轧" && productObj[ProductParameter.SingleRoughingMaNHour] != null)
-                {   //根据本表单产品轧制方式从产品参数表中获取"单轧粗车工时"
-                    productTime = productObj[ProductParameter.SingleRoughingMaNHour] + string.Empty;
-                    //单轧粗车下屑
-                    totalxx = productObj[ProductParameter.SingleRollingRoughTurningChip] + string.Empty;
-                }
-                //产品参数表-双轧工时
-                if (zzMode == "双轧" && productObj[ProductParameter.DoubleRoughingManhour] != null)
-                {//根据本表单产品轧制方式从产品参数表中获取"双轧粗车工时"
-                    productTime = productObj[ProductParameter.DoubleRoughingManhour] + string.Empty;
-                    //双轧粗车下屑
-                    totalxx = productObj[ProductParameter.DoubleRollingRoughingChip] + string.Empty;
-                }
-            }
+            // if(productObj != null)
+            // {
+            //     //产品参数表-单轧工时
+            //     if(zzMode == "单轧" && productObj[ProductParameter.SingleRoughingMaNHour] != null)
+            //     {   //根据本表单产品轧制方式从产品参数表中获取"单轧粗车工时"
+            //         productTime = productObj[ProductParameter.SingleRoughingMaNHour] + string.Empty;
+            //         //单轧粗车下屑
+            //         totalxx = productObj[ProductParameter.SingleRollingRoughTurningChip] + string.Empty;
+            //     }
+            //     //产品参数表-双轧工时
+            //     if(zzMode == "双轧" && productObj[ProductParameter.DoubleRoughingManhour] != null)
+            //     {//根据本表单产品轧制方式从产品参数表中获取"双轧粗车工时"
+            //         productTime = productObj[ProductParameter.DoubleRoughingManhour] + string.Empty;
+            //         //双轧粗车下屑
+            //         totalxx = productObj[ProductParameter.DoubleRollingRoughingChip] + string.Empty;
+            //     }
+            // }
 
-            //机加工记录模块
-            H3.DataModel.BizObjectSchema recordSchema = this.Engine.BizObjectManager.GetPublishedSchema(MachiningTaskRecord.TableCode);
             //新建机加工记录数据对象
-            H3.DataModel.BizObject recordObj = new H3.DataModel.BizObject(this.Engine, recordSchema, H3.Organization.User.SystemUserId);
+            H3.DataModel.BizObject recordObj = Tools.BizOperation.New(this.Engine, MachiningTaskRecord.TableCode);
             recordObj.Status = H3.DataModel.BizObjectStatus.Effective; //设置为生效状态
-
             recordObj[MachiningTaskRecord.OperationName] = "粗车"; //工序
             recordObj[MachiningTaskRecord.TaskType] = thisObj[Roughing.CompleteThisAcquisition] + string.Empty == "已本取" ? "本取后粗车" : "正常粗车"; //任务类型
             recordObj[MachiningTaskRecord.ProductSpecification] = thisObj[Roughing.Specification] + string.Empty; //产品规格
@@ -810,17 +859,17 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
             recordObj[MachiningTaskRecord.DeviceName] = currentTask[RoughSubTable.EquipmentName] + string.Empty; //设备名称
             recordObj[MachiningTaskRecord.DeviceNumber] = currentTask[RoughSubTable.EquipmentNumber] + string.Empty; //设备编号
             recordObj[MachiningTaskRecord.DeviceType] = currentTask[RoughSubTable.EquipmentType] + string.Empty; //设备类型
-            recordObj[MachiningTaskRecord.DeviceCoefficient] = deviceParam; //设备工时系数
-            recordObj[MachiningTaskRecord.RollingMethod] = zzMode; //轧制方式
-            recordObj[MachiningTaskRecord.ProcessChipWeight] = totalxx; //工艺下屑量
+            recordObj[MachiningTaskRecord.DeviceCoefficient] = currentTask[RoughSubTable.EquipmentTimeCoefficient] + string.Empty; //设备工时系数
+            recordObj[MachiningTaskRecord.RollingMethod] = thisObj[Roughing.RollingMethod] + string.Empty; //轧制方式
+            recordObj[MachiningTaskRecord.ProcessChipWeight] = thisObj[Roughing.TheAmountOfScrap] + string.Empty; //工艺下屑量
             recordObj[MachiningTaskRecord.WorkLoad] = currentTask[RoughSubTable.ProcessingQuantity] + string.Empty; //任务加工量
             recordObj[MachiningTaskRecord.EndTime] = DateTime.Now; //加工结束时间
-            double pTime = productTime != string.Empty ? double.Parse(productTime) : 0; //本工序产品工时转换
-            double dParam = deviceParam != string.Empty ? double.Parse(deviceParam) : 0; //设备工时系数转换
-            double mScale = currentTask[RoughSubTable.ProcessingQuantity] + string.Empty != string.Empty ? double.Parse(currentTask[RoughSubTable.ProcessingQuantity] + string.Empty) : 0; //加工量转换
-            recordObj[MachiningTaskRecord.ProcessManHour] = pTime; ////本工序产品工时
-            recordObj[MachiningTaskRecord.UnitmanHour] = pTime * dParam; //单件拟定工时
-            recordObj[MachiningTaskRecord.TaskManHour] = pTime * dParam * mScale; //任务工时
+            // double pTime = productTime != string.Empty ? double.Parse(productTime) : 0; //本工序产品工时转换
+            // double dParam = deviceParam != string.Empty ? double.Parse(deviceParam) : 0; //设备工时系数转换
+            // double mScale = currentTask[RoughSubTable.ProcessingQuantity] + string.Empty != string.Empty ? double.Parse(currentTask[RoughSubTable.ProcessingQuantity] + string.Empty) : 0; //加工量转换
+            recordObj[MachiningTaskRecord.ProcessManHour] = thisObj[Roughing.ProductStandardWorkingHours] + string.Empty; ////本工序产品标准工时
+            recordObj[MachiningTaskRecord.UnitmanHour] = currentTask[RoughSubTable.TheProductWorkingHours] + string.Empty; //单件拟定工时
+            recordObj[MachiningTaskRecord.TaskManHour] = currentTask[RoughSubTable.PersonWorkingHours] + string.Empty; //任务工时
 
             if (productObj != null)
             {
@@ -861,7 +910,7 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
                 {
                     recordObj = null; //清空机加工任务记录数据值
                     //循环加载机加工任务记录数据
-                    recordObj = H3.DataModel.BizObject.Load(systemUserId, this.Engine, MachiningTaskRecord.TableCode, lstArray[i][RoughSubTable.ProcessingRecord] + string.Empty, false);
+                    recordObj = Tools.BizOperation.Load(this.Engine, MachiningTaskRecord.TableCode, lstArray[i][RoughSubTable.ProcessingRecord] + string.Empty);
                     if (recordObj != null)
                     {
                         recordObj[MachiningTaskRecord.InspectionResults] = i == taskNum ? thisObj[Roughing.InspectionResult] + string.Empty : "合格";  //检验结果
@@ -877,6 +926,122 @@ public class D001419Szzswrfsp91x3heen4dykgwus0 : H3.SmartForm.SmartFormControlle
                     }
                 }
             }
+        }
+    }
+
+    public void ActivePayroll(string schemaCode, H3.DataModel.BizObject[] bizObjects, string userId)
+    {
+        H3.IEngine Engine = this.Request.Engine;
+        if (activityCode == ActivityJY)
+        {
+            foreach (H3.DataModel.BizObject bizObject in bizObjects)
+            {
+                H3.DataModel.BizObject bizObj = H3.DataModel.BizObject.Load(userId, Engine, schemaCode, bizObject[RoughSubTable.ProcessingRecord] + string.Empty, false);
+
+                if (bizObj != null)
+                {
+                    Tools.WorkFlow.StartWorkflow(Engine, bizObj, userId, true);
+                }
+            }
+        }
+
+
+    }
+    //产品工时
+    public void TheProductWorkingHours(string actionName)
+    {
+        if (actionName == "Submit" && activityCode == ActivitySJ)
+        {
+
+            H3.DataModel.BizObject thisObj = this.Request.BizObject;
+            //设备工时系数表-子表
+            H3.DataModel.BizObject[] subObj = null;
+            //设备工时系数表
+            H3.DataModel.BizObject mtObj = null;
+            //总下屑量
+            string totalxx = "";
+            //本工序产品参数表工时
+            string productTime = "";
+            //轧制方式
+            string zzMode = thisObj[Roughing.RollingMethod] + string.Empty;
+            //车加工类别
+            string productType = thisObj[Roughing.ProductCategory] + string.Empty;
+
+            //设备工时系数
+            string deviceParam = string.Empty;
+            //获取子表数据
+            H3.DataModel.BizObject[] SubArray = me[RoughSubTable.TableCode] as H3.DataModel.BizObject[];
+            foreach (H3.DataModel.BizObject Array in SubArray)
+            {
+                //设备类型
+                string deviceType = Array[RoughSubTable.EquipmentType] + string.Empty;
+                //产品类别
+                if (productType != string.Empty)
+                {
+                    //获取设备工时系数模块
+                    string command = string.Format("Select {0} From i_{1} Where {2} = '粗车' and {3} = '{4}'",
+                        DeviceWorkingHour.ObjectId, DeviceWorkingHour.TableCode, DeviceWorkingHour.OperationName, DeviceWorkingHour.ProductMachiningCategory, productType);
+                    DataTable data = this.Engine.Query.QueryTable(command, null);
+                    if (data != null && data.Rows != null && data.Rows.Count > 0)
+                    {
+                        mtObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, DeviceWorkingHour.TableCode, data.Rows[0][DeviceWorkingHour.ObjectId] + string.Empty, true);
+                    }
+                }
+                //设备工时系数表-子表
+                subObj = mtObj != null ? mtObj[EquipmentTimeCoefficientSubtabulation.TableCode] as H3.DataModel.BizObject[] : null;
+
+                if (subObj != null)
+                {
+                    foreach (H3.DataModel.BizObject item in subObj)
+                    {
+                        if (deviceType != string.Empty)
+                        {        //按设备类型查找
+                            if (item[EquipmentTimeCoefficientSubtabulation.EquipmentType] + string.Empty == deviceType)
+                            {
+                                if (zzMode == "单轧" && item[EquipmentTimeCoefficientSubtabulation.SingleRollingManHourCoefficient] != null)
+                                {               //单轧工时系数
+                                    deviceParam = item[EquipmentTimeCoefficientSubtabulation.SingleRollingManHourCoefficient] + string.Empty;
+                                }
+                                else if (zzMode == "双轧" && item[EquipmentTimeCoefficientSubtabulation.DoubleRollingManHourCoefficient] != null)
+                                {               //双轧工时系数
+                                    deviceParam = item[EquipmentTimeCoefficientSubtabulation.DoubleRollingManHourCoefficient] + string.Empty;
+                                }
+                            }
+                        }
+                    }
+                }
+                //产品参数表
+                H3.DataModel.BizObject productObj = Tools.BizOperation.Load(this.Engine, ProductParameter.TableCode, thisObj[Roughing.ProductParameterTable] + string.Empty);
+
+                if (productObj != null)
+                {
+                    //产品参数表-单轧工时
+                    if (zzMode == "单轧" && productObj[ProductParameter.SingleRoughingMaNHour] != null)
+                    {   //根据本表单产品轧制方式从产品参数表中获取"单轧粗车工时"
+                        productTime = productObj[ProductParameter.SingleRoughingMaNHour] + string.Empty;
+                        //单轧粗车下屑
+                        totalxx = productObj[ProductParameter.SingleRollingRoughTurningChip] + string.Empty;
+                    }
+                    //产品参数表-双轧工时
+                    if (zzMode == "双轧" && productObj[ProductParameter.DoubleRoughingManhour] != null)
+                    {//根据本表单产品轧制方式从产品参数表中获取"双轧粗车工时"
+                        productTime = productObj[ProductParameter.DoubleRoughingManhour] + string.Empty;
+                        //双轧粗车下屑
+                        totalxx = productObj[ProductParameter.DoubleRollingRoughingChip] + string.Empty;
+                    }
+                }
+                double pTime = productTime != string.Empty ? double.Parse(productTime) : 0; //本工序产品参数表工时转换
+                double dParam = deviceParam != string.Empty ? double.Parse(deviceParam) : 0; //设备工时系数转换
+                //赋值-设备工时系数
+                Array[RoughSubTable.EquipmentTimeCoefficient] = dParam;
+                //赋值-产品标准工时
+                me[Roughing.ProductStandardWorkingHours] = pTime;
+                //赋值-产品工时
+                Array[RoughSubTable.TheProductWorkingHours] = pTime * dParam;
+                //赋值-下屑量
+                me[Roughing.TheAmountOfScrap] = totalxx;
+            }
+
         }
     }
 }

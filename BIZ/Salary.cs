@@ -9,7 +9,7 @@ public class Salary
 {
     H3.IEngine Engine;
     BizObject me = null;
-       
+
     string ID;
     string ProcessName;
 
@@ -17,13 +17,13 @@ public class Salary
     /// 填写任务绩效表
     /// </summary>
     /// <param name="Engine"></param>
-    /// <param name="ID"></param>
+    /// <param name="ID">产品ID</param>
     public Salary(H3.IEngine Engine, string ID)
     {
         this.Engine = Engine;
-        this.ID = ID;        
+        this.ID = ID;
     }
-    
+
     /// <summary>
     /// 根据加工任务记录表计算工资并保存
     /// </summary>
@@ -31,66 +31,74 @@ public class Salary
     /// <param name="isSpecTask">是否特殊工序</param>
     public void Save(string processName, bool isSpecTask = false)
     {
-        this.ProcessName = processName;
-        //this.TaskName = taskName;
-        DataRowCollection rows = null;
-        if (GetTaskSrc(processName, out rows)) { return; }
-        foreach (DataRow row in rows)
+        try
         {
-            DataRow scmJGJL = row;
-            var taskName = (string)scmJGJL[MachiningTaskRecord.TaskName];  //"任务名称"
-            var taskType = scmJGJL[MachiningTaskRecord.TaskType]; //"任务类别"
-
-            me = Create(processName, taskName);
-
-            me[TaskPerformance.OperationName] = processName; //"工序名称"
-            me[TaskPerformance.TaskName] = taskName;//"任务名称"
-            me[TaskPerformance.TaskCategory] = taskType;//"任务类别"
-
-            me[TaskPerformance.ID] = ID;//"ID"
-            me[TaskPerformance.OrderSpecificationNumber] = scmJGJL[MachiningTaskRecord.OrderSpecifications]; //"订单规格号"
-            me[TaskPerformance.PieceNumber] = scmJGJL[MachiningTaskRecord.WorkPieceNumber]; //"工件号"
-            me[TaskPerformance.InspectionResult] = scmJGJL[MachiningTaskRecord.InspectionResults]; //"检验结果"
-            me[TaskPerformance.Processor] = scmJGJL[MachiningTaskRecord.Processor];//加工人员
-            me[TaskPerformance.DepartmentName] = scmJGJL[MachiningTaskRecord.DepartmentName];//"部门名称"
-            me[TaskPerformance.EquipmentName] = scmJGJL[MachiningTaskRecord.DeviceName];//"设备名称"
-
-            var unitmanHour = Convert.ToDouble(scmJGJL[MachiningTaskRecord.UnitmanHour]); //单件拟定工时
-            var workLoad = Convert.ToDouble(scmJGJL[MachiningTaskRecord.WorkLoad]); //加工数量
-            var processChipWeight = Convert.ToDouble(scmJGJL[MachiningTaskRecord.ProcessChipWeight]); //工艺下屑重量
-            double processDifficulty = Convert.ToDouble(scmJGJL[MachiningTaskRecord.ProcessDifficulty]);//加工难度
-
-            me[TaskPerformance.PlannedManHoursForASinglePiece] = unitmanHour; //单件拟定工时
-            me[TaskPerformance.ProcessingQuantity] = workLoad;//加工数量
-            me[TaskPerformance.ProcessChipWeight] = processChipWeight; //"工艺下屑重量"
-
-            if (processName == "粗车")
+            this.ProcessName = processName;
+            DataRowCollection rows = null;
+            if (GetTaskSrc(processName, out rows)) { return; }
+            foreach (DataRow row in rows)
             {
-                UpdateSalaryCC(scmJGJL, unitmanHour, workLoad, processChipWeight, processDifficulty);
-            }
-            else if (processName == "四面光")
-            {
-                UpdateSalarySMG(scmJGJL, unitmanHour, workLoad, processChipWeight, processDifficulty);
-            }
-            else if (processName == "精车")
-            {
-                UpdateSalaryJC(scmJGJL, unitmanHour, workLoad, processChipWeight, processDifficulty);
-            }
-            else if (processName == "钻孔")
-            {
-                UpdateSalaryZK(scmJGJL, unitmanHour, workLoad, processChipWeight, processDifficulty);
-            }
+                DataRow scmJGJL = row;
+                var taskName = (string)scmJGJL[MachiningTaskRecord.TaskName];  //"任务名称"
+                var taskType = scmJGJL[MachiningTaskRecord.TaskType]; //"任务类别"
 
-            //me.Save();
-            if (me.State == H3.DataModel.BizObjectState.Unloaded)
-            {
-                me.Create();
-            }
-            else
-            {
-                me.Update();
-            }
+                me = Create(processName, taskName);
 
+                me[TaskPerformance.OperationName] = processName; //"工序名称"
+                me[TaskPerformance.TaskName] = taskName;//"任务名称"
+                me[TaskPerformance.TaskCategory] = taskType;//"任务类别"
+
+                me[TaskPerformance.ID] = ID;//"ID"
+                me[TaskPerformance.OrderSpecificationNumber] = scmJGJL[MachiningTaskRecord.OrderSpecifications]; //"订单规格号"
+                me[TaskPerformance.PieceNumber] = scmJGJL[MachiningTaskRecord.WorkPieceNumber]; //"工件号"
+                me[TaskPerformance.InspectionResult] = scmJGJL[MachiningTaskRecord.InspectionResults]; //"检验结果"
+                me[TaskPerformance.Processor] = scmJGJL[MachiningTaskRecord.Processor];//加工人员
+                me[TaskPerformance.DepartmentName] = scmJGJL[MachiningTaskRecord.DepartmentName];//"部门名称"
+                me[TaskPerformance.EquipmentName] = scmJGJL[MachiningTaskRecord.DeviceName];//"设备名称"
+
+                var unitmanHour = Convert.ToDouble(scmJGJL[MachiningTaskRecord.UnitmanHour]); //单件拟定工时
+                var workLoad = Convert.ToDouble(scmJGJL[MachiningTaskRecord.WorkLoad]); //加工数量
+                var processChipWeight = Convert.ToDouble(scmJGJL[MachiningTaskRecord.ProcessChipWeight]); //工艺下屑重量
+                scmJGJL[MachiningTaskRecord.ProcessDifficulty] = scmJGJL[MachiningTaskRecord.ProcessDifficulty] + string.Empty == string.Empty
+                    ? "1" : scmJGJL[MachiningTaskRecord.ProcessDifficulty] + string.Empty; //为加工难度赋予默认值 -- fubin
+                double processDifficulty = Convert.ToDouble(scmJGJL[MachiningTaskRecord.ProcessDifficulty]);//加工难度
+
+                me[TaskPerformance.PlannedManHoursForASinglePiece] = unitmanHour; //单件拟定工时
+                me[TaskPerformance.ProcessingQuantity] = workLoad;//加工数量
+                me[TaskPerformance.ProcessChipWeight] = processChipWeight; //"工艺下屑重量"
+
+                if (processName == "粗车")
+                {
+                    UpdateSalaryCC(scmJGJL, unitmanHour, workLoad, processChipWeight, processDifficulty);
+                }
+                else if (processName == "四面光")
+                {
+                    UpdateSalarySMG(scmJGJL, unitmanHour, workLoad, processChipWeight, processDifficulty);
+                }
+                else if (processName == "精车")
+                {
+                    UpdateSalaryJC(scmJGJL, unitmanHour, workLoad, processChipWeight, processDifficulty);
+                }
+                else if (processName == "钻孔")
+                {
+                    UpdateSalaryZK(scmJGJL, unitmanHour, workLoad, processChipWeight, processDifficulty);
+                }
+
+                //me.Save();
+                if (me.State == H3.DataModel.BizObjectState.Unloaded)
+                {
+                    me.Create();
+                }
+                else
+                {
+                    me.Update();
+                }
+
+            }
+        }
+        catch (Exception e)
+        {
+            Log(processName, ID, e.Message);
         }
     }
     /// <summary>
@@ -102,10 +110,6 @@ public class Salary
     private BizObject Create(string processName, string taskName)
     {
         this.ProcessName = processName;
-        //this.TaskName = taskName;
-        //var rowGZ = me.And("ID", "=", ID).And("工序名称", "=", processName).And("任务名称", "=", taskName).GetFirst(true);
-        //if (rowGZ == null) { me.GetNew(); }
-
         H3.Data.Filter.Filter f = new Filter();
         Tools.Filter.And(f, TaskPerformance.ID, H3.Data.ComparisonOperatorType.Equal, ID);
         Tools.Filter.And(f, TaskPerformance.OperationName, H3.Data.ComparisonOperatorType.Equal, processName);
@@ -126,17 +130,10 @@ public class Salary
     /// <returns>true:成功;false:失败</returns>
     private bool GetTaskSrc(string processName, out DataRowCollection rows)
     {
-        //scmJGJL = new Schema(this.Engine, "加工任务记录");
-        //rows = scmJGJL.ClearFilter()
-        //    .Or("检验结果", "=", "合格")
-        //    .Or("检验结果", "=", "利用")
-        //    .And("ID", "=", ID)
-        //    .And("工序名称", "=", processName)
-        //    .GetList();
         string w = MachiningTaskRecord.ID + "='" + ID + "' and " +
-                   MachiningTaskRecord.OperationName + "='" + processName + "' and (" +
-                   MachiningTaskRecord.InspectionResults + "='合格' or " +
-                   MachiningTaskRecord.InspectionResults + "='利用'" + ")";
+            MachiningTaskRecord.OperationName + "='" + processName + "' and (" +
+            MachiningTaskRecord.InspectionResults + "='合格' or " +
+            MachiningTaskRecord.InspectionResults + "='利用'" + ")";
         rows = GetRows(MachiningTaskRecord.TableCode, w);
         return (rows == null);
     }
@@ -167,9 +164,9 @@ public class Salary
 
         var TotalWorkload = 0;//"总工作量"
 
-        me[TaskPerformance.TotalManHours] = totalManHours; 
+        me[TaskPerformance.TotalManHours] = totalManHours;
         me[TaskPerformance.WorkPrice] = workPrice;
-        me[TaskPerformance.ManHoursSalary] = ManHoursSalary; 
+        me[TaskPerformance.ManHoursSalary] = ManHoursSalary;
         me[TaskPerformance.TotalScrap] = TotalScrap;
         me[TaskPerformance.TotalWorkload] = TotalWorkload;
         me[TaskPerformance.ToolReplenishmentAmount] = ToolReplenishmentAmount;
@@ -194,10 +191,6 @@ public class Salary
         var ManHoursSalary = TotalManHours * WorkPrice * processingDifficulty;
 
         var shareRate = 1.0;
-        //var smRow = scmJGJL.ClearFilter()
-        //    .And("ID", "=", ID)
-        //    .And("工序名称", "=", "四面光")
-        //    .GetFirst();
         string w = MachiningTaskRecord.ID + "='" + ID + "' and " + MachiningTaskRecord.OperationName + "='" + "四面光" + "'";
         var smRow = GetRow(MachiningTaskRecord.TableCode, w);
         if (smRow != null) { shareRate = 0.8; }
@@ -300,8 +293,17 @@ public class Salary
         DataTable dt = this.Engine.Query.QueryTable(sql, null);
         return dt.Rows;
     }
-
+    private void Log(string processName, string id, string message = "")
+    {
+        BizObject ar = Tools.BizOperation.New(this.Engine, AbnormalRecordOfPayrollCalculation.TableCode); //工资计算异常记录
+        ar[AbnormalRecordOfPayrollCalculation.OperationName] = processName;
+        ar[AbnormalRecordOfPayrollCalculation.ExceptionDescription] = message;
+        ar[AbnormalRecordOfPayrollCalculation.OrderSpecificationNumber] = id;
+        ar.Create();
+    }
 
 
 
 }
+
+

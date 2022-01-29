@@ -1,10 +1,11 @@
 ﻿namespace H3.Organization
 {
-    public class User
+    public class User : Unit
     {  
         public static string SystemUserId { get;  set; }
         public string  DepartmentName { get;  set; }
-     }
+        public string FullName { get; internal set; }
+    }
           
 
         public  class OrgRole

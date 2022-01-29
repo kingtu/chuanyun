@@ -1,6 +1,7 @@
 ﻿using H3;
 using H3.DataModel;
 using H3.Workflow;
+using H3.Workflow.Instance;
 using System;
 
 internal class LoadingConfig
@@ -16,6 +17,16 @@ internal class LoadingConfig
     }
 
     internal static BizObject GetPlanningData(IEngine engine, Workflow workflowInstance)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal static string GetProcessForm(IEngine engine, string priorityLevelFourSideLight)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal static BizObject GetPlanningData(IEngine engine, WorkflowInstance instances)
     {
         throw new NotImplementedException();
     }

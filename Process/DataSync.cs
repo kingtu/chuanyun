@@ -19,4 +19,9 @@ internal class DataSync
     {
         throw new NotImplementedException();
     }
+
+    internal void MPSyncData(IEngine engine)
+    {
+        throw new NotImplementedException();
+    }
 }

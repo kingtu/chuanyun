@@ -1,4 +1,348 @@
 ﻿/// <summary>
+/// 生产制造流程,质量处理焊修
+/// </summary>
+public class QualityTreatmentWeldingRepair
+{
+	public static readonly string TableCode = "D00141952a9b2b90603449d995cde88061d4008";
+	public QualityTreatmentWeldingRepair() { }
+	/// <summary>
+	/// 是/否精整
+	/// </summary>
+	public static readonly string IsFinishing = "F0000012";
+	/// <summary>
+	/// 探伤表
+	/// </summary>
+	public static readonly string FlawDetectionTable = "F0000004";
+	/// <summary>
+	/// ID
+	/// </summary>
+	public static readonly string ID = "F0000001";
+	/// <summary>
+	/// 产品规格
+	/// </summary>
+	public static readonly string ProductSpecification = "F0000011";
+	/// <summary>
+	/// 订单批次规格号
+	/// </summary>
+	public static readonly string OrderBatchSpecificationNumber = "F0000009";
+	/// <summary>
+	/// 修改时间
+	/// </summary>
+	public static readonly string ModificationTime = "ModifiedTime";
+	/// <summary>
+	/// 区域位置
+	/// </summary>
+	public static readonly string CurrentLocation = "F0000018";
+	/// <summary>
+	/// Status
+	/// </summary>
+	public static readonly string Status = "Status";
+	/// <summary>
+	/// 订单批次号
+	/// </summary>
+	public static readonly string OrderBatchNumber = "F0000006";
+	/// <summary>
+	/// 备注
+	/// </summary>
+	public static readonly string Remarks = "F0000013";
+	/// <summary>
+	/// 产品名称
+	/// </summary>
+	public static readonly string ProductName = "F0000010";
+	/// <summary>
+	/// 是/否打磨
+	/// </summary>
+	public static readonly string IsGrinding = "F0000014";
+	/// <summary>
+	/// 数据标题
+	/// </summary>
+	public static readonly string DataTitle = "Name";
+	/// <summary>
+	/// 当前工序
+	/// </summary>
+	public static readonly string CurrentOperation = "F0000002";
+	/// <summary>
+	/// 当前工步
+	/// </summary>
+	public static readonly string CurrentStep = "F0000016";
+	/// <summary>
+	/// 所属部门
+	/// </summary>
+	public static readonly string Department = "OwnerDeptId";
+	/// <summary>
+	/// 探伤认定
+	/// </summary>
+	public static readonly string FlawDetectionIdentification = "F0000015";
+	/// <summary>
+	/// 创建时间
+	/// </summary>
+	public static readonly string CreationTime = "CreatedTime";
+	/// <summary>
+	/// 拥有者
+	/// </summary>
+	public static readonly string Owner = "OwnerId";
+	/// <summary>
+	/// WorkflowInstanceId
+	/// </summary>
+	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
+	/// <summary>
+	/// 检验结果
+	/// </summary>
+	public static readonly string QualityInspectionConclusion = "F0000003";
+	/// <summary>
+	/// 创建人
+	/// </summary>
+	public static readonly string Creator = "CreatedBy";
+	/// <summary>
+	/// 订单规格号
+	/// </summary>
+	public static readonly string OrderSpecificationNumber = "F0000007";
+	/// <summary>
+	/// 车间位置
+	/// </summary>
+	public static readonly string CurrentWorkshop = "F0000017";
+	/// <summary>
+	/// 工件号
+	/// </summary>
+	public static readonly string WorkpieceNumber = "F0000008";
+	/// <summary>
+	/// 订单号
+	/// </summary>
+	public static readonly string OrderNumber = "F0000005";
+	/// <summary>
+	/// ModifiedBy
+	/// </summary>
+	public static readonly string Modifiedby = "ModifiedBy";
+	/// <summary>
+	/// ObjectId
+	/// </summary>
+	public static readonly string Objectid = "ObjectId";
+}
+/// <summary>
+/// 机加工绩效,工资计算异常记录
+/// </summary>
+public class AbnormalRecordOfPayrollCalculation
+{
+	public static readonly string TableCode = "D00141929f4bdeb2b694a26a50b7b7f50ffa3f5";
+	public AbnormalRecordOfPayrollCalculation() { }
+	/// <summary>
+	/// 工序名称
+	/// </summary>
+	public static readonly string OperationName = "F0000004";
+	/// <summary>
+	/// 异常描述
+	/// </summary>
+	public static readonly string ExceptionDescription = "F0000005";
+	/// <summary>
+	/// ObjectId
+	/// </summary>
+	public static readonly string Objectid = "ObjectId";
+	/// <summary>
+	/// ModifiedBy
+	/// </summary>
+	public static readonly string Modifiedby = "ModifiedBy";
+	/// <summary>
+	/// 拥有者
+	/// </summary>
+	public static readonly string Owner = "OwnerId";
+	/// <summary>
+	/// Status
+	/// </summary>
+	public static readonly string Status = "Status";
+	/// <summary>
+	/// 创建人
+	/// </summary>
+	public static readonly string Creator = "CreatedBy";
+	/// <summary>
+	/// WorkflowInstanceId
+	/// </summary>
+	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
+	/// <summary>
+	/// 修改时间
+	/// </summary>
+	public static readonly string ModificationTime = "ModifiedTime";
+	/// <summary>
+	/// 所属部门
+	/// </summary>
+	public static readonly string Department = "OwnerDeptId";
+	/// <summary>
+	/// 数据标题
+	/// </summary>
+	public static readonly string DataTitle = "Name";
+	/// <summary>
+	/// 日期
+	/// </summary>
+	public static readonly string Date = "F0000001";
+	/// <summary>
+	/// 创建时间
+	/// </summary>
+	public static readonly string CreationTime = "CreatedTime";
+	/// <summary>
+	/// 订单规格号
+	/// </summary>
+	public static readonly string OrderSpecificationNumber = "F0000003";
+	/// <summary>
+	/// 订单号
+	/// </summary>
+	public static readonly string OrderNumber = "F0000002";
+}
+/// <summary>
+/// 制造流程,锯切子表
+/// </summary>
+public class SawCutSubTable
+{
+	public static readonly string TableCode = "D001419Fff99042207274f8da1c422c807b2e7f0";
+	public SawCutSubTable() { }
+	/// <summary>
+	/// 加工量
+	/// </summary>
+	public static readonly string ProcessingQuantity = "F0000088";
+	/// <summary>
+	/// 设备选择
+	/// </summary>
+	public static readonly string EquipmentSelection = "F0000087";
+	/// <summary>
+	/// 结束时间
+	/// </summary>
+	public static readonly string EndTime = "F0000094";
+	/// <summary>
+	/// 设备类型
+	/// </summary>
+	public static readonly string EquipmentType = "F0000091";
+	/// <summary>
+	/// 设备名称
+	/// </summary>
+	public static readonly string EquipmentName = "F0000089";
+	/// <summary>
+	/// 开始时间
+	/// </summary>
+	public static readonly string StartTime = "F0000093";
+	/// <summary>
+	/// 数据标题
+	/// </summary>
+	public static readonly string DataTitle = "Name";
+	/// <summary>
+	/// 设备编号
+	/// </summary>
+	public static readonly string EquipmentNumber = "F0000090";
+	/// <summary>
+	/// ObjectId
+	/// </summary>
+	public static readonly string Objectid = "ObjectId";
+	/// <summary>
+	/// 加工者
+	/// </summary>
+	public static readonly string Processor = "F0000092";
+	/// <summary>
+	/// ParentObjectId
+	/// </summary>
+	public static readonly string Parentobjectid = "ParentObjectId";
+}
+/// <summary>
+/// 生产计划,锯切派工子表
+/// </summary>
+public class DispatchSawCutSubTable
+{
+	public static readonly string TableCode = "D001419c87d435bbb0e41b581239eaec26fd6bb";
+	public DispatchSawCutSubTable() { }
+	/// <summary>
+	/// 设备编号
+	/// </summary>
+	public static readonly string EquipmentNumber = "F0000008";
+	/// <summary>
+	/// 工时
+	/// </summary>
+	public static readonly string ManHour = "F0000023";
+	/// <summary>
+	/// 设备类型
+	/// </summary>
+	public static readonly string EquipmentType = "F0000045";
+	/// <summary>
+	/// 数据标题
+	/// </summary>
+	public static readonly string DataTitle = "Name";
+	/// <summary>
+	/// ObjectId
+	/// </summary>
+	public static readonly string Objectid = "ObjectId";
+	/// <summary>
+	/// ParentObjectId
+	/// </summary>
+	public static readonly string Parentobjectid = "ParentObjectId";
+	/// <summary>
+	/// 姓名
+	/// </summary>
+	public static readonly string Name = "F0000036";
+	/// <summary>
+	/// 设备名称
+	/// </summary>
+	public static readonly string EquipmentName = "F0000049";
+	/// <summary>
+	/// 加工量
+	/// </summary>
+	public static readonly string ProcessingQuantity = "F0000019";
+}
+/// <summary>
+/// 生产外协管理,外协合同-产品列表
+/// </summary>
+public class ProductList
+{
+	public static readonly string TableCode = "D001419Faebf741cae044316a15f4db3db5ebc18";
+	public ProductList() { }
+	/// <summary>
+	/// 数据标题
+	/// </summary>
+	public static readonly string DataTitle = "Name";
+	/// <summary>
+	/// 产品ID
+	/// </summary>
+	public static readonly string ProductID = "F0000010";
+	/// <summary>
+	/// 下料单重
+	/// </summary>
+	public static readonly string BlankingOrderWeight = "F0000014";
+	/// <summary>
+	/// 图号_规格
+	/// </summary>
+	public static readonly string DrawingNoSpecification = "F0000013";
+	/// <summary>
+	/// 产品名称
+	/// </summary>
+	public static readonly string ProductName = "F0000012";
+	/// <summary>
+	/// 交货状态
+	/// </summary>
+	public static readonly string DeliveryStatus = "F0000015";
+	/// <summary>
+	/// ObjectId
+	/// </summary>
+	public static readonly string Objectid = "ObjectId";
+	/// <summary>
+	/// ABCD工序计划表
+	/// </summary>
+	public static readonly string ABCDOperationPlan = "F0000009";
+	/// <summary>
+	/// ParentObjectId
+	/// </summary>
+	public static readonly string Parentobjectid = "ParentObjectId";
+	/// <summary>
+	/// 外协工序
+	/// </summary>
+	public static readonly string OutsourcingOperation = "F0000018";
+	/// <summary>
+	/// 单价
+	/// </summary>
+	public static readonly string UnitPrice = "F0000016";
+	/// <summary>
+	/// 设备名称
+	/// </summary>
+	public static readonly string EquipmentName = "F0000011";
+	/// <summary>
+	/// 外协流程表
+	/// </summary>
+	public static readonly string OutsourcingFlowTable = "F0000017";
+}
+/// <summary>
 /// 生产计划,粗车四面光派工子表
 /// </summary>
 public class DispatchRoughFourLatheSubTable
@@ -249,10 +593,6 @@ public class DispatchSamplingSubTable
 	/// 设备类型
 	/// </summary>
 	public static readonly string EquipmentType = "F0000045";
-	/// <summary>
-	/// 特殊任务
-	/// </summary>
-	public static readonly string SpecialTask = "F0000069";
 	/// <summary>
 	/// 姓名
 	/// </summary>
@@ -758,6 +1098,14 @@ public class RealTimeDynamicProduction
 	/// </summary>
 	public static readonly string DataTitle = "Name";
 	/// <summary>
+	/// 区域
+	/// </summary>
+	public static readonly string Area = "F0000074";
+	/// <summary>
+	/// 车间
+	/// </summary>
+	public static readonly string Workshop = "F0000073";
+	/// <summary>
 	/// 修改时间
 	/// </summary>
 	public static readonly string ModificationTime = "ModifiedTime";
@@ -918,6 +1266,14 @@ public class RealTimeDynamicProduction
 	/// </summary>
 	public static readonly string CreationTime = "CreatedTime";
 	/// <summary>
+	/// 工艺流程表
+	/// </summary>
+	public static readonly string ProcessFlowTable = "F0000075";
+	/// <summary>
+	/// 当前工序表SchemaCode
+	/// </summary>
+	public static readonly string CurrentPreviousOperationTableSchemacode = "F0000071";
+	/// <summary>
 	/// ModifiedBy
 	/// </summary>
 	public static readonly string Modifiedby = "ModifiedBy";
@@ -925,6 +1281,10 @@ public class RealTimeDynamicProduction
 	/// 粗车-延期天数
 	/// </summary>
 	public static readonly string RoughTurningDelayDays = "F0000046";
+	/// <summary>
+	/// 工序表数据ID
+	/// </summary>
+	public static readonly string OperationTableDataID = "F0000070";
 	/// <summary>
 	/// 热加工-准时完工
 	/// </summary>
@@ -945,6 +1305,10 @@ public class RealTimeDynamicProduction
 	/// 成品需求期
 	/// </summary>
 	public static readonly string FinishedProductDemandPeriod = "F0000027";
+	/// <summary>
+	/// 厂区
+	/// </summary>
+	public static readonly string PlantArea = "F0000072";
 	/// <summary>
 	/// 生产完成日期
 	/// </summary>
@@ -1158,13 +1522,25 @@ public class RoughSubTable
 	/// </summary>
 	public static readonly string EquipmentNumber = "F0000159";
 	/// <summary>
+	/// 设备工时系数
+	/// </summary>
+	public static readonly string EquipmentTimeCoefficient = "F0000199";
+	/// <summary>
 	/// 任务名称
 	/// </summary>
 	public static readonly string TaskName = "F0000166";
 	/// <summary>
+	/// 产品工时
+	/// </summary>
+	public static readonly string TheProductWorkingHours = "F0000196";
+	/// <summary>
 	/// 数据标题
 	/// </summary>
 	public static readonly string DataTitle = "Name";
+	/// <summary>
+	/// 个人工时
+	/// </summary>
+	public static readonly string PersonWorkingHours = "F0000197";
 	/// <summary>
 	/// 加工记录
 	/// </summary>
@@ -1214,6 +1590,10 @@ public class FinishSubTable
 	public static readonly string TableCode = "D001419Fd25eb8064b424ed9855ced1923841f1c";
 	public FinishSubTable() { }
 	/// <summary>
+	/// 设备工时系数
+	/// </summary>
+	public static readonly string EquipmentTimeCoefficient = "F0000187";
+	/// <summary>
 	/// 任务名称
 	/// </summary>
 	public static readonly string TaskName = "F0000141";
@@ -1225,6 +1605,10 @@ public class FinishSubTable
 	/// 是否探伤
 	/// </summary>
 	public static readonly string FlawDetectionOrNot = "F0000169";
+	/// <summary>
+	/// 产品工时
+	/// </summary>
+	public static readonly string TheProductWorkingHours = "F0000183";
 	/// <summary>
 	/// 加工者
 	/// </summary>
@@ -1241,6 +1625,10 @@ public class FinishSubTable
 	/// 开始时间
 	/// </summary>
 	public static readonly string StartTime = "F0000142";
+	/// <summary>
+	/// 个人工时
+	/// </summary>
+	public static readonly string PersonWorkingHours = "F0000184";
 	/// <summary>
 	/// 设备编号
 	/// </summary>
@@ -1282,6 +1670,10 @@ public class DrillSubTable
 	/// </summary>
 	public static readonly string DifficultyOfApplyingForAdjustment = "F0000168";
 	/// <summary>
+	/// 产品工时
+	/// </summary>
+	public static readonly string TheProductWorkingHours = "F0000177";
+	/// <summary>
 	/// 开始时间
 	/// </summary>
 	public static readonly string StartTime = "F0000142";
@@ -1297,6 +1689,10 @@ public class DrillSubTable
 	/// 任务名称
 	/// </summary>
 	public static readonly string TaskName = "F0000141";
+	/// <summary>
+	/// 个人工时
+	/// </summary>
+	public static readonly string PersonWorkingHours = "F0000178";
 	/// <summary>
 	/// 数据标题
 	/// </summary>
@@ -1329,6 +1725,10 @@ public class DrillSubTable
 	/// 设备名称
 	/// </summary>
 	public static readonly string EquipmentName = "F0000137";
+	/// <summary>
+	/// 设备工时系数
+	/// </summary>
+	public static readonly string EquipmentTimeCoefficient = "F0000181";
 }
 /// <summary>
 /// 生产制造流程,设备工时系数表子表
@@ -1352,7 +1752,7 @@ public class EquipmentTimeCoefficientSubtabulation
 	/// <summary>
 	/// 外径下限
 	/// </summary>
-	public static readonly string LowerOuterDiameterLimit = "F0000005";
+	public static readonly string LowerOuterDiameterLimit = "F0000013";
 	/// <summary>
 	/// ObjectId
 	/// </summary>
@@ -1368,7 +1768,7 @@ public class EquipmentTimeCoefficientSubtabulation
 	/// <summary>
 	/// 外径上限
 	/// </summary>
-	public static readonly string UpperOuterDiameterLimit = "F0000006";
+	public static readonly string UpperOuterDiameterLimit = "F0000012";
 	/// <summary>
 	/// 设备类型
 	/// </summary>
@@ -1622,6 +2022,10 @@ public class ProcessConfig
 	public static readonly string TableCode = "D0014194755c7eecbe9410c84cf6640d9cb147b";
 	public ProcessConfig() { }
 	/// <summary>
+	/// 优先层级（回火）
+	/// </summary>
+	public static readonly string PriorityLevelTempering = "F0000008";
+	/// <summary>
 	/// Status
 	/// </summary>
 	public static readonly string Status = "Status";
@@ -1641,6 +2045,10 @@ public class ProcessConfig
 	/// 工艺管理员
 	/// </summary>
 	public static readonly string ProcessAdministrator = "F0000004";
+	/// <summary>
+	/// 全局四面光配置
+	/// </summary>
+	public static readonly string GlobalFourSideLightConfiguration = "F0000011";
 	/// <summary>
 	/// 拥有者
 	/// </summary>
@@ -1677,6 +2085,14 @@ public class ProcessConfig
 	/// 所属部门
 	/// </summary>
 	public static readonly string Department = "OwnerDeptId";
+	/// <summary>
+	/// 全局回火配置
+	/// </summary>
+	public static readonly string GlobalTemperingConfiguration = "F0000009";
+	/// <summary>
+	/// 优先层级（四面光）
+	/// </summary>
+	public static readonly string PriorityLevelFourSideLight = "F0000010";
 	/// <summary>
 	/// ObjectId
 	/// </summary>
@@ -2562,7 +2978,7 @@ public class OrderSpecification
 	/// </summary>
 	public static readonly string SheetThickness = "F0000108";
 	/// <summary>
-	/// 粗车是否四面光
+	/// 规格四面光配置
 	/// </summary>
 	public static readonly string WhetherRoughTurningIsSmoothOnAllSides = "F0000136";
 	/// <summary>
@@ -2725,6 +3141,10 @@ public class OrderSpecification
 	/// 孔数
 	/// </summary>
 	public static readonly string NumberOfHoles = "F0000109";
+	/// <summary>
+	/// 全局四面光配置
+	/// </summary>
+	public static readonly string GlobalFourSideLightConfiguration = "F0000137";
 	/// <summary>
 	/// 合同数
 	/// </summary>
@@ -3230,7 +3650,7 @@ public class FinishedStore
 	/// </summary>
 	public static readonly string CreationTime = "CreatedTime";
 	/// <summary>
-	/// 产品位置
+	/// 区域位置
 	/// </summary>
 	public static readonly string ProductLocation = "F0000020";
 	/// <summary>
@@ -3245,6 +3665,10 @@ public class FinishedStore
 	/// ObjectId
 	/// </summary>
 	public static readonly string Objectid = "ObjectId";
+	/// <summary>
+	/// 厂区位置
+	/// </summary>
+	public static readonly string FactoryLocation = "F0000024";
 	/// <summary>
 	/// 订单规格号
 	/// </summary>
@@ -3462,11 +3886,19 @@ public class ABCDProcessPlan
 	/// </summary>
 	public static readonly string OutsourcingContractTableForgingPressing = "F0000065";
 	/// <summary>
+	/// 单件四面光配置
+	/// </summary>
+	public static readonly string SinglePieceFourSideLightConfiguration = "F0000224";
+	/// <summary>
+	/// 全局回火配置
+	/// </summary>
+	public static readonly string GlobalTemperingConfiguration = "F0000215";
+	/// <summary>
 	/// 炉次计划
 	/// </summary>
 	public static readonly string HeatCountPlan = "F0000138";
 	/// <summary>
-	/// 热处理炉号
+	/// 计划热处理炉号
 	/// </summary>
 	public static readonly string HeatTreatmentFurnaceNumber = "F0000140";
 	/// <summary>
@@ -3478,6 +3910,10 @@ public class ABCDProcessPlan
 	/// </summary>
 	public static readonly string ProcessingUnitForging = "F0000062";
 	/// <summary>
+	/// 全局四面光配置
+	/// </summary>
+	public static readonly string GlobalFourSideLightConfiguration = "F0000222";
+	/// <summary>
 	/// 精车
 	/// </summary>
 	public static readonly string FinishTurning = "D001419e351edfd0ae44d3e960e3f1c14991f82";
@@ -3486,9 +3922,17 @@ public class ABCDProcessPlan
 	/// </summary>
 	public static readonly string GlobalInspectionBeforeFurnaceLoading = "F0000191";
 	/// <summary>
-	/// 热加工计划
+	/// 热加工完成时间
 	/// </summary>
 	public static readonly string HotProcessingPlan = "F0000023";
+	/// <summary>
+	/// 双扎关联表单
+	/// </summary>
+	public static readonly string DoubleTieAssociatedForm = "F0000226";
+	/// <summary>
+	/// 实际炉次编号
+	/// </summary>
+	public static readonly string ActualNumberOfFurnace = "F0000217";
 	/// <summary>
 	/// 外协合同表-热处理
 	/// </summary>
@@ -3497,6 +3941,14 @@ public class ABCDProcessPlan
 	/// 全部利用
 	/// </summary>
 	public static readonly string AllUtilization = "Finish";
+	/// <summary>
+	/// 数量-切割前
+	/// </summary>
+	public static readonly string QuantityBeforeCutting = "F0000228";
+	/// <summary>
+	/// 精车班组
+	/// </summary>
+	public static readonly string FinishTeam = "FinishTeam";
 	/// <summary>
 	/// 单件装炉前检验
 	/// </summary>
@@ -3509,6 +3961,10 @@ public class ABCDProcessPlan
 	/// 工艺配置表
 	/// </summary>
 	public static readonly string ProcessConfigurationTable = "F0000158";
+	/// <summary>
+	/// 原材料编号
+	/// </summary>
+	public static readonly string RawMaterialNumber = "F0000221";
 	/// <summary>
 	/// 单件忽略理化结果
 	/// </summary>
@@ -3533,6 +3989,14 @@ public class ABCDProcessPlan
 	/// 计划本取
 	/// </summary>
 	public static readonly string PlanThisOptionTakes = "F0000141";
+	/// <summary>
+	/// 双扎工件号
+	/// </summary>
+	public static readonly string DoubleTieWorkpieceNumber = "F0000227";
+	/// <summary>
+	/// 粗车班组
+	/// </summary>
+	public static readonly string RoughTeam = "RoughTeam";
 	/// <summary>
 	/// 加工单位-粗车
 	/// </summary>
@@ -3594,6 +4058,10 @@ public class ABCDProcessPlan
 	/// </summary>
 	public static readonly string MutualInspectionBeforeSinglePieceMachineOperation = "F0000175";
 	/// <summary>
+	/// 实际热处理炉号
+	/// </summary>
+	public static readonly string ActualHeatTreatmentFurnaceNumber = "F0000218";
+	/// <summary>
 	/// 订单规格号
 	/// </summary>
 	public static readonly string OrderSpecificationNumber = "F0000004";
@@ -3618,9 +4086,17 @@ public class ABCDProcessPlan
 	/// </summary>
 	public static readonly string LocationOfFinishTurningTransferWorkshop = "F0000196";
 	/// <summary>
+	/// 规格四面光配置
+	/// </summary>
+	public static readonly string SpecificationsFourSideLightConfiguration = "F0000223";
+	/// <summary>
 	/// 加工单位-热处理
 	/// </summary>
 	public static readonly string ProcessingUnitHeatTreatment = "F0000070";
+	/// <summary>
+	/// 单件回火配置
+	/// </summary>
+	public static readonly string SinglePieceTemperingConfiguration = "F0000216";
 	/// <summary>
 	/// 产品名称
 	/// </summary>
@@ -3629,6 +4105,14 @@ public class ABCDProcessPlan
 	/// 数据标题
 	/// </summary>
 	public static readonly string DataTitle = "Name";
+	/// <summary>
+	/// 原料库
+	/// </summary>
+	public static readonly string RawMaterialStorage = "F0000219";
+	/// <summary>
+	/// 锯切班组
+	/// </summary>
+	public static readonly string SawcutTeam = "SawcutTeam";
 	/// <summary>
 	/// 计划炉次编号
 	/// </summary>
@@ -3653,10 +4137,6 @@ public class ABCDProcessPlan
 	/// 订单批次规格表
 	/// </summary>
 	public static readonly string OrderBatchSpecificationTable = "F0000017";
-	/// <summary>
-	/// 原材料编号
-	/// </summary>
-	public static readonly string RawMaterialNumber = "F0000192";
 	/// <summary>
 	/// 全局忽略理化结果
 	/// </summary>
@@ -3714,7 +4194,7 @@ public class ABCDProcessPlan
 	/// </summary>
 	public static readonly string RegenerationProcess = "F0000142";
 	/// <summary>
-	/// 冷加工计划
+	/// 冷加工完成时间
 	/// </summary>
 	public static readonly string ColdProcessingPlan = "F0000024";
 	/// <summary>
@@ -3726,7 +4206,7 @@ public class ABCDProcessPlan
 	/// </summary>
 	public static readonly string GlobalFinishingConfiguration = "F0000160";
 	/// <summary>
-	/// 取样转运车间名称
+	/// 订单是否要求回火
 	/// </summary>
 	public static readonly string NameOfSamplingTransferWorkshop = "F0000213";
 	/// <summary>
@@ -3745,6 +4225,10 @@ public class ABCDProcessPlan
 	/// 钻孔计划完成时间
 	/// </summary>
 	public static readonly string DrillingPlannedCompletionTime = "F0000102";
+	/// <summary>
+	/// 是否制样
+	/// </summary>
+	public static readonly string YesOrNoopenSamplePreparationProcess = "F0000225";
 	/// <summary>
 	/// 加工单位-辗环
 	/// </summary>
@@ -3790,6 +4274,14 @@ public class ABCDProcessPlan
 	/// </summary>
 	public static readonly string ProcessingUnitBlank = "F0000074";
 	/// <summary>
+	/// 原材料类型
+	/// </summary>
+	public static readonly string RawMaterialType = "F0000220";
+	/// <summary>
+	/// 钻孔班组
+	/// </summary>
+	public static readonly string DrillTeam = "DrillTeam";
+	/// <summary>
 	/// 钻孔转运车间位置
 	/// </summary>
 	public static readonly string LocationOfDrillingTransferWorkshop = "F0000198";
@@ -3809,6 +4301,10 @@ public class SamplingFourLathe
 {
 	public static readonly string TableCode = "D001419a955856dedeb4b27b86c6424f525bbeb";
 	public SamplingFourLathe() { }
+	/// <summary>
+	/// 工时
+	/// </summary>
+	public static readonly string WorkingHours = "F0000192";
 	/// <summary>
 	/// 加工量
 	/// </summary>
@@ -3922,6 +4418,14 @@ public class RoughFourLathe
 	/// </summary>
 	public static readonly string DeviceSelect = "F0000163";
 	/// <summary>
+	/// 设备工时系数
+	/// </summary>
+	public static readonly string EquipmentTimeCoefficient = "F0000201";
+	/// <summary>
+	/// 工时
+	/// </summary>
+	public static readonly string WorkingHours = "F0000195";
+	/// <summary>
 	/// 加工量
 	/// </summary>
 	public static readonly string WorkLoad = "F0000162";
@@ -3982,6 +4486,10 @@ public class SamplingSubProcess
 	/// </summary>
 	public static readonly string WhetherToAdjustToOtherProcesses = "F0000066";
 	/// <summary>
+	/// 计划工时
+	/// </summary>
+	public static readonly string 计划工时 = "PlanMonHour";
+	/// <summary>
 	/// Status
 	/// </summary>
 	public static readonly string Status = "Status";
@@ -3992,7 +4500,7 @@ public class SamplingSubProcess
 	/// <summary>
 	/// 本工序需求期
 	/// </summary>
-	public static readonly string DemandPeriodOfThisProcess = "F0000073";
+	public static readonly string DemandPeriodOfThisOperation = "F0000073";
 	/// <summary>
 	/// 理化结果不合格
 	/// </summary>
@@ -4070,10 +4578,6 @@ public class SamplingSubProcess
 	/// </summary>
 	public static readonly string OrderSpecificationTable = "F0000102";
 	/// <summary>
-	/// 是否探伤
-	/// </summary>
-	public static readonly string FlawDetection = "F0000123";
-	/// <summary>
 	/// 确认热处理炉号
 	/// </summary>
 	public static readonly string ConfirmationHeatTreatmentFurnaceno = "F0000076";
@@ -4089,6 +4593,14 @@ public class SamplingSubProcess
 	/// 发起异常
 	/// </summary>
 	public static readonly string InitiateException = "F0000060";
+	/// <summary>
+	/// 计划加工量
+	/// </summary>
+	public static readonly string 计划加工量 = "PlanWorkLoad";
+	/// <summary>
+	/// 审批人
+	/// </summary>
+	public static readonly string Approver = "Approver";
 	/// <summary>
 	/// 产品名称
 	/// </summary>
@@ -4138,6 +4650,10 @@ public class SamplingSubProcess
 	/// </summary>
 	public static readonly string ExceptionCategory = "F0000070";
 	/// <summary>
+	/// 派工计划
+	/// </summary>
+	public static readonly string DispatchingPlan = "DispatchPlan";
+	/// <summary>
 	/// 单重
 	/// </summary>
 	public static readonly string UnitWeight = "F0000045";
@@ -4149,6 +4665,10 @@ public class SamplingSubProcess
 	/// 完成本取
 	/// </summary>
 	public static readonly string CompletionCost = "F0000106";
+	/// <summary>
+	/// 工序计划表
+	/// </summary>
+	public static readonly string OperationSchedule = "F0000190";
 	/// <summary>
 	/// 完成总量
 	/// </summary>
@@ -4174,19 +4694,23 @@ public class SamplingSubProcess
 	/// </summary>
 	public static readonly string ProductParameterTable = "F0000103";
 	/// <summary>
-	/// 所有者
-	/// </summary>
-	public static readonly string Possessor = "F0000126";
-	/// <summary>
 	/// 重处理类型
 	/// </summary>
 	public static readonly string ReprocessingType = "F0000140";
+	/// <summary>
+	/// 取样需求期
+	/// </summary>
+	public static readonly string SamplingDemandPeriod = "F0000191";
 	/// <summary>
 	/// 理化结果
 	/// </summary>
 	public static readonly string PhysicalAndChemicalResults = "F0000122";
 	/// <summary>
-	/// 当前车间
+	/// 厂区位置
+	/// </summary>
+	public static readonly string FactoryLocation = "F0000189";
+	/// <summary>
+	/// 车间位置
 	/// </summary>
 	public static readonly string CurrentWorkshop = "F0000067";
 	/// <summary>
@@ -4198,7 +4722,7 @@ public class SamplingSubProcess
 	/// </summary>
 	public static readonly string InspectionResults = "F0000041";
 	/// <summary>
-	/// 当前位置
+	/// 区域位置
 	/// </summary>
 	public static readonly string CurrentLocation = "F0000068";
 	/// <summary>
@@ -4209,6 +4733,10 @@ public class SamplingSubProcess
 	/// 试样类型
 	/// </summary>
 	public static readonly string SampleType = "F0000119";
+	/// <summary>
+	/// 计划设备
+	/// </summary>
+	public static readonly string 计划设备 = "PlanDevices";
 	/// <summary>
 	/// WorkflowInstanceId
 	/// </summary>
@@ -4273,6 +4801,10 @@ public class Dispatchs
 	/// 取样四面光不限制派工顺序
 	/// </summary>
 	public static readonly string SamplingTetrahedralLightUnlimitedDispatchSequence = "F0000074";
+	/// <summary>
+	/// 锯切
+	/// </summary>
+	public static readonly string Sawing = "D001419c87d435bbb0e41b581239eaec26fd6bb";
 	/// <summary>
 	/// 钻孔车间位置
 	/// </summary>
@@ -4382,9 +4914,17 @@ public class Dispatchs
 	/// </summary>
 	public static readonly string Objectid = "ObjectId";
 	/// <summary>
+	/// 派工选项
+	/// </summary>
+	public static readonly string DispatchingOptions = "F0000053";
+	/// <summary>
 	/// 钻孔
 	/// </summary>
 	public static readonly string Drilling = "D001419F5ccfa7d5acad41bf98c640057f2570ae";
+	/// <summary>
+	/// 锯切不限制派工顺序
+	/// </summary>
+	public static readonly string SawingDoesNotLimitTheOrderOfDispatch = "F0000054";
 	/// <summary>
 	/// 取样计划完成时间
 	/// </summary>
@@ -4401,154 +4941,6 @@ public class Dispatchs
 	/// 钻孔计划完成时间
 	/// </summary>
 	public static readonly string DrillingPlanCompletionTime = "F0000006";
-}
-/// <summary>
-/// 生产制造流程,返修
-/// </summary>
-public class Repair
-{
-	public static readonly string TableCode = "D001419Sz2y3t1gjtgld76g5dcl3edj24";
-	public Repair() { }
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// 转至工序
-	/// </summary>
-	public static readonly string TransferToProcess = "F0000006";
-	/// <summary>
-	/// 拥有者
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// 数据代码
-	/// </summary>
-	public static readonly string DataCode = "F0000024";
-	/// <summary>
-	/// 产品规格
-	/// </summary>
-	public static readonly string ProductSpecification = "F0000003";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// 工人
-	/// </summary>
-	public static readonly string Worker = "F0000017";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// 转至工步
-	/// </summary>
-	public static readonly string TransferToWorkStep = "F0000031";
-	/// <summary>
-	/// 订单批次规格号
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000020";
-	/// <summary>
-	/// 工序来源
-	/// </summary>
-	public static readonly string OperationSource = "F0000035";
-	/// <summary>
-	/// 车间位置
-	/// </summary>
-	public static readonly string WorkshopLocation = "F0000022";
-	/// <summary>
-	/// 数据标题
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// 所属部门
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// 订单批次号
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000014";
-	/// <summary>
-	/// 产品位置
-	/// </summary>
-	public static readonly string ProductLocation = "F0000023";
-	/// <summary>
-	/// 理化结果
-	/// </summary>
-	public static readonly string PhysicalAndChemicalResults = "F0000032";
-	/// <summary>
-	/// 炉次编号
-	/// </summary>
-	public static readonly string HeatNumber = "F0000027";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// 炉次计划
-	/// </summary>
-	public static readonly string HeatPlan = "F0000026";
-	/// <summary>
-	/// 修改时间
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// 订单规格号
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000016";
-	/// <summary>
-	/// 检验后处理
-	/// </summary>
-	public static readonly string PostInspectionProcessing = "F0000034";
-	/// <summary>
-	/// 创建人
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// 热处理炉号
-	/// </summary>
-	public static readonly string HeatTreatmentFurnaceNumber = "F0000028";
-	/// <summary>
-	/// 质检结论
-	/// </summary>
-	public static readonly string QualityInspectionConclusion = "F0000036";
-	/// <summary>
-	/// 创建时间
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// 产品名称
-	/// </summary>
-	public static readonly string ProductName = "F0000002";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000021";
-	/// <summary>
-	/// 子表
-	/// </summary>
-	public static readonly string SubTable = "D001419F24790e6009c14d8a9b7e1473ad7d8db7";
-	/// <summary>
-	/// 工件号
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000001";
-	/// <summary>
-	/// 订单号
-	/// </summary>
-	public static readonly string OrderNumber = "F0000012";
-	/// <summary>
-	/// 使用设备
-	/// </summary>
-	public static readonly string EquipmentUsed = "F0000009";
-	/// <summary>
-	/// 返修类型
-	/// </summary>
-	public static readonly string RepairType = "F0000025";
-	/// <summary>
-	/// 检验结果
-	/// </summary>
-	public static readonly string InspectionResults = "F0000033";
 }
 /// <summary>
 /// 生产计划,车间区域责任划分
@@ -5282,6 +5674,10 @@ public class ProcessFlow
 	/// </summary>
 	public static readonly string DeterminedRollingMethod = "F0000111";
 	/// <summary>
+	/// 双轧关联表单
+	/// </summary>
+	public static readonly string DoubleTieAssociatedForm = "F0000143";
+	/// <summary>
 	/// 创建时间
 	/// </summary>
 	public static readonly string CreationTime = "CreatedTime";
@@ -5297,10 +5693,6 @@ public class ProcessFlow
 	/// 确认炉次计划
 	/// </summary>
 	public static readonly string ConfirmedHeatPlan = "F0000125";
-	/// <summary>
-	/// 双轧编号
-	/// </summary>
-	public static readonly string DoubleRollingNumber = "F0000127";
 	/// <summary>
 	/// 本工序需求期-锻压
 	/// </summary>
@@ -5358,6 +5750,18 @@ public class ProcessFlow
 	/// </summary>
 	public static readonly string FinishTurningUnit = "F0000040";
 	/// <summary>
+	/// 切割转移至人工调整工序
+	/// </summary>
+	public static readonly string CuttingIsTransferredToManualAdjustmentProcess = "F0000136";
+	/// <summary>
+	/// 规格号
+	/// </summary>
+	public static readonly string SpecificationNumber = "F0000135";
+	/// <summary>
+	/// 打磨转移至人工调整工序
+	/// </summary>
+	public static readonly string TransferGrindingToManualAdjustmentProcess = "F0000140";
+	/// <summary>
 	/// 质检结论-毛坯
 	/// </summary>
 	public static readonly string QualityInspectionConclusionBlank = "F0000038";
@@ -5397,6 +5801,10 @@ public class ProcessFlow
 	/// WorkflowInstanceId
 	/// </summary>
 	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
+	/// <summary>
+	/// 完成总量
+	/// </summary>
+	public static readonly string ToCompleteTheTotalAmount = "F0000146";
 	/// <summary>
 	/// 质检结论-热处理
 	/// </summary>
@@ -5446,9 +5854,17 @@ public class ProcessFlow
 	/// </summary>
 	public static readonly string DemandPeriodOfThisProcessFinishTurning = "F0000088";
 	/// <summary>
+	/// 质检结论-打磨
+	/// </summary>
+	public static readonly string QualityInspectionConclusionPolishing = "F0000141";
+	/// <summary>
 	/// 辗环加工单位
 	/// </summary>
 	public static readonly string RingRollingProcessingUnit = "F0000028";
+	/// <summary>
+	/// 双轧工件号
+	/// </summary>
+	public static readonly string DoubleTieWorkpieceNumber = "F0000144";
 	/// <summary>
 	/// 数据标题
 	/// </summary>
@@ -5473,6 +5889,10 @@ public class ProcessFlow
 	/// 成品单重
 	/// </summary>
 	public static readonly string FinishedProductUnitWeight = "F0000017";
+	/// <summary>
+	/// 质检结论-铣面
+	/// </summary>
+	public static readonly string QualityInspectionConclusionMillingSurface = "F0000139";
 	/// <summary>
 	/// 粗车加工单位
 	/// </summary>
@@ -5522,7 +5942,11 @@ public class ProcessFlow
 	/// </summary>
 	public static readonly string SawingOutsourcingContractForm = "F0000070";
 	/// <summary>
-	/// 质检结论精车
+	/// 质检结论-切割
+	/// </summary>
+	public static readonly string QualityInspectionConclusionCutting = "F0000137";
+	/// <summary>
+	/// 质检结论-精车
 	/// </summary>
 	public static readonly string QualityInspectionConclusionFinishTurning = "F0000045";
 	/// <summary>
@@ -5554,13 +5978,13 @@ public class ProcessFlow
 	/// </summary>
 	public static readonly string ManuallyAdjustOperationDataClassification = "F0000110";
 	/// <summary>
-	/// 是否忽略理化结果
-	/// </summary>
-	public static readonly string IgnorePhysicalAndChemicalResults = "F0000123";
-	/// <summary>
 	/// 再生工序
 	/// </summary>
 	public static readonly string RegenerationProcess = "F0000121";
+	/// <summary>
+	/// 派工信息
+	/// </summary>
+	public static readonly string DispatchingInformation = "F0000148";
 	/// <summary>
 	/// 钻孔外协合同表
 	/// </summary>
@@ -5586,6 +6010,10 @@ public class ProcessFlow
 	/// </summary>
 	public static readonly string RoughTurningInitiatedFlawDetection = "F0000131";
 	/// <summary>
+	/// 流转部门
+	/// </summary>
+	public static readonly string TheCirculationDepartment = "F0000147";
+	/// <summary>
 	/// 本工序需求期-粗车
 	/// </summary>
 	public static readonly string DemandPeriodOfThisOperationRoughTurning = "F0000085";
@@ -5602,6 +6030,10 @@ public class ProcessFlow
 	/// </summary>
 	public static readonly string DrillingProcessTransferredToManualAdjustmentProcess = "F0000109";
 	/// <summary>
+	/// 数量-切割前
+	/// </summary>
+	public static readonly string QuantityBeforeCutting = "F0000145";
+	/// <summary>
 	/// 精车已加工量
 	/// </summary>
 	public static readonly string FinishTurningProcessedQuantity = "F0000134";
@@ -5617,6 +6049,10 @@ public class ProcessFlow
 	/// ObjectId
 	/// </summary>
 	public static readonly string ObjectId = "ObjectId";
+	/// <summary>
+	/// 铣面转移至人工调整工序
+	/// </summary>
+	public static readonly string MillingSurfaceTransferToManualAdjustmentProcess = "F0000138";
 	/// <summary>
 	/// 锻压外协合同表
 	/// </summary>
@@ -6282,10 +6718,6 @@ public class Drill
 	public static readonly string TableCode = "D001419Sugyf7m5q744eyhe45o26haop4";
 	public Drill() { }
 	/// <summary>
-	/// 备注
-	/// </summary>
-	public static readonly string Remarks = "F0000101";
-	/// <summary>
 	/// ObjectId
 	/// </summary>
 	public static readonly string Objectid = "ObjectId";
@@ -6330,6 +6762,10 @@ public class Drill
 	/// </summary>
 	public static readonly string CurrentWorkStep = "F0000054";
 	/// <summary>
+	/// 派工计划
+	/// </summary>
+	public static readonly string DispatchingPlan = "DiapatchPlan";
+	/// <summary>
 	/// 拥有者
 	/// </summary>
 	public static readonly string Owner = "OwnerId";
@@ -6338,7 +6774,7 @@ public class Drill
 	/// </summary>
 	public static readonly string WorkpieceNumber = "F0000001";
 	/// <summary>
-	/// 当前位置
+	/// 区域位置
 	/// </summary>
 	public static readonly string CurrentLocation = "F0000053";
 	/// <summary>
@@ -6353,6 +6789,10 @@ public class Drill
 	/// 实际内径
 	/// </summary>
 	public static readonly string ActualInnerDiameter = "F0000092";
+	/// <summary>
+	/// 审批人
+	/// </summary>
+	public static readonly string Approver = "Approver";
 	/// <summary>
 	/// 实际总高
 	/// </summary>
@@ -6382,11 +6822,15 @@ public class Drill
 	/// </summary>
 	public static readonly string Department = "OwnerDeptId";
 	/// <summary>
+	/// 计划工时
+	/// </summary>
+	public static readonly string PlanMonHour = "PlanMonHour";
+	/// <summary>
 	/// 检验结果
 	/// </summary>
 	public static readonly string InspectionResults = "F0000020";
 	/// <summary>
-	/// 当前车间
+	/// 车间位置
 	/// </summary>
 	public static readonly string CurrentWorkshop = "F0000052";
 	/// <summary>
@@ -6410,9 +6854,25 @@ public class Drill
 	/// </summary>
 	public static readonly string ProductSpecification = "F0000003";
 	/// <summary>
+	/// 异常代表
+	/// </summary>
+	public static readonly string ExceptionRepresentative = "F0000171";
+	/// <summary>
+	/// 产品标准工时
+	/// </summary>
+	public static readonly string ProductStandardWorkingHours = "F0000180";
+	/// <summary>
+	/// 关联其它异常工件
+	/// </summary>
+	public static readonly string AssociatedWithOtherAbnormalWorkpieces = "F0000170";
+	/// <summary>
 	/// 数据标题
 	/// </summary>
 	public static readonly string DataTitle = "Name";
+	/// <summary>
+	/// 钻孔需求期
+	/// </summary>
+	public static readonly string DrillingPlannedCompletionTime = "F0000174";
 	/// <summary>
 	/// 实际加工耗时
 	/// </summary>
@@ -6442,6 +6902,10 @@ public class Drill
 	/// </summary>
 	public static readonly string OrderNumber = "F0000012";
 	/// <summary>
+	/// 下屑量
+	/// </summary>
+	public static readonly string TheAmountOfScrap = "F0000179";
+	/// <summary>
 	/// 任务名称
 	/// </summary>
 	public static readonly string TaskName = "F0000166";
@@ -6458,9 +6922,17 @@ public class Drill
 	/// </summary>
 	public static readonly string ActualNumberOfHoles = "F0000095";
 	/// <summary>
-	/// 上机互检结果
+	/// 计划加工量
 	/// </summary>
-	public static readonly string ResultsOfMutualInspectionOnMachine = "F0000109";
+	public static readonly string PlanWorkLoad = "PlanWorkLoad";
+	/// <summary>
+	/// 加工难度
+	/// </summary>
+	public static readonly string ProcessingDifficulty = "F0000182";
+	/// <summary>
+	/// 厂区位置
+	/// </summary>
+	public static readonly string FactoryLocation = "F0000172";
 	/// <summary>
 	/// Status
 	/// </summary>
@@ -6473,6 +6945,10 @@ public class Drill
 	/// 订单规格表
 	/// </summary>
 	public static readonly string OrderSpecificationTable = "F0000098";
+	/// <summary>
+	/// 计划设备
+	/// </summary>
+	public static readonly string PlanDevices = "PlanDevices";
 	/// <summary>
 	/// WorkflowInstanceId
 	/// </summary>
@@ -6494,6 +6970,10 @@ public class Drill
 	/// </summary>
 	public static readonly string DataCode = "F0000048";
 	/// <summary>
+	/// 工序计划表
+	/// </summary>
+	public static readonly string OperationSchedule = "F0000173";
+	/// <summary>
 	/// 订单批次规格号
 	/// </summary>
 	public static readonly string OrderBatchSpecificationNumber = "F0000042";
@@ -6514,13 +6994,13 @@ public class Drill
 	/// </summary>
 	public static readonly string ModificationTime = "ModifiedTime";
 	/// <summary>
-	/// 上机前互检-钻孔
-	/// </summary>
-	public static readonly string MutualInspectionBeforeMachineDrilling = "F0000108";
-	/// <summary>
 	/// 转运位置
 	/// </summary>
 	public static readonly string TransferTransportationLocation = "F0000118";
+	/// <summary>
+	/// 双轧产品数量
+	/// </summary>
+	public static readonly string NumberOfDoubleRolledProducts = "F0000176";
 }
 /// <summary>
 /// 生产制造流程,精车
@@ -6530,7 +7010,7 @@ public class Finishing
 	public static readonly string TableCode = "D001419Sqy2b1uy8h8cahh17u9kn0jk10";
 	public Finishing() { }
 	/// <summary>
-	/// 当前位置
+	/// 区域位置
 	/// </summary>
 	public static readonly string CurrentLocation = "F0000067";
 	/// <summary>
@@ -6546,17 +7026,21 @@ public class Finishing
 	/// </summary>
 	public static readonly string ActualProcessingTime = "CountTime";
 	/// <summary>
-	/// 产品类别2
+	/// 异常代表
 	/// </summary>
-	public static readonly string ProductCategory2 = "F0000124";
+	public static readonly string ExceptionRepresentative = "F0000176";
+	/// <summary>
+	/// 下屑量
+	/// </summary>
+	public static readonly string TheAmountOfScrap = "F0000185";
 	/// <summary>
 	/// 修改时间
 	/// </summary>
 	public static readonly string ModificationTime = "ModifiedTime";
 	/// <summary>
-	/// 互检人
+	/// 工序计划表
 	/// </summary>
-	public static readonly string MutualInspector = "F0000173";
+	public static readonly string OperationSchedule = "F0000179";
 	/// <summary>
 	/// 完成总量
 	/// </summary>
@@ -6566,9 +7050,17 @@ public class Finishing
 	/// </summary>
 	public static readonly string Worker = "F0000073";
 	/// <summary>
+	/// 产品标准工时
+	/// </summary>
+	public static readonly string ProductStandardWorkingHours = "F0000186";
+	/// <summary>
 	/// 创建时间
 	/// </summary>
 	public static readonly string CreationTime = "CreatedTime";
+	/// <summary>
+	/// 精车需求期
+	/// </summary>
+	public static readonly string FinishTurningPlannedCompletionTime = "F0000180";
 	/// <summary>
 	/// 实际单重
 	/// </summary>
@@ -6586,9 +7078,13 @@ public class Finishing
 	/// </summary>
 	public static readonly string Objectid = "ObjectId";
 	/// <summary>
-	/// 更新异常日志objectID
+	/// 计划加工量
 	/// </summary>
-	public static readonly string ObjectIDForUpdateTheExceptionLog = "F0000175";
+	public static readonly string PlanWorkLoad = "PlanWorkLoad";
+	/// <summary>
+	/// 关联其它异常工件
+	/// </summary>
+	public static readonly string AssociatedWithOtherAbnormalWorkpieces = "F0000175";
 	/// <summary>
 	/// 创建人
 	/// </summary>
@@ -6601,6 +7097,10 @@ public class Finishing
 	/// 实际片厚
 	/// </summary>
 	public static readonly string ActualFilmThickness = "F0000108";
+	/// <summary>
+	/// 审批人
+	/// </summary>
+	public static readonly string Approver = "Approver";
 	/// <summary>
 	/// 转至工步
 	/// </summary>
@@ -6618,6 +7118,10 @@ public class Finishing
 	/// </summary>
 	public static readonly string InitiateFlawDetection = "F0000168";
 	/// <summary>
+	/// 计划工时
+	/// </summary>
+	public static readonly string PlanMonHour = "PlanMonHour";
+	/// <summary>
 	/// 数据标题
 	/// </summary>
 	public static readonly string Datatitle = "Name";
@@ -6626,9 +7130,13 @@ public class Finishing
 	/// </summary>
 	public static readonly string ExceptionDescription = "F0000115";
 	/// <summary>
-	/// 当前车间
+	/// 车间位置
 	/// </summary>
 	public static readonly string CurrentWorkshop = "F0000066";
+	/// <summary>
+	/// 双轧产品数量
+	/// </summary>
+	public static readonly string NumberOfDoubleRolledProducts = "F0000182";
 	/// <summary>
 	/// 产品参数表
 	/// </summary>
@@ -6637,10 +7145,6 @@ public class Finishing
 	/// ModifiedBy
 	/// </summary>
 	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// 互检结果
-	/// </summary>
-	public static readonly string MutualInspectionResults = "F0000174";
 	/// <summary>
 	/// 产品名称
 	/// </summary>
@@ -6694,13 +7198,21 @@ public class Finishing
 	/// </summary>
 	public static readonly string Owner = "OwnerId";
 	/// <summary>
-	/// 产品类别
+	/// 车加工类别
 	/// </summary>
 	public static readonly string ProductCategory = "F0000111";
+	/// <summary>
+	/// 加工难度
+	/// </summary>
+	public static readonly string ProcessingDifficulty = "F0000188";
 	/// <summary>
 	/// 已加工量
 	/// </summary>
 	public static readonly string ProcessedQuantity = "F0000170";
+	/// <summary>
+	/// 计划设备
+	/// </summary>
+	public static readonly string PlanDevices = "PlanDevices";
 	/// <summary>
 	/// 加工单位
 	/// </summary>
@@ -6710,13 +7222,17 @@ public class Finishing
 	/// </summary>
 	public static readonly string OrderNumber = "F0000012";
 	/// <summary>
+	/// 派工计划
+	/// </summary>
+	public static readonly string DispatchingPlan = "DispatchPlan";
+	/// <summary>
 	/// 订单批次号
 	/// </summary>
 	public static readonly string OrderBatchNumber = "F0000014";
 	/// <summary>
 	/// 本工序需求期
 	/// </summary>
-	public static readonly string ThisoperationDemandPeriod = "F0000084";
+	public static readonly string DemandPeriodOfThisOperation = "F0000084";
 	/// <summary>
 	/// 异常类别
 	/// </summary>
@@ -6738,17 +7254,17 @@ public class Finishing
 	/// </summary>
 	public static readonly string TransferWorkshop = "F0000127";
 	/// <summary>
-	/// 备注
+	/// 厂区位置
 	/// </summary>
-	public static readonly string Remarks = "F0000116";
+	public static readonly string FactoryLocation = "F0000178";
+	/// <summary>
+	/// 更新异常日志objectID
+	/// </summary>
+	public static readonly string ObjectIDForUpdateTheExceptionLog = "F0000177";
 	/// <summary>
 	/// 探伤认定
 	/// </summary>
 	public static readonly string FlawDetectionIdentification = "F0000138";
-	/// <summary>
-	/// 上机前互检
-	/// </summary>
-	public static readonly string MutualInspectionBeforeMachineOperation = "F0000172";
 	/// <summary>
 	/// 订单规格号
 	/// </summary>
@@ -6790,7 +7306,7 @@ public class Roughing
 	/// </summary>
 	public static readonly string ModificationTime = "ModifiedTime";
 	/// <summary>
-	/// 当前位置
+	/// 区域位置
 	/// </summary>
 	public static readonly string CurrentLocation = "F0000081";
 	/// <summary>
@@ -6798,13 +7314,21 @@ public class Roughing
 	/// </summary>
 	public static readonly string ID = "F0000067";
 	/// <summary>
-	/// 备注
+	/// 计划设备
 	/// </summary>
-	public static readonly string Note = "F0000141";
+	public static readonly string ProjectEquipment = "PlanDevices";
+	/// <summary>
+	/// 粗车需求期
+	/// </summary>
+	public static readonly string RoughTurningPlanCompletionTime = "F0000192";
 	/// <summary>
 	/// 订单批次规格号
 	/// </summary>
 	public static readonly string OrderBatchSpecificationNumber = "F0000066";
+	/// <summary>
+	/// 产品标准工时
+	/// </summary>
+	public static readonly string ProductStandardWorkingHours = "F0000200";
 	/// <summary>
 	/// WorkflowInstanceId
 	/// </summary>
@@ -6838,13 +7362,13 @@ public class Roughing
 	/// </summary>
 	public static readonly string Creator = "CreatedBy";
 	/// <summary>
-	/// 上机前互检
-	/// </summary>
-	public static readonly string MutualInspectionBeforeStartingTheMachine = "F0000184";
-	/// <summary>
 	/// 数据代码
 	/// </summary>
 	public static readonly string DataCode = "F0000076";
+	/// <summary>
+	/// 关联其它异常工件
+	/// </summary>
+	public static readonly string AssociatedWithOtherAbnormalWorkpieces = "F0000188";
 	/// <summary>
 	/// 当前工序
 	/// </summary>
@@ -6853,10 +7377,6 @@ public class Roughing
 	/// 探伤认定
 	/// </summary>
 	public static readonly string FlawDetectionIdentification = "F0000138";
-	/// <summary>
-	/// 互检结果
-	/// </summary>
-	public static readonly string MutualInspectionResult = "F0000183";
 	/// <summary>
 	/// 实际内径
 	/// </summary>
@@ -6869,6 +7389,10 @@ public class Roughing
 	/// 订单规格表
 	/// </summary>
 	public static readonly string OrderSpecificationTable = "F0000117";
+	/// <summary>
+	/// 厂区位置
+	/// </summary>
+	public static readonly string FactoryLocation = "F0000190";
 	/// <summary>
 	/// 异常描述
 	/// </summary>
@@ -6898,6 +7422,14 @@ public class Roughing
 	/// </summary>
 	public static readonly string ReprocessingType = "F0000156";
 	/// <summary>
+	/// 双轧产品数量
+	/// </summary>
+	public static readonly string NumberOfDoubleRolledProducts = "F0000194";
+	/// <summary>
+	/// 审批人
+	/// </summary>
+	public static readonly string Approver = "Approver";
+	/// <summary>
 	/// 异常类别
 	/// </summary>
 	public static readonly string ExceptionCategory = "F0000070";
@@ -6910,9 +7442,9 @@ public class Roughing
 	/// </summary>
 	public static readonly string DemandPeriodOfThisOperation = "F0000088";
 	/// <summary>
-	/// 互检人
+	/// 下屑量
 	/// </summary>
-	public static readonly string MutualInspector = "F0000182";
+	public static readonly string TheAmountOfScrap = "F0000198";
 	/// <summary>
 	/// 已加工量
 	/// </summary>
@@ -6945,6 +7477,10 @@ public class Roughing
 	/// 四面光
 	/// </summary>
 	public static readonly string FourSideLight = "D0014199e58919544424654bcc75ef1dc953be6";
+	/// <summary>
+	/// 异常代表
+	/// </summary>
+	public static readonly string ExceptionRepresentative = "F0000189";
 	/// <summary>
 	/// 完成总量
 	/// </summary>
@@ -6990,9 +7526,13 @@ public class Roughing
 	/// </summary>
 	public static readonly string Objectid = "ObjectId";
 	/// <summary>
-	/// 产品类别
+	/// 车加工类别
 	/// </summary>
 	public static readonly string ProductCategory = "F0000121";
+	/// <summary>
+	/// 计划工时
+	/// </summary>
+	public static readonly string PlanTime = "PlanMonHour";
 	/// <summary>
 	/// ModifiedBy
 	/// </summary>
@@ -7014,13 +7554,17 @@ public class Roughing
 	/// </summary>
 	public static readonly string Worker = "F0000084";
 	/// <summary>
-	/// 当前车间
+	/// 车间位置
 	/// </summary>
 	public static readonly string CurrentWorkshop = "F0000080";
 	/// <summary>
 	/// 轧制方式
 	/// </summary>
 	public static readonly string RollingMethod = "F0000122";
+	/// <summary>
+	/// 工序计划表
+	/// </summary>
+	public static readonly string OperationSchedule = "F0000191";
 	/// <summary>
 	/// Status
 	/// </summary>
@@ -7033,6 +7577,14 @@ public class Roughing
 	/// 实际片厚
 	/// </summary>
 	public static readonly string ActualSheetThickness = "F0000114";
+	/// <summary>
+	/// 派工计划
+	/// </summary>
+	public static readonly string DispatchingPlan = "DispatchPlan";
+	/// <summary>
+	/// 计划加工量
+	/// </summary>
+	public static readonly string PlanWorkLoad = "PlanWorkLoad";
 }
 /// <summary>
 /// 生产制造流程,毛坯
@@ -7053,6 +7605,14 @@ public class RoughCast
 	/// 订单批次号
 	/// </summary>
 	public static readonly string OrderBatchNumber = "F0000014";
+	/// <summary>
+	/// 双轧产品数量
+	/// </summary>
+	public static readonly string NumberOfDoubleRolledProducts = "F0000181";
+	/// <summary>
+	/// 毛坯需求期
+	/// </summary>
+	public static readonly string DemandPeriodOfThisOperationBlank = "F0000179";
 	/// <summary>
 	/// 探伤结果
 	/// </summary>
@@ -7094,19 +7654,19 @@ public class RoughCast
 	/// </summary>
 	public static readonly string Status = "Status";
 	/// <summary>
-	/// 当前位置
+	/// 双轧工件号
+	/// </summary>
+	public static readonly string DoubleTieWorkpieceNumber = "F0000183";
+	/// <summary>
+	/// 区域位置
 	/// </summary>
 	public static readonly string CurrentLocation = "F0000068";
 	/// <summary>
 	/// 本工序需求期
 	/// </summary>
-	public static readonly string DemandPeriodOfThisProcedure = "F0000073";
+	public static readonly string DemandPeriodOfThisOperation = "F0000073";
 	/// <summary>
-	/// 所有者
-	/// </summary>
-	public static readonly string Possessor = "F0000126";
-	/// <summary>
-	/// 当前车间
+	/// 车间位置
 	/// </summary>
 	public static readonly string CurrentWorkshop = "F0000067";
 	/// <summary>
@@ -7126,6 +7686,10 @@ public class RoughCast
 	/// </summary>
 	public static readonly string ProcessingUnit = "F0000061";
 	/// <summary>
+	/// 异常代表
+	/// </summary>
+	public static readonly string ExceptionRepresentative = "F0000176";
+	/// <summary>
 	/// 实际加工耗时
 	/// </summary>
 	public static readonly string ActualProcessingTime = "CountTime";
@@ -7138,9 +7702,17 @@ public class RoughCast
 	/// </summary>
 	public static readonly string TotalCompletion = "F0000104";
 	/// <summary>
+	/// 需求改制
+	/// </summary>
+	public static readonly string DemandInTheRestructuring = "F0000180";
+	/// <summary>
 	/// 设备编号
 	/// </summary>
 	public static readonly string EquipmentNumber = "F0000138";
+	/// <summary>
+	/// 厂区位置
+	/// </summary>
+	public static readonly string FactoryLocation = "F0000177";
 	/// <summary>
 	/// 产品规格
 	/// </summary>
@@ -7193,6 +7765,10 @@ public class RoughCast
 	/// 拥有者
 	/// </summary>
 	public static readonly string Owner = "OwnerId";
+	/// <summary>
+	/// 关联其它异常工件
+	/// </summary>
+	public static readonly string AssociatedWithOtherAbnormalWorkpieces = "F0000175";
 	/// <summary>
 	/// 当前本取加工者
 	/// </summary>
@@ -7254,6 +7830,10 @@ public class RoughCast
 	/// </summary>
 	public static readonly string TransferLocation = "F0000134";
 	/// <summary>
+	/// 审批人
+	/// </summary>
+	public static readonly string Approver = "Approver";
+	/// <summary>
 	/// 更新异常日志objectID
 	/// </summary>
 	public static readonly string ObjectIDForUpdateTheExceptionLog = "F0000174";
@@ -7277,6 +7857,10 @@ public class RoughCast
 	/// 是否忽略理化结果流转
 	/// </summary>
 	public static readonly string WhetherToIgnorePhysicalAndChemicalResultsresultFlow = "advanceTransfer";
+	/// <summary>
+	/// 工序计划表
+	/// </summary>
+	public static readonly string OperationSchedule = "F0000178";
 	/// <summary>
 	/// 试样类型
 	/// </summary>
@@ -7306,9 +7890,15 @@ public class RoughCast
 	/// </summary>
 	public static readonly string PlanBookRetrieval = "F0000077";
 	/// <summary>
+	/// 双轧关联表单
+	/// </summary>
+	public static readonly string DoubleRolledAssociativeForm = "F0000182";
+	/// <summary>
 	/// 炉次计划
 	/// </summary>
 	public static readonly string HeatPlan = "F0000075";
+
+    public static string DoubleTieTheWorkpieceBeforeSegmentation { get; internal set; }
 }
 /// <summary>
 /// 生产制造流程,热处理
@@ -7346,6 +7936,14 @@ public class HeatTreatment
 	/// </summary>
 	public static readonly string HeatPlan = "F0000052";
 	/// <summary>
+	/// 回火_工人
+	/// </summary>
+	public static readonly string TemperingWorker = "F0000088";
+	/// <summary>
+	/// 需求改制
+	/// </summary>
+	public static readonly string DemandInTheRestructuring = "F0000097";
+	/// <summary>
 	/// 创建人
 	/// </summary>
 	public static readonly string Creator = "CreatedBy";
@@ -7353,6 +7951,10 @@ public class HeatTreatment
 	/// 检验结果1
 	/// </summary>
 	public static readonly string InspectionResult1 = "F0000042";
+	/// <summary>
+	/// 回火_确认热处理炉号
+	/// </summary>
+	public static readonly string TemperingConfirmedHeatTreatmentHeatNumber = "F0000094";
 	/// <summary>
 	/// 产品规格
 	/// </summary>
@@ -7382,6 +7984,10 @@ public class HeatTreatment
 	/// </summary>
 	public static readonly string DemandPeriodOfThisOperation = "F0000051";
 	/// <summary>
+	/// 回火_确认炉次编号
+	/// </summary>
+	public static readonly string TemperingConfirmedHeatNumber = "F0000093";
+	/// <summary>
 	/// 订单批次规格号
 	/// </summary>
 	public static readonly string OrderBatchSpecificationNumber = "F0000037";
@@ -7393,6 +7999,10 @@ public class HeatTreatment
 	/// 检验结果-处理前
 	/// </summary>
 	public static readonly string InspectionResultBeforeTreatment = "F0000075";
+	/// <summary>
+	/// 热处理需求期
+	/// </summary>
+	public static readonly string DemandPeriodOfThisOperationHeatTreatment = "F0000096";
 	/// <summary>
 	/// 计划热处理炉号
 	/// </summary>
@@ -7410,6 +8020,10 @@ public class HeatTreatment
 	/// </summary>
 	public static readonly string Possessor = "F0000077";
 	/// <summary>
+	/// 回火_炉内位置号
+	/// </summary>
+	public static readonly string TemperingHeatInternalPositionNumber = "F0000092";
+	/// <summary>
 	/// ID
 	/// </summary>
 	public static readonly string ID = "F0000038";
@@ -7422,6 +8036,10 @@ public class HeatTreatment
 	/// </summary>
 	public static readonly string HeatInternalPositionNumber = "F0000071";
 	/// <summary>
+	/// 订单是否要求回火
+	/// </summary>
+	public static readonly string NameOfSamplingTransferWorkshop = "F0000086";
+	/// <summary>
 	/// 返修类型2
 	/// </summary>
 	public static readonly string RepairType2 = "F0000066";
@@ -7433,6 +8051,22 @@ public class HeatTreatment
 	/// 质检结论
 	/// </summary>
 	public static readonly string InspectionBeforeCharging = "F0000072";
+	/// <summary>
+	/// 异常代表
+	/// </summary>
+	public static readonly string ExceptionRepresentative = "F0000084";
+	/// <summary>
+	/// 回火_计划热处理炉号
+	/// </summary>
+	public static readonly string TemperingPlannedHeatTreatmentHeatNumber = "F0000091";
+	/// <summary>
+	/// 关联其它异常工件
+	/// </summary>
+	public static readonly string AssociatedWithOtherAbnormalWorkpieces = "F0000083";
+	/// <summary>
+	/// 厂区位置
+	/// </summary>
+	public static readonly string FactoryLocation = "F0000085";
 	/// <summary>
 	/// 双轧编号
 	/// </summary>
@@ -7450,6 +8084,10 @@ public class HeatTreatment
 	/// </summary>
 	public static readonly string ExceptionCategory = "F0000049";
 	/// <summary>
+	/// 工序计划表
+	/// </summary>
+	public static readonly string OperationSchedule = "F0000095";
+	/// <summary>
 	/// 检验确认本取
 	/// </summary>
 	public static readonly string InspectionConfirmationCopy = "F0000061";
@@ -7466,7 +8104,7 @@ public class HeatTreatment
 	/// </summary>
 	public static readonly string Worker = "F0000028";
 	/// <summary>
-	/// 产品位置
+	/// 区域位置
 	/// </summary>
 	public static readonly string ProductLocation = "F0000047";
 	/// <summary>
@@ -7477,6 +8115,10 @@ public class HeatTreatment
 	/// 数据代码
 	/// </summary>
 	public static readonly string GoToWorkStep = "F0000044";
+	/// <summary>
+	/// 审批人
+	/// </summary>
+	public static readonly string Approver = "Approver";
 	/// <summary>
 	/// 轧制方式
 	/// </summary>
@@ -7501,6 +8143,10 @@ public class HeatTreatment
 	/// 车间位置
 	/// </summary>
 	public static readonly string WorkshopLocation = "F0000046";
+	/// <summary>
+	/// 回火_炉次计划
+	/// </summary>
+	public static readonly string TemperingHeatPlan = "F0000089";
 	/// <summary>
 	/// Status
 	/// </summary>
@@ -7534,9 +8180,17 @@ public class HeatTreatment
 	/// </summary>
 	public static readonly string WhetherToAdjustToOtherOperation = "F0000039";
 	/// <summary>
+	/// (是/否)回火
+	/// </summary>
+	public static readonly string IsTempering = "F0000087";
+	/// <summary>
 	/// 发起异常
 	/// </summary>
 	public static readonly string InitiateException = "F0000040";
+	/// <summary>
+	/// 双轧关联表单
+	/// </summary>
+	public static readonly string DoubleRolledAssociativeForm = "F0000099";
 	/// <summary>
 	/// ModifiedBy
 	/// </summary>
@@ -7545,6 +8199,14 @@ public class HeatTreatment
 	/// 单重
 	/// </summary>
 	public static readonly string SingleWeight = "F0000035";
+	/// <summary>
+	/// 双轧产品数量
+	/// </summary>
+	public static readonly string NumberOfDoubleRolledProducts = "F0000098";
+	/// <summary>
+	/// 回火_计划炉次编号
+	/// </summary>
+	public static readonly string TemperingPlannedHeatNumber = "F0000090";
 	/// <summary>
 	/// 所属部门
 	/// </summary>
@@ -7565,6 +8227,10 @@ public class RollingRing
 	/// 订单号
 	/// </summary>
 	public static readonly string OrderNumber = "F0000012";
+	/// <summary>
+	/// 辗环需求期
+	/// </summary>
+	public static readonly string DemandPeriodOfThisOperationRingRolling = "F0000088";
 	/// <summary>
 	/// 加工总量
 	/// </summary>
@@ -7590,9 +8256,13 @@ public class RollingRing
 	/// </summary>
 	public static readonly string EquipmentName = "F0000067";
 	/// <summary>
+	/// 关联其它异常工件
+	/// </summary>
+	public static readonly string AssociatedWithOtherAbnormalWorkpieces = "F0000081";
+	/// <summary>
 	/// 本工序需求期
 	/// </summary>
-	public static readonly string CurrentOperationDemandPeriod = "F0000058";
+	public static readonly string DemandPeriodOfThisOperation = "F0000058";
 	/// <summary>
 	/// 当前工序
 	/// </summary>
@@ -7618,6 +8288,10 @@ public class RollingRing
 	/// </summary>
 	public static readonly string HotProcessingInformation = "D001419Fc33fc9abe5f2451e83ce06a5edc1669f";
 	/// <summary>
+	/// 异常代表
+	/// </summary>
+	public static readonly string ExceptionRepresentative = "F0000082";
+	/// <summary>
 	/// 数据标题
 	/// </summary>
 	public static readonly string DataTitle = "Name";
@@ -7630,13 +8304,25 @@ public class RollingRing
 	/// </summary>
 	public static readonly string Modifiedby = "ModifiedBy";
 	/// <summary>
-	/// 产品位置
+	/// 区域位置
 	/// </summary>
 	public static readonly string ProductLocation = "F0000053";
 	/// <summary>
 	/// 拥有者
 	/// </summary>
 	public static readonly string Owner = "OwnerId";
+	/// <summary>
+	/// 锻辗炉次
+	/// </summary>
+	public static readonly string ForgingRollingFurnace = "F0000084";
+	/// <summary>
+	/// 工序计划表
+	/// </summary>
+	public static readonly string OperationSchedule = "F0000087";
+	/// <summary>
+	/// 炉内位置
+	/// </summary>
+	public static readonly string LocationInTheFurnace = "F0000085";
 	/// <summary>
 	/// Status
 	/// </summary>
@@ -7645,6 +8331,10 @@ public class RollingRing
 	/// 数据代码
 	/// </summary>
 	public static readonly string DataCode = "F0000050";
+	/// <summary>
+	/// 双轧关联表单
+	/// </summary>
+	public static readonly string DoubleRolledAssociativeForm = "F0000091";
 	/// <summary>
 	/// 转至工步
 	/// </summary>
@@ -7669,6 +8359,10 @@ public class RollingRing
 	/// 创建时间
 	/// </summary>
 	public static readonly string CreationTime = "CreatedTime";
+	/// <summary>
+	/// 审批人
+	/// </summary>
+	public static readonly string Approver = "Approver";
 	/// <summary>
 	/// WorkflowInstanceId
 	/// </summary>
@@ -7706,6 +8400,10 @@ public class RollingRing
 	/// </summary>
 	public static readonly string ExceptionDescription = "F0000062";
 	/// <summary>
+	/// 需求改制
+	/// </summary>
+	public static readonly string DemandInTheRestructuring = "F0000089";
+	/// <summary>
 	/// ObjectId
 	/// </summary>
 	public static readonly string Objectid = "ObjectId";
@@ -7718,13 +8416,25 @@ public class RollingRing
 	/// </summary>
 	public static readonly string ObjectidForTest = "F0000069";
 	/// <summary>
+	/// 双轧产品数量
+	/// </summary>
+	public static readonly string NumberOfDoubleRolledProducts = "F0000090";
+	/// <summary>
 	/// 产品规格
 	/// </summary>
 	public static readonly string ProductSpecification = "F0000003";
 	/// <summary>
+	/// 装炉状态
+	/// </summary>
+	public static readonly string FurnaceChargingState = "F0000086";
+	/// <summary>
 	/// 订单批次号
 	/// </summary>
 	public static readonly string OrderBatchNumber = "F0000014";
+	/// <summary>
+	/// 厂区位置
+	/// </summary>
+	public static readonly string FactoryLocation = "F0000083";
 	/// <summary>
 	/// 检验结果
 	/// </summary>
@@ -7758,9 +8468,13 @@ public class Forge
 	/// </summary>
 	public static readonly string DoubleRollingNumber = "F0000064";
 	/// <summary>
-	/// 热加工信息
+	/// 锻压信息
 	/// </summary>
 	public static readonly string HotProcessingInformation = "D001419Fe6ad4c9956ed4788927c31123893dc9e";
+	/// <summary>
+	/// 工序计划表
+	/// </summary>
+	public static readonly string OperationSchedule = "F0000092";
 	/// <summary>
 	/// 设备名称
 	/// </summary>
@@ -7826,7 +8540,7 @@ public class Forge
 	/// </summary>
 	public static readonly string SingleWeight = "F0000037";
 	/// <summary>
-	/// 产品位置
+	/// 区域位置
 	/// </summary>
 	public static readonly string ProductLocation = "F0000051";
 	/// <summary>
@@ -7834,9 +8548,17 @@ public class Forge
 	/// </summary>
 	public static readonly string RollingMethod = "F0000032";
 	/// <summary>
+	/// 异常代表
+	/// </summary>
+	public static readonly string ExceptionRepresentative = "F0000087";
+	/// <summary>
 	/// 创建人
 	/// </summary>
 	public static readonly string Creator = "CreatedBy";
+	/// <summary>
+	/// 切割前_数量
+	/// </summary>
+	public static readonly string NumberOfDoubleRolledProducts = "F0000095";
 	/// <summary>
 	/// ModifiedBy
 	/// </summary>
@@ -7849,6 +8571,10 @@ public class Forge
 	/// ObjectId
 	/// </summary>
 	public static readonly string Objectid = "ObjectId";
+	/// <summary>
+	/// 需求改制
+	/// </summary>
+	public static readonly string DemandInTheRestructuring = "F0000094";
 	/// <summary>
 	/// 完成总量
 	/// </summary>
@@ -7870,6 +8596,10 @@ public class Forge
 	/// </summary>
 	public static readonly string ProcessingUnit = "F0000047";
 	/// <summary>
+	/// 厂区位置
+	/// </summary>
+	public static readonly string FactoryLocation = "F0000088";
+	/// <summary>
 	/// ID
 	/// </summary>
 	public static readonly string ID = "F0000041";
@@ -7890,13 +8620,29 @@ public class Forge
 	/// </summary>
 	public static readonly string AdjustToOtherOperations = "F0000049";
 	/// <summary>
+	/// 装炉状态
+	/// </summary>
+	public static readonly string FurnaceChargingState = "F0000091";
+	/// <summary>
 	/// 测试用objectID
 	/// </summary>
 	public static readonly string ObjectidForTest = "F0000065";
 	/// <summary>
+	/// 双轧关联表单
+	/// </summary>
+	public static readonly string DoubleRolledAssociativeForm = "F0000096";
+	/// <summary>
 	/// 产品规格
 	/// </summary>
 	public static readonly string ProductSpecification = "F0000003";
+	/// <summary>
+	/// 锻压需求期
+	/// </summary>
+	public static readonly string DemandPeriodOfThisOperationForging = "F0000093";
+	/// <summary>
+	/// 锻辗炉次
+	/// </summary>
+	public static readonly string ForgingRollingFurnace = "F0000089";
 	/// <summary>
 	/// 任务名称
 	/// </summary>
@@ -7905,6 +8651,10 @@ public class Forge
 	/// 当前工步
 	/// </summary>
 	public static readonly string CurrentWorkStep = "F0000052";
+	/// <summary>
+	/// 关联其他异常工件
+	/// </summary>
+	public static readonly string AssociatedWithOtherAbnormalWorkpieces = "F0000086";
 	/// <summary>
 	/// 检验结果
 	/// </summary>
@@ -7916,7 +8666,7 @@ public class Forge
 	/// <summary>
 	/// 本工序需求期
 	/// </summary>
-	public static readonly string ThisOperationDemandPeriod = "F0000055";
+	public static readonly string DemandPeriodOfThisOperation = "F0000055";
 	/// <summary>
 	/// 设备编号
 	/// </summary>
@@ -7937,6 +8687,14 @@ public class Forge
 	/// 产品名称
 	/// </summary>
 	public static readonly string ProductName = "F0000002";
+	/// <summary>
+	/// 审批人
+	/// </summary>
+	public static readonly string Approver = "Approver";
+	/// <summary>
+	/// 炉内位置
+	/// </summary>
+	public static readonly string LocationInTheFurnace = "F0000090";
 }
 /// <summary>
 /// 生产制造流程,锯切
@@ -7950,13 +8708,25 @@ public class SawCut
 	/// </summary>
 	public static readonly string ObjectIDForUpdateTheExceptionLog = "F0000080";
 	/// <summary>
+	/// 需求改制
+	/// </summary>
+	public static readonly string DemandInTheRestructuring = "F0000098";
+	/// <summary>
 	/// 车间位置
 	/// </summary>
 	public static readonly string WorkshopLocation = "F0000007";
 	/// <summary>
-	/// 产品位置
+	/// 锯切需求期
+	/// </summary>
+	public static readonly string DemandPeriodOfThisProcedureSawing = "F0000097";
+	/// <summary>
+	/// 区域位置
 	/// </summary>
 	public static readonly string ProductLocation = "F0000065";
+	/// <summary>
+	/// 锯加工记录
+	/// </summary>
+	public static readonly string SawProcessingRecord = "D001419Fff99042207274f8da1c422c807b2e7f0";
 	/// <summary>
 	/// 备注
 	/// </summary>
@@ -7978,6 +8748,10 @@ public class SawCut
 	/// </summary>
 	public static readonly string ModificationTime = "ModifiedTime";
 	/// <summary>
+	/// 异常代表
+	/// </summary>
+	public static readonly string ExceptionRepresentative = "F0000085";
+	/// <summary>
 	/// 订单规格号
 	/// </summary>
 	public static readonly string OrderSpecificationNumber = "F0000016";
@@ -7986,13 +8760,25 @@ public class SawCut
 	/// </summary>
 	public static readonly string ID = "F0000030";
 	/// <summary>
+	/// 审批人
+	/// </summary>
+	public static readonly string Approver = "Approver";
+	/// <summary>
 	/// ObjectId
 	/// </summary>
 	public static readonly string Objectid = "ObjectId";
 	/// <summary>
+	/// 双轧关联表单
+	/// </summary>
+	public static readonly string DoubleRolledAssociativeForm = "F0000100";
+	/// <summary>
 	/// 测试用ID
 	/// </summary>
-	public static readonly string IDForTest = "F0000078";
+	public static readonly string TestID = "F0000078";
+	/// <summary>
+	/// 工序计划表
+	/// </summary>
+	public static readonly string OperationSchedule = "F0000096";
 	/// <summary>
 	/// 异常类别
 	/// </summary>
@@ -8010,6 +8796,10 @@ public class SawCut
 	/// </summary>
 	public static readonly string Owner = "OwnerId";
 	/// <summary>
+	/// 关联其它异常工件
+	/// </summary>
+	public static readonly string AssociatedWithOtherAbnormalWorkpieces = "F0000083";
+	/// <summary>
 	/// 轧制方式
 	/// </summary>
 	public static readonly string RollingMethod = "F0000031";
@@ -8018,6 +8808,10 @@ public class SawCut
 	/// </summary>
 	public static readonly string ExceptionDescription = "F0000071";
 	/// <summary>
+	/// 厂区位置
+	/// </summary>
+	public static readonly string FactoryLocation = "F0000086";
+	/// <summary>
 	/// 双轧编号
 	/// </summary>
 	public static readonly string DoubleRollingNumber = "F0000079";
@@ -8025,6 +8819,10 @@ public class SawCut
 	/// 计划炉次编号
 	/// </summary>
 	public static readonly string PlannedHeatNumber = "F0000070";
+	/// <summary>
+	/// 工人
+	/// </summary>
+	public static readonly string Worker = "Worker";
 	/// <summary>
 	/// 创建时间
 	/// </summary>
@@ -8036,7 +8834,7 @@ public class SawCut
 	/// <summary>
 	/// 是否调整至其他工序
 	/// </summary>
-	public static readonly string AdjustToOtherOperation = "F0000063";
+	public static readonly string WhetherToAdjustToOtherOperations = "F0000063";
 	/// <summary>
 	/// 节点名称
 	/// </summary>
@@ -8048,7 +8846,7 @@ public class SawCut
 	/// <summary>
 	/// 本工序需求期
 	/// </summary>
-	public static readonly string ThisOperationDemandPeriod = "F0000068";
+	public static readonly string DemandPeriodOfThisOperation = "F0000068";
 	/// <summary>
 	/// 所属部门
 	/// </summary>
@@ -8078,9 +8876,17 @@ public class SawCut
 	/// </summary>
 	public static readonly string CurrentWorkStep = "F0000056";
 	/// <summary>
+	/// 切割前数量
+	/// </summary>
+	public static readonly string NumberOfDoubleRolledProducts = "F0000099";
+	/// <summary>
 	/// 转至工步
 	/// </summary>
 	public static readonly string TransferToWorkStep = "F0000073";
+	/// <summary>
+	/// 加工者
+	/// </summary>
+	public static readonly string Processor = "Processor";
 	/// <summary>
 	/// 发起异常
 	/// </summary>
@@ -8092,7 +8898,7 @@ public class SawCut
 	/// <summary>
 	/// 是否取样
 	/// </summary>
-	public static readonly string SampleOrNot = "F0000036";
+	public static readonly string Sampling = "F0000036";
 	/// <summary>
 	/// 设备编号
 	/// </summary>

@@ -7,11 +7,7 @@ using System.Text;
 using H3;
 using H3.DataModel;
 
-public  class PropertySchema
-{
-    public string Name { get;  set; }
-    public string DisplayName { get;  set; }
-}
+
 
 public class OperatorType
 {

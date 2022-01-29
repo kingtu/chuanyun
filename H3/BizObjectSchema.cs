@@ -14,4 +14,9 @@ namespace H3.DataModel
             throw new NotImplementedException();
         }
     }
+    public class PropertySchema
+    {
+        public string Name { get; set; }
+        public string DisplayName { get; set; }
+    }
 }
