@@ -10,6 +10,7 @@ namespace H3.Workflow
         public Token[] Tokens { get;  set; }
         public bool IsUnfinished { get; internal set; }
         public string ParentInstanceId { get; internal set; }
+        public string InstanceId { get; internal set; }
 
         public Token GetRunningToken(string activityCode)
         {

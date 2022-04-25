@@ -1581,6 +1581,9 @@ public class RoughSubTable
 	/// 设备选择
 	/// </summary>
 	public static readonly string EquipmentSelection = "F0000163";
+
+    public static string CountingTask { get; internal set; }
+    public static string MakeDifference { get; internal set; }
 }
 /// <summary>
 /// 生产制造流程,精车子表
@@ -6077,6 +6080,9 @@ public class ProcessFlow
 	/// 质检结论-粗车
 	/// </summary>
 	public static readonly string QualityInspectionConclusionRoughTurning = "F0000047";
+
+    public static string DoubleTieTheWorkpieceBeforeSegmentation { get; internal set; }
+    public static string SpecificationParameters { get; internal set; }
 }
 /// <summary>
 /// 技术质量管理,质量异议

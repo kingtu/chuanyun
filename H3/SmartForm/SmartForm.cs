@@ -13,7 +13,7 @@ namespace H3
 
         public class ListViewPostValue
         {
-            public Dictionary<string, string> Data { get; set; }
+            public Dictionary<string, object> Data { get; set; }
         }
         public class SubmitSmartFormResponse
         {
@@ -21,6 +21,7 @@ namespace H3
 
             public string Message { get; internal set; }
             public bool ClosePage { get; internal set; }
+            public Dictionary<string, object> ReturnData { get; internal set; }
         }
 
         public class LoadSmartFormResponse
@@ -65,6 +66,34 @@ namespace H3
             public H3.Workflow.Workflow WorkflowInstance { get; set; }
             public WorkItem WorkItem { get; set; }
             public H3.IEngine Engine { get;  set; }
+        }
+
+        public class ListViewController
+        {
+            private ListViewRequest request;
+
+            public ListViewController(ListViewRequest request)
+            {
+                this.request = request;
+            }
+
+            protected virtual  void OnLoad(H3.SmartForm.LoadListViewResponse response) { }
+            protected virtual void OnSubmit(string actionName, H3.SmartForm.ListViewPostValue postValue, H3.SmartForm.SubmitListViewResponse response) { }
+        }
+
+        public class ListViewRequest
+        {
+            public string SchemaCode { get; internal set; }
+            public UserContext UserContext { get; internal set; }
+        }
+
+        public class LoadListViewResponse
+        {
+        }
+
+        public class SubmitListViewResponse
+        {
+            public string Message { get; internal set; }
         }
 
         internal class SmartFormResponseDataItem

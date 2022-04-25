@@ -540,8 +540,9 @@ public class Dispatch
             DeviceName = deviceName;
             Name = name;
             MonHour = monHour;
+            WorkLoad = 0;
         }
 
-        public double WorkLoad { get; internal set; }
+        public double WorkLoad { get;  set; }
     }
 }

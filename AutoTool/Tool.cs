@@ -14,6 +14,11 @@ public class Tools
         {
             throw new NotImplementedException();
         }
+
+        internal static string ErrorLog(IEngine engine, object p, Exception ex, string activityCode)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class Filter

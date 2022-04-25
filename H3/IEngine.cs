@@ -22,5 +22,10 @@ namespace H3
         {
             throw new NotImplementedException();
         }
+
+        internal DataTable QueryWorkItemDisplayAndParticipant(string[] vs, WorkItemState unfinished)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
