@@ -19,4 +19,5 @@ namespace H3.Workflow
 public enum WorkItemState
 {
     Unfinished
+        
 }

@@ -485,6 +485,8 @@ public class DispatchDrillSubTable
 	/// ParentObjectId
 	/// </summary>
 	public static readonly string Parentobjectid = "ParentObjectId";
+
+    public static string TaskName { get; internal set; }
 }
 /// <summary>
 /// 生产计划,精车派工子表
@@ -533,6 +535,8 @@ public class DispatchFinishSubTable
 	/// 设备类型
 	/// </summary>
 	public static readonly string EquipmentType = "F0000047";
+
+    public static string TaskName { get; internal set; }
 }
 /// <summary>
 /// 生产计划,粗车派工子表
@@ -581,6 +585,8 @@ public class DispatchRoughSubTable
 	/// 加工量
 	/// </summary>
 	public static readonly string ProcessingQuantity = "F0000020";
+
+    public static string TaskName { get; internal set; }
 }
 /// <summary>
 /// 生产计划,取样派工子表
@@ -625,6 +631,8 @@ public class DispatchSamplingSubTable
 	/// 加工量
 	/// </summary>
 	public static readonly string ProcessingQuantity = "F0000019";
+
+    public static string TaskName { get; internal set; }
 }
 /// <summary>
 /// 市场需求,定时器执行记录

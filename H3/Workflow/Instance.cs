@@ -19,8 +19,12 @@ namespace H3.Workflow.Instance
     {
         public Token[] Tokens;
 
-        public string BizObjectId { get; internal set; }
-        public bool IsUnfinished { get; internal set; }
+        public string BizObjectId { get;  set; }
+        public bool IsUnfinished { get;  set; }
+        public Activtie[] RunningActivties { get;  set; }
+        public string InstanceId { get;  set; }
+        public bool IsFinished { get;  set; }
+        public object FinishTime { get;  set; }
 
         internal Token GetRunningToken(object activityCode)
         {

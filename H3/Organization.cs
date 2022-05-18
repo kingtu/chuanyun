@@ -5,6 +5,7 @@
         public static string SystemUserId { get;  set; }
         public string  DepartmentName { get;  set; }
         public string FullName { get; internal set; }
+        public string Name { get; internal set; }
     }
           
 
