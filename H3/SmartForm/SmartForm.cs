@@ -48,6 +48,10 @@ namespace H3
             {
 
             }
+            public T Deserialize<T  >(string idList)
+            {
+                return default (T);
+            }
         }
 
         public class SmartFormRequest

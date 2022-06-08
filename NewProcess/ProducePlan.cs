@@ -44,13 +44,11 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
         {
             //负责人信息
             string info = Tools.Log.ErrorLog(this.Engine, null, ex, activityCode);
-            response.Message =
-                string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
+            response.Message = string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
         }
         base.OnSubmit(actionName, postValue, response);
     }
 
- 
     /// <summary>
     /// 批量开启制造流程
     /// </summary>
@@ -63,32 +61,36 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
         {
             return;
         }
-        bool hasError=false;
+        bool hasError = false;
         foreach (string objectId in objectIds)
         {
-            H3.DataModel.BizObject objPlan = Tools.BizOperation.Load(this.Engine, this.Request.SchemaCode, objectId);
+            BizObject objPlan = Tools.BizOperation.Load(this.Engine, this.Request.SchemaCode, objectId);
             if (objPlan[ABCDProcessPlan.OpenProcess] + string.Empty == "已开启") { continue; }
             if (objPlan["DispatchTable"] + string.Empty == "")
             {
                 response.Message = "未生成派工单！";
                 hasError = true;
                 continue;
-            } 
-           
-            //双轧工件号校验
-            if (objPlan[ABCDProcessPlan.DoubleTieWorkpieceNumber] + string.Empty == string.Empty)
-            {
-                response.Message = "注意，双轧工件，{双轧工件号}不能为空!";
-                hasError = true;
-                continue;
             }
-            else
+
+            //双轧工件号校验
+            BizObject objPlanB = null;
+            BizObject objProcessB = null;
+            BizObject objFlowB = null;
+            if (objPlan["F0000152"] + string.Empty == "双轧")
             {
+                if (objPlan[ABCDProcessPlan.DoubleTieWorkpieceNumber] + string.Empty == string.Empty)
+                {
+                    response.Message = "注意，双轧工件，{双轧工件号}不能为空!";
+                    hasError = true;
+                    continue;
+                }
+
                 //双轧关联表单
                 string objectIdB = (string)objPlan["F0000226"];
-                H3.DataModel.BizObject objPlanB = Tools.BizOperation.Load(this.Engine, this.Request.SchemaCode, objectIdB);
-                H3.DataModel.BizObject objProcessB = CreateProcessObject(objPlanB);
-                H3.DataModel.BizObject objFlowB = CreateFlowObject(objPlanB);
+                objPlanB = Tools.BizOperation.Load(this.Engine, this.Request.SchemaCode, objectIdB);
+                objProcessB = CreateProcessObject(objPlanB);
+                objFlowB = CreateFlowObject(objPlanB);
 
                 //"工艺流程"取值 进度管理数据Id
                 objFlowB["Progress"] = objProcessB.ObjectId;
@@ -99,36 +101,65 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
                 objProcessB[RealTimeDynamicProduction.ProcessFlowTable] = objFlowB.ObjectId;
                 objProcessB.Update();
 
+                //开启流程
+                Tools.WorkFlow.StartWorkflow(this.Engine, objFlowB, this.Request.UserContext.UserId, true);
+                //开启状态
+                objPlanB[ABCDProcessPlan.OpenProcess] = "已开启";
+                //工序计划-工艺流程表
                 objPlanB[ABCDProcessPlan.ProcessFlowTable] = objFlowB.ObjectId;
+                //更新计划表单
                 objPlanB.Update();
-
             }
 
-            H3.DataModel.BizObject objProcess = CreateProcessObject(objPlan );            
-            H3.DataModel.BizObject objFlow = CreateFlowObject(objPlan);
+            BizObject objProcess = CreateProcessObject(objPlan);
+            BizObject objFlow = CreateFlowObject(objPlan);
 
             //"工艺流程"取值 进度管理数据Id
-            objFlow["Progress"] = objProcess.ObjectId;            
+            objFlow["Progress"] = objProcess.ObjectId;
+            //工艺流程数据
             objFlow.Update();
 
             //"进度管理”取值 工艺流程数据Id
             objProcess[RealTimeDynamicProduction.ProcessFlowTable] = objFlow.ObjectId;
             objProcess.Update();
 
+            //双轧工件进度管理建立相互关联关系
+            if (objPlan["F0000152"] + string.Empty == "双轧")
+            {
+                objProcess["F0000079"] = objProcessB.ObjectId;
+                objProcessB["F0000079"] = objProcess.ObjectId;
+                objProcess.Update();
+                objProcessB.Update();
+            }
+
             //开启流程
             Tools.WorkFlow.StartWorkflow(this.Engine, objFlow, this.Request.UserContext.UserId, true);
-
             //开启状态
             objPlan[ABCDProcessPlan.OpenProcess] = "已开启";
-            //"工序计划"取值 "工艺流程"数据Id
+            //工序计划
             objPlan[ABCDProcessPlan.ProcessFlowTable] = objFlow.ObjectId;
             //更新本表单
             objPlan.Update();
+            //加载工艺流程数据  
+            BizObject objFlowDisPatch = Tools.BizOperation.Load(this.Engine, ProcessFlow.TableCode, objFlow.ObjectId);
+            //判定工艺流程表中的派工开关
+            string dipatchFlag = objFlowDisPatch["F0000230"] + string.Empty;
+            if (dipatchFlag == "开")
+            {
+                //关闭派工功能多选控件
+                objFlowDisPatch["F0000231"] = "";
+            }
+            else
+            {
+                //关闭派工功能多选控件
+                objFlowDisPatch["F0000231"] = objFlowDisPatch["F0000152"];
+            }
+            objFlowDisPatch.Update();
         }
 
-        if ( !hasError) { response.Message = "开启成功！"; }
+        if (!hasError) { response.Message = "开启成功！"; }
     }
- 
+
     /// <summary>
     /// 批量生成机加派工表
     /// </summary>
@@ -142,26 +173,26 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
             return;
         }
 
-        foreach (string objectId in objectIds)      
-        {           
-            H3.DataModel.BizObject objPlan = Tools.BizOperation.Load(this.Engine, this.Request.SchemaCode, objectId);
+        foreach (string objectId in objectIds)
+        {
+            BizObject objPlan = Tools.BizOperation.Load(this.Engine, this.Request.SchemaCode, objectId);
             if (objPlan["DispatchTable"] + string.Empty != "") { continue; }
-            H3.DataModel.BizObject dispatchObj = CreateDispatchObject(objPlan, objectId);
+            BizObject dispatchObj = CreateDispatchObject(objPlan, objectId);
             objPlan["DispatchTable"] = dispatchObj.ObjectId;
             objPlan.Update();
             response.Message = "生成派工单成功！";
         }
     }
-   
+
     /// <summary>
     /// 创建“派工表”对象
     /// </summary>
-    /// <param name="objPlan"></param>
-    /// <param name="objectId"></param>
+    /// <param name="objPlan">计划表业务对象</param>
+    /// <param name="objectId">计划表业务对象</param>
     /// <returns></returns>
-    private H3.DataModel.BizObject CreateDispatchObject(H3.DataModel.BizObject objPlan, string objectId)
+    private BizObject CreateDispatchObject(BizObject objPlan, string objectId)
     {
-        H3.DataModel.BizObject dispatchObj = Tools.BizOperation.New(this.Engine, Dispatchs.TableCode);
+        BizObject dispatchObj = Tools.BizOperation.New(this.Engine, Dispatchs.TableCode);   //派工表
         dispatchObj[Dispatchs.OrderNumber] = objPlan[ABCDProcessPlan.OrderNumber] + string.Empty;
         dispatchObj[Dispatchs.WorkpieceNumber] = objPlan[ABCDProcessPlan.WorkpieceNumber] + string.Empty;
         dispatchObj[Dispatchs.ID] = objPlan[ABCDProcessPlan.ID] + string.Empty;
@@ -184,83 +215,103 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
         dispatchObj[Dispatchs.FinishTurningPlanCompletionTime] = objPlan[ABCDProcessPlan.FinishTurningPlannedCompletionTime] + string.Empty;
         dispatchObj[Dispatchs.DrillingPlanCompletionTime] = objPlan[ABCDProcessPlan.DrillingPlannedCompletionTime] + string.Empty;
 
-        
-        string z = (string)objPlan["F0000252"]; //总计划员
-        string l = (string)objPlan["F0000251"]; //冷加工科长
-        string qy = (string)objPlan["F0000247"]; //取样班组长
-        string cc = (string)objPlan["F0000248"]; //粗车班组长
-        string jc = (string)objPlan["F0000249"]; //精车班组长
-        string zk = (string)objPlan["F0000250"]; //钻孔班组长
+
+        string chiefPlanner = (string)objPlan["F0000252"]; //总计划员   
+        string coldWorkingSectionChief = (string)objPlan["F0000251"]; //冷加工科长 
+        string samplingTeamLeader = (string)objPlan["F0000247"]; //取样班组长 
+        string roughingShiftLeader = (string)objPlan["F0000248"]; //粗车班组长
+        string finishingShiftLeader = (string)objPlan["F0000249"]; //精车班组长
+        string drillingTeamLeader = (string)objPlan["F0000250"]; //钻孔班组长
 
         //派工表取值无派工加工审批权限人
-        dispatchObj["F0000085"] = z;
-        dispatchObj["F0000086"] = l;
-        dispatchObj["F0000087"] = qy;
-        dispatchObj["F0000088"] = cc;
-        dispatchObj["F0000089"] = jc;
-        dispatchObj["F0000090"] = zk;
+        dispatchObj["F0000085"] = chiefPlanner;
+        dispatchObj["F0000086"] = coldWorkingSectionChief;
+        dispatchObj["F0000087"] = samplingTeamLeader;
+        dispatchObj["F0000088"] = roughingShiftLeader;
+        dispatchObj["F0000089"] = finishingShiftLeader;
+        dispatchObj["F0000090"] = drillingTeamLeader;
 
 
-        //派工取样子表
-        BizObject bs = Tools.BizOperation.New(this.Engine, DispatchSamplingSubTable.TableCode);
-        bs[DispatchSamplingSubTable.TaskName] = "取样任务";
-        bs[DispatchSamplingSubTable.Name] = new object[1] { qy != "" ? qy : l != "" ? l : z };
-        bs[DispatchSamplingSubTable.ProcessingQuantity] = 1.0;
+        //派工取样子表业务对象
+        BizObject dSampling = Tools.BizOperation.New(this.Engine, DispatchSamplingSubTable.TableCode);
+        //派工任务名
+        dSampling[DispatchSamplingSubTable.TaskName] = "取样任务";
+        //派工人员
+        dSampling[DispatchSamplingSubTable.Name] = new object[1] { samplingTeamLeader != "" ? samplingTeamLeader : coldWorkingSectionChief != "" ? coldWorkingSectionChief : chiefPlanner };
+        //派工量
+        dSampling[DispatchSamplingSubTable.ProcessingQuantity] = 1.0;
+        //取样派工总量
         dispatchObj["F0000098"] = 1.0;
-        dispatchObj[DispatchSamplingSubTable.TableCode] = new BizObject[1] { bs };
+        //取样（派工）子表控件
+        dispatchObj[DispatchSamplingSubTable.TableCode] = new BizObject[1] { dSampling };
 
 
-        //派工粗车子表
-        BizObject br = Tools.BizOperation.New(this.Engine, DispatchRoughSubTable.TableCode);
-        br[DispatchRoughSubTable.TaskName] = "粗车任务";
-        br[DispatchRoughSubTable.Name] = new object[1] { cc != "" ? cc : l != "" ? l : z };
-        br[DispatchRoughSubTable.ProcessingQuantity] = 1.0;
+        //派工粗车子表业务对象
+        BizObject dRough = Tools.BizOperation.New(this.Engine, DispatchRoughSubTable.TableCode);
+        //派工任务名
+        dRough[DispatchRoughSubTable.TaskName] = "粗车任务";
+        //派工人员
+        dRough[DispatchRoughSubTable.Name] = new object[1] { roughingShiftLeader != "" ? roughingShiftLeader : coldWorkingSectionChief != "" ? coldWorkingSectionChief : chiefPlanner };    
+        //派工量
+        dRough[DispatchRoughSubTable.ProcessingQuantity] = 1.0;  
+        //粗车派工总量
         dispatchObj["F0000099"] = 1.0;
-        dispatchObj[DispatchRoughSubTable.TableCode] = new BizObject[1] { br };
+        //粗车（派工）子表控件           
+        dispatchObj[DispatchRoughSubTable.TableCode] = new BizObject[1] { dRough };
 
-        //派工精车子表
-        BizObject bf = Tools.BizOperation.New(this.Engine, DispatchFinishSubTable.TableCode);
-        bf[DispatchFinishSubTable.TaskName] = "精车任务";
-        bf[DispatchFinishSubTable.Name] = new object[1] { jc != "" ? jc : l != "" ? l : z };
-        bf[DispatchFinishSubTable.ProcessingQuantity] = 1.0;
+        //派工精车子表业务对象
+        BizObject dFinish = Tools.BizOperation.New(this.Engine, DispatchFinishSubTable.TableCode);
+        //派工任务名
+        dFinish[DispatchFinishSubTable.TaskName] = "精车任务";
+        //派工人员
+        dFinish[DispatchFinishSubTable.Name] = new object[1] { finishingShiftLeader != "" ? finishingShiftLeader : coldWorkingSectionChief != "" ? coldWorkingSectionChief : chiefPlanner };
+        //派工量
+        dFinish[DispatchFinishSubTable.ProcessingQuantity] = 1.0;
+        //精车派工总量
         dispatchObj["F0000100"] = 1.0;
-        dispatchObj[DispatchFinishSubTable.TableCode] = new BizObject[1] { bf };
+        //精车（派工）子表控件
+        dispatchObj[DispatchFinishSubTable.TableCode] = new BizObject[1] { dFinish };      
 
-        //派工钻孔子表
-        BizObject bd = Tools.BizOperation.New(this.Engine, DispatchDrillSubTable.TableCode);
-        bd[DispatchDrillSubTable.TaskName] = "钻孔任务";
-        bd[DispatchDrillSubTable.Name] = new object[1] { zk != "" ? zk : l != "" ? l : z };
-        bd[DispatchDrillSubTable.ProcessingQuantity] = 1.0;
+        //派工钻孔子表   
+        BizObject dDrill = Tools.BizOperation.New(this.Engine, DispatchDrillSubTable.TableCode);
+        //派工任务名
+        dDrill[DispatchDrillSubTable.TaskName] = "钻孔任务";
+        //派工人员
+        dDrill[DispatchDrillSubTable.Name] = new object[1] { drillingTeamLeader != "" ? drillingTeamLeader : coldWorkingSectionChief != "" ? coldWorkingSectionChief : chiefPlanner };
+        //派工量
+        dDrill[DispatchDrillSubTable.ProcessingQuantity] = 1.0;
+        //钻孔派工总量
         dispatchObj["F0000101"] = 1.0;
-        dispatchObj[DispatchDrillSubTable.TableCode] = new BizObject[1] { bd };
+        //钻孔（派工）子表控件
+        dispatchObj[DispatchDrillSubTable.TableCode] = new BizObject[1] { dDrill };
 
         //“派工表”取值“工序计划表”的数据ID
         dispatchObj["PlanTable"] = objectId;
-        dispatchObj.Status = H3.DataModel.BizObjectStatus.Effective;
+        dispatchObj.Status = BizObjectStatus.Effective;
         //派工数据
         dispatchObj.Create();
         return dispatchObj;
 
     }
+    
     /// <summary>
     /// 创建“工艺流程”对象
     /// </summary>
-    /// <param name="objPlan"></param>
-    /// <param name="ProductType"></param>
+    /// <param name="objPlan">提供值的工序计划表</param> 
     /// <returns></returns>
-    private H3.DataModel.BizObject CreateFlowObject(H3.DataModel.BizObject objPlan)
+    private BizObject CreateFlowObject(BizObject objPlan)
     {
-        H3.DataModel.BizObject objFlow = Tools.BizOperation.New(this.Engine, ProcessFlow.TableCode);
+        BizObject objFlow = Tools.BizOperation.New(this.Engine, ProcessFlow.TableCode);
 
         if (objPlan[ABCDProcessPlan.PlannedRollingMethod] + string.Empty == "双轧")
         {
             //工件号转数值
-            int workpieceNumber = Convert.ToInt32(objPlan[ABCDProcessPlan.WorkpieceNumber] + string.Empty);
+            string workpieceNumber = objPlan[ABCDProcessPlan.WorkpieceNumber] + string.Empty;
             //双轧工件号转数值
-            int doubleTieWorkpieceNumber = Convert.ToInt32(objPlan[ABCDProcessPlan.DoubleTieWorkpieceNumber] + string.Empty);
+            string doubleTieWorkpieceNumber = objPlan[ABCDProcessPlan.DoubleTieWorkpieceNumber] + string.Empty;
 
             //工件号大于双轧工件号
-            if (workpieceNumber > doubleTieWorkpieceNumber)
+            if (string.Compare(workpieceNumber, doubleTieWorkpieceNumber, true) > 0)
             {
                 //双扎工艺分割前工件值为是
                 objFlow[ProcessFlow.DoubleTieTheWorkpieceBeforeSegmentation] = "是";
@@ -290,7 +341,7 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
         //产品名称
         objFlow[ProcessFlow.ProductName] = objPlan[ABCDProcessPlan.ProductName] + string.Empty;
         //产品种类
-        objFlow[ProcessFlow.ProductType] =objPlan["ProductType"];
+        objFlow[ProcessFlow.ProductType] = objPlan["ProductType"];
 
         //成品单重
         objFlow[ProcessFlow.FinishedProductUnitWeight] = objPlan[ABCDProcessPlan.FinishedProductUnitWeight] + string.Empty;
@@ -324,8 +375,7 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
 
         //计划本取
         objFlow[ProcessFlow.PlannedTake] = objPlan[ABCDProcessPlan.PlanThisOptionTakes] + string.Empty;
-        //计划炉次编号
-        objFlow[ProcessFlow.PlannedHeatNumber] = objPlan[ABCDProcessPlan.PlannedFurnaceNumber] + string.Empty;
+
         //计划热处理炉号
         objFlow[ProcessFlow.PlannedHeatTreatmentHeatNumber] = objPlan[ABCDProcessPlan.HeatTreatmentFurnaceNumber] + string.Empty;
 
@@ -410,11 +460,11 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
     /// <summary>
     /// 创建“实时生产动态”对象
     /// </summary>
-    /// <param name="objPlan"></param>
+    /// <param name="objPlan">提供值的工序计划表</param>
     /// <returns></returns>
-    private H3.DataModel.BizObject CreateProcessObject(H3.DataModel.BizObject objPlan)
+    private BizObject CreateProcessObject(BizObject objPlan)
     {
-         H3.DataModel.BizObject objProcess = Tools.BizOperation.New(this.Engine, RealTimeDynamicProduction.TableCode);
+        BizObject objProcess = Tools.BizOperation.New(this.Engine, RealTimeDynamicProduction.TableCode);
         //进度管理-产品ID
         objProcess[RealTimeDynamicProduction.ID] = objPlan[ABCDProcessPlan.ID] + string.Empty;
         //进度管理-数据代码
@@ -446,11 +496,12 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
 
         objProcess[RealTimeDynamicProduction.OperationPlanTable] = objPlan[ABCDProcessPlan.ObjectId] + string.Empty;
 
-        objProcess.Status = H3.DataModel.BizObjectStatus.Effective;
+        objProcess.Status = BizObjectStatus.Effective;
 
         //进度管理数据
         objProcess.Create();
         return objProcess;
     }
+
 
 }
