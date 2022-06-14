@@ -74,11 +74,13 @@ namespace H3
 
         public class ListViewController
         {
-            private ListViewRequest request;
+            public H3.IEngine Engine { get; set; }
+
+            public ListViewRequest Request;
 
             public ListViewController(ListViewRequest request)
             {
-                this.request = request;
+                this.Request = request;
             }
 
             protected virtual  void OnLoad(H3.SmartForm.LoadListViewResponse response) { }
@@ -89,10 +91,12 @@ namespace H3
         {
             public string SchemaCode { get; internal set; }
             public UserContext UserContext { get; internal set; }
+            public H3.IEngine Engine { get; internal set; }
         }
 
         public class LoadListViewResponse
         {
+            public string SchemaCode { get; internal set; }
         }
 
         public class SubmitListViewResponse

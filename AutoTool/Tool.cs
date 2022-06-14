@@ -357,7 +357,16 @@ public class Tools
             }//第七个参数 false/true 为是否提交流程操作
         }
     }
+
+    public class BusinessExcepiton : Exception
+    {
+        internal static void ErrorLog(IEngine engine, string v1, string v2, string v3)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
+
 
 /*
 * -- Author:zlm

@@ -7,6 +7,39 @@ public class Register
     static string RegisterTable = "D001419bfcf04a7402c410593ba4cec28953075";
     static string usageTable = "8bf85ce3493444e2a7feff571236c4b0";
 
+
+    public static string CreateVar(Schema reg)
+    {
+        Schema s = reg.GetSubSchema("列结构");
+        s.ReInit();
+        var fields = s.ClearFilter().And(Schema.PID, "=", reg[Schema.RID]).GetList();
+        if (fields == null) { return ""; }
+        string appName = reg.Cell("应用名称");
+        string tableName = reg.Cell("表名");
+        string tableCode = reg.Cell("表ID");
+        string className = reg.Cell("类名");
+        string inherit = reg.Cell("继承");
+        StringBuilder model = new StringBuilder("");
+
+        model.Append("\t// " + appName + "," + tableName + "\r\n");
+        model.Append("\t string\t" + className + "_TableCode=\"" + tableCode + "\";\r\n");
+
+        string skipList = @"Status,ModifiedBy,CreatedTime,Name,ObjectId,ModifiedTime,WorkflowInstanceId,OwnerId,OwnerDeptId,CreatedBy";
+        string[] skips = skipList.Split(',');
+        foreach (var field in fields)
+        {
+
+            s.CurrentRow = field;
+            string fieldName = s.Cell("编码");
+            if (Array.IndexOf(skips, fieldName) >= 0) { continue; }
+            string PropName = s.Cell("名称");
+            string DisplayName = s.Cell("显示名称");
+            model.Append("\t// " + DisplayName + "\r\n");
+            model.Append("\t\t string\t" + className + "_" + PropName.Replace("%", "").Replace(".", "").Trim() + "\t=\t\"" + fieldName + "\";\r\n");
+        }
+        return model.ToString();
+    }
+
     public static void SetColumns(H3.IEngine Engine)
     {
         Schema r = new Schema(Engine, RegisterTable, true);
@@ -298,37 +331,6 @@ public class Register
         return model.ToString();
     }
 
-    public static string CreateVar(Schema reg)
-    {
-        Schema s = reg.GetSubSchema("列结构");
-        s.ReInit();
-        var fields = s.ClearFilter().And(Schema.PID, "=", reg[Schema.RID]).GetList();
-        if (fields == null) { return ""; }
-        string appName = reg.Cell("应用名称");
-        string tableName = reg.Cell("表名");
-        string tableCode = reg.Cell("表ID");
-        string className = reg.Cell("类名");
-        string inherit = reg.Cell("继承");
-        StringBuilder model = new StringBuilder("");
-
-        model.Append("\t// " + appName + "," + tableName + "\r\n");
-        model.Append("\t string\t" + className + "_TableCode=\"" + tableCode + "\";\r\n");
-
-        string skipList = @"Status,ModifiedBy,CreatedTime,Name,ObjectId,ModifiedTime,WorkflowInstanceId,OwnerId,OwnerDeptId,CreatedBy";
-        string[] skips = skipList.Split(',');
-        foreach (var field in fields)
-        {
-
-            s.CurrentRow = field;
-            string fieldName = s.Cell("编码");
-            if (Array.IndexOf(skips, fieldName) >= 0) { continue; }
-            string PropName = s.Cell("名称");
-            string DisplayName = s.Cell("显示名称");
-            model.Append("\t// " + DisplayName + "\r\n");
-            model.Append("\t\t string\t" + className + "_" + PropName.Replace("%", "").Replace(".", "").Trim() + "\t=\t\"" + fieldName + "\";\r\n");
-        }
-        return model.ToString();
-    }
     public static string CreateCode(H3.IEngine Engine, string interfaceName)
     {
         Schema usage = new Schema(Engine, usageTable, false);

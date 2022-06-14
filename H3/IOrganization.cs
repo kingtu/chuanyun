@@ -10,5 +10,6 @@ namespace H3
         string[] GetChildren(string dianzhang, UnitType user, bool v, State active);
         User GetUnit(string userId);
         OrgRole[] GetUserRoles(string item, bool v);
+        Unit GetParentUnit(string userId);
     }
 }
