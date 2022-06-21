@@ -1,4 +1,5 @@
-﻿/// <summary>
+﻿using System.Data;
+/// <summary>
 /// 生产制造流程,取样子流程取样派工信息
 /// </summary>
 public class SamplingSubProcessSamplingAssignmentInformation
@@ -7609,6 +7610,17 @@ public class Dispatchs
 	/// 工艺流程信息
 	/// </summary>
 	public static readonly string ProcessInformation = "FlowInfo";
+
+    public static string Sawing { get; internal set; }
+    public static DataColumn SawingDoesNotLimitTheOrderOfDispatch { get; internal set; }
+    public static DataColumn SamplingWorkshopName { get; internal set; }
+    public static DataColumn SamplingWorkshopLocation { get; internal set; }
+    public static DataColumn RoughTurningWorkshopName { get; internal set; }
+    public static DataColumn RoughTurningWorkshopLocation { get; internal set; }
+    public static DataColumn FinishTurningWorkshopName { get; internal set; }
+    public static DataColumn FinishTurningWorkshopLocation { get; internal set; }
+    public static DataColumn DrillingWorkshopName { get; internal set; }
+    public static DataColumn DrillingWorkshopLocation { get; internal set; }
 }
 /// <summary>
 /// 生产计划,车间区域责任划分
