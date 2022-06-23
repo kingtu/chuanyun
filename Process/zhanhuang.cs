@@ -21,149 +21,70 @@ public class D001419Saesg17flbcod0mvbdha0kkk44 : H3.SmartForm.SmartFormControlle
 
     // 生产制造流程,辗环
     string RollingRing_TableCode = "D001419Saesg17flbcod0mvbdha0kkk44";
-    // 订单号
-    string RollingRing_OrderNumber = "F0000012";
-    // 辗环需求期
-    string RollingRing_DemandPeriodOfThisOperationRingRolling = "F0000088";
+  
     // 加工总量
     string RollingRing_TotalProcessingQuantity = "F0000078";
-    // 产品名称
-    string RollingRing_ProductName = "F0000002";
-    // 单重
-    string RollingRing_SingleWeight = "F0000040";
-    // 辗环工人组
-    string RollingRing_RingRollingWorkerGroup = "F0000032";
-    // 质检结论
-    string RollingRing_QualityInspectionConclusion = "F0000064";
-    // 设备名称
-    string RollingRing_EquipmentName = "F0000067";
-    // 市场需求变更
-    string RollingRing_ChangeInMarketDemand = "F0000094";
-    // 本工序需求期
-    string RollingRing_DemandPeriodOfThisOperation = "F0000058";
-    // 关联其它异常工件
+       // 关联其它异常工件
     string RollingRing_AssociatedWithOtherAbnormalWorkpieces = "F0000199";
     // 当前工序
     string RollingRing_CurrentOperation = "F0000056";
-    // 加工单位
-    string RollingRing_ProcessingUnit = "F0000049";
+   
     // 任务名称
     string RollingRing_TaskName = "F0000077";
-    // 轧制方式
-    string RollingRing_DetermineRollingMethod = "F0000036";
+    
     // 辗环信息
     string RollingRing_HotProcessingInformation = "D001419Fc33fc9abe5f2451e83ce06a5edc1669f";
     // 异常代表
     string RollingRing_ExceptionRepresentative = "F0000082";
-    // 炉号
-    string RollingRing_HeatNumber = "F0000035";
-    // 进度管理信息
-    string RollingRing_ScheduleManagementInformation = "Progress";
-    // 区域位置
-    string RollingRing_ProductLocation = "F0000053";
-    // 锻辗炉次
-    string RollingRing_ForgingRollingFurnace = "F0000084";
-    // 工序计划表
-    string RollingRing_OperationSchedule = "F0000087";
-    // 炉内位置
-    string RollingRing_LocationInTheFurnace = "F0000085";
-    // 流程参与者
-    string RollingRing_TheCirculationDepartment = "Participants";
-    // 数据代码
-    string RollingRing_DataCode = "F0000050";
-    // 双轧关联表单
-    string RollingRing_DoubleRolledAssociativeForm = "F0000091";
+    
     // 转至工步
-    string RollingRing_TransferToWorkStep = "F0000047";
-    // 订单批次规格号
-    string RollingRing_OrderBatchSpecificationNumber = "F0000043";
-    // 数量_切割前
-    string RollingRing_NumberOfDoubleRolledProducts = "F0000093";
+    string RollingRing_TargetStep = "F0000047";
+   
     // 当前工步
-    string RollingRing_CurrentWorkStep = "F0000054";
+    string RollingRing_CurrentStep = "F0000054";
     // 发起异常
     string RollingRing_InitiateException = "F0000048";
-    // 审批人
-    string RollingRing_Approver = "Approver";
-    // 车间位置
-    string RollingRing_WorkshopLocation = "F0000052";
-    // 是否调整至其他工序
-    string RollingRing_AdjustToOtherOperation = "F0000060";
+       // 是否调整至其他工序
+    string RollingRing_IsAdjustToOtherSection = "F0000060";
     // ID
     string RollingRing_ID = "F0000044";
-    // 计划炉次编号
-    string RollingRing_PlannedHeatNumber = "F0000059";
-    // 更新异常日志objectID
-    string RollingRing_ObjectIDForUpdateTheExceptionLog = "F0000080";
-    // 版本号
-    string RollingRing_TheVersionNumber = "F0000097";
+  
     // 异常描述
     string RollingRing_ExceptionDescription = "F0000062";
-    // 部门多选
-    string RollingRing_DepartmentOfAlternative = "F0000098";
-    // 工件号
-    string RollingRing_WorkpieceNumber = "F0000018";
-    // 测试用objectID
-    string RollingRing_ObjectidForTest = "F0000069";
-    // 部门代码
-    string RollingRing_DepartmentCode = "F0000099";
-    // 产品规格
-    string RollingRing_ProductSpecification = "F0000003";
-    // 装炉状态
-    string RollingRing_FurnaceChargingState = "F0000086";
-    // 订单批次号
-    string RollingRing_OrderBatchNumber = "F0000014";
-    // 厂区位置
-    string RollingRing_FactoryLocation = "F0000083";
+   
     // 检验结果
     string RollingRing_InspectionResult = "F0000045";
-    // 设备编号
-    string RollingRing_EquipmentNumber = "F0000066";
+  
     // 异常类别
     string RollingRing_ExceptionCategory = "F0000055";
-    // 错误消息
-    string RollingRing_TheErrorMessage = "Message";
-    // 订单规格号
-    string RollingRing_OrderSpecificationNumber = "F0000016";
+  
     //拥有者
     string RollingRing_Owner = "OwnerId";
 
     //转至工序
-    string ProcessFlow_TransferToOperation = "F0000056";
+    string ProcessFlow_TargetSection = "F0000056";
     //转至工步
-    string ProcessFlow_TransferToStep = "F0000057";
+    string ProcessFlow_TargetStep = "F0000057";
 
     // 生产制造流程,辗环信息子表
     string RingRollingInformation_TableCode = "D001419Fc33fc9abe5f2451e83ce06a5edc1669f";
-    // 下机温度
-    string RingRollingInformation_ThePlaneTemperature = "F0000071";
-    // ParentObjectId
-    string RingRollingInformation_Parentobjectid = "ParentObjectId";
-    // 加工量
-    string RingRollingInformation_ProcessingQuantity = "F0000075";
-    // 重量
-    string RingRollingInformation_Weight = "F0000074";
-    // 上机温度
-    string RingRollingInformation_OperatingTemperature = "F0000095";
-    // 部门
+      // 部门
     string RingRollingInformation_Department = "F0000079";
     // 加工组成员
     string RingRollingInformation_ProcessingGroupMember = "F0000070";
     // 开始时间
     string RingRollingInformation_StartTime = "F0000076";
-    // 高度
-    string RingRollingInformation_Height = "F0000072";
-    // 任务名称
+      // 任务名称
     string RingRollingInformation_TaskName = "F0000073";
     // 结束时间
     string RingRollingInformation_EndTime = "F0000096";
 
     //生产数据分析,实时生产动态
-    string RealTimeDynamicProduction_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";
+    string ScheduleManagement_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";
     //工序表数据ID
-    string RealTimeDynamicProduction_OperationTableDataID = "F0000070";
+    string ScheduleManagement_SectionTableDataID = "F0000070";
     // 当前工序表SchemaCode
-    string RealTimeDynamicProduction_CurrentPreviousOperationTableSchemacode = "F0000071";
+    string ScheduleManagement_CurrentSectionTableSchemacode = "F0000071";
 
     public D001419Saesg17flbcod0mvbdha0kkk44(H3.SmartForm.SmartFormRequest request) : base(request)
     {
@@ -186,8 +107,11 @@ public class D001419Saesg17flbcod0mvbdha0kkk44 : H3.SmartForm.SmartFormControlle
                 ClearTransferToWorkStep();
                 InitTableComponent();
                 //同步数据至实时制造情况
-                Hashtable workSteps = ProgressManagement.RollingRingProgress(Engine, RollingRing_TableCode, RollingRing_CurrentWorkStep);
-                me[RollingRing_CurrentWorkStep] = workSteps[me.ObjectId];
+                Hashtable workSteps = ProgressManagement.RollingRingProgress(Engine, RollingRing_TableCode, RollingRing_CurrentStep);
+                if (workSteps[me.ObjectId] + string.Empty != string.Empty)
+                {
+                    me[RollingRing_CurrentStep] = workSteps[me.ObjectId];
+                }
             }
         }
         catch (Exception ex)
@@ -263,11 +187,11 @@ public class D001419Saesg17flbcod0mvbdha0kkk44 : H3.SmartForm.SmartFormControlle
             //获取当前流程业务对象
             H3.DataModel.BizObject current = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, Engine, Request.SchemaCode, Request.BizObjectId, false);
             current[RollingRing_InitiateException] = "否";                               //发起异常
-            current[RollingRing_TransferToWorkStep] = null;                              //转至工步
+            current[RollingRing_TargetStep] = null;                              //转至工步
             current[RollingRing_ExceptionCategory] = null;                               //异常类别
             current[RollingRing_ExceptionDescription] = null;                            //异常描述
             current[RollingRing_ExceptionRepresentative] = null;                         //异常代表
-            current[RollingRing_AdjustToOtherOperation] = "否";                          //是否调整至其他工序
+            current[RollingRing_IsAdjustToOtherSection] = "否";                          //是否调整至其他工序
             current[RollingRing_AssociatedWithOtherAbnormalWorkpieces] = null;           //关联其它异常工件
             current["F0000200"] = null;                                                  //质量审批单
             current["F0000201"] = null;                                                  //需求审批单
@@ -286,7 +210,7 @@ public class D001419Saesg17flbcod0mvbdha0kkk44 : H3.SmartForm.SmartFormControlle
     {
         string currentApprover = Request.UserContext.User.Name;                      //当前审批人
         string currentProcess = me[RollingRing_CurrentOperation] + string.Empty;         //当前工序
-        string currentWorkStep = me[RollingRing_CurrentWorkStep] + string.Empty;          //当前工步
+        string currentWorkStep = me[RollingRing_CurrentStep] + string.Empty;          //当前工步
         if (me[RollingRing_InitiateException] + string.Empty == "是" && activityCode != "Activity113")          //发起异常
         {
             string abnormal = "发起异常";
@@ -313,8 +237,8 @@ public class D001419Saesg17flbcod0mvbdha0kkk44 : H3.SmartForm.SmartFormControlle
         H3.Workflow.Instance.WorkflowInstance instance = Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(Request.WorkflowInstance.ParentInstanceId);
         //获取父流程业务对象
         H3.DataModel.BizObject current = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, Engine, instance.SchemaCode, instance.BizObjectId, false);
-        current[ProcessFlow_TransferToOperation] = null;            //转至工序
-        current[ProcessFlow_TransferToStep] = null;                 //转至工步
+        current[ProcessFlow_TargetSection] = null;            //转至工序
+        current[ProcessFlow_TargetStep] = null;                 //转至工步
         current.Update();
     }
 
@@ -383,7 +307,7 @@ public class D001419Saesg17flbcod0mvbdha0kkk44 : H3.SmartForm.SmartFormControlle
     {             //正常节点 转至工步复位
         if (activityCode != "Activity113")
         {
-            me[RollingRing_TransferToWorkStep] = null;
+            me[RollingRing_TargetStep] = null;
         }
     }
     //检查发起异常控件是否被其它异常代表更改 - fubin
@@ -422,11 +346,11 @@ public class D001419Saesg17flbcod0mvbdha0kkk44 : H3.SmartForm.SmartFormControlle
         {
             //加载其他异常ID 的业务对象
             H3.DataModel.BizObject currentObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId,
-                Engine, RealTimeDynamicProduction_TableCode, bizObjectID, false);
+                Engine, ScheduleManagement_TableCode, bizObjectID, false);
             //实时生产动态 - 工序表数据ID
-            string otherExceptionId = currentObj[RealTimeDynamicProduction_OperationTableDataID] + string.Empty;
+            string otherExceptionId = currentObj[ScheduleManagement_SectionTableDataID] + string.Empty;
             //实时生产动态 - 工序表SchemaCode
-            string currentSchemaCode = currentObj[RealTimeDynamicProduction_CurrentPreviousOperationTableSchemacode] + string.Empty;
+            string currentSchemaCode = currentObj[ScheduleManagement_CurrentSectionTableSchemacode] + string.Empty;
 
             //加载工序表中的业务对象
             H3.DataModel.BizObject otherObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId,
@@ -531,75 +455,6 @@ public class D001419Saesg17flbcod0mvbdha0kkk44 : H3.SmartForm.SmartFormControlle
             subForm[taskNum][RingRollingInformation_EndTime] = System.DateTime.Now;
             //创建添加新的子表行数据
             CreatSublist(me, subForm);
-        }
-    }
-}
-
-
-public class D001419Saesg17flbcod0mvbdha0kkk44_ListViewController : H3.SmartForm.ListViewController
-{
-    string activityCode = "辗环列表加载";
-    string userName = ""; //当前用户
-    string RollingRing_TableCode = "D001419Saesg17flbcod0mvbdha0kkk44";
-    //当前工步
-    string RollingRing_CurrentWorkStep = "F0000054";
-    //工序计划表
-    string RollingRing_OperationSchedule = "F0000087";
-    //生产计划,ABCD工序计划表
-    string ABCDProcessPlan_TableCode = "D001419Szlywopbivyrv1d64301ta5xv4";
-    //本工序需求期
-    string RollingRing_DemandPeriodOfThisOperation = "F0000058";
-
-    //本工序需求期-辗环
-    string ABCDProcessPlan_DemandPeriodOfThisOperationRingRolling = "F0000067";
-
-    public D001419Saesg17flbcod0mvbdha0kkk44_ListViewController(H3.SmartForm.ListViewRequest request) : base(request)
-    {
-        userName = this.Request.UserContext.User.FullName;
-    }
-
-    protected override void OnLoad(H3.SmartForm.LoadListViewResponse response)
-    {
-        try
-        {
-            //更新列表中的本工序需求期
-            RenewalDemandPeriod(response);
-            //更新实时制造情况
-            ProgressManagement.RollingRingProgress(this.Engine, RollingRing_TableCode, RollingRing_CurrentWorkStep);
-        }
-        catch (Exception ex)
-        {
-            Tools.Log.ErrorLog(this.Engine, null, ex, activityCode, userName);
-        }
-
-        base.OnLoad(response);
-    }
-
-    protected override void OnSubmit(string actionName, H3.SmartForm.ListViewPostValue postValue, H3.SmartForm.SubmitListViewResponse response)
-    {
-
-        base.OnSubmit(actionName, postValue, response);
-    }
-    //更新列表中的本工序需求期
-    protected void RenewalDemandPeriod(H3.SmartForm.LoadListViewResponse response)
-    {
-        //查询本工序中未完成的流程且当前时间与修改时间差在1天之内的流程实例的“ObjectId”
-        string sql = "select ObjectId from i_" + response.SchemaCode + " where status = 2 and now() - ModifiedTime <= 86400";
-        System.Data.DataTable aQuerry = this.Request.Engine.Query.QueryTable(sql, null);
-        if (aQuerry != null && aQuerry.Rows != null && aQuerry.Rows.Count > 0)
-        {
-            foreach (System.Data.DataRow row in aQuerry.Rows)
-            {
-                string id = row["ObjectId"] + string.Empty;
-                //获取当前表单的业务对象
-                H3.DataModel.BizObject objectt = Tools.BizOperation.Load(this.Request.Engine, response.SchemaCode, id);
-                string planId = objectt[RollingRing_OperationSchedule] + string.Empty;
-                //获取工序计划业务对象
-                H3.DataModel.BizObject planObj = Tools.BizOperation.Load(this.Request.Engine, ABCDProcessPlan_TableCode, planId);
-                //计划表中的需求期赋值给当前表单的本工序需求期
-                objectt[RollingRing_DemandPeriodOfThisOperation] = planObj != null ? planObj[ABCDProcessPlan_DemandPeriodOfThisOperationRingRolling] + string.Empty : string.Empty;
-                objectt.Update();
-            }
         }
     }
 }

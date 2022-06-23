@@ -20,76 +20,35 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
 
     // 生产制造流程,锻压
     string Forge_TableCode = "D001419Sdoly16pnqd5z66wl60hc4y1u1";
-    // 版本号
-    string Forge_TheVersionNumber = "F0000102";
+    
     // 锻压信息
-    string Forge_HotProcessingInformation = "D001419Fe6ad4c9956ed4788927c31123893dc9e";
-    // 工序计划表
-    string Forge_OperationSchedule = "F0000092";
-    // 设备名称
-    string Forge_EquipmentName = "F0000060";
+    string Forge_Information = "D001419Fe6ad4c9956ed4788927c31123893dc9e";
+    
     // 当前工序
-    string Forge_CurrentOperation = "F0000053";
-    // 工件号
-    string Forge_WorkpieceNumber = "F0000018";
-    // 订单批次规格号
-    string Forge_OrderBatchSpecificationNumber = "F0000040";
-    // 锻压班组
-    string Forge_ForgingTeam = "F0000031";
-    // 数据代码
-    string Forge_DataCode = "F0000048";
+    string Forge_CurrentSection = "F0000053";
+   
     // 异常类别
     string Forge_ExceptionCategory = "F0000046";
-    // 订单号
-    string Forge_OrderNumber = "F0000012";
-    // 炉号
-    string Forge_HeatNumber = "F0000063";
-    // 单重
-    string Forge_SingleWeight = "F0000037";
-    // 区域位置
-    string Forge_ProductLocation = "F0000051";
-    // 市场需求变更
-    string Forge_ChangeInMarketDemand = "F0000099";
-    // 轧制方式
-    string Forge_RollingMethod = "F0000032";
-    // 转至工步
-    string Forge_TransferToWorkStep = "F0000044";
-    // 流程参与者
-    string Forge_TheCirculationDepartment = "Participants";
-    // 错误消息
-    string Forge_TheErrorMessage = "Message";
+      // 转至工步
+    string Forge_TargetStep = "F0000044";
+   
     // 完成总量
     string Forge_TotalAmountCompleted = "F0000082";
-    // 订单规格号
-    string Forge_OrderSpecificationNumber = "F0000016";
+   
     // 异常描述
     string Forge_ExceptionDescription = "F0000058";
-    // 加工单位
-    string Forge_ProcessingUnit = "F0000047";
-    // 厂区位置
-    string Forge_FactoryLocation = "F0000088";
+ 
     // ID
     string Forge_ID = "F0000041";
-    // 质检结论
-    string Forge_QualityInspectionConclusion = "F0000061";
-    // 计划炉次编号
-    string Forge_PlannedHeatNumber = "F0000056";
+   
     // 更新异常日志objectID
     string Forge_ObjectIDForUpdateTheExceptionLog = "F0000085";
-    // 部门多选
-    string Forge_DepartmentOfAlternative = "F0000103";
+   
     // 是否调整至其他工序
-    string Forge_AdjustToOtherOperations = "F0000049";
+    string Forge_IsAdjustToOtherSection = "F0000049";
     // 装炉状态
     string Forge_FurnaceChargingState = "F0000091";
-    // 双轧关联表单
-    string Forge_DoubleRolledAssociativeForm = "F0000096";
-    // 产品规格
-    string Forge_ProductSpecification = "F0000003";
-    // 锻压需求期
-    string Forge_DemandPeriodOfThisOperationForging = "F0000093";
-    // 锻辗炉次
-    string Forge_ForgingRollingFurnace = "F0000089";
+   
     // 任务名称
     string Forge_TaskName = "F0000081";
     // 当前工步
@@ -98,30 +57,9 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
     string Forge_AssociatedWithOtherAbnormalWorkpieces = "F0000199";
     // 检验结果
     string Forge_InspectionResult = "F0000042";
-    // 车间位置
-    string Forge_WorkshopLocation = "F0000050";
-    // 本工序需求期
-    string Forge_DemandPeriodOfThisOperation = "F0000055";
-    // 进度管理信息
-    string Forge_ScheduleManagementInformation = "Progress";
-    // 设备编号
-    string Forge_EquipmentNumber = "F0000007";
-    // 数量_切割前
-    string Forge_NumberOfDoubleRolledProducts = "F0000098";
-    // 订单批次号
-    string Forge_OrderBatchNumber = "F0000014";
+  
     // 发起异常
-    string Forge_InitiateException = "F0000045";
-    // 产品名称
-    string Forge_ProductName = "F0000002";
-    // 审批人
-    string Forge_Approver = "Approver";
-    // 双轧工件号
-    string Forge_DoubleRolledPartNumber = "F0000097";
-    // 部门代码
-    string Forge_DepartmentCode = "F0000104";
-    // 炉内位置
-    string Forge_LocationInTheFurnace = "F0000090";
+    string Forge_InitiateException = "F0000045";  
     // 异常代表
     string Forge_ExceptionRepresentative = "F0000200";
     //拥有者
@@ -129,45 +67,33 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
 
 
     //生产数据分析,实时生产动态
-    private string RealTimeDynamicProduction_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";
+    private string ScheduleManagement_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";
     // 工序表数据ID
-    private string RealTimeDynamicProduction_OperationTableDataID = "F0000070";
+    private string ScheduleManagement_SectionTableDataID = "F0000070";
 
     // 当前工序表SchemaCode
-    private string RealTimeDynamicProduction_CurrentPreviousOperationTableSchemacode = "F0000071";
+    private string ScheduleManagement_CurrentPreviousSectionTableSchemacode = "F0000071";
 
 
-    // 生产制造流程,锻压热加工信息子表
-    string ForgingHotProcessingInformationSubtable_TableCode = "D001419Fe6ad4c9956ed4788927c31123893dc9e";
-    // 加工量
-    string ForgingHotProcessingInformationSubtable_ProcessingQuantity = "F0000070";
-    // ParentObjectId
-    string ForgingHotProcessingInformationSubtable_Parentobjectid = "ParentObjectId";
+  
     // 加工组成员
-    string ForgingHotProcessingInformationSubtable_ProcessingGroupMember = "F0000066";
+    string ProcessingGroupMember = "F0000066";
     // 任务名称
-    string ForgingHotProcessingInformationSubtable_TaskName = "F0000080";
-    // 重量
-    string ForgingHotProcessingInformationSubtable_Weight = "F0000069";
-    // 高度
-    string ForgingHotProcessingInformationSubtable_Height = "F0000068";
-    // 下机温度
-    string ForgingHotProcessingInformationSubtable_ThePlaneTemperature = "F0000067";
-    // 上机温度
-    string ForgingHotProcessingInformationSubtable_OperatingTemperature = "F0000100";
+    string TaskName = "F0000080"; 
+    
     // 开始时间
-    string ForgingHotProcessingInformationSubtable_StartTime = "F0000083";
+    string StartTime = "F0000083";
     // 部门
-    string ForgingHotProcessingInformationSubtable_Department = "F0000084";
+    string Department = "F0000084";
     // 结束时间
-    string ForgingHotProcessingInformationSubtable_EndTime = "F0000101";
+    string EndTime = "F0000101";
 
 
     public D001419Sdoly16pnqd5z66wl60hc4y1u1(H3.SmartForm.SmartFormRequest request) : base(request)
     {
         me = Request.BizObject;
         toException = me[Forge_InitiateException] + string.Empty;
-        subForm = me[Forge_HotProcessingInformation] as H3.DataModel.BizObject[];
+        subForm = me[Forge_Information] as H3.DataModel.BizObject[];
         activityCode = Request.ActivityCode;
         message = new H3.SmartForm.SmartFormResponseDataItem();
         userName = Request.UserContext.User.FullName;
@@ -186,7 +112,10 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
                 InitTableComponent();
                 //同步数据至实时制造情况
                 Hashtable workSteps = ProgressManagement.ForgetProgress(Engine, Forge_TableCode, Forge_CurrentWorkStep);
-                me[Forge_CurrentWorkStep] = workSteps[me.ObjectId];
+                if (workSteps[me.ObjectId] + string.Empty != string.Empty)
+                {
+                    me[Forge_CurrentWorkStep] = workSteps[me.ObjectId];
+                }
             }
         }
         catch (Exception ex)
@@ -259,11 +188,11 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
             //获取当前流程业务对象
             H3.DataModel.BizObject current = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, Engine, Request.SchemaCode, Request.BizObjectId, false);
             current[Forge_InitiateException] = "否";                                 //发起异常
-            current[Forge_TransferToWorkStep] = null;                                //转至工步
+            current[Forge_TargetStep] = null;                                //转至工步
             current[Forge_ExceptionCategory] = null;                                 //异常类别
             current[Forge_ExceptionDescription] = null;                              //异常描述
             current[Forge_ExceptionRepresentative] = null;                           //异常代表
-            current[Forge_AdjustToOtherOperations] = "否";                           //是否调整至其他工序
+            current[Forge_IsAdjustToOtherSection] = "否";                           //是否调整至其他工序
             current[Forge_AssociatedWithOtherAbnormalWorkpieces] = null;             //关联其它异常工件
             current["F0000201"] = null;                                              //质量审批单
             current["F0000202"] = null;                                              //需求审批单
@@ -296,7 +225,7 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
     protected void UnqualifiedSource()
     {
         string currentApprover = Request.UserContext.User.Name;                //当前审批人
-        string currentProcess = me[Forge_CurrentOperation] + string.Empty;         //当前工序
+        string currentProcess = me[Forge_CurrentSection] + string.Empty;         //当前工序
         string currentWorkStep = me[Forge_CurrentWorkStep] + string.Empty;          //当前工步
         if (me[Forge_InitiateException] + string.Empty == "是" && activityCode != "Activity127")          //发起异常
         {
@@ -322,9 +251,9 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
     public void InitTableComponent()
     {
         //初始化当前工序
-        if (me[Forge_CurrentOperation] + string.Empty == string.Empty)
+        if (me[Forge_CurrentSection] + string.Empty == string.Empty)
         {
-            me[Forge_CurrentOperation] = "锻压";
+            me[Forge_CurrentSection] = "锻压";
         }
         //质检结论赋予默认值合格
         // if(me[Forge_QualityInspectionConclusion] + string.Empty == string.Empty) 
@@ -376,7 +305,7 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
     {             //正常节点 转至工步复位
         if (activityCode != "Activity127")
         {
-            me[Forge_TransferToWorkStep] = null;
+            me[Forge_TargetStep] = null;
         }
     }
     //检查发起异常控件是否被其它异常代表更改 - fubin
@@ -416,11 +345,11 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
             foreach (string bizObjectID in bizObjectIDArray)
             {
                 //加载其他异常ID 的业务对象
-                H3.DataModel.BizObject currentObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, Engine, RealTimeDynamicProduction_TableCode, bizObjectID, false);
+                H3.DataModel.BizObject currentObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, Engine, ScheduleManagement_TableCode, bizObjectID, false);
                 //实时生产动态 - 工序表数据ID
-                string otherExceptionId = currentObj[RealTimeDynamicProduction_OperationTableDataID] + string.Empty;
+                string otherExceptionId = currentObj[ScheduleManagement_SectionTableDataID] + string.Empty;
                 //实时生产动态 - 工序表SchemaCode
-                string currentSchemaCode = currentObj[RealTimeDynamicProduction_CurrentPreviousOperationTableSchemacode] + string.Empty;
+                string currentSchemaCode = currentObj[ScheduleManagement_CurrentPreviousSectionTableSchemacode] + string.Empty;
 
                 //加载工序表中的业务对象
                 H3.DataModel.BizObject otherObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, Engine, currentSchemaCode, otherExceptionId, false);
@@ -463,7 +392,7 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
                 //设置异常权限
                 exceptionBo[Forge_Owner] = Request.UserContext.UserId;
                 //创建发起异常的日志返回日志的objectID
-                logObjectID = AbnormalLog.CreateLog(Forge_ID, Forge_CurrentWorkStep, Forge_CurrentOperation,
+                logObjectID = AbnormalLog.CreateLog(Forge_ID, Forge_CurrentWorkStep, Forge_CurrentSection,
                     Forge_ExceptionCategory, Forge_ExceptionDescription, Request.BizObject, Engine);
                 //写日志之后返回的objectId
                 exceptionBo[Forge_ObjectIDForUpdateTheExceptionLog] = logObjectID;
@@ -518,20 +447,20 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
         }
 
         //new一个子表业务对象
-        H3.DataModel.BizObject subData = Tools.BizOperation.New(Engine, Forge_HotProcessingInformation);
+        H3.DataModel.BizObject subData = Tools.BizOperation.New(Engine, Forge_Information);
         string taskName = me[Forge_TaskName] + string.Empty == string.Empty ? "0" : me[Forge_TaskName] + string.Empty; //任务名称
         int num = int.Parse(taskName) + 1; //根据主表任务名称 + 1
-        subData[ForgingHotProcessingInformationSubtable_TaskName] = num + string.Empty; //子表任务名称赋值
+        subData[TaskName] = num + string.Empty; //子表任务名称赋值
         me[Forge_TaskName] = num + string.Empty; //主表任务名称赋值
         lstObject.Add(subData);//将这个子表业务对象添加至子表数据集合中
-        me[Forge_HotProcessingInformation] = lstObject.ToArray(); //子表数据赋值
+        me[Forge_Information] = lstObject.ToArray(); //子表数据赋值
 
         me.Update();   //更新对象
     }
     //多阶段加工逻辑
     protected void MultistageMachining()
     {
-        H3.DataModel.BizObject[] subForm = me[Forge_HotProcessingInformation] as H3.DataModel.BizObject[]; //获取子表数据
+        H3.DataModel.BizObject[] subForm = me[Forge_Information] as H3.DataModel.BizObject[]; //获取子表数据
         int taskNum = me[Forge_TaskName] + string.Empty != string.Empty ? int.Parse(me[Forge_TaskName] + string.Empty) - 1 : 0; //获取任务数
         //Activity41
         if (Request.ActivityCode == "Activity41") //锻压上机
@@ -541,88 +470,21 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
         if (Request.ActivityCode == "Activity33") //锻压上机
         {
             //补充当前用户
-            subForm[taskNum][ForgingHotProcessingInformationSubtable_ProcessingGroupMember] = Request.UserContext.UserId;
+            subForm[taskNum][ProcessingGroupMember] = Request.UserContext.UserId;
             //获取用户所在部门的部门对象
             H3.Organization.Unit unit = Request.Engine.Organization.GetParentUnit(Request.UserContext.UserId);
             //补充当前用户的部门
-            subForm[taskNum][ForgingHotProcessingInformationSubtable_Department] = unit.ObjectId;
+            subForm[taskNum][Department] = unit.ObjectId;
             //加工开始时间
-            subForm[taskNum][ForgingHotProcessingInformationSubtable_StartTime] = System.DateTime.Now;
+            subForm[taskNum][StartTime] = System.DateTime.Now;
         }
 
         if (Request.ActivityCode == "Activity106")  //锻压下机
         {
             //加工结束时间
-            subForm[taskNum][ForgingHotProcessingInformationSubtable_EndTime] = System.DateTime.Now;
+            subForm[taskNum][EndTime] = System.DateTime.Now;
             //创建添加新的子表行数据
             CreatSublist(me, subForm);
-        }
-    }
-}
-
-public class D001419Sdoly16pnqd5z66wl60hc4y1u1_ListViewController : H3.SmartForm.ListViewController
-{
-    string activityCode = "锻压列表加载";
-    string userName = ""; //当前用户
-    // 生产制造流程,锻压
-    private string Forge_TableCode = "D001419Sdoly16pnqd5z66wl60hc4y1u1";
-    //当前工步
-    private string Forge_CurrentWorkStep = "F0000052";
-    //工序计划表
-    private string Forge_OperationSchedule = "F0000092";
-    //生产计划,ABCD工序计划表
-    private string ABCDProcessPlan_TableCode = "D001419Szlywopbivyrv1d64301ta5xv4";
-    //本工序需求期
-    private string Forge_DemandPeriodOfThisOperation = "F0000055";
-    //本工序需求期-锻压
-    private string ABCDProcessPlan_DemandPeriodOfThisOperationForging = "F0000063";
-
-    public D001419Sdoly16pnqd5z66wl60hc4y1u1_ListViewController(H3.SmartForm.ListViewRequest request) : base(request)
-    {
-        userName = Request.UserContext.User.FullName;
-    }
-
-    protected override void OnLoad(H3.SmartForm.LoadListViewResponse response)
-    {
-        try
-        {
-            //更新列表中的本工序需求期
-            RenewalDemandPeriod(response);
-            //更新实时制造情况
-            ProgressManagement.ForgetProgress(Engine, Forge_TableCode, Forge_CurrentWorkStep);
-        }
-        catch (Exception ex)
-        {
-            Tools.Log.ErrorLog(Engine, null, ex, activityCode, userName);
-        }
-
-        base.OnLoad(response);
-    }
-
-    protected override void OnSubmit(string actionName, H3.SmartForm.ListViewPostValue postValue, H3.SmartForm.SubmitListViewResponse response)
-    {
-        base.OnSubmit(actionName, postValue, response);
-    }
-    //更新列表中的本工序需求期
-    protected void RenewalDemandPeriod(H3.SmartForm.LoadListViewResponse response)
-    {
-        //查询本工序中未完成的流程且当前时间与修改时间差在1天之内的流程实例的“ObjectId”
-        string sql = "select ObjectId from i_" + response.SchemaCode + " where status = 2 and now() - ModifiedTime <= 86400";
-        System.Data.DataTable aQuerry = Request.Engine.Query.QueryTable(sql, null);
-        if (aQuerry != null && aQuerry.Rows != null && aQuerry.Rows.Count > 0)
-        {
-            foreach (System.Data.DataRow row in aQuerry.Rows)
-            {
-                string id = row["ObjectId"] + string.Empty;
-                //获取当前表单的业务对象
-                H3.DataModel.BizObject objectt = Tools.BizOperation.Load(Request.Engine, response.SchemaCode, id);
-                string planId = objectt[Forge_OperationSchedule] + string.Empty;
-                //获取工序计划业务对象
-                H3.DataModel.BizObject planObj = Tools.BizOperation.Load(Request.Engine, ABCDProcessPlan_TableCode, planId);
-                //计划表中的需求期赋值给当前表单的本工序需求期
-                objectt[Forge_DemandPeriodOfThisOperation] = planObj != null ? planObj[ABCDProcessPlan_DemandPeriodOfThisOperationForging] + string.Empty : string.Empty;
-                objectt.Update();
-            }
         }
     }
 }

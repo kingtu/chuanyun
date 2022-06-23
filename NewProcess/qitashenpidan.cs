@@ -21,11 +21,11 @@ public class D001419Sk5o69536e6w6pev17ghk3u7y6 : H3.SmartForm.SmartFormControlle
         if (!this.Request.IsCreateMode)
         {
             //工序名称
-            if (me[ProcessName] + string.Empty != "取样子流程")
+            if (me[SectionName] + string.Empty != "取样子流程")
             {
                 if (activityCode == "Activity3")
                 {
-                    if (me[HowManyTimesToEnterTheNode] + string.Empty == string.Empty)
+                    if (me[TimesToEnterTheNode] + string.Empty == string.Empty)
                     {
                         H3.Workflow.Instance.WorkflowInstance instance = this.Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(this.Request.WorkflowInstance.ParentInstanceId);
                         H3.DataModel.BizObject current = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, instance.SchemaCode, instance.BizObjectId, false);
@@ -36,8 +36,8 @@ public class D001419Sk5o69536e6w6pev17ghk3u7y6 : H3.SmartForm.SmartFormControlle
                             foreach (string bizObjectID in bizObjectIDArray)
                             {
                                 //加载其他异常ID 的业务对象
-                                H3.DataModel.BizObject currentt = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, RealTimeDynamicProduction_TableCode, bizObjectID, false);
-                                abc += (currentt[RealTimeDynamicProduction_ID] + string.Empty + ",");
+                                H3.DataModel.BizObject currentt = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, ScheduleManagement_TableCode, bizObjectID, false);
+                                abc += (currentt[ScheduleManagement_ID] + string.Empty + ",");
                             }
                             me[OtherExceptionRelatedControlForm] = abc;
                         }
@@ -51,9 +51,9 @@ public class D001419Sk5o69536e6w6pev17ghk3u7y6 : H3.SmartForm.SmartFormControlle
 
     protected override void OnSubmit(string actionName, H3.SmartForm.SmartFormPostValue postValue, H3.SmartForm.SubmitSmartFormResponse response)
     {
-        if (me[HowManyTimesToEnterTheNode] + string.Empty == string.Empty)
+        if (me[TimesToEnterTheNode] + string.Empty == string.Empty)
         {
-            me[HowManyTimesToEnterTheNode] = 1;
+            me[TimesToEnterTheNode] = 1;
         }
         base.OnSubmit(actionName, postValue, response);
     }
@@ -65,7 +65,7 @@ public class D001419Sk5o69536e6w6pev17ghk3u7y6 : H3.SmartForm.SmartFormControlle
         H3.Workflow.Instance.WorkflowInstance instance = this.Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(this.Request.WorkflowInstance.ParentInstanceId);
         //获取父流程业务对象
         H3.DataModel.BizObject current = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, instance.SchemaCode, instance.BizObjectId, false);
-               string WorkflowDisplayName = instance.WorkflowDisplayName;
+        string WorkflowDisplayName = instance.WorkflowDisplayName;
         switch (WorkflowDisplayName)
         {
             case "锯切":
@@ -84,30 +84,30 @@ public class D001419Sk5o69536e6w6pev17ghk3u7y6 : H3.SmartForm.SmartFormControlle
                 current[RoughCast_RequestExceptionApprovalForm] = me[ObjectId] + string.Empty;
                 break;
             case "粗车":
-                current[Roughing_RequestExceptionApprovalForm] = me[ObjectId] + string.Empty;
+                current[RoughCutting_RequestExceptionApprovalForm] = me[ObjectId] + string.Empty;
                 break;
             case "精车":
                 current[Finishing_RequestExceptionApprovalForm] = me[ObjectId] + string.Empty;
                 break;
             case "钻孔":
-                current[Drill_RequestExceptionApprovalForm] = me[ObjectId] + string.Empty;
+                current[Drilling_RequestExceptionApprovalForm] = me[ObjectId] + string.Empty;
                 break;
         }
         current.Update();
     }
 
     //其它审批单
-    string HowManyTimesToEnterTheNode = "F0000024";                                                                            //第几次进入节点
+    string TimesToEnterTheNode = "F0000024";                                                                            //第几次进入节点
     string OtherExceptionRelatedControlForm = "F0000006";                                                                      //被关联的其他异常工件ID
     string ObjectId = "ObjectId";                                                                                              //ObjectId
                                                                                                                                // 工序名称
-    string ProcessName = "F0000004";
+    string SectionName = "F0000004";
     //工序表的“可以被关联的其他异常工件”
     string AssociatedWithOtherAbnormalWorkpieces = "F0000199";
 
     //实时生产动态
-    string RealTimeDynamicProduction_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";                                    //可以被关联的其他异常工件
-    string RealTimeDynamicProduction_ID = "F0000001";                                                                          //任务状态
+    string ScheduleManagement_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";                                    //可以被关联的其他异常工件
+    string ScheduleManagement_ID = "F0000001";                                                                          //任务状态
 
     //工序表及质量保证
     string SawCut_RequestExceptionApprovalForm = "F0000205";                                                                   //锯切_其它审批单
@@ -115,8 +115,8 @@ public class D001419Sk5o69536e6w6pev17ghk3u7y6 : H3.SmartForm.SmartFormControlle
     string RollingRing_RequestExceptionApprovalForm = "F0000203";                                                              //辗环_其它审批单
     string HeatTreatment_RequestExceptionApprovalForm = "F0000203";                                                            //热处理_其它审批单
     string RoughCast_RequestExceptionApprovalForm = "F0000228";                                                                //毛坯_其它审批单
-    string Roughing_RequestExceptionApprovalForm = "F0000265";                                                                 //粗车_其它审批单
+    string RoughCutting_RequestExceptionApprovalForm = "F0000265";                                                              //粗车_其它审批单
     string Finishing_RequestExceptionApprovalForm = "F0000259";                                                                //精车_其它审批单
-    string Drill_RequestExceptionApprovalForm = "F0000237";                                                                    //钻孔_其它审批单
+    string Drilling_RequestExceptionApprovalForm = "F0000237";                                                                    //钻孔_其它审批单
 }
 
