@@ -1,346 +1,28 @@
-﻿
-using H3;
-using H3.DataModel;
+﻿using H3.DataModel;
 using System;
-using static H3.SmartForm;
 
 public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm.ListViewController
 {
-    
-    string activityCode = "领料生产";   
-    // 生产计划,ABCD工序计划表
-    string ABCDProcessPlan_TableCode = "D001419Szlywopbivyrv1d64301ta5xv4";
+    string activityCode = "领料生产";
+    string userName = ""; //当前用户
 
-    // 订单批次表
-    string ABCDProcessPlan_OrderBatchTable = "F0000144";
-
-    // 计划热处理炉号
-    string ABCDProcessPlan_HeatTreatmentFurnaceNumber = "F0000140";
-    // 加工单位-锻压
-    string ABCDProcessPlan_ProcessingUnitForging = "F0000062";
-
-    // 热加工完成时间
-    string ABCDProcessPlan_HotProcessingPlan = "F0000023";
-    // 双轧关联表单
-    string ABCDProcessPlan_DoubleTieAssociatedForm = "F0000226";
-
-    // 数量-切割前
-    string ABCDProcessPlan_QuantityBeforeCutting = "F0000228";
-
-    // 原材料编号
-    string ABCDProcessPlan_RawMaterialNumber = "F0000221";
-
-    // 开启流程
-    string ABCDProcessPlan_OpenProcess = "F0000020";
-    // 工件号
-    string ABCDProcessPlan_WorkpieceNumber = "F0000054";
-    // 加工单位-锯切
-    string ABCDProcessPlan_ProcessingUnitSawCut = "F0000058";
-    // 计划本取
-    string ABCDProcessPlan_PlanThisOptionTakes = "F0000141";
-    // 双轧工件号
-    string ABCDProcessPlan_DoubleTieWorkpieceNumber = "F0000227";
-
-    // 加工单位-粗车
-    string ABCDProcessPlan_ProcessingUnitRoughCutting = "F0000078";
-
-    // 精车计划完成时间
-    string ABCDProcessPlan_FinishingPlannedCompletionTime = "F0000098";
-    // 订单批次规格号
-    string ABCDProcessPlan_OrderBatchSpecificationNumber = "F0000006";
-    // 工艺流程表
-    string ABCDProcessPlan_ProcessFlowTable = "F0000190";
-    // 加工单位-精车
-    string ABCDProcessPlan_ProcessingUnitFinishing = "F0000082";
-
-    // 计划轧制方式
-    string ABCDProcessPlan_PlannedRollingMode = "F0000152";
-    // 粗车计划完成时间
-    string ABCDProcessPlan_RoughCuttingPlanCompletionTime = "F0000095";
-
-    // 订单规格号
-    string ABCDProcessPlan_OrderSpecificationNumber = "F0000004";
-    // 数据代码
-    string ABCDProcessPlan_DataCode = "shuj";
-    // 本工序需求期-辗环
-    string ABCDProcessPlan_DemandPeriodOfThisSectionRingRolling = "F0000067";
-
-    // 加工单位-热处理
-    string ABCDProcessPlan_ProcessingUnitHeatTreatment = "F0000070";
-
-    // 产品名称
-    string ABCDProcessPlan_ProductName = "F0000025";
-    // 原料库
-    string ABCDProcessPlan_RawMaterialStorage = "F0000219";
-
-    // ID
-    string ABCDProcessPlan_ID = "F0000007";
-
-    // 订单规格表
-    string ABCDProcessPlan_OrderSpecificationTable = "F0000145";
-    // 成品单重
-    string ABCDProcessPlan_FinishedProductUnitWeight = "F0000031";
-
-    // 订单批次规格表
-    string ABCDProcessPlan_OrderBatchSpecificationTable = "F0000017";
-
-    // 取样计划完成时间
-    string ABCDProcessPlan_CompletionTimeOfSamplingPlan = "F0000212";
-    // 本工序需求期-锯切
-    string ABCDProcessPlan_DemandPeriodOfThisSectionSawCut = "F0000059";
-
-    // 本工序需求期-锻压
-    string ABCDProcessPlan_DemandPeriodOfThisSectionForge = "F0000063";
-    // 订单号
-    string ABCDProcessPlan_OrderNumber = "F0000001";
-    // 加工单位-钻孔
-    string ABCDProcessPlan_ProcessingUnitDrilling = "F0000084";
-
-    // 再生工序
-    string ABCDProcessPlan_RecycledSection = "F0000142";
-    // 冷加工完成时间
-    string ABCDProcessPlan_ColdProcessingPlan = "F0000024";
-
-    // 本工序需求期-热处理
-    string ABCDProcessPlan_DemandPeriodOfThisSectionHeatTreatment = "F0000071";
-    // 订单批次号
-    string ABCDProcessPlan_OrderBatchNumber = "F0000003";
-
-    // 钻孔计划完成时间
-    string ABCDProcessPlan_DrillingPlannedCompletionTime = "F0000102";
-
-    // 加工单位-辗环
-    string ABCDProcessPlan_ProcessingUnitRingRolling = "F0000066";
-
-    // 再生品ID
-    string ABCDProcessPlan_RecycledProductID = "F0000137";
-
-    // 规格参数
-    string ABCDProcessPlan_SpecificationParameters = "F0000028";
-    // 本工序需求期-毛坯
-    string ABCDProcessPlan_DemandPeriodOfThisSectionRoughCast = "F0000075";
-    // 加工单位-毛坯
-    string ABCDProcessPlan_ProcessingUnitRoughCast = "F0000074";
-    // 原材料类型
-    string ABCDProcessPlan_RawMaterialType = "F0000220";
-
-    string ABCDProcessPlan_ObjectId = "ObjectId";
-
-
-    // 生产计划,派工表
-    string Dispatchs_TableCode = "D001419c08bb982ac44481a9439076269a8f783";
-    // 粗车计划完成时间
-    string Dispatchs_RoughCuttingPlanCompletionTime = "F0000004";
-    // ID
-    string Dispatchs_ID = "F0000025";
-
-    // 订单号
-    string Dispatchs_OrderNumber = "F0000038";
-
-    // 精车计划完成时间
-    string Dispatchs_FinishingPlanCompletionTime = "F0000005";
-
-    // 取样计划完成时间
-    string Dispatchs_SamplingPlanCompletionTime = "F0000003";
-
-    // 工件号
-    string Dispatchs_WorkpieceNumber = "F0000039";
-    // 钻孔计划完成时间
-    string Dispatchs_DrillingPlanCompletionTime = "F0000006";
-
-
-    // 生产计划,取样派工子表
-    string DispatchSamplingSubTable_TableCode = "D001419Fc9380612ad364043a33702a36bf5fde9";
-    // 派工人员
-    string DispatchSamplingSubTable_Name = "F0000036";
-    // 派工任务
-    string DispatchSamplingSubTable_TaskName = "F0000059";
-    // 派工量
-    string DispatchSamplingSubTable_ProcessingQuantity = "F0000019";
-
-    // 生产制造流程,工艺流程表
-    string ProcessFlow_TableCode = "D001419Sq0biizim9l50i2rl6kgbpo3u4";
-    // 计划本取
-    string ProcessFlow_PlannedTake = "F0000118";
-    // 双轧关联表单
-    string ProcessFlow_DoubleTieAssociatedForm = "F0000143";
-
-    // 订单批次号
-    string ProcessFlow_OrderBatchNumber = "F0000002";
-
-    // 产品规格
-    string ProcessFlow_SpecificationParameters = "F0000151";
-    // 本工序需求期-锻压
-    string ProcessFlow_DemandPeriodOfThisProcedureForging = "F0000073";
-    // 质量状态
-    string ProcessFlow_QualityStatus = "F0000065";
-    // 本工序需求期-毛坯
-    string ProcessFlow_DemandPeriodOfThisSectionRoughCast = "F0000082";
-    // 原材料类型
-    string ProcessFlow_RawMaterialType = "F0000062";
-
-    // 计划热处理炉号
-    string ProcessFlow_PlannedHeatTreatmentHeatNumber = "F0000124";
-    // 本工序需求期-辗环
-    string ProcessFlow_DemandPeriodOfThisSectionRingRolling = "F0000076";
-    // 本工序需求期-锯切
-    string ProcessFlow_DemandPeriodOfThisSectionSawCut = "F0000068";
-
-    // 精车加工单位
-    string ProcessFlow_FinishingUnit = "F0000040";
-
-    // ID
-    string ProcessFlow_ID = "F0000006";
-    // 钻孔加工单位
-    string ProcessFlow_DrillingUnit = "F0000041";
-    // 订单批次规格号
-    string ProcessFlow_OrderBatchSpecificationNumber = "F0000004";
-    // 订单号
-    string ProcessFlow_OrderNumber = "F0000001";
-
-    // 锯切加工单位
-    string ProcessFlow_SawCutProcessingUnit = "F0000024";
-
-    // 原材料编号
-    string ProcessFlow_RawMaterialNumber = "F0000058";
-    // 数据代码
-    string ProcessFlow_DataCode = "F0000069";
-
-    // 再生品ID
-    string ProcessFlow_RecycledProductID = "F0000060";
-
-    // 计划轧制方式
-    string ProcessFlow_PlannedRollingMode = "F0000112";
-    // 进度管理信息
-    string ProcessFlow_ScheduleManagementInformation = "Progress";
-    // 本工序需求期-精车
-    string ProcessFlow_DemandPeriodOfThisSectionFinishing = "F0000088";   
-    // 辗环加工单位
-    string ProcessFlow_RingRollingProcessingUnit = "F0000028";
-   
-    // 双轧工件号
-    string ProcessFlow_DoubleTieWorkpieceNumber = "F0000144";
-   
-    // 订单规格号
-    string ProcessFlow_OrderSpecificationNumber = "F0000003";
-    // 成品单重
-    string ProcessFlow_FinishedProductUnitWeight = "F0000017";
-  
-    // 粗车加工单位
-    string ProcessFlow_RoughCuttingUnit = "F0000039";
-  
-    // 工件号
-    string ProcessFlow_WorkpieceNumber = "F0000005";
-    // 本工序需求期-钻孔
-    string ProcessFlow_DemandPeriodOfThisSectionDrilling = "F0000097";
-  
-    // 毛坯加工单位
-    string ProcessFlow_BlankProcessingUnit = "F0000030";
-    // 锻压加工单位
-    string ProcessFlow_ForgingProcessingUnit = "F0000027";  
-    // 工序计划表
-    string ProcessFlow_SectionSchedule = "F0000126";    
-    // 原料库
-    string ProcessFlow_RawMaterialWarehouse = "F0000119";
-   
-    // 再生工序
-    string ProcessFlow_RecycledSection = "F0000121";
-    // 派工信息
-    string ProcessFlow_DispatchingInformation = "F0000148";
-   
-    // 热处理加工单位
-    string ProcessFlow_HeatTreatmentProcessingUnit = "F0000029";
-   
-    // 双扎分割前工件
-    string ProcessFlow_DoubleTieTheWorkpieceBeforeSegmentation = "F0000150";
-    // 本工序需求期-粗车
-    string ProcessFlow_DemandPeriodOfThisSectionRoughCutting = "F0000085";
-    // 部门代码
-    string ProcessFlow_DepartmentCode = "F0000154";
-    // 当前工序
-    string ProcessFlow_CurrentSection = "F0000018";
-    // 产品种类
-    string ProcessFlow_ProductType = "F0000023";
-  
-    // 数量-切割前
-    string ProcessFlow_QuantityBeforeCutting = "F0000145";   
-    // 产品名称
-    string ProcessFlow_ProductName = "F0000007";
-    // 本工序需求期-热处理
-    string ProcessFlow_DemandPeriodOfThisSectionHeatTreatment = "F0000079";
-   
-
-    // 生产数据分析,实时生产动态----生产进度管理
-    string ScheduleManagement_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";   
-    // 市场需求达成进度
-    string ScheduleManagement_MarketDemandAchievementProgress = "F0000020";   
-    // 数据代码
-    string ScheduleManagement_DataCode = "F0000014";   
-    // 订单批次规格表
-    string ScheduleManagement_OrderBatchSpecificationTable = "F0000069";
-    
-    // 订单规格表
-    string ScheduleManagement_OrderSpecificationTable = "F0000018";
-   
-    // ID
-    string ScheduleManagement_ID = "F0000001";
-    // 质量状态
-    string ScheduleManagement_QualityStatus = "F0000010";
-   
-    // 工艺流程表
-    string ScheduleManagement_ProcessFlowTable = "F0000075";
-    
-    // 工序计划表
-    string ScheduleManagement_ProcessPlanTable = "F0000019";
-    // 订单批次表
-    string ScheduleManagement_OrderBatchTable = "F0000026";    
-    // 冷加工计划期
-    string ScheduleManagement_ColdProcessingPlanPeriod = "F0000013";
-       // 热加工计划期
-    string ScheduleManagement_HotProcessingPlanPeriod = "F0000012";
-   
-
-
-    // 生产计划,粗车派工子表
-    string DispatchRoughSubTable_TableCode = "D001419Ffb3f2e583e31421e8aaa5a085bbada58";
-    // 派工任务
-    string DispatchRoughSubTable_TaskName = "F0000058";
-   
-    // 派工人员
-    string DispatchRoughSubTable_Name = "F0000037";
-    // 粗车工时
- 
-    // 派工量
-    string DispatchRoughSubTable_ProcessingQuantity = "F0000020";
-
-    // 生产计划,精车派工子表
-    string DispatchFinishSubTable_TableCode = "D001419F4a23f2f26a01428f952a593da3d99fe5";
-    // 派工量
-    string DispatchFinishSubTable_ProcessingQuantity = "F0000021";
-    
-    // 派工人员
-    string DispatchFinishSubTable_Name = "F0000014";
-    // 派工任务
-    string DispatchFinishSubTable_TaskName = "F0000060";
-
-    // 生产计划,钻孔派工子表
-    string DispatchDrillingSubTable_TableCode = "D001419F5ccfa7d5acad41bf98c640057f2570ae";
-   
-    // 派工任务
-    string DispatchDrillingSubTable_TaskName = "F0000061";
-    // 派工人员
-    string DispatchDrillingSubTable_Name = "F0000015";
-   
-    // 派工量
-    string DispatchDrillingSubTable_ProcessingQuantity = "F0000022";
-   
     public D001419Szlywopbivyrv1d64301ta5xv4_ListViewController(H3.SmartForm.ListViewRequest request) : base(request)
     {
+        userName = this.Request.UserContext.User.FullName;
     }
 
     protected override void OnLoad(H3.SmartForm.LoadListViewResponse response)
     {
-        base.OnLoad(response);
+        try
+        {
+            base.OnLoad(response);
+            //去除派工表、工艺流程表的重复记录
+            ClearingDuplicateData();
+        }
+        catch (Exception ex)
+        {
+            Tools.Log.ErrorLog(this.Engine, null, ex, activityCode, userName);
+        }
     }
 
     protected override void OnSubmit(string actionName, H3.SmartForm.ListViewPostValue postValue, H3.SmartForm.SubmitListViewResponse response)
@@ -376,16 +58,14 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
     public void BatchStartProcess(H3.SmartForm.ListViewPostValue postValue, H3.SmartForm.SubmitListViewResponse response)
     {
         string[] objectIds = postValue.Data["ObjectIds"] as string[];
-        if (objectIds.Length == 0)
-        {
-            return;
-        }
+        //无勾选记录时方法返回
+        if (objectIds.Length == 0) { return; }
         bool hasError = false;
         foreach (string objectId in objectIds)
         {
             BizObject objPlan = Tools.BizOperation.Load(this.Engine, this.Request.SchemaCode, objectId);
-            if (objPlan[ABCDProcessPlan_OpenProcess] + string.Empty == "已开启") { continue; }
-            if (objPlan["DispatchTable"] + string.Empty == "")
+            if (objPlan[OpenProcess] + string.Empty == "已开启") { continue; }
+            if (objPlan[DispatchTable] + string.Empty == "")
             {
                 response.Message = "未生成派工单！";
                 hasError = true;
@@ -398,7 +78,7 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
             BizObject objFlowB = null;
             if (objPlan["F0000152"] + string.Empty == "双轧")
             {
-                if (objPlan[ABCDProcessPlan_DoubleTieWorkpieceNumber] + string.Empty == string.Empty)
+                if (objPlan[DoubleTieWorkpieceNumber] + string.Empty == string.Empty)
                 {
                     response.Message = "注意，双轧工件，{双轧工件号}不能为空!";
                     hasError = true;
@@ -423,9 +103,9 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
                 //开启流程
                 Tools.WorkFlow.StartWorkflow(this.Engine, objFlowB, this.Request.UserContext.UserId, true);
                 //开启状态
-                objPlanB[ABCDProcessPlan_OpenProcess] = "已开启";
+                objPlanB[OpenProcess] = "已开启";
                 //工序计划-工艺流程表
-                objPlanB[ABCDProcessPlan_ProcessFlowTable] = objFlowB.ObjectId;
+                objPlanB[ProcessFlowTable] = objFlowB.ObjectId;
                 //更新计划表单
                 objPlanB.Update();
             }
@@ -454,9 +134,9 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
             //开启流程
             Tools.WorkFlow.StartWorkflow(this.Engine, objFlow, this.Request.UserContext.UserId, true);
             //开启状态
-            objPlan[ABCDProcessPlan_OpenProcess] = "已开启";
+            objPlan[OpenProcess] = "已开启";
             //工序计划
-            objPlan[ABCDProcessPlan_ProcessFlowTable] = objFlow.ObjectId;
+            objPlan[ProcessFlowTable] = objFlow.ObjectId;
             //更新本表单
             objPlan.Update();
             //加载工艺流程数据  
@@ -487,17 +167,15 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
     public void BatchModifyDispatch(H3.SmartForm.ListViewPostValue postValue, H3.SmartForm.SubmitListViewResponse response)
     {
         string[] objectIds = postValue.Data["ObjectIds"] as string[];
-        if (objectIds.Length == 0)
-        {
-            return;
-        }
+        //无勾选记录时方法返回
+        if (objectIds.Length == 0) { return; }
 
         foreach (string objectId in objectIds)
         {
             BizObject objPlan = Tools.BizOperation.Load(this.Engine, this.Request.SchemaCode, objectId);
-            if (objPlan["DispatchTable"] + string.Empty != "") { continue; }
+            if (objPlan[DispatchTable] + string.Empty != "") { continue; }
             BizObject dispatchObj = CreateDispatchObject(objPlan, objectId);
-            objPlan["DispatchTable"] = dispatchObj.ObjectId;
+            objPlan[DispatchTable] = dispatchObj.ObjectId;
             objPlan.Update();
             response.Message = "生成派工单成功！";
         }
@@ -512,12 +190,12 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
     private BizObject CreateDispatchObject(BizObject objPlan, string objectId)
     {
         BizObject dispatchObj = Tools.BizOperation.New(this.Engine, Dispatchs_TableCode);   //派工表
-        dispatchObj[Dispatchs_OrderNumber] = objPlan[ABCDProcessPlan_OrderNumber] + string.Empty;
-        dispatchObj[Dispatchs_WorkpieceNumber] = objPlan[ABCDProcessPlan_WorkpieceNumber] + string.Empty;
-        dispatchObj[Dispatchs_ID] = objPlan[ABCDProcessPlan_ID] + string.Empty;
+        dispatchObj[Dispatchs_OrderNumber] = objPlan[OrderNumber] + string.Empty;
+        dispatchObj[Dispatchs_WorkpieceNumber] = objPlan[WorkpieceNumber] + string.Empty;
+        dispatchObj[Dispatchs_ID] = objPlan[ID] + string.Empty;
 
         //派工表-数据代码
-        dispatchObj["F0000070"] = objPlan[ABCDProcessPlan_DataCode] + string.Empty;
+        dispatchObj["F0000070"] = objPlan[DataCode] + string.Empty;
         //派工表-部门代码
         dispatchObj["F0000071"] = objPlan["F0000236"] + string.Empty;
         //派工表-版本号
@@ -526,13 +204,13 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
         dispatchObj["F0000072"] = objPlan["F0000234"];
 
         //取样计划完成日期
-        dispatchObj[Dispatchs_SamplingPlanCompletionTime] = objPlan[ABCDProcessPlan_CompletionTimeOfSamplingPlan] + string.Empty;
+        dispatchObj[Dispatchs_SamplingPlanCompletionTime] = objPlan[CompletionTimeOfSamplingPlan] + string.Empty;
         //派工-订单规格表
-        dispatchObj["F0000055"] = objPlan[ABCDProcessPlan_OrderSpecificationTable] + string.Empty;
+        dispatchObj["F0000055"] = objPlan[OrderSpecificationTable] + string.Empty;
 
-        dispatchObj[Dispatchs_RoughCuttingPlanCompletionTime] = objPlan[ABCDProcessPlan_RoughCuttingPlanCompletionTime] + string.Empty;
-        dispatchObj[Dispatchs_FinishingPlanCompletionTime] = objPlan[ABCDProcessPlan_FinishingPlannedCompletionTime] + string.Empty;
-        dispatchObj[Dispatchs_DrillingPlanCompletionTime] = objPlan[ABCDProcessPlan_DrillingPlannedCompletionTime] + string.Empty;
+        dispatchObj[Dispatchs_RoughCuttingPlanCompletionTime] = objPlan[RoughCuttingPlanCompletionTime] + string.Empty;
+        dispatchObj[Dispatchs_FinishingPlanCompletionTime] = objPlan[FinishingPlannedCompletionTime] + string.Empty;
+        dispatchObj[Dispatchs_DrillingPlanCompletionTime] = objPlan[DrillingPlannedCompletionTime] + string.Empty;
 
 
         string chiefPlanner = (string)objPlan["F0000252"]; //总计划员   
@@ -622,12 +300,12 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
     {
         BizObject objFlow = Tools.BizOperation.New(this.Engine, ProcessFlow_TableCode);
 
-        if (objPlan[ABCDProcessPlan_PlannedRollingMode] + string.Empty == "双轧")
+        if (objPlan[PlannedRollingMode] + string.Empty == "双轧")
         {
             //工件号转数值
-            string workpieceNumber = objPlan[ABCDProcessPlan_WorkpieceNumber] + string.Empty;
+            string workpieceNumber = objPlan[WorkpieceNumber] + string.Empty;
             //双轧工件号转数值
-            string doubleTieWorkpieceNumber = objPlan[ABCDProcessPlan_DoubleTieWorkpieceNumber] + string.Empty;
+            string doubleTieWorkpieceNumber = objPlan[DoubleTieWorkpieceNumber] + string.Empty;
 
             //工件号大于双轧工件号
             if (string.Compare(workpieceNumber, doubleTieWorkpieceNumber, true) > 0)
@@ -645,30 +323,30 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
 
 
         //订单号
-        objFlow[ProcessFlow_OrderNumber] = objPlan[ABCDProcessPlan_OrderNumber] + string.Empty;
+        objFlow[ProcessFlow_OrderNumber] = objPlan[OrderNumber] + string.Empty;
         //订单批次号
-        objFlow[ProcessFlow_OrderBatchNumber] = objPlan[ABCDProcessPlan_OrderBatchNumber] + string.Empty;
+        objFlow[ProcessFlow_OrderBatchNumber] = objPlan[OrderBatchNumber] + string.Empty;
         //订单规格号
-        string orderSpec = objPlan[ABCDProcessPlan_OrderSpecificationNumber] + string.Empty;
+        string orderSpec = objPlan[OrderSpecificationNumber] + string.Empty;
         objFlow[ProcessFlow_OrderSpecificationNumber] = orderSpec;
         //订单批次规格号
-        objFlow[ProcessFlow_OrderBatchSpecificationNumber] = objPlan[ABCDProcessPlan_OrderBatchSpecificationNumber] + string.Empty;
+        objFlow[ProcessFlow_OrderBatchSpecificationNumber] = objPlan[OrderBatchSpecificationNumber] + string.Empty;
         //工件号
-        objFlow[ProcessFlow_WorkpieceNumber] = objPlan[ABCDProcessPlan_WorkpieceNumber] + string.Empty;
+        objFlow[ProcessFlow_WorkpieceNumber] = objPlan[WorkpieceNumber] + string.Empty;
         //ID
-        objFlow[ProcessFlow_ID] = objPlan[ABCDProcessPlan_ID] + string.Empty;
+        objFlow[ProcessFlow_ID] = objPlan[ID] + string.Empty;
         //产品名称
-        objFlow[ProcessFlow_ProductName] = objPlan[ABCDProcessPlan_ProductName] + string.Empty;
+        objFlow[ProcessFlow_ProductName] = objPlan[ProductName] + string.Empty;
         //产品种类
         objFlow[ProcessFlow_ProductType] = objPlan["ProductType"];
 
         //成品单重
-        objFlow[ProcessFlow_FinishedProductUnitWeight] = objPlan[ABCDProcessPlan_FinishedProductUnitWeight] + string.Empty;
+        objFlow[ProcessFlow_FinishedProductUnitWeight] = objPlan[FinishedProductUnitWeight] + string.Empty;
         //规格参数
-        objFlow[ProcessFlow_SpecificationParameters] = objPlan[ABCDProcessPlan_SpecificationParameters] + string.Empty;
+        objFlow[ProcessFlow_SpecificationParameters] = objPlan[SpecificationParameters] + string.Empty;
 
         //数据代码
-        objFlow[ProcessFlow_DataCode] = objPlan[ABCDProcessPlan_DataCode] + string.Empty;
+        objFlow[ProcessFlow_DataCode] = objPlan[DataCode] + string.Empty;
 
         //部门代码
         objFlow["F0000154"] = objPlan["F0000236"] + string.Empty;
@@ -680,85 +358,85 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
         objFlow["F0000152"] = objPlan["F0000234"];
 
         //再生品ID
-        objFlow[ProcessFlow_RecycledProductID] = objPlan[ABCDProcessPlan_RecycledProductID] + string.Empty;
-        if (objPlan[ABCDProcessPlan_RecycledProductID] + string.Empty != string.Empty)
+        objFlow[ProcessFlow_RecycledProductID] = objPlan[RecycledProductID] + string.Empty;
+        if (objPlan[RecycledProductID] + string.Empty != string.Empty)
         {
             objFlow[ProcessFlow_CurrentSection] = "再生库";
         }
         //质量状态
         objFlow[ProcessFlow_QualityStatus] = "正常";
         //再生工序
-        objFlow[ProcessFlow_RecycledSection] = objPlan[ABCDProcessPlan_RecycledSection] + string.Empty;
+        objFlow[ProcessFlow_RecycledSection] = objPlan[RecycledSection] + string.Empty;
         //计划轧制方式
-        objFlow[ProcessFlow_PlannedRollingMode] = objPlan[ABCDProcessPlan_PlannedRollingMode] + string.Empty;
+        objFlow[ProcessFlow_PlannedRollingMode] = objPlan[PlannedRollingMode] + string.Empty;
 
         //计划本取
-        objFlow[ProcessFlow_PlannedTake] = objPlan[ABCDProcessPlan_PlanThisOptionTakes] + string.Empty;
+        objFlow[ProcessFlow_PlannedTake] = objPlan[PlanThisOptionTakes] + string.Empty;
 
         //计划热处理炉号
-        objFlow[ProcessFlow_PlannedHeatTreatmentHeatNumber] = objPlan[ABCDProcessPlan_HeatTreatmentFurnaceNumber] + string.Empty;
+        objFlow[ProcessFlow_PlannedHeatTreatmentHeatNumber] = objPlan[HeatTreatmentFurnaceNumber] + string.Empty;
 
         //锯切加工单位
-        objFlow[ProcessFlow_SawCutProcessingUnit] = objPlan[ABCDProcessPlan_ProcessingUnitSawCut] + string.Empty;
+        objFlow[ProcessFlow_SawCutProcessingUnit] = objPlan[ProcessingUnitSawCut] + string.Empty;
         //本工序需求期-锯切
-        objFlow[ProcessFlow_DemandPeriodOfThisSectionSawCut] = objPlan[ABCDProcessPlan_DemandPeriodOfThisSectionSawCut] + string.Empty;
+        objFlow[ProcessFlow_DemandPeriodOfThisSectionSawCut] = objPlan[DemandPeriodOfThisSectionSawCut] + string.Empty;
 
         //锻压加工单位
-        objFlow[ProcessFlow_ForgingProcessingUnit] = objPlan[ABCDProcessPlan_ProcessingUnitForging] + string.Empty;
+        objFlow[ProcessFlow_ForgingProcessingUnit] = objPlan[ProcessingUnitForging] + string.Empty;
         //本工序需求期-锻压
-        objFlow[ProcessFlow_DemandPeriodOfThisProcedureForging] = objPlan[ABCDProcessPlan_DemandPeriodOfThisSectionForge] + string.Empty;
+        objFlow[ProcessFlow_DemandPeriodOfThisProcedureForging] = objPlan[DemandPeriodOfThisSectionForge] + string.Empty;
 
         //辗环加工单位
-        objFlow[ProcessFlow_RingRollingProcessingUnit] = objPlan[ABCDProcessPlan_ProcessingUnitRingRolling] + string.Empty;
+        objFlow[ProcessFlow_RingRollingProcessingUnit] = objPlan[ProcessingUnitRingRolling] + string.Empty;
         //本工序需求期-辗环
-        objFlow[ProcessFlow_DemandPeriodOfThisSectionRingRolling] = objPlan[ABCDProcessPlan_DemandPeriodOfThisSectionRingRolling] + string.Empty;
+        objFlow[ProcessFlow_DemandPeriodOfThisSectionRingRolling] = objPlan[DemandPeriodOfThisSectionRingRolling] + string.Empty;
 
         //热处理加工单位
-        objFlow[ProcessFlow_HeatTreatmentProcessingUnit] = objPlan[ABCDProcessPlan_ProcessingUnitHeatTreatment] + string.Empty;
+        objFlow[ProcessFlow_HeatTreatmentProcessingUnit] = objPlan[ProcessingUnitHeatTreatment] + string.Empty;
         //本工序需求期-热处理
-        objFlow[ProcessFlow_DemandPeriodOfThisSectionHeatTreatment] = objPlan[ABCDProcessPlan_DemandPeriodOfThisSectionHeatTreatment] + string.Empty;
+        objFlow[ProcessFlow_DemandPeriodOfThisSectionHeatTreatment] = objPlan[DemandPeriodOfThisSectionHeatTreatment] + string.Empty;
 
         //毛坯加工单位
-        objFlow[ProcessFlow_BlankProcessingUnit] = objPlan[ABCDProcessPlan_ProcessingUnitRoughCast] + string.Empty;
+        objFlow[ProcessFlow_BlankProcessingUnit] = objPlan[ProcessingUnitRoughCast] + string.Empty;
         //本工序需求期-毛坯
-        objFlow[ProcessFlow_DemandPeriodOfThisSectionRoughCast] = objPlan[ABCDProcessPlan_DemandPeriodOfThisSectionRoughCast] + string.Empty;
+        objFlow[ProcessFlow_DemandPeriodOfThisSectionRoughCast] = objPlan[DemandPeriodOfThisSectionRoughCast] + string.Empty;
 
         //粗车加工单位
-        objFlow[ProcessFlow_RoughCuttingUnit] = objPlan[ABCDProcessPlan_ProcessingUnitRoughCutting] + string.Empty;
+        objFlow[ProcessFlow_RoughCuttingUnit] = objPlan[ProcessingUnitRoughCutting] + string.Empty;
         //本工序需求期-粗车
-        objFlow[ProcessFlow_DemandPeriodOfThisSectionRoughCutting] = objPlan[ABCDProcessPlan_RoughCuttingPlanCompletionTime] + string.Empty;
+        objFlow[ProcessFlow_DemandPeriodOfThisSectionRoughCutting] = objPlan[RoughCuttingPlanCompletionTime] + string.Empty;
 
 
         //精车加工单位
-        objFlow[ProcessFlow_FinishingUnit] = objPlan[ABCDProcessPlan_ProcessingUnitFinishing] + string.Empty;
+        objFlow[ProcessFlow_FinishingUnit] = objPlan[ProcessingUnitFinishing] + string.Empty;
 
         //本工序需求期-精车
-        objFlow[ProcessFlow_DemandPeriodOfThisSectionFinishing] = objPlan[ABCDProcessPlan_FinishingPlannedCompletionTime] + string.Empty;
+        objFlow[ProcessFlow_DemandPeriodOfThisSectionFinishing] = objPlan[FinishingPlannedCompletionTime] + string.Empty;
 
 
         //钻孔加工单位
-        objFlow[ProcessFlow_DrillingUnit] = objPlan[ABCDProcessPlan_ProcessingUnitDrilling] + string.Empty;
+        objFlow[ProcessFlow_DrillingUnit] = objPlan[ProcessingUnitDrilling] + string.Empty;
         //本工序需求期-钻孔
-        objFlow[ProcessFlow_DemandPeriodOfThisSectionDrilling] = objPlan[ABCDProcessPlan_DrillingPlannedCompletionTime] + string.Empty;
+        objFlow[ProcessFlow_DemandPeriodOfThisSectionDrilling] = objPlan[DrillingPlannedCompletionTime] + string.Empty;
 
 
         //工序计划表
-        objFlow[ProcessFlow_SectionSchedule] = objPlan[ABCDProcessPlan_ObjectId] + string.Empty;
+        objFlow[ProcessFlow_SectionSchedule] = objPlan[ObjectId] + string.Empty;
 
         //双轧关联表单
-        objFlow[ProcessFlow_DoubleTieAssociatedForm] = objPlan[ABCDProcessPlan_DoubleTieAssociatedForm] + string.Empty;
+        objFlow[ProcessFlow_DoubleTieAssociatedForm] = objPlan[DoubleTieAssociatedForm] + string.Empty;
         //双轧工件号
-        objFlow[ProcessFlow_DoubleTieWorkpieceNumber] = objPlan[ABCDProcessPlan_DoubleTieWorkpieceNumber] + string.Empty;
+        objFlow[ProcessFlow_DoubleTieWorkpieceNumber] = objPlan[DoubleTieWorkpieceNumber] + string.Empty;
         //数量-切割前
-        objFlow[ProcessFlow_QuantityBeforeCutting] = objPlan[ABCDProcessPlan_QuantityBeforeCutting] + string.Empty;
+        objFlow[ProcessFlow_QuantityBeforeCutting] = objPlan[QuantityBeforeCutting] + string.Empty;
 
 
         //原料库
-        objFlow[ProcessFlow_RawMaterialWarehouse] = objPlan[ABCDProcessPlan_RawMaterialStorage] + string.Empty;
+        objFlow[ProcessFlow_RawMaterialWarehouse] = objPlan[RawMaterialStorage] + string.Empty;
         //原材料类型
-        objFlow[ProcessFlow_RawMaterialType] = objPlan[ABCDProcessPlan_RawMaterialType] + string.Empty;
+        objFlow[ProcessFlow_RawMaterialType] = objPlan[RawMaterialType] + string.Empty;
         //原材料编号
-        objFlow[ProcessFlow_RawMaterialNumber] = objPlan[ABCDProcessPlan_RawMaterialNumber] + string.Empty;
+        objFlow[ProcessFlow_RawMaterialNumber] = objPlan[RawMaterialNumber] + string.Empty;
 
         //工艺流程表赋值无派工加工审批权限人
         objFlow["F0000194"] = objPlan["F0000252"]; //总计划员
@@ -769,7 +447,7 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
         objFlow["F0000198"] = objPlan["F0000250"]; //钻孔班组长
 
         //"工艺流程"的派工信息字段取派工表ObjectId的值
-        objFlow[ProcessFlow_DispatchingInformation] = objPlan["DispatchTable"];
+        objFlow[ProcessFlow_DispatchingInformation] = objPlan[DispatchTable];
 
         //工艺流程表数据
         objFlow.Create();
@@ -785,9 +463,9 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
     {
         BizObject objProcess = Tools.BizOperation.New(this.Engine, ScheduleManagement_TableCode);
         //进度管理-产品ID
-        objProcess[ScheduleManagement_ID] = objPlan[ABCDProcessPlan_ID] + string.Empty;
+        objProcess[ScheduleManagement_ID] = objPlan[ID] + string.Empty;
         //进度管理-数据代码
-        objProcess["F0000014"] = objPlan[ABCDProcessPlan_DataCode] + string.Empty;
+        objProcess["F0000014"] = objPlan[DataCode] + string.Empty;
         //进度管理-部门代码
         objProcess["F0000076"] = objPlan["F0000236"] + string.Empty;
         //进度管理-版本号
@@ -795,25 +473,25 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
         //进度管理-部门多选
         objProcess["F0000078"] = objPlan["F0000234"];
 
-        objProcess[ScheduleManagement_DataCode] = objPlan[ABCDProcessPlan_DataCode] + string.Empty;
+        objProcess[ScheduleManagement_DataCode] = objPlan[DataCode] + string.Empty;
 
         //热加工计划期
-        objProcess[ScheduleManagement_HotProcessingPlanPeriod] = objPlan[ABCDProcessPlan_HotProcessingPlan] + string.Empty;
+        objProcess[ScheduleManagement_HotProcessingPlanPeriod] = objPlan[HotProcessingPlan] + string.Empty;
         //冷加工计划期
-        objProcess[ScheduleManagement_ColdProcessingPlanPeriod] = objPlan[ABCDProcessPlan_ColdProcessingPlan] + string.Empty;
+        objProcess[ScheduleManagement_ColdProcessingPlanPeriod] = objPlan[ColdProcessingPlan] + string.Empty;
         //市场需求达成进度
         objProcess[ScheduleManagement_MarketDemandAchievementProgress] = "未投产";
         //订单批次表
-        objProcess[ScheduleManagement_OrderBatchTable] = objPlan[ABCDProcessPlan_OrderBatchTable] + string.Empty;
+        objProcess[ScheduleManagement_OrderBatchTable] = objPlan[OrderBatchTable] + string.Empty;
         //订单规格表
-        objProcess[ScheduleManagement_OrderSpecificationTable] = objPlan[ABCDProcessPlan_OrderSpecificationTable] + string.Empty;
+        objProcess[ScheduleManagement_OrderSpecificationTable] = objPlan[OrderSpecificationTable] + string.Empty;
 
         //订单批次规格表
-        objProcess[ScheduleManagement_OrderBatchSpecificationTable] = objPlan[ABCDProcessPlan_OrderBatchSpecificationTable] + string.Empty;
+        objProcess[ScheduleManagement_OrderBatchSpecificationTable] = objPlan[OrderBatchSpecificationTable] + string.Empty;
         //质量状态
         objProcess[ScheduleManagement_QualityStatus] = "正常";
 
-        objProcess[ScheduleManagement_ProcessPlanTable] = objPlan[ABCDProcessPlan_ObjectId] + string.Empty;
+        objProcess[ScheduleManagement_ProcessPlanTable] = objPlan[ObjectId] + string.Empty;
 
         objProcess.Status = BizObjectStatus.Effective;
 
@@ -822,5 +500,231 @@ public class D001419Szlywopbivyrv1d64301ta5xv4_ListViewController : H3.SmartForm
         return objProcess;
     }
 
+    /*
+     *Author:fubin
+     *去除派工表、工艺流程表的重复记录
+     */
+    private void ClearingDuplicateData()
+    {
+        //构建过滤器
+        H3.Data.Filter.Filter filter = new H3.Data.Filter.Filter();
+        //过去一天的日期
+        DateTime today = System.DateTime.Today;
+        //["ModifiedTime"]-[修改时间]-A   筛选昨天与今天修改过的订单
+        Tools.Filter.Or(filter, "ModifiedTime", H3.Data.ComparisonOperatorType.Above, today);
+        //'选取前（二十）条记录'
+        filter.FromRowNum = 0;
+        filter.ToRowNum = 20;
+        //以ModifiedTime逆向排序
+        filter.AddSortBy("ModifiedTime", H3.Data.Filter.SortDirection.Descending);
+        //获取业务对象集合
+        H3.DataModel.BizObject[] bizObjects = Tools.BizOperation.GetList(this.Engine, this.Request.SchemaCode, filter);
+        if (bizObjects != null)
+        {
+            foreach (H3.DataModel.BizObject item in bizObjects)
+            {
+                string dispatchObjectId = item[DispatchTable] + string.Empty;     //派工表记录ObjectId
+                string processObjectId = item[ProcessFlowTable] + string.Empty;   //工艺流程记录ObjectId
+                string startFlag = item[OpenProcess] + string.Empty;
+                if (string.IsNullOrEmpty(dispatchObjectId) || string.IsNullOrEmpty(processObjectId) || startFlag == "未开启") //开启状态
+                {
+                    return;
+                }
+
+                //进度管理 ObjectId
+                //加载工艺流程数据  
+                BizObject objFlowObj = Tools.BizOperation.Load(this.Engine, ProcessFlow_TableCode, processObjectId);
+                string scheduleManagementId = objFlowObj[ScheduleManagement_ProcessFlowTable] + string.Empty;
+                string idNumber = item[ID] + string.Empty;                        //工件ID
+
+                //查询所有工件ID与本工件ID相同的派工表记录
+                H3.Data.Filter.Filter dispatchFilter = new H3.Data.Filter.Filter();
+                Tools.Filter.And(dispatchFilter, Dispatchs_ID, H3.Data.ComparisonOperatorType.Equal, idNumber);
+                H3.DataModel.BizObject[] DispatchObjects = Tools.BizOperation.GetList(this.Engine, Dispatchs_TableCode, dispatchFilter);
+                if (DispatchObjects != null)
+                {
+                    for (int i = 0; i < DispatchObjects.Length; i++)
+                    {   //如果与本记录记录的派工表记录相同则保留该记录，否则删除该记录
+                        if (DispatchObjects[i].ObjectId == dispatchObjectId) { continue; }
+                        DispatchObjects[i].Remove();
+                    }
+                }
+
+                //查询所有工件ID与本工件ID相同的工艺流程表记录
+                H3.Data.Filter.Filter processFilter = new H3.Data.Filter.Filter();
+                Tools.Filter.And(processFilter, ProcessFlow_ID, H3.Data.ComparisonOperatorType.Equal, idNumber);
+                H3.DataModel.BizObject[] ProcessFlowObjects = Tools.BizOperation.GetList(this.Engine, ProcessFlow_TableCode, processFilter);
+                if (ProcessFlowObjects != null)
+                {
+                    for (int i = 0; i < ProcessFlowObjects.Length; i++)
+                    {   //如果与本记录记录的工艺流程表记录相同则保留该记录，否则删除该记录
+                        if (ProcessFlowObjects[i].ObjectId == processObjectId) { continue; }
+                        ProcessFlowObjects[i].Remove();
+                    }
+                }
+                //查询所有工件ID与本工件ID相同的进度管理表记录
+                H3.Data.Filter.Filter scheduleManagementFilter = new H3.Data.Filter.Filter();
+                Tools.Filter.And(scheduleManagementFilter, ScheduleManagement_ID, H3.Data.ComparisonOperatorType.Equal, idNumber);
+                H3.DataModel.BizObject[] scheduleManagementObjects = Tools.BizOperation.GetList(this.Engine, ScheduleManagement_TableCode, scheduleManagementFilter);
+                if (scheduleManagementObjects != null)
+                {
+                    for (int i = 0; i < scheduleManagementObjects.Length; i++)
+                    {   //如果与本记录记录的工艺流程表记录相同则保留该记录，否则删除该记录
+                        if (scheduleManagementObjects[i].ObjectId == processObjectId) { continue; }
+                        scheduleManagementObjects[i].Remove();
+                    }
+                }
+            }
+        }
+    }
+
+    // 生产计划,ABCD工序计划表
+    string TableCode = "D001419Szlywopbivyrv1d64301ta5xv4";
+    string OrderBatchTable = "F0000144"; // 订单批次表    
+    string HeatTreatmentFurnaceNumber = "F0000140";// 计划热处理炉号    
+    string ProcessingUnitForging = "F0000062";// 加工单位-锻压 
+    string HotProcessingPlan = "F0000023";   // 热加工完成时间    
+    string DoubleTieAssociatedForm = "F0000226";// 双轧关联表单   
+    string QuantityBeforeCutting = "F0000228"; // 数量-切割前   
+    string RawMaterialNumber = "F0000221"; // 原材料编号    
+    string OpenProcess = "F0000020";// 开启流程    
+    string WorkpieceNumber = "F0000054";// 工件号    
+    string ProcessingUnitSawCut = "F0000058";// 加工单位-锯切    
+    string PlanThisOptionTakes = "F0000141";// 计划本取    
+    string DoubleTieWorkpieceNumber = "F0000227";// 双轧工件号   
+    string ProcessingUnitRoughCutting = "F0000078"; // 加工单位-粗车    
+    string FinishingPlannedCompletionTime = "F0000098";// 精车计划完成时间   
+    string OrderBatchSpecificationNumber = "F0000006"; // 订单批次规格号    
+    string ProcessFlowTable = "F0000190";// 工艺流程表   
+    string DispatchTable = "DispatchTable"; //机加派工表  
+    string ProcessingUnitFinishing = "F0000082";  // 加工单位-精车    
+    string PlannedRollingMode = "F0000152";// 计划轧制方式   
+    string RoughCuttingPlanCompletionTime = "F0000095"; // 粗车计划完成时间   
+    string OrderSpecificationNumber = "F0000004"; // 订单规格号   
+    string DataCode = "shuj"; // 数据代码   
+    string DemandPeriodOfThisSectionRingRolling = "F0000067"; // 本工序需求期-辗环   
+    string ProcessingUnitHeatTreatment = "F0000070"; // 加工单位-热处理   
+    string ProductName = "F0000025"; // 产品名称 
+    string RawMaterialStorage = "F0000219";   // 原料库    
+    string ID = "F0000007";// ID  
+    string OrderSpecificationTable = "F0000145";  // 订单规格表   
+    string FinishedProductUnitWeight = "F0000031"; // 成品单重   
+    string OrderBatchSpecificationTable = "F0000017"; // 订单批次规格表    
+    string CompletionTimeOfSamplingPlan = "F0000212";// 取样计划完成时间    
+    string DemandPeriodOfThisSectionSawCut = "F0000059";// 本工序需求期-锯切  
+    string DemandPeriodOfThisSectionForge = "F0000063";  // 本工序需求期-锻压  
+    string OrderNumber = "F0000001";  // 订单号    
+    string ProcessingUnitDrilling = "F0000084";// 加工单位-钻孔   
+    string RecycledSection = "F0000142"; // 再生工序   
+    string ColdProcessingPlan = "F0000024"; // 冷加工完成时间   
+    string DemandPeriodOfThisSectionHeatTreatment = "F0000071"; // 本工序需求期-热处理    
+    string OrderBatchNumber = "F0000003";// 订单批次号  
+    string DrillingPlannedCompletionTime = "F0000102";  // 钻孔计划完成时间   
+    string ProcessingUnitRingRolling = "F0000066"; // 加工单位-辗环   
+    string RecycledProductID = "F0000137"; // 再生品ID    
+    string SpecificationParameters = "F0000028";// 规格参数   
+    string DemandPeriodOfThisSectionRoughCast = "F0000075"; // 本工序需求期-毛坯  
+    string ProcessingUnitRoughCast = "F0000074";  // 加工单位-毛坯   
+    string RawMaterialType = "F0000220"; // 原材料类型
+    string ObjectId = "ObjectId";
+
+    // 生产计划,派工表
+    string Dispatchs_TableCode = "D001419c08bb982ac44481a9439076269a8f783";   
+    string Dispatchs_RoughCuttingPlanCompletionTime = "F0000004"; // 粗车计划完成时间   
+    string Dispatchs_ID = "F0000025"; // ID    
+    string Dispatchs_OrderNumber = "F0000038";// 订单号    
+    string Dispatchs_FinishingPlanCompletionTime = "F0000005";// 精车计划完成时间   
+    string Dispatchs_SamplingPlanCompletionTime = "F0000003"; // 取样计划完成时间  
+    string Dispatchs_WorkpieceNumber = "F0000039";  // 工件号   
+    string Dispatchs_DrillingPlanCompletionTime = "F0000006"; // 钻孔计划完成时间
+
+    // 生产计划,取样派工子表
+    string DispatchSamplingSubTable_TableCode = "D001419Fc9380612ad364043a33702a36bf5fde9";    
+    string DispatchSamplingSubTable_Name = "F0000036";// 派工人员  
+    string DispatchSamplingSubTable_TaskName = "F0000059";  // 派工任务
+    string DispatchSamplingSubTable_ProcessingQuantity = "F0000019";    // 派工量
+
+    // 生产制造流程,工艺流程表
+    string ProcessFlow_TableCode = "D001419Sq0biizim9l50i2rl6kgbpo3u4";   
+    string ProcessFlow_PlannedTake = "F0000118"; // 计划本取    
+    string ProcessFlow_DoubleTieAssociatedForm = "F0000143";// 双轧关联表单   
+    string ProcessFlow_OrderBatchNumber = "F0000002"; // 订单批次号   
+    string ProcessFlow_SpecificationParameters = "F0000151"; // 产品规格   
+    string ProcessFlow_DemandPeriodOfThisProcedureForging = "F0000073"; // 本工序需求期-锻压  
+    string ProcessFlow_QualityStatus = "F0000065";  // 质量状态    
+    string ProcessFlow_DemandPeriodOfThisSectionRoughCast = "F0000082";// 本工序需求期-毛坯   
+    string ProcessFlow_RawMaterialType = "F0000062"; // 原材料类型  
+    string ProcessFlow_PlannedHeatTreatmentHeatNumber = "F0000124";  // 计划热处理炉号  
+    string ProcessFlow_DemandPeriodOfThisSectionRingRolling = "F0000076";  // 本工序需求期-辗环    
+    string ProcessFlow_DemandPeriodOfThisSectionSawCut = "F0000068";// 本工序需求期-锯切    
+    string ProcessFlow_FinishingUnit = "F0000040";// 精车加工单位   
+    string ProcessFlow_ID = "F0000006"; // ID  
+    string ProcessFlow_DrillingUnit = "F0000041";  // 钻孔加工单位   
+    string ProcessFlow_OrderBatchSpecificationNumber = "F0000004"; // 订单批次规格号   
+    string ProcessFlow_OrderNumber = "F0000001"; // 订单号    
+    string ProcessFlow_SawCutProcessingUnit = "F0000024";// 锯切加工单位   
+    string ProcessFlow_RawMaterialNumber = "F0000058"; // 原材料编号   
+    string ProcessFlow_DataCode = "F0000069"; // 数据代码   
+    string ProcessFlow_RecycledProductID = "F0000060"; // 再生品ID   
+    string ProcessFlow_PlannedRollingMode = "F0000112"; // 计划轧制方式    
+    string ProcessFlow_ScheduleManagementInformation = "Progress";// 进度管理信息    
+    string ProcessFlow_DemandPeriodOfThisSectionFinishing = "F0000088";// 本工序需求期-精车    
+    string ProcessFlow_RingRollingProcessingUnit = "F0000028";// 辗环加工单位   
+    string ProcessFlow_DoubleTieWorkpieceNumber = "F0000144"; // 双轧工件号   
+    string ProcessFlow_OrderSpecificationNumber = "F0000003"; // 订单规格号   
+    string ProcessFlow_FinishedProductUnitWeight = "F0000017"; // 成品单重    
+    string ProcessFlow_RoughCuttingUnit = "F0000039";// 粗车加工单位   
+    string ProcessFlow_WorkpieceNumber = "F0000005"; // 工件号    
+    string ProcessFlow_DemandPeriodOfThisSectionDrilling = "F0000097";// 本工序需求期-钻孔
+   
+    string ProcessFlow_BlankProcessingUnit = "F0000030"; // 毛坯加工单位    
+    string ProcessFlow_ForgingProcessingUnit = "F0000027";// 锻压加工单位   
+    string ProcessFlow_SectionSchedule = "F0000126"; // 工序计划表  
+    string ProcessFlow_RawMaterialWarehouse = "F0000119";  // 原料库   
+    string ProcessFlow_RecycledSection = "F0000121"; // 再生工序    
+    string ProcessFlow_DispatchingInformation = "F0000148";// 派工信息    
+    string ProcessFlow_HeatTreatmentProcessingUnit = "F0000029";// 热处理加工单位    
+    string ProcessFlow_DoubleTieTheWorkpieceBeforeSegmentation = "F0000150";// 双扎分割前工件  
+    string ProcessFlow_DemandPeriodOfThisSectionRoughCutting = "F0000085";  // 本工序需求期-粗车   
+    string ProcessFlow_DepartmentCode = "F0000154"; // 部门代码   
+    string ProcessFlow_CurrentSection = "F0000018"; // 当前工序   
+    string ProcessFlow_ProductType = "F0000023"; // 产品种类   
+    string ProcessFlow_QuantityBeforeCutting = "F0000145"; // 数量-切割前  
+    string ProcessFlow_ProductName = "F0000007";  // 产品名称    
+    string ProcessFlow_DemandPeriodOfThisSectionHeatTreatment = "F0000079";// 本工序需求期-热处理    
+    string ScheduleManagement_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";
+    
+    // 生产数据分析,实时生产动态----生产进度管理    
+    string ScheduleManagement_CurrentSchemaCode = "F0000071";// 当前工序    
+    string ScheduleManagement_CurrentObjectId = "F0000070";//当前记录Id    
+    string ScheduleManagement_MarketDemandAchievementProgress = "F0000020";// 市场需求达成进度    
+    string ScheduleManagement_DataCode = "F0000014";// 数据代码    
+    string ScheduleManagement_OrderBatchSpecificationTable = "F0000069";// 订单批次规格表    
+    string ScheduleManagement_OrderSpecificationTable = "F0000018";// 订单规格表   
+    string ScheduleManagement_ID = "F0000001"; // ID   
+    string ScheduleManagement_QualityStatus = "F0000010"; // 质量状态   
+    string ScheduleManagement_ProcessFlowTable = "F0000075"; // 工艺流程表  
+    string ScheduleManagement_ProcessPlanTable = "F0000019";  // 工序计划表    
+    string ScheduleManagement_OrderBatchTable = "F0000026";// 订单批次表  
+    string ScheduleManagement_ColdProcessingPlanPeriod = "F0000013";  // 冷加工计划期    
+    string ScheduleManagement_HotProcessingPlanPeriod = "F0000012";// 热加工计划期
+
+    // 生产计划,粗车派工子表
+    string DispatchRoughSubTable_TableCode = "D001419Ffb3f2e583e31421e8aaa5a085bbada58";  
+    string DispatchRoughSubTable_TaskName = "F0000058";  // 派工任务   
+    string DispatchRoughSubTable_Name = "F0000037"; // 派工人员   
+    string DispatchRoughSubTable_ProcessingQuantity = "F0000020"; // 派工量
+
+    // 生产计划,精车派工子表
+    string DispatchFinishSubTable_TableCode = "D001419F4a23f2f26a01428f952a593da3d99fe5";    
+    string DispatchFinishSubTable_ProcessingQuantity = "F0000021";// 派工量 
+    string DispatchFinishSubTable_Name = "F0000014";   // 派工人员   
+    string DispatchFinishSubTable_TaskName = "F0000060"; // 派工任务
+
+    // 生产计划,钻孔派工子表
+    string DispatchDrillingSubTable_TableCode = "D001419F5ccfa7d5acad41bf98c640057f2570ae";   
+    string DispatchDrillingSubTable_TaskName = "F0000061"; // 派工任务   
+    string DispatchDrillingSubTable_Name = "F0000015"; // 派工人员   
+    string DispatchDrillingSubTable_ProcessingQuantity = "F0000022"; // 派工量
 
 }

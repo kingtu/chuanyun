@@ -27,251 +27,248 @@ public class Salary
     /// <summary>
     /// 根据加工任务记录表计算工资并保存
     /// </summary>
-    /// <param name="processName">工序名称</param>
+    /// <param name="sectionName">工序名称</param>
     /// <param name="isSpecTask">是否特殊工序</param>
-    public void Save(string processName, bool isSpecTask = false)
+    public void Save(string sectionName, string macineRecordID, bool isSpecTask = false)
     {
         try
         {
-            this.ProcessName = processName;
-            DataRowCollection rows = null;
-            if (GetTaskSrc(processName, out rows)) { return; }
-            foreach (DataRow row in rows)
+            //取机加记录表的objectID
+            // string macineRecordID = automaticCal["F0000013"] + string.Empty;
+            //机加工任务记录表objectID
+            H3.DataModel.BizObject macineRecordObj = Tools.BizOperation.Load(Engine, MachiningTaskRecordTableCode, macineRecordID);
+            this.ProcessName = sectionName;
+
+            //取工资绩效表的objectid
+            string salaryComputation = macineRecordObj[MachiningTaskRecord_SalaryPerformance] + string.Empty;
+            H3.DataModel.BizObject salaryComObj = null;
+
+            //
+            if (string.IsNullOrEmpty(salaryComputation))
             {
-                DataRow scmJGJL = row;
-                var taskName = (string)scmJGJL[MachiningTaskRecord.TaskName];  //"任务名称"
-                var taskType = scmJGJL[MachiningTaskRecord.TaskType]; //"任务类别"
+                salaryComObj = Tools.BizOperation.New(Engine, TaskPerformanceTableCode);
+            }
+            else
+            {
+                salaryComObj = Tools.BizOperation.Load(Engine, TaskPerformanceTableCode, salaryComputation);
+            }
 
-                me = Create(processName, taskName);
+            var taskName = (string)macineRecordObj[MachiningTaskRecord_TaskName];            //"任务名称"
 
-                me[TaskPerformance.OperationName] = processName; //"工序名称"
-                me[TaskPerformance.TaskName] = taskName;//"任务名称"
-                me[TaskPerformance.TaskCategory] = taskType;//"任务类别"
+            var taskType = macineRecordObj[MachiningTaskRecord_TaskType];                     //"任务类别"
 
-                me[TaskPerformance.ID] = ID;//"ID"
-                me[TaskPerformance.OrderSpecificationNumber] = scmJGJL[MachiningTaskRecord.OrderSpecifications]; //"订单规格号"
-                me[TaskPerformance.PieceNumber] = scmJGJL[MachiningTaskRecord.WorkPieceNumber]; //"工件号"
-                me[TaskPerformance.InspectionResult] = scmJGJL[MachiningTaskRecord.InspectionResults]; //"检验结果"
-                me[TaskPerformance.Processor] = scmJGJL[MachiningTaskRecord.Processor];//加工人员
-                me[TaskPerformance.DepartmentName] = scmJGJL[MachiningTaskRecord.DepartmentName];//"部门名称"
-                me[TaskPerformance.EquipmentName] = scmJGJL[MachiningTaskRecord.DeviceName];//"设备名称"
 
-                var unitmanHour = Convert.ToDouble(scmJGJL[MachiningTaskRecord.UnitmanHour]); //单件拟定工时
-                var workLoad = Convert.ToDouble(scmJGJL[MachiningTaskRecord.WorkLoad]); //加工数量
-                var processChipWeight = Convert.ToDouble(scmJGJL[MachiningTaskRecord.ProcessChipWeight]); //工艺下屑重量
-                scmJGJL[MachiningTaskRecord.ProcessDifficulty] = scmJGJL[MachiningTaskRecord.ProcessDifficulty] + string.Empty == string.Empty
-                    ? "1" : scmJGJL[MachiningTaskRecord.ProcessDifficulty] + string.Empty; //为加工难度赋予默认值 -- fubin
-                double processDifficulty = Convert.ToDouble(scmJGJL[MachiningTaskRecord.ProcessDifficulty]);//加工难度
+            salaryComObj[TaskPerformance_Section] = sectionName; //"工序名称"
+            salaryComObj[TaskPerformance_TaskName] = taskName;//"任务名称"
+            salaryComObj[TaskPerformance_TaskType] = taskType;//"任务类别"
 
-                me[TaskPerformance.PlannedManHoursForASinglePiece] = unitmanHour; //单件拟定工时
-                me[TaskPerformance.ProcessingQuantity] = workLoad;//加工数量
-                me[TaskPerformance.ProcessChipWeight] = processChipWeight; //"工艺下屑重量"
+            salaryComObj[TaskPerformance_ID] = ID;//"ID"
+            ///"订单规格号"
+            salaryComObj[TaskPerformance_OrderSpecificationNumber] = macineRecordObj[MachiningTaskRecord_OrderSpecifications];
+            salaryComObj[TaskPerformance_WorkPieceNumber] = macineRecordObj[MachiningTaskRecord_WorkPieceNumber]; //"工件号"
 
-                if (processName == "粗车")
-                {
-                    UpdateSalaryCC(scmJGJL, unitmanHour, workLoad, processChipWeight, processDifficulty);
-                }
-                else if (processName == "四面光")
-                {
-                    UpdateSalarySMG(scmJGJL, unitmanHour, workLoad, processChipWeight, processDifficulty);
-                }
-                else if (processName == "精车")
-                {
-                    UpdateSalaryJC(scmJGJL, unitmanHour, workLoad, processChipWeight, processDifficulty);
-                }
-                else if (processName == "钻孔")
-                {
-                    UpdateSalaryZK(scmJGJL, unitmanHour, workLoad, processChipWeight, processDifficulty);
-                }
+            salaryComObj[TaskPerformance_Processor] = macineRecordObj[MachiningTaskRecord_Processor];//加工人员
+            salaryComObj[TaskPerformance_DepartmentName] = macineRecordObj[MachiningTaskRecord_DepartmentName];//"部门名称"
+            salaryComObj[TaskPerformance_DeviceName] = macineRecordObj[MachiningTaskRecord_DeviceName];//"设备名称"
+            salaryComObj[TaskPerformance_DeviceType] = macineRecordObj[MachiningTaskRecord_DeviceType];//"设备类型"
+            var techHours = Convert.ToDouble(macineRecordObj[MachiningTaskRecord_TechHours]);            //工时
 
-                //me.Save();
-                if (me.State == H3.DataModel.BizObjectState.Unloaded)
-                {
-                    me.Create();
-                }
-                else
-                {
-                    me.Update();
-                }
+            var taskStageTechHours = Convert.ToDouble(macineRecordObj[MachiningTaskRecord_StageTechHours]);            //报工阶段工时
 
+            var workLoad = Convert.ToDouble(macineRecordObj[MachiningTaskRecord_WorkLoad]);            //加工量
+
+            //工艺下屑重量
+            var FillingWeight = Convert.ToDouble(macineRecordObj[MachiningTaskRecord_FillingWeight]);
+            macineRecordObj[MachiningTaskRecord_ProcessDifficulty] = macineRecordObj[MachiningTaskRecord_ProcessDifficulty] + string.Empty == string.Empty
+                //为加工难度赋予默认值 -- fubin
+                ? "1" : macineRecordObj[MachiningTaskRecord_ProcessDifficulty] + string.Empty;
+            double processDifficulty = Convert.ToDouble(macineRecordObj[MachiningTaskRecord_ProcessDifficulty]);//加工难度
+            salaryComObj[TaskPerformance_TechHours] = techHours;            //工时
+            salaryComObj[TaskPerformance_StageTechHours] = taskStageTechHours;            //报工阶段工时
+            salaryComObj[TaskPerformance_DataCode] = macineRecordObj[MachiningTaskRecord_DataCode] + string.Empty;            //数据代码
+            salaryComObj[TaskPerformance_DepartmentCode] = macineRecordObj[MachiningTaskRecord_DepartmentCode] + string.Empty;            //部门代码
+            salaryComObj[TaskPerformance_VersionNumber] = macineRecordObj[MachiningTaskRecord_VersionNumber] + string.Empty;            //版本号
+            salaryComObj[TaskPerformance_MultipleDepartments] = macineRecordObj[MachiningTaskRecord_MultipleDepartments];            //部门多选
+            salaryComObj[TaskPerformance_Workload] = workLoad;            //加工量
+            salaryComObj[TaskPerformance_FillingWeight] = FillingWeight;            //"工艺下屑重量"
+
+
+            if (sectionName == "粗车")
+            {
+                UpdateSalaryCC(salaryComObj, macineRecordObj, techHours, workLoad, FillingWeight, processDifficulty);
+            }
+            else if (sectionName == "四面光")
+            {
+                UpdateSalarySMG(salaryComObj, macineRecordObj, techHours, workLoad, FillingWeight, processDifficulty);
+            }
+            else if (sectionName == "精车")
+            {
+                UpdateSalaryJC(salaryComObj, macineRecordObj, techHours, workLoad, FillingWeight, processDifficulty);
+            }
+            else if (sectionName == "钻孔")
+            {
+                UpdateSalaryZK(salaryComObj, macineRecordObj, techHours, workLoad, FillingWeight, processDifficulty);
+            }
+
+            if (string.IsNullOrEmpty(salaryComputation))
+            {
+                salaryComObj.Status = H3.DataModel.BizObjectStatus.Effective;//设置为生效状态
+                salaryComObj.Create();
+                macineRecordObj["F0000059"] = salaryComObj.ObjectId;                //机加记录表 中赋值  工资绩效表的objectid
+                macineRecordObj.Update();
+            }
+            else
+            {
+                salaryComObj.Update();
             }
         }
         catch (Exception e)
         {
-            Log(processName, ID, e.Message);
+            Log(sectionName, ID, e.Message);
         }
-    }
-    /// <summary>
-    /// 找出或创建一条符合条件的任务绩效表的记录
-    /// </summary>
-    /// <param name="processName">工序名称</param>
-    /// <param name="taskName">任务名称</param>
-    /// <returns>任务绩效表的记录</returns>
-    private BizObject Create(string processName, string taskName)
-    {
-        this.ProcessName = processName;
-        H3.Data.Filter.Filter f = new Filter();
-        Tools.Filter.And(f, TaskPerformance.ID, H3.Data.ComparisonOperatorType.Equal, ID);
-        Tools.Filter.And(f, TaskPerformance.OperationName, H3.Data.ComparisonOperatorType.Equal, processName);
-        Tools.Filter.And(f, TaskPerformance.TaskName, H3.Data.ComparisonOperatorType.Equal, taskName);
-        BizObject rowGZ = Tools.BizOperation.GetFirst(this.Engine, TaskPerformance.TableCode, f);
-        if (rowGZ == null)
-        {
-            rowGZ = Tools.BizOperation.New(this.Engine, TaskPerformance.TableCode);
-        }
-        return rowGZ;
-    }
-
-    /// <summary>
-    /// 找出所有符合条件的加工任务记录
-    /// </summary>
-    /// <param name="processName">工序名称</param>
-    /// <param name="rows">结果</param>
-    /// <returns>true:成功;false:失败</returns>
-    private bool GetTaskSrc(string processName, out DataRowCollection rows)
-    {
-        string w = MachiningTaskRecord.ID + "='" + ID + "' and " +
-            MachiningTaskRecord.OperationName + "='" + processName + "' and (" +
-            MachiningTaskRecord.InspectionResults + "='合格' or " +
-            MachiningTaskRecord.InspectionResults + "='利用'" + ")";
-        rows = GetRows(MachiningTaskRecord.TableCode, w);
-        return (rows == null);
     }
     /// <summary>
     /// 更新四面光工资
     /// </summary>
-    /// <param name="scmJGJL">加工任务记录的一条记录</param>
-    /// <param name="singleProcessTime">单件拟定工时</param>
+    /// <param name="salaryComObj">工资绩效 记录</param>
+    /// <param name="macineRecordObj">加工任务记录的一条记录</param>
+    /// <param name="techHour">工时</param>
     /// <param name="quantity">加工量</param>
     /// <param name="dustWeight">工艺下屑重量</param>
     /// <param name="processingDifficulty">加工难度</param>
-    public void UpdateSalarySMG(DataRow scmJGJL, double singleProcessTime, double quantity, double dustWeight, double processingDifficulty = 1)
+    public void UpdateSalarySMG(H3.DataModel.BizObject salaryComObj, H3.DataModel.BizObject macineRecordObj, double techHours, double quantity, double dustWeight, double processingDifficulty = 1)
     {
-        string processName = "四面光";//四面见光
+        string sectionName = "四面光";//四面见光
         var workPrice = 28;//"工价"
         //var 加工难度 = 1;
+        var techHoursSalary = techHours * quantity * workPrice * processingDifficulty;        //"工时工资"
 
-        var totalManHours = singleProcessTime * quantity;//"总工时"
-        var ManHoursSalary = totalManHours * workPrice * processingDifficulty;//"工时工资"
+        var shareRate = 0.2;        //共享率
 
-        var shareRate = 0.2;
+        var totalFillingWeight = dustWeight * quantity * shareRate;        //"总下屑量"
 
-        var TotalScrap = dustWeight * quantity * shareRate;//"总下屑量"
-        var outsideDiameter = Convert.ToDouble(scmJGJL[MachiningTaskRecord.OutsideDiameter]);//"外径"
+        var outsideDiameter = Convert.ToDouble(macineRecordObj[MachiningTaskRecord.OutsideDiameter]);        //"外径"
+
         //补助标准
         var subsidy = outsideDiameter >= 0 && outsideDiameter < 4000 ? 18 : (outsideDiameter >= 4000 && outsideDiameter < 5000 ? 23 : (outsideDiameter >= 5000 && outsideDiameter < 6000 ? 30 : 30));
-        var ToolReplenishmentAmount = subsidy * TotalScrap / 1000;//"补刀金额"
+        var ToolReplenishmentAmount = subsidy * totalFillingWeight / 1000;        //"补刀金额"
 
-        var TotalWorkload = 0;//"总工作量"
+        var totalWorkload = 0;        //"总工作量"
 
-        me[TaskPerformance.TotalManHours] = totalManHours;
-        me[TaskPerformance.WorkPrice] = workPrice;
-        me[TaskPerformance.ManHoursSalary] = ManHoursSalary;
-        me[TaskPerformance.TotalScrap] = TotalScrap;
-        me[TaskPerformance.TotalWorkload] = TotalWorkload;
-        me[TaskPerformance.ToolReplenishmentAmount] = ToolReplenishmentAmount;
-
+        salaryComObj[TaskPerformance_WorkPrice] = workPrice;        //工价
+        salaryComObj[TaskPerformance_TechHoursSalary] = techHoursSalary;        //工时工资
+        salaryComObj[TaskPerformance_TotalFillingWeight] = totalFillingWeight;        //"总下屑量"
+        salaryComObj[TaskPerformance_TotalWorkload] = totalWorkload;        //"总工作量"
+        salaryComObj[TaskPerformance_ToolReplenishmentAmount] = ToolReplenishmentAmount;//"补刀金额"
     }
 
     /// <summary>
     /// 更新粗车工资
     /// </summary>
-    /// <param name="scmJGJL">加工任务记录的一条记录</param>
-    /// <param name="singleProcessTime">单件拟定工时</param>
+    /// <param name="salaryComObj">工资绩效 记录</param>
+    /// <param name="macineRecordObj">加工任务记录的一条记录</param>
+    /// <param name="techHour">工时</param>
     /// <param name="quantity">加工量</param>
     /// <param name="dustWeight">工艺下屑重量</param>
     /// <param name="processingDifficulty">加工难度</param>
-    public void UpdateSalaryCC(DataRow scmJGJL, double singleProcessTime, double quantity, double dustWeight, double processingDifficulty = 1)
+    public void UpdateSalaryCC(H3.DataModel.BizObject salaryComObj, H3.DataModel.BizObject macineRecordObj, double techHours, double quantity, double dustWeight, double processingDifficulty = 1)
     {
-        string processName = "粗车";
+        string sectionName = "粗车";
         var WorkPrice = 28;
         //var 加工难度 = 1;
+        //总工时 = 单件拟定工时*加工量
+        //var TotalManHours = techHour * quantity;
+        var techHoursSalary = techHours * quantity * WorkPrice * processingDifficulty;        //工时工资  
 
-        var TotalManHours = singleProcessTime * quantity;
-        var ManHoursSalary = TotalManHours * WorkPrice * processingDifficulty;
+        var shareRate = 1.0;        //分配比例
 
-        var shareRate = 1.0;
         string w = MachiningTaskRecord.ID + "='" + ID + "' and " + MachiningTaskRecord.OperationName + "='" + "四面光" + "'";
         var smRow = GetRow(MachiningTaskRecord.TableCode, w);
         if (smRow != null) { shareRate = 0.8; }
 
-        var OutsideDiameter = Convert.ToDouble(scmJGJL[MachiningTaskRecord.OutsideDiameter]);//"外径" 
-        var TotalScrap = dustWeight * quantity * shareRate;
+        var OutsideDiameter = Convert.ToDouble(macineRecordObj[MachiningTaskRecord.OutsideDiameter] + string.Empty);//"外径" 
+        var totalFillingWeight = dustWeight * quantity * shareRate;        //总下屑量
+
         var subsidy = OutsideDiameter >= 0 && OutsideDiameter < 4000 ? 18 : (OutsideDiameter >= 4000 && OutsideDiameter < 5000 ? 23 : (OutsideDiameter >= 5000 && OutsideDiameter < 6000 ? 30 : 30));
-        var ToolReplenishmentAmount = subsidy * TotalScrap / 1000;
+        var ToolReplenishmentAmount = subsidy * totalFillingWeight / 1000;
 
-        var TotalWorkload = 0;
+        var totalWorkload = 0;
 
-        me[TaskPerformance.TotalManHours] = TotalManHours; //"总工时"
-        me[TaskPerformance.WorkPrice] = WorkPrice; //"工价"
-        me[TaskPerformance.ManHoursSalary] = ManHoursSalary;//"工时工资"
-        me[TaskPerformance.TotalScrap] = TotalScrap;//"总下屑量"
-        me[TaskPerformance.TotalWorkload] = TotalWorkload;//"总工作量"
-        me[TaskPerformance.ToolReplenishmentAmount] = ToolReplenishmentAmount;//"补刀金额"
+        //me[TaskPerformance.TotalManHours] = TotalManHours; //"总工时"
+        salaryComObj[TaskPerformance_WorkPrice] = WorkPrice;        //"工价"
+        salaryComObj[TaskPerformance_TechHoursSalary] = techHoursSalary;        //"工时工资"
+        salaryComObj[TaskPerformance_TotalFillingWeight] = totalFillingWeight;//"总下屑量"
+        salaryComObj[TaskPerformance_TotalWorkload] = totalWorkload;//"总工作量"
+        salaryComObj[TaskPerformance_ToolReplenishmentAmount] = ToolReplenishmentAmount;//"补刀金额"
     }
 
     /// <summary>
     /// 更新精车工资
     /// </summary>
-    /// <param name="scmJGJL">加工任务记录的一条记录</param>
-    /// <param name="singleProcessTime">单件拟定工时</param>
+    /// <param name="salaryComObj">工资绩效 记录</param>
+    /// <param name="macineRecordObj">加工任务记录的一条记录</param>
+    /// <param name="techHour">单件拟定工时</param>
     /// <param name="quantity">加工量</param>
     /// <param name="dustWeight">工艺下屑重量</param>
     /// <param name="processingDifficulty">加工难度</param>
-    public void UpdateSalaryJC(DataRow scmJGJL, double singleProcessTime, double quantity, double dustWeight, double processingDifficulty = 1)
+    public void UpdateSalaryJC(H3.DataModel.BizObject salaryComObj, H3.DataModel.BizObject macineRecordObj, double techHours, double quantity, double dustWeight, double processingDifficulty = 1)
     {
-        string processName = "精车";
+        string sectionName = "精车";
         var workPrice = 28;
         //var 加工难度 = 1;
-        var totalManHours = singleProcessTime * quantity;
-        var manHoursSalary = totalManHours * workPrice * processingDifficulty;
+        // var totalManHours = techHour * quantity;
+        var techHoursSalary = techHours * quantity * workPrice * processingDifficulty;
+        double totalFillingWeight = dustWeight * quantity;        //* 分配比例;
 
-        double totalScrap = dustWeight * quantity;  //* 分配比例;
-        double toolReplenishmentAmount = manHoursSalary * 0.0875;
-        double TotalWorkload = 0;
+        double toolReplenishmentAmount = techHoursSalary * 0.0875;
+        double totalWorkload = 0;
 
-        me[TaskPerformance.TotalManHours] = totalManHours; //"总工时"
-        me[TaskPerformance.WorkPrice] = workPrice; //"工价"
-        me[TaskPerformance.ManHoursSalary] = manHoursSalary;//"工时工资"
-        me[TaskPerformance.TotalScrap] = totalScrap;//"总下屑量"
-        me[TaskPerformance.TotalWorkload] = TotalWorkload;//"总工作量"
-        me[TaskPerformance.ToolReplenishmentAmount] = toolReplenishmentAmount;//"补刀金额"
+        // me[TaskPerformance.TotalManHours] = totalManHours; //"总工时"
+        salaryComObj[TaskPerformance_WorkPrice] = workPrice; //"工价"
+        salaryComObj[TaskPerformance_TechHoursSalary] = techHoursSalary;        //"工时工资"
+
+        salaryComObj[TaskPerformance_TotalFillingWeight] = totalFillingWeight;        //"总下屑量"
+
+        salaryComObj[TaskPerformance_TotalWorkload] = totalWorkload;        //"总工作量"
+
+        salaryComObj[TaskPerformance_ToolReplenishmentAmount] = toolReplenishmentAmount;        //"补刀金额"
+
     }
 
     /// <summary>
     /// 更新钻孔工资
     /// </summary>
-    /// <param name="scmJGJL">加工任务记录的一条记录</param>
-    /// <param name="singleProcessTime">单件拟定工时</param>
+    /// <param name="salaryComObj">工资绩效 记录</param>
+    /// <param name="macineRecordObj">加工任务记录的一条记录</param>
+    /// <param name="techHour">单件拟定工时</param>
     /// <param name="quantity">加工量</param>
     /// <param name="dustWeight">工艺下屑重量</param>
     /// <param name="processingDifficulty">加工难度</param>
-    public void UpdateSalaryZK(DataRow scmJGJL, double singleProcessTime, double quantity, double dustWeight, double processingDifficulty = 1)
+    public void UpdateSalaryZK(H3.DataModel.BizObject salaryComObj, H3.DataModel.BizObject macineRecordObj, double techHours, double quantity, double dustWeight, double processingDifficulty = 1)
     {
-        string processName = "钻孔";
+        string sectionName = "钻孔";
         var workPrice = 39;
 
-        var totalManHours = singleProcessTime * quantity;
-        var manHoursSalary = totalManHours * workPrice * processingDifficulty; //processingDifficulty
+        var totalManHours = techHours * quantity;
+        var techHoursSalary = totalManHours * workPrice * processingDifficulty; //processingDifficulty
 
-        var totalScrap = dustWeight * quantity;   //* 分配比例;            
+        var totalFillingWeight = dustWeight * quantity;   //* 分配比例;            
 
-        var thickness = Convert.ToDouble(scmJGJL[MachiningTaskRecord.Thickness]); //"片厚"
-        var holeAmount = Convert.ToDouble(scmJGJL[MachiningTaskRecord.HoleAmount]); //"孔数"
-        var drillingProcessingCategory = (string)scmJGJL[MachiningTaskRecord.DrillingProcessingCategory];  //钻加工类别
+        var thickness = Convert.ToDouble(macineRecordObj[MachiningTaskRecord.Thickness]); //"片厚"
+        var holeAmount = Convert.ToDouble(macineRecordObj[MachiningTaskRecord.HoleAmount]); //"孔数"
+        var drillingProcessingCategory = (string)macineRecordObj[MachiningTaskRecord.DrillingProcessingCategory];  //钻加工类别
 
         var workloadFactor = drillingProcessingCategory == "深孔钻顶法兰" ? 3 : drillingProcessingCategory == "大孔径产品" ? 2 : 1;
         double totalWorkload = thickness * holeAmount * quantity * workloadFactor / 1000;
         var toolReplenishmentAmount = 0;
 
-        me[TaskPerformance.TotalManHours] = totalManHours; //"总工时"
-        me[TaskPerformance.WorkPrice] = workPrice; //"工价"
-        me[TaskPerformance.ManHoursSalary] = manHoursSalary;//"工时工资"
-        me[TaskPerformance.TotalScrap] = totalScrap;//"总下屑量"
-        me[TaskPerformance.TotalWorkload] = totalWorkload;//"总工作量"
-        me[TaskPerformance.ToolReplenishmentAmount] = toolReplenishmentAmount;//"补刀金额"
+        salaryComObj[TaskPerformance_WorkPrice] = workPrice; //"工价"
+        salaryComObj[TaskPerformance_TechHoursSalary] = techHoursSalary;//"工时工资"
+        salaryComObj[TaskPerformance_TotalFillingWeight] = totalFillingWeight;//"总下屑量"
+        salaryComObj[TaskPerformance_TotalWorkload] = totalWorkload;//"总工作量"
+        salaryComObj[TaskPerformance_ToolReplenishmentAmount] = toolReplenishmentAmount;//"补刀金额"
     }
-
+    //构建查询语句  返回数据中的首行
     private DataRow GetRow(string table, string where, string selector = "*")
     {
         string sql = "select " + selector + " from " + "i_" + table + (where == "" ? "" : " where " + where);
@@ -287,20 +284,108 @@ public class Salary
             return null;
         }
     }
-    private DataRowCollection GetRows(string table, string where, string selector = "*")
-    {
-        string sql = "select " + selector + " from " + "i_" + table + (where == "" ? "" : " where " + where);
-        DataTable dt = this.Engine.Query.QueryTable(sql, null);
-        return dt.Rows;
-    }
-    private void Log(string processName, string id, string message = "")
+    //日志
+    private void Log(string sectionName, string id, string message = "")
     {
         BizObject ar = Tools.BizOperation.New(this.Engine, AbnormalRecordOfPayrollCalculation.TableCode); //工资计算异常记录
-        ar[AbnormalRecordOfPayrollCalculation.OperationName] = processName;
+        ar[AbnormalRecordOfPayrollCalculation.OperationName] = sectionName;
         ar[AbnormalRecordOfPayrollCalculation.ExceptionDescription] = message;
         ar[AbnormalRecordOfPayrollCalculation.OrderSpecificationNumber] = id;
         ar.Create();
     }
+
+    //机加工任务记录表
+    //TableCode
+    string MachiningTaskRecordTableCode = "D0014194963919529e44d60be759656d4a16b63";
+    //工资绩效
+    string MachiningTaskRecord_SalaryPerformance = "F0000059";
+    //工序名称
+    // string MachiningTaskRecord_section = "F0000059";
+    //任务类别
+    string MachiningTaskRecord_TaskType = "F0000031";
+    //任务名称
+    string MachiningTaskRecord_TaskName = "F0000002";
+    //工时
+    string MachiningTaskRecord_TechHours = "F0000005";
+    //报工阶段工时
+    string MachiningTaskRecord_StageTechHours = "F0000006";
+    //订单规格号
+    string MachiningTaskRecord_OrderSpecifications = "ProductNum";
+    //工件号
+    string MachiningTaskRecord_WorkPieceNumber = "F0000014";
+    //加工人员
+    string MachiningTaskRecord_Processor = "F0000011";
+    //加工量
+    string MachiningTaskRecord_WorkLoad = "F0000010";
+    //工艺下屑重量
+    string MachiningTaskRecord_FillingWeight = "F0000023";
+    //加工难度
+    string MachiningTaskRecord_ProcessDifficulty = "F0000043";
+    //"部门名称"
+    string MachiningTaskRecord_DepartmentName = "F0000030";
+    //"设备名称"
+    string MachiningTaskRecord_DeviceName = "F0000007";
+    //"设备类型"
+    string MachiningTaskRecord_DeviceType = "F0000041";
+    //数据代码
+    string MachiningTaskRecord_DataCode = "F0000058";
+    //部门代码
+    string MachiningTaskRecord_DepartmentCode = "F0000055";
+    //版本号
+    string MachiningTaskRecord_VersionNumber = "F0000056";
+    //部门多选
+    string MachiningTaskRecord_MultipleDepartments = "F0000057";
+
+
+    //任务绩效表
+    //TableCode
+    string TaskPerformanceTableCode = "D00141922a4f64f7fd74aed89a85e018fca456d";
+    //工序名称
+    string TaskPerformance_Section = "F0000003";
+    //任务名称
+    string TaskPerformance_TaskName = "F0000004";
+    //任务类别
+    string TaskPerformance_TaskType = "F0000017";
+    //订单规格
+    string TaskPerformance_OrderSpecificationNumber = "ProductNum";
+    //"工件号"
+    string TaskPerformance_WorkPieceNumber = "F0000014";
+    //ID
+    string TaskPerformance_ID = "F0000016";
+    //加工人员
+    string TaskPerformance_Processor = "F0000019";
+    //部门名称
+    string TaskPerformance_DepartmentName = "F0000018";
+    //"设备名称"
+    string TaskPerformance_DeviceName = "F0000002";
+    //"设备类型"
+    string TaskPerformance_DeviceType = "F0000020";
+    //工时
+    string TaskPerformance_TechHours = "F0000005";
+    //报工阶段工时
+    string TaskPerformance_StageTechHours = "F0000006";
+    //数据代码
+    string TaskPerformance_DataCode = "F0000024";
+    //部门代码
+    string TaskPerformance_DepartmentCode = "F0000021";
+    //版本号
+    string TaskPerformance_VersionNumber = "F0000022";
+    //部门多选
+    string TaskPerformance_MultipleDepartments = "F0000023";
+    //加工量
+    string TaskPerformance_Workload = "F0000010";
+    //"工艺下屑重量"
+    string TaskPerformance_FillingWeight = "F0000011";
+    //工价
+    string TaskPerformance_WorkPrice = "F0000009";
+    //工时工资
+    string TaskPerformance_TechHoursSalary = "F0000008";
+    //总下屑量
+    string TaskPerformance_TotalFillingWeight = "F0000012";
+    //总工作量
+    string TaskPerformance_TotalWorkload = "gongzuoliang";
+    //补刀金额
+    string TaskPerformance_ToolReplenishmentAmount = "F0000013";
 
 
 
