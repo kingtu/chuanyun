@@ -1,16 +1,11 @@
-﻿using H3.Data.Filter;
-using H3.DataModel;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data;
-using System.Text;
-
+using H3.DataModel;
 public class Salary
 {
     H3.IEngine Engine;  
     string ID;
-    string ProcessName;
-
+    
     /// <summary>
     /// 填写任务绩效表
     /// </summary>
@@ -35,8 +30,7 @@ public class Salary
             // string macineRecordID = automaticCal["F0000013"] + string.Empty;
             //机加工任务记录表objectID
             H3.DataModel.BizObject macineRecordObj = Tools.BizOperation.Load(Engine, MachiningTaskRecordTableCode, macineRecordID);
-            this.ProcessName = sectionName;
-
+            
             //取工资绩效表的objectid
             string salaryComputation = macineRecordObj[MachiningTaskRecord_SalaryPerformance] + string.Empty;
             H3.DataModel.BizObject salaryComObj = null;
@@ -194,7 +188,7 @@ public class Salary
     {       
         var workPrice = 28;         
         var techHoursSalary = techHours * quantity * workPrice * processingDifficulty;
-        double totalFillingWeight = dustWeight * quantity;        //* 分配比例;
+        double totalFillingWeight = dustWeight * quantity;        //* 总下屑量;
         double toolReplenishmentAmount = techHoursSalary * 0.0875;
         double totalWorkload = 0;
 
@@ -220,7 +214,7 @@ public class Salary
         var workPrice = 39;
         var totalManHours = techHours * quantity;
         var techHoursSalary = totalManHours * workPrice * processingDifficulty; 
-        var totalFillingWeight = dustWeight * quantity;   //* 分配比例;            
+        var totalFillingWeight = dustWeight * quantity;   //* 总下屑量;            
 
         var thickness = Convert.ToDouble(macineRecordObj[MachiningTaskRecord.Thickness]); //"片厚"
         var holeAmount = Convert.ToDouble(macineRecordObj[MachiningTaskRecord.HoleAmount]); //"孔数"
