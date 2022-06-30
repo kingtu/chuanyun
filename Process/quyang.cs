@@ -157,7 +157,7 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
                     break;
                 case ActivityLH:
                     slr = new Salary(this.Engine, (string)me[SamplingSubProcess.ID]);
-                    slr.Save("四面光", true);
+                    slr.Save("四面光","", true);
                     break;
                 case ActivityQYXJ:
                     if (totalLoad < 0)

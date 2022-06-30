@@ -122,7 +122,7 @@ public class D001419Sugyf7m5q744eyhe45o26haop4 : H3.SmartForm.SmartFormControlle
         if (activityCode == ActivityJY && actionName == "Submit")
         {
             Salary slr = new Salary(this.Engine, (string)postValue.Data[Drill.ID]);
-            slr.Save(ProcessName, false);
+            slr.Save(ProcessName, "", false);
         }
 
         if (strInitiateException == "是")

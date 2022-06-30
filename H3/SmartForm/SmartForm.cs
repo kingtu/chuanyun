@@ -1,5 +1,6 @@
 ﻿using H3.DataModel;
 using H3.Workflow;
+using System;
 using System.Collections.Generic;
 
 namespace H3
@@ -51,6 +52,10 @@ namespace H3
             public T Deserialize<T  >(string idList)
             {
                 return default (T);
+            }
+            protected virtual void OnWorkflowInstanceStateChanged(H3.Workflow.Instance.WorkflowInstanceState oldState, H3.Workflow.Instance.WorkflowInstanceState newState)
+            {
+
             }
         }
 

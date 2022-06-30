@@ -11137,6 +11137,7 @@ public class HeatTreatment
 	/// 所属部门
 	/// </summary>
 	public static readonly string Department = "OwnerDeptId";
+    internal static string TaskName;
 }
 /// <summary>
 /// 生产制造流程,辗环
