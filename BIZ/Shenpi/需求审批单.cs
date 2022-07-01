@@ -1,26 +1,16 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Text;
-using H3;
-
+﻿using System;
 public class D001419Skk7vgg7h6fxn1n4cb9imiydu4 : H3.SmartForm.SmartFormController
-{
-    //本表单数据
-    H3.DataModel.BizObject me;
-    //当前节点
-    string activityCode;
+{   
+    H3.DataModel.BizObject me; //本表单数据    
     public D001419Skk7vgg7h6fxn1n4cb9imiydu4(H3.SmartForm.SmartFormRequest request) : base(request)
     {
-        me = this.Request.BizObject;
-        activityCode = this.Request.ActivityCode;
+        me = this.Request.BizObject;        
     }
-
     protected override void OnLoad(H3.SmartForm.LoadSmartFormResponse response)
     {
         if (!this.Request.IsCreateMode)
         {
-            if (activityCode == "Activity3")
+            if (Request.ActivityCode == "Activity3")
             {
                 if (me[HowManyTimesToEnterTheNode] + string.Empty == string.Empty)
                 {
@@ -28,7 +18,7 @@ public class D001419Skk7vgg7h6fxn1n4cb9imiydu4 : H3.SmartForm.SmartFormControlle
                     H3.DataModel.BizObject current = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, instance.SchemaCode, instance.BizObjectId, false);
                     if (current[AssociatedWithOtherAbnormalWorkpieces] + string.Empty != string.Empty)
                     {
-                        String[] bizObjectIDArray = current[AssociatedWithOtherAbnormalWorkpieces] as string[];
+                        string[] bizObjectIDArray = current[AssociatedWithOtherAbnormalWorkpieces] as string[];
                         string abc = "";
                         foreach (string bizObjectID in bizObjectIDArray)
                         {
@@ -58,7 +48,6 @@ public class D001419Skk7vgg7h6fxn1n4cb9imiydu4 : H3.SmartForm.SmartFormControlle
         me.Update();
         base.OnSubmit(actionName, postValue, response);
     }
-
     //最后一个节点提交后把把ObjectId返回给父流程
     protected void ObjWorkflow()
     {
@@ -96,8 +85,6 @@ public class D001419Skk7vgg7h6fxn1n4cb9imiydu4 : H3.SmartForm.SmartFormControlle
         }
         current.Update();
     }
-
-
     //需求审批单
     string HowManyTimesToEnterTheNode = "F0000024";             //第几次进入节点
     string OtherExceptionRelatedControlForm = "F0000006";      //被关联的其他异常工件ID
@@ -106,8 +93,8 @@ public class D001419Skk7vgg7h6fxn1n4cb9imiydu4 : H3.SmartForm.SmartFormControlle
     string AbnormalRepresentative = "F0000015";                  //异常代表
     string AssociatedWithOtherAbnormalWorkpieces = "F0000199"; //工序表的“可以被关联的其他异常工件”
     //实时生产动态
-    string ScheduleManagement_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";            //可以被关联的其他异常工件
-    string ScheduleManagement_ID = "F0000001";          //任务状态
+    string ScheduleManagement_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";
+    string ScheduleManagement_ID = "F0000001";          //可以被关联的其他异常工件
     //工序表及质量保证
     string SawCut_RequestExceptionApprovalForm = "F0000203";                  //锯切_需求审批单
     string Forge_RequestExceptionApprovalForm = "F0000202";                   //锻压_需求审批单

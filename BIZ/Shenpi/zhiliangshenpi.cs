@@ -2,37 +2,31 @@
 
 public class D001419c587c429cb0e457fb094bd05641d07e4 : H3.SmartForm.SmartFormController
 {    //本表单数据
-    H3.DataModel.BizObject me;
-    //当前节点
-    string activityCode;
+    H3.DataModel.BizObject me;   
     public D001419c587c429cb0e457fb094bd05641d07e4(H3.SmartForm.SmartFormRequest request) : base(request)
     {
-        me = this.Request.BizObject;
-        activityCode = this.Request.ActivityCode;
+        me = Request.BizObject;      
     }
     protected override void OnLoad(H3.SmartForm.LoadSmartFormResponse response)
     {
-        if (!this.Request.IsCreateMode)
+        if (!Request.IsCreateMode)
         {
-            if (activityCode == "Activity3")
+            if (Request.ActivityCode == "Activity3")
             {
                 if (me[HowManyTimesToEnterTheNode] + string.Empty == string.Empty)
                 {
-                    //需要加判断"关联机加质量处理"控件是否有值
+                    //如果"关联机加质量处理"控件没有值，则取父流程，否则取父流程的父流程
                     if (me[AssociatedMachineQualityVolumeHandling] + string.Empty == string.Empty)
                     {
-                        //没有值取父流程
-                        Component();
+                        Component(); 
                     }
-                    if (me[AssociatedMachineQualityVolumeHandling] + string.Empty != string.Empty)
+                    else
                     {
-                        //有值取父流程的父流程
                         OtherComponent();
                     }
                 }
-            }
-            //把ObjectId返回给父流程
-            ObjWorkflow();
+            }           
+            ObjWorkflow(); //把ObjectId返回给父流程
         }
         base.OnLoad(response);
     }
@@ -128,10 +122,10 @@ public class D001419c587c429cb0e457fb094bd05641d07e4 : H3.SmartForm.SmartFormCon
     string ObjectId = "ObjectId";              //ObjectId
     //工序表的“可以被关联的其他异常工件”
     string AssociatedWithOtherAbnormalWorkpieces = "F0000199";
-    //实时生产动态
+    //生产进度管理
     string ScheduleManagement_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";
     string ScheduleManagement_ID = "F0000001";     //任务状态
-                                                   //工序表及质量保证
+    //工序表及质量保证
     string SawCut_QualityApprovalList = "F0000202";         //锯切_质量审批单
     string Forge_QualityApprovalList = "F0000201";           //锻压_质量审批单
     string RollingRing_QualityApprovalList = "F0000200";      //辗环_质量审批单
