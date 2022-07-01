@@ -1,12 +1,7 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Text;
-using H3;
+﻿using System;
 
 public class D001419c587c429cb0e457fb094bd05641d07e4 : H3.SmartForm.SmartFormController
-{
-    //本表单数据
+{    //本表单数据
     H3.DataModel.BizObject me;
     //当前节点
     string activityCode;
@@ -15,7 +10,6 @@ public class D001419c587c429cb0e457fb094bd05641d07e4 : H3.SmartForm.SmartFormCon
         me = this.Request.BizObject;
         activityCode = this.Request.ActivityCode;
     }
-
     protected override void OnLoad(H3.SmartForm.LoadSmartFormResponse response)
     {
         if (!this.Request.IsCreateMode)
@@ -49,22 +43,17 @@ public class D001419c587c429cb0e457fb094bd05641d07e4 : H3.SmartForm.SmartFormCon
         {
             me[HowManyTimesToEnterTheNode] = 1;
         }
-        // if(me[AbnormalRepresentative] + string.Empty != string.Empty)
-        // {
-        //     me[QualityApprovalResult] = "等待异常代表结果";
-        // }
         base.OnSubmit(actionName, postValue, response);
     }
 
     public void Component()
-    {
-        //获取父流程实例对象
+    {   //获取父流程实例对象
         H3.Workflow.Instance.WorkflowInstance instance = this.Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(this.Request.WorkflowInstance.ParentInstanceId);
         //获取父流程业务对象
         H3.DataModel.BizObject current = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, instance.SchemaCode, instance.BizObjectId, false);
         if (current[AssociatedWithOtherAbnormalWorkpieces] + string.Empty != string.Empty)//“F0000199”是“关联其他异常工件”控件的控件编码
         {
-            String[] bizObjectIDArray = current[AssociatedWithOtherAbnormalWorkpieces] as string[];
+            string[] bizObjectIDArray = current[AssociatedWithOtherAbnormalWorkpieces] as string[];
             string abc = "";
             foreach (string bizObjectID in bizObjectIDArray)
             {
@@ -90,7 +79,7 @@ public class D001419c587c429cb0e457fb094bd05641d07e4 : H3.SmartForm.SmartFormCon
         H3.DataModel.BizObject currents = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, instancess.SchemaCode, instancess.BizObjectId, false);
         if (currents[AssociatedWithOtherAbnormalWorkpieces] + string.Empty != string.Empty)//“F0000199”是“关联其他异常工件”控件的控件编码
         {
-            String[] bizObjectIDArray = currents[AssociatedWithOtherAbnormalWorkpieces] as string[];
+            string[] bizObjectIDArray = currents[AssociatedWithOtherAbnormalWorkpieces] as string[];
             string abc = "";
             foreach (string bizObjectID in bizObjectIDArray)
             {
@@ -132,27 +121,20 @@ public class D001419c587c429cb0e457fb094bd05641d07e4 : H3.SmartForm.SmartFormCon
         current.Update();
     }
 
-
     //质量审批单
-    string HowManyTimesToEnterTheNode = "F0000024";                                                                     //第几次进入节点
-    string AssociatedMachineQualityVolumeHandling = "F0000015";                                                         //关联机加质量处理
-    string AbnormalRepresentative = "F0000018";                                                                         //异常代表
-    string QualityApprovalResult = "F0000001";                                                                          //质量审批结果
-    string OtherExceptionRelatedControlForm = "F0000006";                                                               //被关联的其他异常工件ID
-    string ObjectId = "ObjectId";                                                                                       //ObjectId
-
+    string HowManyTimesToEnterTheNode = "F0000024";                //第几次进入节点
+    string AssociatedMachineQualityVolumeHandling = "F0000015";    //关联机加质量处理
+    string OtherExceptionRelatedControlForm = "F0000006";         //被关联的其他异常工件ID
+    string ObjectId = "ObjectId";              //ObjectId
     //工序表的“可以被关联的其他异常工件”
     string AssociatedWithOtherAbnormalWorkpieces = "F0000199";
-
     //实时生产动态
-    string ScheduleManagement_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";                                   //可以被关联的其他异常工件
-    string ScheduleManagement_ID = "F0000001";                                                                         //任务状态
-
-    //工序表及质量保证
-    string SawCut_QualityApprovalList = "F0000202";                                                                     //锯切_质量审批单
-    string Forge_QualityApprovalList = "F0000201";                                                                      //锻压_质量审批单
-    string RollingRing_QualityApprovalList = "F0000200";                                                                //辗环_质量审批单
-    string HeatTreatment_QualityApprovalList = "F0000200";                                                              //热处理_质量审批单
-    string MechanicalQualityAssurance_QualityApprovalList = "F0000022";                                                 //质量保证_质量审批单
-
+    string ScheduleManagement_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";
+    string ScheduleManagement_ID = "F0000001";     //任务状态
+                                                   //工序表及质量保证
+    string SawCut_QualityApprovalList = "F0000202";         //锯切_质量审批单
+    string Forge_QualityApprovalList = "F0000201";           //锻压_质量审批单
+    string RollingRing_QualityApprovalList = "F0000200";      //辗环_质量审批单
+    string HeatTreatment_QualityApprovalList = "F0000200";    //热处理_质量审批单
+    string MechanicalQualityAssurance_QualityApprovalList = "F0000022";   //质量保证_质量审批单
 }
