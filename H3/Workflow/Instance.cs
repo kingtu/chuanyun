@@ -27,6 +27,7 @@ namespace H3.Workflow.Instance
         public object FinishTime { get;  set; }
         public string SchemaCode { get; internal set; }
         public string WorkflowDisplayName { get; internal set; }
+        public string ParentInstanceId { get; internal set; }
 
         internal Token GetRunningToken(object activityCode)
         {

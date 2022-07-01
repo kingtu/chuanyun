@@ -2,9 +2,6 @@
 using System;
 using System.Data;
 using System.Collections.Generic;
-using System.Text;
-using H3;
-
 public class TechHours
 {
     //查询工时和下屑量
@@ -42,7 +39,6 @@ public class TechHours
                     techChip = Convert.ToDouble(productParameterObj[ProductParameter_DoubleRollingRoughingFillingWeight]);
                 }
             }
-
             if (OperationName == "精车")
             {
                 //产品参数表-单轧工时
@@ -82,8 +78,7 @@ public class TechHours
    * @param rollingMode 轧制方式
    */
     public double EquipmentTechHoursCoeff(H3.IEngine engine, string OperationName, string deviceType, H3.DataModel.BizObject productParameterObj, string rollingMode)
-    {
-      
+    {      
         double equipmentCoeff = 1;  //设备工时系数        
         double strOuterDiameter = 0;//本工序外径        
         H3.DataModel.BizObject[] subObj = null;//设备工时系数表-子表       
