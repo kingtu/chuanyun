@@ -97,26 +97,22 @@ public class D001419Sk5o69536e6w6pev17ghk3u7y6 : H3.SmartForm.SmartFormControlle
     }
 
     //其它审批单
-    string TimesToEnterTheNode = "F0000024";                                                                            //第几次进入节点
-    string OtherExceptionRelatedControlForm = "F0000006";                                                                      //被关联的其他异常工件ID
-    string ObjectId = "ObjectId";                                                                                              //ObjectId
-                                                                                                                               // 工序名称
-    string SectionName = "F0000004";
-    //工序表的“可以被关联的其他异常工件”
-    string AssociatedWithOtherAbnormalWorkpieces = "F0000199";
-
+    string TimesToEnterTheNode = "F0000024";                    //第几次进入节点
+    string OtherExceptionRelatedControlForm = "F0000006";       //被关联的其他异常工件ID
+    string ObjectId = "ObjectId";                               //ObjectId                                                                
+    string SectionName = "F0000004";    // 工序名称
+    string AssociatedWithOtherAbnormalWorkpieces = "F0000199";   //工序表的“可以被关联的其他异常工件
     //实时生产动态
-    string ScheduleManagement_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";                                    //可以被关联的其他异常工件
-    string ScheduleManagement_ID = "F0000001";                                                                          //任务状态
-
+    string ScheduleManagement_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";    //可以被关联的其他异常工件
+    string ScheduleManagement_ID = "F0000001";                                          //任务状态
     //工序表及质量保证
-    string SawCut_RequestExceptionApprovalForm = "F0000205";                                                                   //锯切_其它审批单
-    string Forge_RequestExceptionApprovalForm = "F0000204";                                                                    //锻压_其它审批单
-    string RollingRing_RequestExceptionApprovalForm = "F0000203";                                                              //辗环_其它审批单
-    string HeatTreatment_RequestExceptionApprovalForm = "F0000203";                                                            //热处理_其它审批单
-    string RoughCast_RequestExceptionApprovalForm = "F0000228";                                                                //毛坯_其它审批单
-    string RoughCutting_RequestExceptionApprovalForm = "F0000265";                                                              //粗车_其它审批单
-    string Finishing_RequestExceptionApprovalForm = "F0000259";                                                                //精车_其它审批单
-    string Drilling_RequestExceptionApprovalForm = "F0000237";                                                                    //钻孔_其它审批单
+    string SawCut_RequestExceptionApprovalForm = "F0000205";                            //锯切_其它审批单
+    string Forge_RequestExceptionApprovalForm = "F0000204";                             //锻压_其它审批单
+    string RollingRing_RequestExceptionApprovalForm = "F0000203";                       //辗环_其它审批单
+    string HeatTreatment_RequestExceptionApprovalForm = "F0000203";                     //热处理_其它审批单
+    string RoughCast_RequestExceptionApprovalForm = "F0000228";                        //毛坯_其它审批单
+    string RoughCutting_RequestExceptionApprovalForm = "F0000265";                    //粗车_其它审批单
+    string Finishing_RequestExceptionApprovalForm = "F0000259";                      //精车_其它审批单
+    string Drilling_RequestExceptionApprovalForm = "F0000237";                      //钻孔_其它审批单
 }
 

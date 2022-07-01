@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Text;
 using H3;
 
-public class D001419Syxtf86zuesfqtp9k87mug0il23 : H3.SmartForm.SmartFormController
+public class D001419Syxtf86zuesfqtp9k87mug0il2 : H3.SmartForm.SmartFormController
 {
     //本表单数据
     H3.DataModel.BizObject me;
     //当前节点
     string activityCode;
-    public D001419Syxtf86zuesfqtp9k87mug0il23(H3.SmartForm.SmartFormRequest request) : base(request)
+    public D001419Syxtf86zuesfqtp9k87mug0il2(H3.SmartForm.SmartFormRequest request) : base(request)
     {
         me = this.Request.BizObject;
         activityCode = this.Request.ActivityCode;
@@ -98,26 +98,22 @@ public class D001419Syxtf86zuesfqtp9k87mug0il23 : H3.SmartForm.SmartFormControll
         current.Update();
     }
 
-    //流转审批单
-    string TimesToEnterTheNode = "F0000024";                                                                            //第几次进入节点
-    string OtherExceptionRelatedControlForm = "F0000006";                                                                      //被关联的其他异常工件ID
-    string ObjectId = "ObjectId";                                                                                              //ObjectId
-    // 工序名称
-    string sectionName = "F0000004";
-    //工序表的“可以被关联的其他异常工件”
-    string AssociatedWithOtherAbnormalWorkpieces = "F0000199";
-
-    //实时生产动态
-    string ScheduleManagement_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";                                    //可以被关联的其他异常工件
-    string ScheduleManagement_ID = "F0000001";                                                                          //任务状态
-
+    //流转审批单   
+    string TimesToEnterTheNode = "F0000024";  //进入节点次数                                                                         
+    string OtherExceptionRelatedControlForm = "F0000006";     //被关联的其他异常工件ID
+    string ObjectId = "ObjectId";        //ObjectId
+    string sectionName = "F0000004"; // 工序名称   
+    string AssociatedWithOtherAbnormalWorkpieces = "F0000199"; //工序表的“可以被关联的其他异常工件
+    //生产进度管理
+    string ScheduleManagement_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";  //可以被关联的其他异常工件
+    string ScheduleManagement_ID = "F0000001";   //任务状态
     //工序表及质量保证
-    string SawCut_RequestExceptionApprovalForm = "F0000204";                                                                   //锯切_流转审批单
-    string Forge_RequestExceptionApprovalForm = "F0000203";                                                                    //锻压_流转审批单
-    string RollingRing_RequestExceptionApprovalForm = "F0000202";                                                              //辗环_流转审批单
-    string HeatTreatment_RequestExceptionApprovalForm = "F0000202";                                                            //热处理_流转审批单
-    string RoughCast_RequestExceptionApprovalForm = "F0000227";                                                                //毛坯_流转审批单
-    string RoughCutting_RequestExceptionApprovalForm = "F0000264";                                                              //粗车_流转审批单
-    string Finishing_RequestExceptionApprovalForm = "F0000258";                                                                //精车_流转审批单
-    string Drilling_RequestExceptionApprovalForm = "F0000236";                                                                 //钻孔_流转审批单
+    string SawCut_RequestExceptionApprovalForm = "F0000204";             //锯切_流转审批单
+    string Forge_RequestExceptionApprovalForm = "F0000203";              //锻压_流转审批单
+    string RollingRing_RequestExceptionApprovalForm = "F0000202";        //辗环_流转审批单
+    string HeatTreatment_RequestExceptionApprovalForm = "F0000202";    //热处理_流转审批单
+    string RoughCast_RequestExceptionApprovalForm = "F0000227";          //毛坯_流转审批单
+    string RoughCutting_RequestExceptionApprovalForm = "F0000264";       //粗车_流转审批单
+    string Finishing_RequestExceptionApprovalForm = "F0000258";          //精车_流转审批单
+    string Drilling_RequestExceptionApprovalForm = "F0000236";           //钻孔_流转审批单
 }
