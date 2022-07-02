@@ -1,42 +1,32 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Text;
-using H3;
-
+﻿using System;
 public class D001419Sk5o69536e6w6pev17ghk3u7y6 : H3.SmartForm.SmartFormController
-{
-    //本表单数据
-    H3.DataModel.BizObject me;
-    //当前节点
-    string activityCode;
+{    //本表单数据
+    H3.DataModel.BizObject me;   
     public D001419Sk5o69536e6w6pev17ghk3u7y6(H3.SmartForm.SmartFormRequest request) : base(request)
     {
-        me = this.Request.BizObject;
-        activityCode = this.Request.ActivityCode;
+        me = this.Request.BizObject;     
     }
-
     protected override void OnLoad(H3.SmartForm.LoadSmartFormResponse response)
     {
-        if (!this.Request.IsCreateMode)
+        if (!Request.IsCreateMode)
         {
             //工序名称
             if (me[SectionName] + string.Empty != "取样子流程")
             {
-                if (activityCode == "Activity3")
+                if (Request.ActivityCode == "Activity3")
                 {
                     if (me[TimesToEnterTheNode] + string.Empty == string.Empty)
                     {
-                        H3.Workflow.Instance.WorkflowInstance instance = this.Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(this.Request.WorkflowInstance.ParentInstanceId);
-                        H3.DataModel.BizObject current = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, instance.SchemaCode, instance.BizObjectId, false);
+                        H3.Workflow.Instance.WorkflowInstance instance = Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(Request.WorkflowInstance.ParentInstanceId);
+                        H3.DataModel.BizObject current = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, Engine, instance.SchemaCode, instance.BizObjectId, false);
                         if (current[AssociatedWithOtherAbnormalWorkpieces] + string.Empty != string.Empty)
                         {
-                            String[] bizObjectIDArray = current[AssociatedWithOtherAbnormalWorkpieces] as string[];
+                            string[] bizObjectIDArray = current[AssociatedWithOtherAbnormalWorkpieces] as string[];
                             string abc = "";
                             foreach (string bizObjectID in bizObjectIDArray)
                             {
                                 //加载其他异常ID 的业务对象
-                                H3.DataModel.BizObject currentt = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, ScheduleManagement_TableCode, bizObjectID, false);
+                                H3.DataModel.BizObject currentt = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, Engine, ScheduleManagement_TableCode, bizObjectID, false);
                                 abc += (currentt[ScheduleManagement_ID] + string.Empty + ",");
                             }
                             me[OtherExceptionRelatedControlForm] = abc;
@@ -62,9 +52,9 @@ public class D001419Sk5o69536e6w6pev17ghk3u7y6 : H3.SmartForm.SmartFormControlle
     protected void ObjWorkflow()
     {
         //获取父流程实例对象
-        H3.Workflow.Instance.WorkflowInstance instance = this.Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(this.Request.WorkflowInstance.ParentInstanceId);
+        H3.Workflow.Instance.WorkflowInstance instance = this.Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(Request.WorkflowInstance.ParentInstanceId);
         //获取父流程业务对象
-        H3.DataModel.BizObject current = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, instance.SchemaCode, instance.BizObjectId, false);
+        H3.DataModel.BizObject current = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, Engine, instance.SchemaCode, instance.BizObjectId, false);
         string WorkflowDisplayName = instance.WorkflowDisplayName;
         switch (WorkflowDisplayName)
         {

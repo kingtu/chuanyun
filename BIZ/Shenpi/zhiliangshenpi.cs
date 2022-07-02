@@ -1,5 +1,4 @@
 ﻿using System;
-
 public class D001419c587c429cb0e457fb094bd05641d07e4 : H3.SmartForm.SmartFormController
 {    //本表单数据
     H3.DataModel.BizObject me;   
@@ -30,7 +29,6 @@ public class D001419c587c429cb0e457fb094bd05641d07e4 : H3.SmartForm.SmartFormCon
         }
         base.OnLoad(response);
     }
-
     protected override void OnSubmit(string actionName, H3.SmartForm.SmartFormPostValue postValue, H3.SmartForm.SubmitSmartFormResponse response)
     {
         if (me[HowManyTimesToEnterTheNode] + string.Empty == string.Empty)
@@ -85,7 +83,6 @@ public class D001419c587c429cb0e457fb094bd05641d07e4 : H3.SmartForm.SmartFormCon
             me[OtherExceptionRelatedControlForm] = abc;
         }
     }
-
     //把ObjectId返回给父流程
     protected void ObjWorkflow()
     {

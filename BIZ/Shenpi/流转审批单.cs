@@ -1,29 +1,19 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Text;
-using H3;
-
+﻿using System;
 public class D001419Syxtf86zuesfqtp9k87mug0il2 : H3.SmartForm.SmartFormController
-{
-    //本表单数据
-    H3.DataModel.BizObject me;
-    //当前节点
-    string activityCode;
+{   //本表单数据
+    H3.DataModel.BizObject me;   
     public D001419Syxtf86zuesfqtp9k87mug0il2(H3.SmartForm.SmartFormRequest request) : base(request)
     {
-        me = this.Request.BizObject;
-        activityCode = this.Request.ActivityCode;
+        me = Request.BizObject;       
     }
-
     protected override void OnLoad(H3.SmartForm.LoadSmartFormResponse response)
     {
-        if (!this.Request.IsCreateMode)
+        if (!Request.IsCreateMode)
         {
             //工序名称
             if (me[sectionName] + string.Empty != "取样子流程")
             {
-                if (activityCode == "Activity3")
+                if (Request.ActivityCode == "Activity3")
                 {
                     if (me[TimesToEnterTheNode] + string.Empty == string.Empty)
                     {
@@ -31,7 +21,7 @@ public class D001419Syxtf86zuesfqtp9k87mug0il2 : H3.SmartForm.SmartFormControlle
                         H3.DataModel.BizObject current = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, instance.SchemaCode, instance.BizObjectId, false);
                         if (current[AssociatedWithOtherAbnormalWorkpieces] + string.Empty != string.Empty)
                         {
-                            String[] bizObjectIDArray = current[AssociatedWithOtherAbnormalWorkpieces] as string[];
+                            string[] bizObjectIDArray = current[AssociatedWithOtherAbnormalWorkpieces] as string[];
                             string abc = "";
                             foreach (string bizObjectID in bizObjectIDArray)
                             {
