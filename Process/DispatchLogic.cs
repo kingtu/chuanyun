@@ -13,4 +13,9 @@ internal class DispatchLogic
     {
         throw new NotImplementedException();
     }
+
+    internal static void DispatchLogicDrill(IEngine engine, BizObject me, string activityCode)
+    {
+        throw new NotImplementedException();
+    }
 }
