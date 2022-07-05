@@ -224,7 +224,7 @@ public class D001419Sugyf7m5q744eyhe45o26haop4 : H3.SmartForm.SmartFormControlle
         {
             if (lstDrillMachiningSubTable[taskNum][DrillMachiningSubTable_Processor] + string.Empty == string.Empty)
             {
-                lstDrillMachiningSubTable[taskNum][DrillMachiningSubTable_StartTime] = userId;  //当前加工者
+                lstDrillMachiningSubTable[taskNum][DrillMachiningSubTable_Processor] = userId;  //当前加工者
             }
             //完成总量小于1时
             if ((me[TotalAmountCompleted] + string.Empty) != string.Empty && decimal.Parse(me[TotalAmountCompleted] + string.Empty) < 1)
@@ -389,11 +389,9 @@ public class D001419Sugyf7m5q744eyhe45o26haop4 : H3.SmartForm.SmartFormControlle
     string ProcessFlow_TargetStep = "F0000057";                             //转至工步
     //钻孔表ID
     string Drilling_TableCode = "D001419Sugyf7m5q744eyhe45o26haop4";        
-    string WorkshopLocation = "F0000052";                                   //车间位置
     string CurrentWorkStep = "F0000054";                                    //当前工步
     string CurrentSection = "F0000056";                                     //当前工序
-    string TotalAmountCompleted = "F0000073";                               //完成总量
-    string ProcessingDifficulty = "F0000182";                               //加工难度
+    string TotalAmountCompleted = "F0000073";                               //完成总量  
     string TargetStep = "F0000046";                                         //转至工步
     string InitiateException = "F0000045";                                  //发起异常
     string InspectionResult = "F0000020";                                   //检验结果
