@@ -18,4 +18,19 @@ internal class DispatchLogic
     {
         throw new NotImplementedException();
     }
+
+    internal static void DispatchLogicRoughCasts(IEngine engine, BizObject me, string activityCode)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal static void DispatchLogicRough(IEngine engine, BizObject me, string activityCode)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal static void DispatchLogicSamp(IEngine engine, BizObject me, string activityCode)
+    {
+        throw new NotImplementedException();
+    }
 }
