@@ -1,6 +1,7 @@
 ﻿using H3;
 using H3.DataModel;
 using System;
+using System.Collections.Generic;
 
 internal class DispatchLogic
 {
@@ -30,6 +31,11 @@ internal class DispatchLogic
     }
 
     internal static void DispatchLogicSamp(IEngine engine, BizObject me, string activityCode)
+    {
+        throw new NotImplementedException();
+    }
+
+    internal static object SyncParticipants(IEngine engine, List<string> namestatus)
     {
         throw new NotImplementedException();
     }
