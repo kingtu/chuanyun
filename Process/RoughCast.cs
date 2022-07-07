@@ -1,11 +1,9 @@
-﻿
-using System;
+﻿using System;
 using System.Data;
-using System.Collections.Generic;
 using System.Collections;
 using H3.DataModel;
 using H3;
-
+//毛坯
 public class D001419Sgx7flbvwu9r0u3hail6512uq4 : H3.SmartForm.SmartFormController
 {
     BizObject me;//本表单数据  
@@ -560,4 +558,3 @@ public class D001419Sgx7flbvwu9r0u3hail6512uq4 : H3.SmartForm.SmartFormControlle
     string ProductParameter_OrderSpecificationNumber = "F0000073";                                                                //订单规格号
     string ProductParameter_Objectid = "ObjectId";                                                                                //ObjectId
 }
-

@@ -5,65 +5,55 @@ using System.Text;
 using H3;
 using System.Data;
 using H3.DataModel;
-
+// "取样";
 public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormController
 {
     BizObject me;                                   //本表单业务对象
     string activityCode;                            //当前节点
     H3.SmartForm.SmartFormResponseDataItem item;    //用户提示信息
-    H3.SmartForm.SmartFormResponseDataItem userId;  //用户Id
-    string info = string.Empty;                     //值班信息
-    string ProcessName = "取样";
-
+    H3.SmartForm.SmartFormResponseDataItem userId;  //用户Id  
     public D001419Sgljz62e1rneytbqjckbe1vu25(H3.SmartForm.SmartFormRequest request) : base(request)
     {
-        me = this.Request.BizObject;                            //本表单业务对象
-        activityCode = this.Request.ActivityCode;               //活动节点编码   
+        me = Request.BizObject;                            //本表单业务对象
+        activityCode = Request.ActivityCode;               //活动节点编码   
         item = new H3.SmartForm.SmartFormResponseDataItem();    //用户提示信息
         userId = new H3.SmartForm.SmartFormResponseDataItem();  //用户Id
-        userId.Value = this.Request.UserContext.UserId;
+        userId.Value = Request.UserContext.UserId;
     }
 
     protected override void OnLoad(H3.SmartForm.LoadSmartFormResponse response)
     {
         try
         {
-            //不是创建模式
-            if (!this.Request.IsCreateMode)
+            if (!Request.IsCreateMode)  //不是创建模式
             {
-                //获取用户ID
-                UserId(response);
-                //初始化取样理化
-                InitSamplingSubProcess();
-                //统计机加工耗时
-                MachiningTime();
-                //初始化探伤表
-                InitFlawDetectionForm();
+                UserId(response);//获取用户ID                
+                InitSamplingSubProcess();//初始化取样理化               
+                MachiningTime(); //统计机加工耗时               
+                InitFlawDetectionForm(); //初始化探伤表
             }
         }
         catch (Exception ex)
         {
-            info = Tools.Log.ErrorLog(this.Engine, me, ex, activityCode);
+            string info = Tools.Log.ErrorLog(Engine, me, ex, activityCode);
             item.Value = string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
         }
-
         response.ReturnData.Add("key1", item);
         base.OnLoad(response);
+        ////--------------------------加载前后分割线-------------------------//
 
-        //--------------------------加载前后分割线-------------------------//
-
-        try
-        {
-            if (!this.Request.IsCreateMode)
-            {
-                //加载后代码
-            }
-        }
-        catch (Exception ex)
-        {
-            info = Tools.Log.ErrorLog(this.Engine, me, ex, activityCode);
-            item.Value = string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
-        }
+        //try
+        //{
+        //    if (!Request.IsCreateMode)
+        //    {
+        //        //加载后代码
+        //    }
+        //}
+        //catch (Exception ex)
+        //{
+        //    info = Tools.Log.ErrorLog(Engine, me, ex, activityCode);
+        //    item.Value = string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
+        //}
     }
 
 
@@ -72,31 +62,22 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
     {
         try
         {
-            //提交
             if (actionName == "Submit")
             {
-                //上下机加工审批权限人
-                Workers();
-                //多阶段加工流程逻辑
-                MultistageProcessingLogic(activityCode);
-                //赋值审批来源
-                UnqualifiedSource();
-                // //派工开关
-                // DipatchFlag();                   /////////////不确定///////////
-            }
-            //上下机时，赋值派工信息子表的任务状态
-            SMGSubmittedMinistry();
-            //审批人记录
-            Authority.Approver(this.Request);
-            base.OnSubmit(actionName, postValue, response);
-            //多阶段加工新方案同步机加工任务记录
-            UpdateRecordForm(actionName, activityCode);
+                Workers(); //上下机加工审批权限人                
+                MultistageProcessingLogic(activityCode);//多阶段加工流程逻辑                
+                UnqualifiedSource();//赋值审批来源               
+                // DipatchFlag();    // //派工开关              
+            }            
+            SMGSubmittedMinistry();//上下机时，赋值派工信息子表的任务状态          
+            Authority.Approver(Request);  //审批人记录
+            base.OnSubmit(actionName, postValue, response);         
+            UpdateRecordForm(actionName, activityCode);   //多阶段加工新方案同步机加工任务记录
         }
         catch (Exception ex)
-        {		//负责人信息
-            string info = Tools.Log.ErrorLog(this.Engine, me, ex, activityCode);
-            response.Message =
-                string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
+        {		
+            string info = Tools.Log.ErrorLog(Engine, me, ex, activityCode);//负责人信息
+            response.Message = string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
         }
     }
 
@@ -106,16 +87,12 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
     */
     protected void DipatchFlag()
     {
-
-        //派工开关
-        string dipatchFlag = this.Request.BizObject[DispatchSwitch] + string.Empty;
+        string dipatchFlag = Request.BizObject[DispatchSwitch] + string.Empty; //派工开关
         if (dipatchFlag == "关")
         {
-            //判断是否为待上机节点
-            if (activityCode == "Activity23")
+            if (activityCode == "Activity23")//判断是否为待上机节点
             {
-                //加工节点的取样加工中人为上机权限人
-                this.Request.BizObject[SamplingStageProcessingPerson] = (string)userId.Value;
+                Request.BizObject[SamplingStageProcessingPerson] = (string)userId.Value; //加工节点的取样加工中人为上机权限人
             }
         }
     }
@@ -125,10 +102,10 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
     */
     protected void UnqualifiedSource()
     {
-        string currentApprover = this.Request.UserContext.User.Name;                    //当前审批人
-        string currentProcess = me[CurrentSection] + string.Empty;                      //当前工序
-        string currentWorkStep = me[CurrentWorkStep] + string.Empty;                    //当前工步
-        if (me[InitiateAbnormal] + string.Empty == "是")                                 //发起异常
+        string currentApprover = Request.UserContext.User.Name;                    //当前审批人
+        string currentProcess = me[CurrentSection] + string.Empty;                 //当前工序
+        string currentWorkStep = me[CurrentWorkStep] + string.Empty;               //当前工步
+        if (me[InitiateAbnormal] + string.Empty == "是")                           //发起异常
         {
             string abnormal = "发起异常";
             string sourceOfApproval = currentApprover + "在" + currentProcess + "工序的" + currentWorkStep + "工步" + abnormal;
@@ -143,24 +120,23 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
     */
     protected void SMGSubmittedMinistry()
     {
-        //节点为为 待上机 并且发起异常为为 否
+        //节点为为待上机并且发起异常为为否
         if (activityCode == "Activity23" && me[InitiateAbnormal] + string.Empty == "否")
         {
-            //工序表派工子表信息
-            H3.DataModel.BizObject[] disProcessSubs = me[SamplingSamplingDispatchInformation_TableCode] as H3.DataModel.BizObject[];
-            //工序表多阶段加工子表
-            H3.DataModel.BizObject[] ProcessSubs = me[SamplingMachiningSubtable_TableCode] as H3.DataModel.BizObject[];
+            BizObject[] processSubs = me[SamplingMachiningSubtable_TableCode] as BizObject[];//工序表多阶段加工子表
             //判断多阶段加工子表有没有值
-            if (ProcessSubs != null && ProcessSubs.Length > 0)
+            if (processSubs != null && processSubs.Length > 0)
             {
+                //工序表派工子表信息
+                BizObject[] disProcessSubs = me[SamplingSamplingDispatchInformation_TableCode] as BizObject[];
                 //判断工序表派工子表有没有值
                 if (disProcessSubs != null && disProcessSubs.Length > 0)
                 {
                     //循环多阶段加工子表信息
-                    for (int i = 0; i < ProcessSubs.Length; i++)
+                    for (int i = 0; i < processSubs.Length; i++)
                     {
                         //判断多阶段加工子表的“派工任务”与工序表派工子表的“派工任务”是否一样
-                        if (ProcessSubs[i][SamplingMachiningSubtable_DispatchTask] + string.Empty == disProcessSubs[0][SamplingSamplingDispatchInformation_DispatchTask] + string.Empty)
+                        if (processSubs[i][SamplingMachiningSubtable_DispatchTask] + string.Empty == disProcessSubs[0][SamplingSamplingDispatchInformation_DispatchTask] + string.Empty)
                         {
                             //赋值工序表派工子表信息的“任务状态”
                             disProcessSubs[0][SamplingSamplingDispatchInformation_TaskStatus] = "加工中";
@@ -173,17 +149,17 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
         if (activityCode == "Activity104" && me[InitiateAbnormal] + string.Empty == "否")
         {
             //工序表派工子表信息
-            H3.DataModel.BizObject[] disProcessSubs = me[SamplingSamplingDispatchInformation_TableCode] as H3.DataModel.BizObject[];
+            BizObject[] disProcessSubs = me[SamplingSamplingDispatchInformation_TableCode] as BizObject[];
             //工序表多阶段加工子表
-            H3.DataModel.BizObject[] ProcessSubs = me[SamplingMachiningSubtable_TableCode] as H3.DataModel.BizObject[];
+            BizObject[] processSubs = me[SamplingMachiningSubtable_TableCode] as BizObject[];
             //判断工序表多阶段加工子表有没有值
-            if (ProcessSubs != null && ProcessSubs.Length > 0)
+            if (processSubs != null && processSubs.Length > 0)
             {
                 //判断工序表派工子表有没有值
                 if (disProcessSubs != null && disProcessSubs.Length > 0)
                 {
                     //循环多阶段加工子表信息
-                    foreach (H3.DataModel.BizObject item in ProcessSubs)
+                    foreach (BizObject item in processSubs)
                     {
                         //判断多阶段加工子表的“加工量”与工序表派工子表的“加工量”是否一样
                         if (item[SamplingMachiningSubtable_ProcessingQuantity] + string.Empty == disProcessSubs[0][SamplingSamplingDispatchInformation_DispatchQuantity] + string.Empty)
@@ -215,13 +191,13 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
         //初始化产品类别
         ProductCategoryUpdate();
         //获取多阶段加工子表
-        H3.DataModel.BizObject[] thisLstArray = me[SamplingMachiningSubtable_TableCode] as H3.DataModel.BizObject[];
+        BizObject[] thisLstArray = me[SamplingMachiningSubtable_TableCode] as BizObject[];
         //初始化任务名称
         me[TaskName] = me[TaskName] + string.Empty != string.Empty ? me[TaskName] + string.Empty : "1"; //初始化计数器
         if (thisLstArray == null)
         {
             //本表单纲目结构
-            H3.DataModel.BizObjectSchema schema = this.Request.Engine.BizObjectManager.GetPublishedSchema(this.Request.SchemaCode);
+            BizObjectSchema schema = Request.Engine.BizObjectManager.GetPublishedSchema(Request.SchemaCode);
             //初始化取样子表
             CreatSublist(me);
         }
@@ -231,14 +207,14 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
             me[TotalAmountComplete] = 0;
         }
         //获取当前流程实例对象
-        H3.Workflow.Instance.WorkflowInstance instance = this.Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(this.Request.WorkflowInstance.ParentInstanceId);
+        H3.Workflow.Instance.WorkflowInstance instance = Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(Request.WorkflowInstance.ParentInstanceId);
         var parentId = instance != null ? instance.BizObjectId : "";
         //获取父流程业务对象
-        H3.DataModel.BizObject parentObj = Tools.BizOperation.Load(this.Request.Engine, RoughCast.TableCode, parentId);
+        BizObject parentObj = Tools.BizOperation.Load(Request.Engine, RoughCast.TableCode, parentId);
         var parentInstanceId = parentObj.WorkflowInstanceId;
-        H3.Workflow.Instance.WorkflowInstance instances = this.Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(parentInstanceId);
+        H3.Workflow.Instance.WorkflowInstance instances = Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(parentInstanceId);
         //获取工序计划表数据
-        H3.DataModel.BizObject planObject = LoadingConfig.GetPlanningData(this.Engine, instances);
+        BizObject planObject = LoadingConfig.GetPlanningData(Engine, instances);
         //读取《工序计划表》是否制样
         me[YesOrNoopenSamplePreparationProcess] = planObject != null ? planObject[ABCDProcessPlan_YesOrNoopenSamplePreparationProcess] + string.Empty : string.Empty;
         //更新本表
@@ -257,12 +233,12 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
         if (activityCode == "Activity23")
         {
             //取样加工中人 为为 当前用户
-            me[SamplingStageProcessingPerson] = this.Request.UserContext.UserId;
+            me[SamplingStageProcessingPerson] = Request.UserContext.UserId;
 
-            namestatus.Add(this.Request.UserContext.UserId);
+            namestatus.Add(Request.UserContext.UserId);
 
             //赋值当前审批人（文本类型）
-            me[CurrentAuditors] = DispatchLogic.SyncParticipants(this.Request.Engine, namestatus);
+            me[CurrentAuditors] = DispatchLogic.SyncParticipants(Request.Engine, namestatus);
         }
         //节点为 加工中
         if (activityCode == "Activity104")
@@ -280,7 +256,7 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
                         namestatus.Add(worke);
                     }
                     //赋值当前审批人（文本类型）
-                    me[CurrentAuditors] = DispatchLogic.SyncParticipants(this.Request.Engine, namestatus);
+                    me[CurrentAuditors] = DispatchLogic.SyncParticipants(Request.Engine, namestatus);
                 }
             }
         }
@@ -292,7 +268,7 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
     private void UserId(H3.SmartForm.LoadSmartFormResponse response)
     {
         H3.SmartForm.SmartFormResponseDataItem sd = new H3.SmartForm.SmartFormResponseDataItem();
-        sd.Value = this.Request.UserContext.UserId;
+        sd.Value = Request.UserContext.UserId;
         response.ReturnData.Add("UserId", sd);
     }
 
@@ -310,7 +286,7 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
             string mySql = string.Format("Select ObjectId,{0} From i_{1} Where {2} = '{3}'",
                 ProductParameterTable_ProductMachiningCategory, ProductParameterTable_TableCode,
                 ProductParameterTable_OrderSpecificationNumber, orderSpec);
-            DataTable typeData = this.Engine.Query.QueryTable(mySql, null);
+            DataTable typeData = Engine.Query.QueryTable(mySql, null);
             if (typeData != null && typeData.Rows != null && typeData.Rows.Count > 0)
             {   //赋值产品参数表
                 me[ProductParameterTable] = typeData.Rows[0][ProductParameterTable_Objectid] + string.Empty;
@@ -333,7 +309,7 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
         string command = string.Format("Select b.bizobjectid,b.activitycode, sum(b.usedtime) as utime  From i_{0} " +
             " a left join H_WorkItem b on a.objectid = b.BizObjectId  where b.ActivityCode = 'Activity104' and b.BizObjectId = '{1}' " +
             " group by b.bizobjectid", TableCode, bizid);
-        DataTable data = this.Engine.Query.QueryTable(command, null);
+        DataTable data = Engine.Query.QueryTable(command, null);
         //机加工耗时计算
         if (data != null && data.Rows != null && data.Rows.Count > 0)
         {
@@ -356,18 +332,18 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
     {   //探伤表
         string tsFormId = me[FlawDetectionTable] + string.Empty;
         //当前用户ID
-        string userId = this.Request.UserContext.UserId;
+        string userId = Request.UserContext.UserId;
         //活动节点
-        string activityName = this.Request.ActivityCode;
+        string activityName = Request.ActivityCode;
         if (tsFormId == string.Empty)  //探伤表为空时，查询探伤表中ID相同的数据放入本表单中
         {
-            H3.DataModel.BizObject tsForm = Tools.BizOperation.New(this.Engine, FlawDetectionTable_TableCode);              //新建一个探伤表业务对象
-            tsForm.Status = H3.DataModel.BizObjectStatus.Effective;                                                         //生效
+            BizObject tsForm = Tools.BizOperation.New(Engine, FlawDetectionTable_TableCode);              //新建一个探伤表业务对象
+            tsForm.Status = BizObjectStatus.Effective;                                                         //生效
             tsForm[FlawDetectionTable_ID] = me[ID] + string.Empty;                                                          //ID
             tsForm[FlawDetectionTable_CurrentOperation] = "取样子流程";                                                      //赋值探伤表的当前工序
             tsForm[FlawDetectionTable_SampleProcess] = me.ObjectId;                                                         //赋值探伤表的取样子流程 为 本表单ObjectId
-            List<H3.DataModel.BizObject> lstObject = new List<H3.DataModel.BizObject>();                                 //new子表数据集合
-            H3.DataModel.BizObject lstArray = Tools.BizOperation.New(this.Engine, FlawDetectionSubTable_TableCode);         //new一个子表业务对象
+            List<BizObject> lstObject = new List<BizObject>();                                 //new子表数据集合
+            BizObject lstArray = Tools.BizOperation.New(Engine, FlawDetectionSubTable_TableCode);         //new一个子表业务对象
             lstArray[FlawDetectionSubTable_Process] = "取样子流程";                                                          //赋值探伤子表的工序
             lstArray[FlawDetectionSubTable_WorkStep] = "";                                                                  //赋值探伤子表的工步
             lstObject.Add(lstArray);                                                                                        //将这个子表业务对象添加至子表数据集合中
@@ -378,8 +354,8 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
         }
         if (tsFormId != string.Empty)                                                                                        //探伤表不为空时,写入工序信息
         {
-            H3.DataModel.BizObject tsForm = Tools.BizOperation.Load(this.Engine, FlawDetectionTable_TableCode, tsFormId);   //加载探伤表
-            H3.DataModel.BizObject[] lstArray = tsForm[FlawDetectionSubTable_TableCode] as H3.DataModel.BizObject[];        //获取子表数据
+            BizObject tsForm = Tools.BizOperation.Load(Engine, FlawDetectionTable_TableCode, tsFormId);   //加载探伤表
+            BizObject[] lstArray = tsForm[FlawDetectionSubTable_TableCode] as BizObject[];        //获取子表数据
             tsForm[FlawDetectionTable_CurrentOperation] = "取样子流程";                                                      //赋值探伤表的当前工序
             tsForm[FlawDetectionTable_SampleProcess] = me.ObjectId;                                                         //赋值探伤表的取样子流程 为 本表单ObjectId
             if (lstArray[lstArray.Length - 1][FlawDetectionSubTable_ThisFlawDetectionResult] + string.Empty == string.Empty) //探伤结果
@@ -397,20 +373,20 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
     * 创建添加新的取样子表行数据
     * @param thisObj 本表单数据
     */
-    protected void CreatSublist(H3.DataModel.BizObject thisObj)
+    protected void CreatSublist(BizObject thisObj)
     {
         //new一个取样多阶段加工子表业务对象
-        H3.DataModel.BizObject ChildObj = Tools.BizOperation.New(this.Engine, SamplingMachiningSubtable_TableCode);
+        BizObject ChildObj = Tools.BizOperation.New(Engine, SamplingMachiningSubtable_TableCode);
         ChildObj[SamplingMachiningSubtable_CountingTask] = thisObj[TaskName] + string.Empty == string.Empty ? "1" : thisObj[TaskName] + string.Empty; //任务名称
         //派工开关
-        string dipatchFlag = this.Request.BizObject[DispatchSwitch] + string.Empty;
+        string dipatchFlag = Request.BizObject[DispatchSwitch] + string.Empty;
         if (dipatchFlag == "关")
         {
             //子表 任务名称
             ChildObj[SamplingMachiningSubtable_DispatchTask] = "默认派工任务";
         }
         //添加一行子表数据
-        Tools.BizOperation.AddChildBizObject(this.Engine, thisObj, SamplingMachiningSubtable_TableCode, ChildObj);
+        Tools.BizOperation.AddChildBizObject(Engine, thisObj, SamplingMachiningSubtable_TableCode, ChildObj);
     }
 
     /*
@@ -421,8 +397,8 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
     public void MultistageProcessingLogic(string activityCode)
     {
         //获取多阶段加工子表
-        H3.DataModel.BizObjectSchema schema = this.Request.Engine.BizObjectManager.GetPublishedSchema(this.Request.SchemaCode);
-        H3.DataModel.BizObject[] lstArray = me[SamplingMachiningSubtable_TableCode] as H3.DataModel.BizObject[];//获取取样多阶段加工子表
+        BizObjectSchema schema = Request.Engine.BizObjectManager.GetPublishedSchema(Request.SchemaCode);
+        BizObject[] lstArray = me[SamplingMachiningSubtable_TableCode] as BizObject[];//获取取样多阶段加工子表
 
         {   //修正任务数-----任务名称
             me[TaskName] = lstArray != null ? lstArray.Length + string.Empty : "1";
@@ -431,7 +407,7 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
 
             if (activityCode == "Activity23") //取样上机
             {    //当前加工者
-                lstArray[taskNum][SamplingMachiningSubtable_Processor] = this.Request.UserContext.UserId;
+                lstArray[taskNum][SamplingMachiningSubtable_Processor] = Request.UserContext.UserId;
                 //加工开始时间
                 lstArray[taskNum][SamplingMachiningSubtable_StartTime] = System.DateTime.Now;
             }
@@ -450,7 +426,7 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
 
                 if (lstArray[taskNum][SamplingMachiningSubtable_Processor] + string.Empty == string.Empty)
                 {   //当前加工者
-                    lstArray[taskNum][SamplingMachiningSubtable_Processor] = this.Request.UserContext.UserId;
+                    lstArray[taskNum][SamplingMachiningSubtable_Processor] = Request.UserContext.UserId;
                 }
             }
         }
@@ -459,7 +435,7 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
         //返回探伤结果
         if (activityCode == "Activity105" && objId != string.Empty)
         {
-            H3.DataModel.BizObject tsForm = Tools.BizOperation.Load(this.Engine, FlawDetectionTable_TableCode, objId);
+            BizObject tsForm = Tools.BizOperation.Load(Engine, FlawDetectionTable_TableCode, objId);
             //赋值探伤认定
             me[FlawDetectionIdentification] = tsForm[FlawDetectionTable_FlawDetectionIdentification] + string.Empty;
         }
@@ -468,20 +444,20 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
     //同步数据至“机加工任务记录”
     public void UpdateRecordForm(string actionName, string activityCode)
     {
-        H3.DataModel.BizObjectSchema schema = this.Request.Engine.BizObjectManager.GetPublishedSchema(this.Request.SchemaCode);
-        H3.DataModel.BizObject[] lstArray = me[SamplingMachiningSubtable_TableCode] as H3.DataModel.BizObject[];  //获取取样子表
+        BizObjectSchema schema = Request.Engine.BizObjectManager.GetPublishedSchema(Request.SchemaCode);
+        BizObject[] lstArray = me[SamplingMachiningSubtable_TableCode] as BizObject[];  //获取取样子表
         //任务计数器
         int taskNum = me[AccomplishNoumenonSampling] + string.Empty != "已取样" ? int.Parse(me[TaskName] + string.Empty) - 2 : int.Parse(me[TaskName] + string.Empty) - 1;
         if (actionName == "Submit" && activityCode == "Activity104" && lstArray != null) //四面光下机\取样下机
         {
             //当前任务记录
-            H3.DataModel.BizObject currentTask = lstArray[taskNum];
+            BizObject currentTask = lstArray[taskNum];
             //设备工时系数表-子表
-            H3.DataModel.BizObject[] subObj = null;
+            BizObject[] subObj = null;
             //设备工时系数表
-            H3.DataModel.BizObject mtObj = null;
+            BizObject mtObj = null;
             //当前加工者
-            H3.Organization.User employee = this.Engine.Organization.GetUnit(currentTask[SamplingMachiningSubtable_Processor] + string.Empty) as H3.Organization.User;
+            H3.Organization.User employee = Engine.Organization.GetUnit(currentTask[SamplingMachiningSubtable_Processor] + string.Empty) as H3.Organization.User;
             //总下屑量
             string totalxx = "";
             //本工序产品工时
@@ -499,18 +475,18 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
             {
                 //获取设备工时系数模块
                 string command = string.Format("Select ObjectId From i_{0} Where {1} = '粗车' and {2} = '{3}'", DeviceWorkingHour_TableCode, DeviceWorkingHour_OperationName, DeviceWorkingHour_ProductMachiningCategory, productType);//产品类别
-                DataTable data = this.Engine.Query.QueryTable(command, null);
+                DataTable data = Engine.Query.QueryTable(command, null);
                 if (data != null && data.Rows != null && data.Rows.Count > 0)
                 {
-                    mtObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId, this.Engine, DeviceWorkingHour_TableCode, data.Rows[0]["ObjectId"] + string.Empty, true);
+                    mtObj = BizObject.Load(H3.Organization.User.SystemUserId, Engine, DeviceWorkingHour_TableCode, data.Rows[0]["ObjectId"] + string.Empty, true);
                 }
             }
             //设备工时系数表-子表
-            subObj = mtObj != null ? mtObj[EquipmentTimeCoefficientSubtabulation_TableCode] as H3.DataModel.BizObject[] : null;
+            subObj = mtObj != null ? mtObj[EquipmentTimeCoefficientSubtabulation_TableCode] as BizObject[] : null;
             //设备工时系数表子表 不为空
             if (subObj != null)
             {
-                foreach (H3.DataModel.BizObject item in subObj)
+                foreach (BizObject item in subObj)
                 {
                     if (deviceType != string.Empty)
                     {
@@ -533,7 +509,7 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
                 }
             }
             //产品参数表
-            H3.DataModel.BizObject productObj = Tools.BizOperation.Load(this.Engine, ProductParameterTable_TableCode, me[ProductParameterTable] + string.Empty);
+            BizObject productObj = Tools.BizOperation.Load(Engine, ProductParameterTable_TableCode, me[ProductParameterTable] + string.Empty);
             //产品参数表 不为空
             if (productObj != null)
             {
@@ -555,8 +531,8 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
                 }
             }
             //新建机加工记录数据对象
-            H3.DataModel.BizObject recordObj = Tools.BizOperation.New(this.Engine, MachiningTaskRecord_TableCode);
-            recordObj.Status = H3.DataModel.BizObjectStatus.Effective;                                                                          //设置为生效状态
+            BizObject recordObj = Tools.BizOperation.New(Engine, MachiningTaskRecord_TableCode);
+            recordObj.Status = BizObjectStatus.Effective;                                                                          //设置为生效状态
             recordObj[MachiningTaskRecord_OperationName] = "取样";                                                                              //工序
             recordObj[MachiningTaskRecord_ProductSpecification] = me[ProductSpecification] + string.Empty;                                      //产品规格
             recordObj[MachiningTaskRecord_ID] = me[ID] + string.Empty;                                                                          //工件ID
@@ -603,16 +579,13 @@ public class D001419Sgljz62e1rneytbqjckbe1vu25 : H3.SmartForm.SmartFormControlle
             recordObj.Create();
             currentTask[SamplingMachiningSubtable_ProcessingRecord] = recordObj.ObjectId;                                                                   //当前任务加工记录
             currentTask.Update();
-        }
-        string systemUserId = H3.Organization.User.SystemUserId;                                                                                            //系统用户
+        }        
         if (lstArray != null && lstArray.Length > 0)
         {
             for (int i = taskNum - 1; i >= 0; i--)
-            {
-                //清空机加工任务记录数据值
-                H3.DataModel.BizObject recordObj = null;
+            {                
                 //循环加载机加工任务记录数据
-                recordObj = Tools.BizOperation.Load(this.Engine, MachiningTaskRecord_TableCode, lstArray[i][SamplingMachiningSubtable_ProcessingRecord] + string.Empty);
+                BizObject recordObj = Tools.BizOperation.Load(Engine, MachiningTaskRecord_TableCode, lstArray[i][SamplingMachiningSubtable_ProcessingRecord] + string.Empty);
                 if (recordObj != null)
                 {
                     //探伤结果
