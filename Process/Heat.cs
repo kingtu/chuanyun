@@ -1,486 +1,466 @@
-﻿
-using System;
+﻿using System;
 using System.Data;
 using System.Collections.Generic;
+using System.Collections;
 using System.Text;
 using H3;
+using H3.DataModel;
 
 public class D001419Siizvpn3x17wj6jj3pifsmbic3 : H3.SmartForm.SmartFormController
 {
-    H3.DataModel.BizObject thisObj;
-    Dictionary<string, bool> boolConfig;
-    H3.Workflow.Instance.WorkflowInstance instance;
+    string activityCode;        //当前节点
+    string userName = "";       //当前用户
+    BizObject me;  //本表单数据
+    string info = string.Empty; //值班信息
+    Dictionary<string, bool> boolConfig;//布尔值字典
+    H3.Workflow.Instance.WorkflowInstance instance;//本表单流程实例
+    H3.SmartForm.SmartFormResponseDataItem message;//用户提示信息
     public D001419Siizvpn3x17wj6jj3pifsmbic3(H3.SmartForm.SmartFormRequest request) : base(request)
-    {   //本表单数据
-        thisObj = this.Request.BizObject;
+    {
+        activityCode = Request.ActivityCode;//当前节点
+        me = Request.BizObject;             //本表单数据
         //获取本流程的实例
-        instance = this.Engine.WorkflowInstanceManager.GetWorkflowInstance(thisObj.WorkflowInstanceId);
+        instance = Engine.WorkflowInstanceManager.GetWorkflowInstance(me.WorkflowInstanceId);
         //转换工艺配置为布尔值
         boolConfig = new Dictionary<string, bool>();
         boolConfig.Add("是", true);
         boolConfig.Add("否", false);
+        message = new H3.SmartForm.SmartFormResponseDataItem(); //用户提示信息
+        userName = Request.UserContext.User.FullName;      //当前用户
     }
-
     protected override void OnLoad(H3.SmartForm.LoadSmartFormResponse response)
     {
-        base.OnLoad(response);
-        if (!this.Request.IsCreateMode)
+        try
         {
-            //当前流程未结束
-            if (instance.IsUnfinished)
+            if (!Request.IsCreateMode && instance.IsUnfinished)  //当前流程未结束
             {
-                //查询工件是否为第一次流入《热处理》工序，如果不是那么就是“重处理”
-                IsRehandle();
-                //根据当前工件流程追溯工序计划数据
-                H3.DataModel.BizObject planObject = SearchPlanningData(instance);
-                //加载工艺配置数据
-                LoadingProcessConfiguration(planObject, boolConfig);
-                //加载质量配置数据
-                LoadingQAConfiguration(planObject, boolConfig);
 
-                //当前工序
-                thisObj[HeatTreatment.CurrentOperation] = "热处理";
-                //更新本表单
-                thisObj.Update();
+                ClearTheTransitionStepsAndSectionOfTheParentProcess();//清空父流程的转至工步与转至工序
+                ClearTheGoToWorkStepInformation(); //清空转至工步信息
+                BizObject planObject = LoadingConfig.GetPlanningData(Engine, instance);//根据当前工件流程追溯工序计划数据
+                LoadQualityConfiguration(planObject, boolConfig);//加载质量配置数据
+                InitializeTheFormControlInformation();//初始化表单控件信息
+                Hashtable workSteps = ProgressManagement.HeatTreatmentProgress(Engine, TableCode, CurrentWorkStep);//同步数据至实时制造情况
+                if (workSteps[me.ObjectId] + string.Empty != string.Empty)
+                {
+                    me[CurrentWorkStep] = workSteps[me.ObjectId];  //mark：z注释
+                }
             }
 
-            try
-            {       //同步数据至实时制造情况
-               // DataSync.instance.RCLSyncData(this.Engine);
-            }
-            catch (Exception ex)
-            {
-                response.Errors.Add(System.Convert.ToString(ex));
-            }
         }
+        catch (Exception ex)
+        {
+            info = Tools.Log.ErrorLog(Engine, me, ex, activityCode, userName);
+            message.Value = string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
+        }
+        response.ReturnData.Add("message", message);
+        base.OnLoad(response);
+        //--------------------------加载前后分割线-------------------------//
+        //try
+        //{
+        //    if (!Request.IsCreateMode)
+        //    {
+        //        //加载后代码
+        //    }
+        //}
+        //catch (Exception ex)
+        //{
+        //    info = Tools.Log.ErrorLog(Engine, me, ex, activityCode, userName);
+        //    message.Value = string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
+        //}
     }
-
-
 
     protected override void OnSubmit(string actionName, H3.SmartForm.SmartFormPostValue postValue, H3.SmartForm.SubmitSmartFormResponse response)
     {
-        var me = new Schema(this.Engine, "热处理");
-
-        //发起异常 是
-        if (this.Request.BizObject["F0000040"] == "是")
+        try
         {
-            this.Request.BizObject["OwnerId"] = this.Request.UserContext.UserId;
-        }
-
-        abnormalStep(me, postValue, response);
-        var cmd = "";
-
-        if (postValue != null && postValue.Data != null && postValue.Data.ContainsKey("cmd"))
-        {
-            cmd = postValue.Data["cmd"] + string.Empty;
-        }
-        DispatchCommand(actionName, postValue, response, cmd);
-    }
-    /*
-    <summary>
-    关于发起异常之后节点中内容的显示与隐藏及默认值，包含“确认调整意见”，“审批确认”节点。
-    Param： Schema me  本参数是本工序表单的对象
-    方法的入口参数;
-    Version:1.0
-    Date:2021/6/9
-    Author：zzx   
-    */
-    protected void abnormalStep(Schema me, H3.SmartForm.SmartFormPostValue postValue, H3.SmartForm.SubmitSmartFormResponse response)
-    {
-        var row = me.GetRow(this.Request.BizObjectId);
-        //  var postValue = me.CurrentPostValue;
-        var code = this.Request.ActivityCode;
-        var actName = this.Request.ActivityTemplate.DisplayName;
-
-        //发起异常
-        var startException = this.Request.BizObject["F0000040"] + string.Empty;
-        if (startException == "是")
-        {
-            createLog(me, postValue);
-        }
-
-        if (code == "Activity127")
-        {
-            updateLog(me, postValue);
-        }
-        if (code == "Activity128")
-        {
-            me.Cell("发起异常", "否");
-            // me.Cell("转至工步", "待转运 ");
-            me.Cell("异常描述", "操作错误，重新选择节点 ");
-            me.Cell("异常类别", "安全异常 ");
-            me.Update(false);
-        }
-    }
-
-
-    //分别处理命令，该命令在列表中定义，且由弹出的表单传递至该页面。如果需要区分用户意愿按钮，则需要处理actionName所对应的各种情况。
-    protected void DispatchCommand(string actionName, H3.SmartForm.SmartFormPostValue postValue, H3.SmartForm.SubmitSmartFormResponse response, string cmd)
-    {
-        bool flag = false;
-        var me = new Schema(this.Engine, "热处理");
-        switch (cmd)
-        {
-            case "Dispatch":
-                //if(actionName == "Submit") { Dispatch(me, response); }
-                base.OnSubmit(actionName, postValue, response);
-                break;
-            case "BtnOpenNew":
-                response.ClosePage = false;
-                base.OnSubmit(actionName, postValue, response);
-                break;
-            case "BatchModify":
-                //BatchModify(me, response);
-                base.OnSubmit(actionName, postValue, response);
-                break;
-            default:
-                if (actionName == "Submit")
-                {
-                    //设置权限
-                    if (this.Request.BizObject["F0000040"] == "是")
-                    {
-                        this.Request.BizObject["OwnerId"] = this.Request.UserContext.UserId;
-                    }
-
-                    //流转结论
-                    // liuzhuanResult(me, postValue, response);
-                    //轧制方式
-
-                    string zhaZhiStyle = this.Request.BizObject["F0000031"].ToString();
-                    //双轧同步校验
-                    if (String.Compare(zhaZhiStyle, "双轧") == 0)
-                    {
-                        doubleZhaCheck(me, postValue, response);
-                    }
-                    //异常工步节点日志
-                    base.OnSubmit(actionName, postValue, response);
-
-                    abnormalStep(me, postValue, response);
-                    break;
-                }
-
-
-                if (actionName == "GetProductObjectID")
-                {
-                    //GetProductObjectID(me, response);
-                    base.OnSubmit(actionName, postValue, response);
-                    break;
-                }
-                base.OnSubmit(actionName, postValue, response);
-                break;
-        }
-    }
-
-    /*
-    <summary>
-    双扎检验   如果双扎中 同一个双扎编号的产品  在一个工序中进行提交的时候  如果同编号的另一件在同一个工步 可提交 否则不可以提交
-    Param： Schema me  本参数是本工序表单的对象
-    方法的入口参数;
-    Version:1.0
-    Date:2021/6/9
-    Author：zzx   
-    */
-    protected void doubleZhaCheck(Schema me, H3.SmartForm.SmartFormPostValue postValue, H3.SmartForm.SubmitSmartFormResponse response)
-    {
-        //是否弹框flag
-        var flag = false;
-        var otherID = "";
-        var Code = this.Request.ActivityCode;
-        var actName = this.Request.ActivityTemplate.DisplayName;
-        //双轧编号 
-        var doubleZhaNumber = me.PostValue("双轧编号");
-        //ABC订单批次规格号
-        var ABCNumber = me.PostValue("订单批次规格号");
-        //当前ID 
-        var currentID = me.PostValue("ID");
-        //热处理
-        var scmJuQie = new Schema(this.Engine, "热处理");
-        //找到同母体毛坯的另一件id
-        var idQuery = scmJuQie.ClearFilter()
-            .And("订单批次规格号", "=", ABCNumber)
-            .And("双轧编号", "=", doubleZhaNumber)
-            .And("ID", "!=", currentID)
-            .GetFirst(true);
-
-        //如果查询到
-        if (idQuery != null)
-        {
-            otherID = scmJuQie.Cell("ID");
-            var ObjectId = scmJuQie.Cell("ObjectId");
-            //scmJuQie.Cell("测试用ID", otherID);
-            scmJuQie.Cell("测试用objectID", ObjectId);
-
-            //查询流程工作项表InstanceId
-            string SelSql = "select InstanceId from H_WorkItem  where BizObjectId = '" + ObjectId + "'";
-            DataTable SelDt = this.Request.Engine.Query.QueryTable(SelSql, null);
-            if (SelDt != null && SelDt.Rows.Count > 0)
+            if (actionName == "Submit")
             {
-                string instanceId = "";
-                //循环数据行
-                foreach (DataRow item in SelDt.Rows)
-                {
-                    //获取查询结果 当前行InstanceId字段值
-                    instanceId = item["InstanceId"] + string.Empty;
-                }
-
-                if (!string.IsNullOrEmpty(instanceId))
-                {
-                    //查询流程步骤表
-                    string sqlStep = "select * from H_Token  where ParentObjectId = '" + instanceId + "'";
-                    DataTable sqlStepDt = this.Request.Engine.Query.QueryTable(sqlStep, null);
-                    if (sqlStepDt != null && sqlStepDt.Rows.Count > 0)
-                    {
-                        //循环数据行
-                        foreach (DataRow itemStep in sqlStepDt.Rows)
-                        {
-                            string activityCode = itemStep["Activity"] + string.Empty;
-                            if (Code == activityCode)
-                            {
-                                flag = true;
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-
-                //查询结果为空
+                //校验异常信息是否与数据库保持一致               
+                if (ExceptionIsChanged()) { response.Message = "异常数据有更新，请刷新页面！"; return; }
+                Authority.Approver(Request);
+                BizObject planObject = LoadingConfig.GetPlanningData(Engine, instance);//根据当前工件流程追溯工序计划数据
+                //加载工艺配置数据
+                LoadingProcessConfiguration(planObject, boolConfig);
+                //赋值审批来源
+                AssignmentApprovalSource();
+                base.OnSubmit(actionName, postValue, response);
+                //更新炉次实际信息
+                UpdateTheActualFurnaceInformation();
+                //异常工步
+                AbnormalWorkingStep();
 
             }
-
-
-            scmJuQie.Update(false);
         }
+        catch (Exception ex)
+        {		//负责人信息
+            string info = Tools.Log.ErrorLog(Engine, me, ex, activityCode, userName);
+            response.Message = string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
+        }
+    }
 
-        //双轧的另一件产品没有经过这个节点
-        if (flag == false)
+    /**
+    * --Author: nkx
+    * 确认调整后转至工步清空和发起异常赋值“否”
+    */
+    protected void AfterConfirmingTheAdjustmentGoToWorkStepClearingAndInitiateExceptionAssignment()
+    {
+        if (activityCode == "Activity127")
         {
-            //弹出报错窗口
-            response.Errors.Add("请把" + otherID + "这件产品提交到此工步再进行提交");
-            //response.Message = "请把"+otherID+"这件产品提交到此工步再进行提交"; //弹出成功消息
+            //获取当前流程业务对象
+            BizObject current = BizObject.Load(H3.Organization.User.SystemUserId, Engine,
+                                               Request.SchemaCode, Request.BizObjectId, false);
+            current[InitiateAbnormal] = "否";        //发起异常
+            current[TargetStep] = null;              //转至工步
+            current[AbnormalCategory] = null;        //异常类别
+            current[AbnormalDescription] = null;     //异常描述
+            current[AbnormalRepresentative] = null;  //异常代表
+            current[processAdjustmentRange] = "否";  //是否调整至其他工序
+            current[AssociatedWithOtherAbnormalWorkpieces] = null;//关联其它异常工件
+            current[QualityApprovalList] = null;       //质量审批单
+            current[DemandApprovalForm] = null;        //需求审批单
+            current[CirculationApprovalSheet] = null;  //流转审批单
+            current[OtherApprovalDocuments] = null;    //其它审批单
+            current[SourceOfApproval] = null;          //审批来源
+            current.Update();
         }
-        //未查询到
     }
-    /*
-    <summary>
-    把本表单的以下信息同步到《异常工步记录表中》。
-    Param： Schema me  本参数是本工序表单的对象
-    方法的入口参数;
-    Version:1.0
-    Date:2021/6/9
-    Author：zzx   
+
+    /**
+    * --Author: nkx
+    * 赋值审批来源
     */
-    public void createLog(Schema me, H3.SmartForm.SmartFormPostValue postValue)
+    protected void AssignmentApprovalSource()
     {
-
-        var scmAbnormalType = new Schema(this.Engine, "异常工步记录表");
-        scmAbnormalType.GetNew();
-        //当前工序
-        var currentProcess = me.PostValue("当前工序");
-        //  当前工步
-        var currentWorkStep = me.PostValue("当前工步");
-        //异常类别
-        var abNormalType = me.PostValue("异常类别");
-        //异常类别
-        // var abNormalType = this.Request.BizObject["F0000049"]+ string.Empty;
-        //ID
-        var ID = me.PostValue("ID");
-        //异常描述
-        //var abNormalDescibe = me.PostValue("异常描述");
-
-        //ID
-        scmAbnormalType.Cell("ID", ID);
-
-        //工步来源
-        scmAbnormalType.Cell("工步来源", currentWorkStep);
-        //工序来源
-        scmAbnormalType.Cell("工序来源", currentProcess);
-
-        //异常类别
-        scmAbnormalType.Cell("异常类别", abNormalType);
-        //异常描述
-        //scmAbnormalType.Cell("异常描述", abNormalDescibe);
-
-        scmAbnormalType.Create(true);
+        //发起异常  是
+        if (me[InitiateAbnormal] + string.Empty == "是" && activityCode != "Activity127")
+        {
+            string abnormal = "发起异常";
+            string sourceOfApproval = Request.UserContext.User.Name + 
+                                      "在" + me[CurrentSection] + 
+                                      "工序的" + me[CurrentWorkStep] + "工步" + abnormal;
+            me[SourceOfApproval] = sourceOfApproval;  //审批来源
+            me.Update();
+        }
     }
-    /*
-    <summary>
-    根据本表单的修改更新到,《异常工步记录表》。
-    Param： Schema me  本参数是本工序表单的对象
-    方法的入口参数;
-    Version:1.0
-    Date:2021/6/9
-    Author：zzx   
+
+    /**
+    * --Author: nkx
+    * 清空父流程的转至工步与转至工序
     */
-    public void updateLog(Schema me, H3.SmartForm.SmartFormPostValue postValue)
+    protected void ClearTheTransitionStepsAndSectionOfTheParentProcess()
     {
-        //异常工步记录表
-        var scmAbnormalType = new Schema(this.Engine, "异常工步记录表");
-        //ID
-        var ID = me.PostValue("ID");
-        //  当前工步
-        var currentWorkStep = me.PostValue("当前工步");
-        var exceptDscribe = me.PostValue("异常描述");
-        scmAbnormalType.ClearFilter()
-            .And("ID", "=", ID)
-            .And("工步来源", "=", currentWorkStep)
-            .GetFirst(true);
-        scmAbnormalType.Cell("异常描述", exceptDscribe);
-        scmAbnormalType.Update(true);
+        //获取父流程实例对象
+        H3.Workflow.Instance.WorkflowInstance instance =
+            Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(
+                Request.WorkflowInstance.ParentInstanceId);
+        //获取父流程业务对象
+        BizObject current = BizObject.Load(H3.Organization.User.SystemUserId,
+                                           Engine, instance.SchemaCode, instance.BizObjectId, false);
+        current[ProcessFlow_TargetSection] = null; //转至工序
+        current[ProcessFlow_TargetStep] = null;    //转至工步
+        current.Update();
+    }
+
+    /**
+    * --Author: zzx
+    * 检查发起异常控件是否被其它异常代表更改
+    */
+    protected bool ExceptionIsChanged()
+    {
+        //表单中发起异常
+        string AnExceptionWasRaisedInTheForm = me[InitiateAbnormal] + string.Empty;
+        if (AnExceptionWasRaisedInTheForm == "是")
+        {
+            return false;
+        }
+        //获取当前流程业务对象
+        BizObject thisObj = BizObject.Load(H3.Organization.User.SystemUserId,
+                                           Engine, Request.SchemaCode, Request.BizObjectId, false);
+        //数据库中发起异常的值
+        string AnExceptionIsGeneratedInTheDatabase = thisObj[InitiateAbnormal] + string.Empty;
+        return AnExceptionWasRaisedInTheForm != AnExceptionIsGeneratedInTheDatabase;
+
+    }
+
+    /**
+    * --Author: zzx
+    * 初始化表单控件信息
+    */
+    public void InitializeTheFormControlInformation()
+    {
+        me[CurrentSection] = "热处理";//当前工序      
+        me.Update();
+    }
+    /*
+    * --Author: zzx
+    * 清空转至工步信息
+    */
+    public void ClearTheGoToWorkStepInformation()
+    {
+        //正常节点 转至工步清空
+        if (activityCode != "Activity127")
+        {
+            me[TargetStep] = null;//转至工步
+        }
+    }
+
+    /**
+    * --Author: zzx
+    * 更新炉次信息
+    */
+    protected void UpdateTheActualFurnaceInformation()
+    {
+        //炉次编号
+        var strFurnaceTimeNumber = Request.BizObject[ConfirmedHeatNumber].ToString();
+        var id = Request.BizObject[ID].ToString(); //ID
+        //热处理表中查询相同炉次编号和相同热处理炉号的数据
+        H3.Data.Filter.Filter filter = new H3.Data.Filter.Filter();
+        Tools.Filter.And(filter, ABCDProcessPlan_ID, H3.Data.ComparisonOperatorType.Equal, id); //ID编号
+        BizObject[] bizObjects = Tools.BizOperation.GetList(Request.Engine,
+                                                            ABCDProcessPlan_TableCode, filter);
+        if (bizObjects != null)
+        {
+            foreach (BizObject bizObject in bizObjects)
+            {
+                BizObject currentBizObject = Tools.BizOperation.Load(Request.Engine,
+                                                                     ABCDProcessPlan_TableCode,
+                                                                     bizObject.ObjectId); //加载符合条件数据
+
+                currentBizObject[ABCDProcessPlan_ActualNumberOfFurnace] = strFurnaceTimeNumber;   //赋值实际炉次编号              
+                currentBizObject.Update();
+            }
+        }
+    }
+
+    /**
+    * --Author: zzx
+    * 关于发起异常之后各个节点进行的操作  异常工步
+    */
+    protected void AbnormalWorkingStep()
+    {
+        //表单中发起异常
+        string AnExceptionWasRaisedInTheForm = me[InitiateAbnormal] + string.Empty;
+        if (AnExceptionWasRaisedInTheForm != "是") { return; }
+        //关联其它异常工件
+        string[] bizObjectIDArray = me[AssociatedWithOtherAbnormalWorkpieces] as string[];
+        //遍历其他ID
+        foreach (string bizObjectID in bizObjectIDArray)
+        {
+            //加载其他异常ID 的业务对象
+            BizObject otherIdObj = BizObject.Load(H3.Organization.User.SystemUserId, Engine,
+                                                  ScheduleManagement_TableCode, bizObjectID, false);
+            //实时生产动态 - 工序表数据ID
+            string otherExceptionId = otherIdObj[ScheduleManagement_OperationTableDataID] + string.Empty;
+            //实时生产动态 - 工序表SchemaCode
+            string currentSchemaCode = otherIdObj[ScheduleManagement_CurrentPreviousOperationTableSchemacode] + string.Empty;
+            //加载当前工序表中的业务对象
+            BizObject sectionObj = BizObject.Load(H3.Organization.User.SystemUserId, Engine,
+                                                  currentSchemaCode, otherExceptionId, false);
+            //传递异常信息
+            foreach (PropertySchema activex in sectionObj.Schema.Properties)
+            {
+                if (activex.DisplayName.Contains("发起异常"))
+                {
+                    sectionObj[activex.Name] = "是";
+                }
+
+                if (activex.DisplayName.Contains("异常类别"))
+                {
+                    sectionObj[activex.Name] = me[AbnormalCategory] + string.Empty;
+                }
+
+                if (activex.DisplayName.Contains("异常代表"))
+                {
+                    sectionObj[activex.Name] = me[ID];
+                }
+            }
+            sectionObj.Update();
+        }
+
+        if (activityCode != "Activity127") //工步节点
+        {
+            Request.BizObject[Owner] = Request.UserContext.UserId; //设置异常权限
+        }
+        //确认调整后转至工步清空和发起异常赋值“否”
+        AfterConfirmingTheAdjustmentGoToWorkStepClearingAndInitiateExceptionAssignment();
     }
 
     /*
-     *--Author:fubin
-     * 加载质量配置数据
-     * @param planObj 工序计划数据
-     * @param boolConfig 布尔值字典
-     */
-    protected void LoadingQAConfiguration(H3.DataModel.BizObject planObj, Dictionary<string, bool> boolConfig)
+    *--Author:fubin
+    * 加载质量配置数据     LoadQualityConfiguration
+    * @param planObj 工序计划数据
+    * @param boolConfig 布尔值字典
+    */
+    protected void LoadQualityConfiguration(BizObject planObj, Dictionary<string, bool> boolConfig)
     {
-        if (planObj == null) { return; }
-        //质量配置表
-        string sql = string.Format("Select * from i_D0014198feb957936e040648d486b034af96597");
-        DataTable qcForm = this.Engine.Query.QueryTable(sql, null);
         //读取装炉前检验在《质量配置表》中的优先层级
-        string heatTreatment = qcForm.Rows[0][QAConfig.PriorityLevelInspectionBeforeCharging] + string.Empty;
+        string heatTreatment = LoadingConfig.GetQualityConfigForm(
+            Engine, QAConfig.PriorityLevelInspectionBeforeCharging);
         //读取《质量配置表》装炉前检验配置
-        string globalHeatTreatment = qcForm.Rows[0][QAConfig.GlobalInspectionBeforeCharging] + string.Empty;
+        string globalHeatTreatment = LoadingConfig.GetQualityConfigForm(
+            Engine, QAConfig.GlobalInspectionBeforeCharging);
         //读取《工序计划表》装炉前检验配置
-        string planHeatTreatment = planObj[ABCDProcessPlan.GlobalInspectionBeforeFurnaceLoading] + string.Empty;
-
-        if (heatTreatment == "配置表")
-        {   //全局装炉前检验
-            thisObj[HeatTreatment.CheckBeforeLoading] = boolConfig[globalHeatTreatment];
-        }
-
-        if (heatTreatment == "计划表")
+        string planHeatTreatment = planObj != null ?
+                                   planObj[ABCDProcessPlan_InspectionBeforeSinglePieceFurnaceLoading] + string.Empty :
+                                   string.Empty;
+        //优先层级
+        switch (heatTreatment)
         {
-
-            if (planHeatTreatment != string.Empty)
-            {   //计划装炉前检验
-                thisObj[HeatTreatment.CheckBeforeLoading] = boolConfig[planHeatTreatment] + string.Empty;
-            }
-            else
-            {   //全局装炉前检验
-                thisObj[HeatTreatment.CheckBeforeLoading] = boolConfig[globalHeatTreatment] + string.Empty;
-            }
+            case "配置表":
+                me[CheckBeforeLoading] = boolConfig[globalHeatTreatment];  //全局装炉前检验
+                break;
+            case "计划表":
+                if (planHeatTreatment != string.Empty)
+                {   //计划装炉前检验
+                    me[CheckBeforeLoading] = boolConfig[planHeatTreatment] + string.Empty;
+                }
+                else
+                {   //全局装炉前检验
+                    me[CheckBeforeLoading] = boolConfig[globalHeatTreatment] + string.Empty;
+                }
+                break;
         }
-
+        //装炉前检验
+        if ((bool)me[CheckBeforeLoading] == false)
+        {
+            me[InspectionBeforeCharging] = "合格"; //热处理质量检验结果
+        }
     }
 
     /*
-     *--Author:fubin
-     * 加载工艺配置数据
-     * @param planObj 工序计划数据
-     * @param boolConfig 布尔值字典
-     */
-    protected void LoadingProcessConfiguration(H3.DataModel.BizObject planObj, Dictionary<string, bool> boolConfig)
+    *--Author:fubin
+    * 加载工艺配置数据
+    * @param planObj 工序计划数据
+    * @param boolConfig 布尔值字典
+    */
+    protected void LoadingProcessConfiguration(BizObject planObj, Dictionary<string, bool> boolConfig)
     {
-        if (planObj == null) { return; }
-        //工艺配置表
-        string mySql = string.Format("Select * from i_D0014194755c7eecbe9410c84cf6640d9cb147b");
-        DataTable jzForm = this.Engine.Query.QueryTable(mySql, null);
         //获取工艺配置精整优先级层级
-        string finishing = jzForm.Rows[0][ProcessConfig.PriorityLevelFinishing] + string.Empty;
+        string finishing = LoadingConfig.GetWorkmanshipForm(Engine, ProcessConfig.PriorityLevelFinishing);
         //读取《配置表》精整配置
-        string globalFinishing = jzForm.Rows[0][ProcessConfig.GlobalFinishingConfiguration] + string.Empty;
-
-        string planObjId = planObj[ABCDProcessPlan.OrderSpecificationTable] + string.Empty;
+        string globalFinishing = LoadingConfig.GetWorkmanshipForm(Engine, ProcessConfig.GlobalFinishingConfiguration);
         //加载对应订单规格表的数据
-        H3.DataModel.BizObject acObj = H3.DataModel.BizObject.Load(H3.Organization.User.SystemUserId,
-            this.Engine, "D001419Skniz33124ryujrhb4hry7md21", planObjId, false);
+        BizObject productObj = LoadingConfig.GetProductData(Engine, planObj);
         //读取《产品表》精整配置
-        string productFinishing = acObj != null ? acObj[OrderSpecification.ProductFinishingConfiguration] + string.Empty : string.Empty;
-
+        string productFinishing = productObj != null ?
+                                  productObj[OrderSpecification_ProductFinishingConfiguration] + string.Empty :
+                                  string.Empty;
         //读取《计划表》精整设置
-        string planFinishing = planObj[ABCDProcessPlan.SinglePieceIgnorePhysicochemicalResults] + string.Empty;
-
-        if (finishing == "配置表")
+        string planFinishing = planObj != null ?
+                               planObj[ABCDProcessPlan_SinglePieceFinishingConfiguration] + string.Empty :
+                               string.Empty;
+        //获取工艺配置回火优先层级
+        string tempering = LoadingConfig.GetWorkmanshipForm(Engine, ProcessConfig.PriorityLevelTempering);
+        //读取《配置表》回火配置
+        string globalTempering = LoadingConfig.GetWorkmanshipForm(Engine, ProcessConfig.GlobalTemperingConfiguration);
+        //读取《计划表》回火设置
+        string planTempering = planObj != null ?
+                               planObj[ABCDProcessPlan_SinglePieceTemperingConfiguration] + string.Empty :
+                               string.Empty;
+        //精整优先级层级
+        switch (finishing)
         {
-            //全局精整配置
-            thisObj[HeatTreatment.IsFinishing] = boolConfig[globalFinishing] + string.Empty;
-        }
-
-        if (finishing == "产品表")
-        {
-            if (productFinishing != string.Empty)
-            {
-                //产品精整配置
-                thisObj[HeatTreatment.IsFinishing] = boolConfig[productFinishing] + string.Empty;
-            }
-            else
-            {
+            case "配置表":
                 //全局精整配置
-                thisObj[HeatTreatment.IsFinishing] = boolConfig[globalFinishing] + string.Empty;
-            }
-        }
-
-        if (finishing == "计划表")
-        {
-            if (planFinishing != string.Empty)
-            {
-                //计划精整配置
-                thisObj[HeatTreatment.IsFinishing] = boolConfig[planFinishing] + string.Empty;
-            }
-            else
-            {
+                me[Refinement] = boolConfig[globalFinishing] + string.Empty;
+                break;
+            case "产品表":
                 if (productFinishing != string.Empty)
                 {
-                    //产品精整配置
-                    thisObj[HeatTreatment.IsFinishing] = boolConfig[productFinishing] + string.Empty;
+                    me[Refinement] = boolConfig[productFinishing] + string.Empty;//产品精整配置
                 }
                 else
                 {
-                    //全局精整配置
-                    thisObj[HeatTreatment.IsFinishing] = boolConfig[globalFinishing] + string.Empty;
+                    me[Refinement] = boolConfig[globalFinishing] + string.Empty;//全局精整配置
                 }
-            }
+                break;
+            case "计划表":
+                if (planFinishing != string.Empty)
+                {
+                    me[Refinement] = boolConfig[planFinishing] + string.Empty;//计划精整配置
+                }
+                else
+                {
+                    if (productFinishing != string.Empty)
+                    {
+                        me[Refinement] = boolConfig[productFinishing] + string.Empty; //产品精整配置
+                    }
+                    else
+                    {
+                        me[Refinement] = boolConfig[globalFinishing] + string.Empty;//全局精整配置                        
+                    }
+                }
+                break;
         }
-    }
-
-    /*
-     *--Author:fubin
-     * 根据当前工件流程追溯工序计划数据
-     * @param instance 当前工件流程
-     */
-    protected H3.DataModel.BizObject SearchPlanningData(H3.Workflow.Instance.WorkflowInstance instance)
-    {
-        //获取父流程实例对象
-        instance = this.Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(this.Request.WorkflowInstance.ParentInstanceId);
-
-        var parentId = instance != null ? instance.BizObjectId : "";
-        //获取父流程业务对象
-        H3.DataModel.BizObject parentObj = H3.DataModel.BizObject.Load(this.Request.UserContext.UserId, this.Engine, "D001419Sq0biizim9l50i2rl6kgbpo3u4", parentId, false);
-
-        string planId = parentObj != null ? parentObj[ProcessFlow.OperationSchedule] + string.Empty : string.Empty;
-        //获取工序计划业务对象
-        H3.DataModel.BizObject planObj = H3.DataModel.BizObject.Load(this.Request.UserContext.UserId, this.Engine, "D001419Szlywopbivyrv1d64301ta5xv4", planId, false);
-
-        return planObj;
-    }
-
-    /*
-     *--Author:fubin
-     * 查询工件是否为第一次流入《热处理》工序，如果不是那么就是“重处理”
-     */
-    protected void IsRehandle()
-    {
-        //根据工件ID查询本工序所有的数据
-        string myCmd = string.Format("Select * from i_D001419Siizvpn3x17wj6jj3pifsmbic3 where '{0}'= '{1}'", HeatTreatment.ID, thisObj[HeatTreatment.ID] + string.Empty);
-        DataTable objCount = this.Engine.Query.QueryTable(myCmd, null);
-        if (thisObj[HeatTreatment.TaskName] + string.Empty == string.Empty)
-        {   //查询到一条数据
-            if (objCount.Rows.Count == 1)
-            {
-                thisObj[HeatTreatment.TaskName] = "热处理";
-            } //查询到多条数据
-            if (objCount.Rows.Count > 1)
-            {
-                thisObj[HeatTreatment.TaskName] = "重处理";
-            }
-
+        //回火优先层级
+        switch (tempering)
+        {
+            case "配置表":
+                me[Tempering] = boolConfig[globalTempering] + string.Empty; //全局回火配置
+                break;
+            case "计划表":
+                if (planTempering != string.Empty)
+                {
+                    me[Tempering] = boolConfig[planTempering] + string.Empty;  //计划回火配置
+                }
+                else
+                {
+                    me[Tempering] = boolConfig[globalTempering] + string.Empty; //全局回火配置
+                }
+                break;
         }
+        //读取《工序计划表》计划本取
+        me[NoumenonSampling] = planObj != null ?
+                               planObj[ABCDProcessPlan_NoumenonSampling] + string.Empty :
+                               string.Empty;
     }
 
+    //热处理
+    string TableCode = "D001419Siizvpn3x17wj6jj3pifsmbic3"; //表ID
+    string ID = "F0000038";                 //ID
+    string Objectid = "ObjectId";           //热处理ObjectId
+    string Owner = "OwnerId";               //拥有者
+    string CurrentSection = "F0000050";     //当前工序
+    string CurrentWorkStep = "F0000048";    //当前工步
+    string TargetStep = "F0000039";         //转至工步
+    string ConfirmedHeatNumber = "F0000068";//确认炉次编号    
+    string CheckBeforeLoading = "F0000074";      //装炉前检验
+    string InspectionBeforeCharging = "F0000072";//热处理质量检验结果
+    string Refinement = "F0000073";              //(是/否)精整
+    string Tempering = "F0000087";               //(是/否)回火
+    string NoumenonSampling = "F0000056";        //计划本取
+
+    string InitiateAbnormal = "F0000040";         //发起异常
+    string AbnormalCategory = "F0000049";         //异常类别
+    string AbnormalDescription = "F0000058";      //异常描述
+    string AbnormalRepresentative = "F0000084";   //异常代表
+    string processAdjustmentRange = "F0000045";   //是否跨工序调整流程
+    string QualityApprovalList = "F0000200";      //质量审批单
+    string DemandApprovalForm = "F0000201";       //需求审批单
+    string CirculationApprovalSheet = "F0000202"; //流转审批单
+    string OtherApprovalDocuments = "F0000203";   //其它审批单
+    string SourceOfApproval = "F0000204";         //审批来源
+    string AssociatedWithOtherAbnormalWorkpieces = "F0000199"; //关联其它异常工件
+
+    //工艺流程表
+    string ProcessFlow_TargetSection = "F0000056"; //转至工序
+    string ProcessFlow_TargetStep = "F0000057";    //转至工步
+
+    //工序计划表
+    string ABCDProcessPlan_TableCode = "D001419Szlywopbivyrv1d64301ta5xv4";         //表ID
+    string ABCDProcessPlan_ID = "F0000007";                     //ID
+    string ABCDProcessPlan_NoumenonSampling = "F0000141";       //计划本取
+    string ABCDProcessPlan_ActualNumberOfFurnace = "F0000217";  //实际炉次编号
+    string ABCDProcessPlan_SinglePieceFinishingConfiguration = "F0000146";          //单件精整配置
+    string ABCDProcessPlan_SinglePieceTemperingConfiguration = "F0000216";          //单件回火配置
+    string ABCDProcessPlan_InspectionBeforeSinglePieceFurnaceLoading = "F0000148";  //单件装炉前检验
+
+    //进度管理
+    string ScheduleManagement_TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd"; //表ID
+    string ScheduleManagement_OperationTableDataID = "F0000070";                     //工序表数据ID
+    string ScheduleManagement_CurrentPreviousOperationTableSchemacode = "F0000071";  //工序表SchemaCode
+
+    //A-C订单规格表    
+    string OrderSpecification_ProductFinishingConfiguration = "F0000130"; //产品精整配置
 }

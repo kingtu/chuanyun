@@ -30,4 +30,9 @@ internal class LoadingConfig
     {
         throw new NotImplementedException();
     }
+
+    internal static string GetWorkmanshipForm(IEngine engine, string priorityLevelFinishing)
+    {
+        throw new NotImplementedException();
+    }
 }
