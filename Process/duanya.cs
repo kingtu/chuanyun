@@ -1,66 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections;
+using H3.DataModel;
 using System.Text;
 using System.Data;
 using H3;
 public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormController
 {
-    string activityCode;       //当前节点
-    string userName = "";      //当前用户
-    H3.DataModel.BizObject me; //本表单对象
-    string info = string.Empty;//值班信息
-    H3.SmartForm.SmartFormResponseDataItem message; //用户提示信息
-
+    string activityCode; //当前节点    
+    BizObject me;        //本表单对象
     public D001419Sdoly16pnqd5z66wl60hc4y1u1(H3.SmartForm.SmartFormRequest request) : base(request)
     {
-        me = Request.BizObject;                        //本表单对象
-        activityCode = Request.ActivityCode;           //当前节点
-        userName = Request.UserContext.User.FullName;  //当前用户
-        message = new H3.SmartForm.SmartFormResponseDataItem();//用户提示信息
+        me = Request.BizObject;                //本表单对象
+        activityCode = Request.ActivityCode;   //当前节点         
     }
 
     protected override void OnLoad(H3.SmartForm.LoadSmartFormResponse response)
     {
+        H3.SmartForm.SmartFormResponseDataItem message   = new H3.SmartForm.SmartFormResponseDataItem();//用户提示信息
         try
         {
             if (!Request.IsCreateMode)
             {
-                //清空父流程的转至工步与转至工序
-                ClearTheTransitionStepsAndSectionOfTheParentProcess();
-                //清空转至工步信息
-                ClearTheGoToWorkStepInformation();
-                //初始化表单控件信息
-                InitializeTheFormControlInformation();
+                ClearTheTransitionStepsAndSectionOfTheParentProcess(); //清空父流程的转至工步与转至工序               
+                ClearTheGoToWorkStepInformation(); //清空转至工步信息               
+                InitializeControls(); //初始化表单控件信息
                 //同步数据至实时制造情况
                 Hashtable workSteps = ProgressManagement.ForgetProgress(Engine, TableCode, CurrentWorkStep);
                 if (workSteps[me.ObjectId] + string.Empty != string.Empty)
                 {
-                    // 当前工步
-                    me[CurrentWorkStep] = workSteps[me.ObjectId];
+                    me[CurrentWorkStep] = workSteps[me.ObjectId];  // 当前工步
                 }
             }
         }
         catch (Exception ex)
         {
-            info = Tools.Log.ErrorLog(Engine, me, ex, activityCode, userName);
+            string info = Tools.Log.ErrorLog(Engine, me, ex, activityCode, Request.UserContext.User.FullName);
             message.Value = string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
         }
         response.ReturnData.Add("message", message);
         base.OnLoad(response);
-        //--------------------------加载前后分割线-------------------------//
-        try
-        {
-            if (!Request.IsCreateMode)
-            {
-                //加载后代码
-            }
-        }
-        catch (Exception ex)
-        {
-            info = Tools.Log.ErrorLog(Engine, me, ex, activityCode, userName);
-            message.Value = string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
-        }
+       
     }
 
     protected override void OnSubmit(string actionName, H3.SmartForm.SmartFormPostValue postValue, H3.SmartForm.SubmitSmartFormResponse response)
@@ -70,9 +50,8 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
             //提交前
             if (actionName == "Submit")
             {
-                //校验异常信息是否与数据库保持一致
-                bool checkedResult = ChecksWhetherTheExceptionOriginatingControlHasBeenChangedByOtherExceptionRepresentatives(response);
-                if (checkedResult) { return; }
+                //校验异常信息是否与数据库保持一致               
+                if (ExceptionIsChanged()) { response.Message = "异常数据有更新，请刷新页面！"; return; }
                 //多阶段加工逻辑
                 MultistageProcessingLogic();
                 //赋值审批来源
@@ -85,9 +64,8 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
         }
         catch (Exception ex)
         {		//负责人信息
-            string info = Tools.Log.ErrorLog(Engine, me, ex, activityCode, userName);
-            response.Message =
-                string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
+            string info = Tools.Log.ErrorLog(Engine, me, ex, activityCode, Request.UserContext.User.FullName);
+            response.Message = string.Format("管理员已收到问题反馈，({0})信息专员正在修复中！({1})", info, ex.Message);
         }
     }
 
@@ -100,9 +78,8 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
         if (activityCode == "Activity127")
         {
             //获取当前流程业务对象
-            H3.DataModel.BizObject currentFlowObj = H3.DataModel.BizObject.Load(
-                H3.Organization.User.SystemUserId,
-                Engine, Request.SchemaCode, Request.BizObjectId, false);
+            BizObject currentFlowObj = BizObject.Load(H3.Organization.User.SystemUserId, Engine,
+                                                      Request.SchemaCode, Request.BizObjectId, false);
             currentFlowObj[InitiateAbnormal] = "否";        //发起异常
             currentFlowObj[TargetStep] = null;              //转至工步
             currentFlowObj[AbnormalCategory] = null;        //异常类别
@@ -130,9 +107,8 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
             Request.Engine.WorkflowInstanceManager.GetWorkflowInstance(
                 Request.WorkflowInstance.ParentInstanceId);
         //获取父流程业务对象
-        H3.DataModel.BizObject parentInstanceObj = H3.DataModel.BizObject.Load(
-            H3.Organization.User.SystemUserId, Engine,
-            parentInstance.SchemaCode, parentInstance.BizObjectId, false);
+        BizObject parentInstanceObj = BizObject.Load(H3.Organization.User.SystemUserId, Engine,
+                                                     parentInstance.SchemaCode, parentInstance.BizObjectId, false);
         parentInstanceObj[ProcessFlow.TransferToOperation] = null;   //转至工序
         parentInstanceObj[ProcessFlow.TransferToStep] = null;        //转至工步
         parentInstanceObj.Update();
@@ -152,7 +128,7 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
         {
             string abnormal = "发起异常";
             string sourceOfApproval = currentApprover + "在" +
-                currentProcess + "工序的" + currentWorkStep + "工步" + abnormal;
+                                      currentProcess + "工序的" + currentWorkStep + "工步" + abnormal;
             me[SourceOfApproval] = sourceOfApproval;     //审批来源
             me.Update();
         }
@@ -161,7 +137,7 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
         {
             string results = "检验结果不合格";
             string sourceOfApproval = currentApprover + "在" +
-                currentProcess + "工序的" + currentWorkStep + "工步" + results;
+                                      currentProcess + "工序的" + currentWorkStep + "工步" + results;
             me[SourceOfApproval] = sourceOfApproval;     //审批来源
             me.Update();
         }
@@ -171,30 +147,15 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
     * Author: zzx
     * 初始化控件
     */
-    public void InitializeTheFormControlInformation()
+    public void InitializeControls()
     {
         //当前工序  空
-        if (me[CurrentSection] + string.Empty == string.Empty)
-        {
-            me[CurrentSection] = "锻压";//当前工序
-        }
+        if (me[CurrentSection] + string.Empty == string.Empty) me[CurrentSection] = "锻压";//当前工序        
         //完成总量  空
-        if (me[TotalAmountCompleted] + string.Empty == string.Empty)
-        {
-            me[TotalAmountCompleted] = 0;//完成总量
-        }
-        H3.DataModel.BizObject[] ForgeInformation = me[Information] as H3.DataModel.BizObject[]; //获取子表数据
+        if (me[TotalAmountCompleted] + string.Empty == string.Empty) me[TotalAmountCompleted] = 0;//完成总量        
+        BizObject[] ForgeInformation = me[Information] as BizObject[]; //获取子表数据
         //子表（锻压信息）  空
-        if (ForgeInformation == null)
-        {
-            //创建添加新的子表行数据
-            CreateAddNewSubtableRowData(me, ForgeInformation);
-        }
-        // if(ForgeInformation != null && me[TotalAmountCompleted] + string.Empty != "0" && activityCode == "Activity33")
-        // {
-        //     //创建添加新的子表行数据
-        //     CreateAddNewSubtableRowData(me, ForgeInformation);
-        // }
+        if (ForgeInformation == null) CreateAddNewSubtableRowData(me, ForgeInformation); //创建添加新的子表行数据       
         //更新本表单
         me.Update();
     }
@@ -202,7 +163,7 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
     * --Author: zzx
     * 检查发起异常控件是否被其它异常代表更改
     */
-    protected bool ChecksWhetherTheExceptionOriginatingControlHasBeenChangedByOtherExceptionRepresentatives(H3.SmartForm.SubmitSmartFormResponse response)
+    protected bool ExceptionIsChanged()
     {
         //表单中发起异常
         string AnExceptionWasRaisedInTheForm = me[InitiateAbnormal] + string.Empty;
@@ -211,22 +172,13 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
             return false;
         }
         //获取当前流程业务对象
-        H3.DataModel.BizObject thisObj = H3.DataModel.BizObject.Load(
+        BizObject thisObj = BizObject.Load(
             H3.Organization.User.SystemUserId, Engine,
             Request.SchemaCode, Request.BizObjectId, false);
         //数据库中发起异常的值
         string AnExceptionIsGeneratedInTheDatabase = thisObj[InitiateAbnormal] + string.Empty;
-        if (AnExceptionWasRaisedInTheForm != AnExceptionIsGeneratedInTheDatabase)
-        {
-            //发起异常不为是时执行与数据库值是否一致的校验
-            response.Message = "异常数据有更新，请刷新页面！";
-            return true;
-        }
-        else
-        {
-            //与数据库相同
-            return false;
-        }
+        return AnExceptionWasRaisedInTheForm != AnExceptionIsGeneratedInTheDatabase;
+      
     }
 
     /**
@@ -235,16 +187,13 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
     */
     public void ClearTheGoToWorkStepInformation()
     {
-        //正常节点 转至工步清空
-        if (activityCode != "Activity127")
-        {
-            me[TargetStep] = null;//转至工步
-        }
+        //正常节点
+        if (activityCode != "Activity127") me[TargetStep] = null;//清空转至工步        
     }
 
     /**
     * --Author: zzx
-    * 关于发起异常之后各个节点进行的操作   异常工步
+    * 关于发起异常之后各个节点进行的操作——异常工步
     */
     protected void AbnormalWorkingStep(H3.SmartForm.SubmitSmartFormResponse response)
     {
@@ -252,34 +201,32 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
         string AnExceptionWasRaisedInTheForm = me[InitiateAbnormal] + string.Empty;
         if (AnExceptionWasRaisedInTheForm != "是") { return; }
         //关联其它异常工件
-        String[] bizObjectIDArray = me[AssociatedWithOtherAbnormalWorkpieces] as string[];
+        string[] bizObjectIDArray = me[AssociatedWithOtherAbnormalWorkpieces] as string[];
         //遍历其他ID
         foreach (string bizObjectID in bizObjectIDArray)
         {
             //加载其他异常ID 的业务对象
-            H3.DataModel.BizObject otherIdObj = H3.DataModel.BizObject.Load(
+            BizObject otherIdObj = BizObject.Load(
                 H3.Organization.User.SystemUserId, Engine, ScheduleManagement_TableCode, bizObjectID, false);
             //实时生产动态 - 工序表数据ID
             string otherExceptionId = otherIdObj[ScheduleManagement_SectionTableDataID] + string.Empty;
             //实时生产动态 - 工序表SchemaCode
             string currentSchemaCode = otherIdObj[ScheduleManagement_CurrentPreviousSectionTableSchemacode] + string.Empty;
             //加载工序表中的业务对象
-            H3.DataModel.BizObject sectionObj = H3.DataModel.BizObject.Load(
+            BizObject sectionObj = BizObject.Load(
                 H3.Organization.User.SystemUserId, Engine, currentSchemaCode, otherExceptionId, false);
             //传递异常信息
-            foreach (H3.DataModel.PropertySchema activex in sectionObj.Schema.Properties)
+            foreach (PropertySchema activex in sectionObj.Schema.Properties)
             {
                 if (activex.DisplayName.Contains("发起异常"))
                 {
                     sectionObj[activex.Name] = "是";
                 }
-
-                if (activex.DisplayName.Contains("异常类别"))
+                else if (activex.DisplayName.Contains("异常类别"))
                 {
                     sectionObj[activex.Name] = me[AbnormalCategory] + string.Empty;
                 }
-
-                if (activex.DisplayName.Contains("异常代表"))
+                else if (activex.DisplayName.Contains("异常代表"))
                 {
                     sectionObj[activex.Name] = me[ID];
                 }
@@ -289,8 +236,7 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
         //工步节点
         if (activityCode != "Activity127")
         {
-            //设置异常权限
-            this.Request.BizObject[Owner] = Request.UserContext.UserId;
+            Request.BizObject[Owner] = Request.UserContext.UserId;  //设置异常权限
         }
         //清空转至工步和发起异常赋值“否”
         AfterConfirmingTheAdjustmentGoToWorkStepClearingAndInitiateExceptionAssignment();
@@ -300,19 +246,19 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
     * --Author: zzx
     * 创建添加新的子表行数据
     */
-    protected void CreateAddNewSubtableRowData(H3.DataModel.BizObject me, H3.DataModel.BizObject[] lstArray)
+    protected void CreateAddNewSubtableRowData(BizObject me, BizObject[] lstArray)
     {
         //new子表数据集合
-        List<H3.DataModel.BizObject> lstObject = new List<H3.DataModel.BizObject>();
+        List<BizObject> lstObject = new List<BizObject>();
         if (lstArray != null)
         {
-            foreach (H3.DataModel.BizObject obj in lstArray)
+            foreach (BizObject obj in lstArray)
             {
                 lstObject.Add(obj);
             }
         }
         //new一个子表业务对象
-        H3.DataModel.BizObject ForgeInformationObj = Tools.BizOperation.New(Engine, Information);
+        BizObject ForgeInformationObj = Tools.BizOperation.New(Engine, Information);
         //任务名称
         string theTaskName = me[TaskName] + string.Empty == string.Empty ? "0" : me[TaskName] + string.Empty;
         //根据主表任务名称 + 1
@@ -335,10 +281,10 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
     protected void MultistageProcessingLogic()
     {
         //获取子表数据
-        H3.DataModel.BizObject[] ForgeInformation = me[Information] as H3.DataModel.BizObject[];
+        BizObject[] ForgeInformation = me[Information] as BizObject[];
         //获取任务数
-        int taskNum = me[TaskName] + string.Empty !=
-            string.Empty ? int.Parse(me[TaskName] + string.Empty) - 1 : 0;
+        int taskNum = me[TaskName] + string.Empty != string.Empty ?
+                      int.Parse(me[TaskName] + string.Empty) - 1 : 0;
         if (activityCode == "Activity41") //待装炉
         {
             me[FurnaceChargingState] = "已装炉";// 装炉状态
@@ -379,8 +325,7 @@ public class D001419Sdoly16pnqd5z66wl60hc4y1u1 : H3.SmartForm.SmartFormControlle
     string DemandApprovalForm = "F0000202";      //需求审批单
     string CirculationApprovalSheet = "F0000203";//流转审批单
     string OtherApprovalDocuments = "F0000204";  //其它审批单
-    string SourceOfApproval = "F0000205";        //审批来源
-    string ObjectIDForUpdateTheExceptionLog = "F0000085";       // 更新异常日志objectID
+    string SourceOfApproval = "F0000205";        //审批来源   
     string AssociatedWithOtherAbnormalWorkpieces = "F0000199";  // 关联其他异常工件
 
     string TotalAmountCompleted = "F0000082";// 完成总量

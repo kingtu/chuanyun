@@ -20,5 +20,10 @@ namespace H3
         public H3.Workflow.Workflow WorkflowInstance { get; set; }
         public WorkItem WorkItem { get; set; }
         public H3.IEngine Engine { get; internal set; }
+
+        internal T GetValue<T>(string v1, T v2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

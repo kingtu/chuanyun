@@ -8,6 +8,7 @@ namespace H3.DataModel
     {
         public IEnumerable<PropertySchema> Properties { get; internal set; }
         public string  SchemaCode { get; internal set; }
+        public string DisplayName { get; internal set; }
 
         internal BizObjectSchema GetChildSchema(string v)
         {

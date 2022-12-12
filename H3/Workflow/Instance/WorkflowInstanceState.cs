@@ -1,7 +1,8 @@
 ﻿namespace H3.Workflow.Instance
 {
-    public class WorkflowInstanceState
+    public enum WorkflowInstanceState
     {
-        public static WorkflowInstanceState Finished { get; internal set; }
+        Finished,
+        Running
     }
 }

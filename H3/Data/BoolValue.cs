@@ -2,5 +2,6 @@
 {
     enum BoolValue
     {
+        Unspecified
     }
 }

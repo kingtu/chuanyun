@@ -3,9 +3,11 @@
     public class User : Unit
     {  
         public static string SystemUserId { get;  set; }
+        public static string AnonymousUserId { get; internal set; }
         public string  DepartmentName { get;  set; }
         public string FullName { get; internal set; }
         public string Name { get; internal set; }
+        public string UnitId { get; internal set; }
     }
           
 

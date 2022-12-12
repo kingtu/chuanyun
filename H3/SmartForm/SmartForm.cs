@@ -109,6 +109,22 @@ namespace H3
             public string Message { get; internal set; }
         }
 
+        public class RestApiController
+        {
+            public RestApiController(H3.SmartForm.RestApiRequest request) { }
+            public Request Request;
+            protected virtual  void OnInvoke(string actionName, H3.SmartForm.RestApiResponse response) { }
+        }
+
+        public class RestApiRequest
+        {
+        }
+
+        public class RestApiResponse
+        {
+            public Dictionary <string ,object > ReturnData { get;  set; }
+        }
+
         internal class SmartFormResponseDataItem
         {
             public SmartFormResponseDataItem()

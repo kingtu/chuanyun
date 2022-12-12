@@ -1,4 +1,6 @@
 ﻿
+using H3.Data;
+using H3.Workflow.Instance;
 using System;
 using System.Data;
 
@@ -19,6 +21,11 @@ namespace H3
     public class Query
     {
          public  DataTable QueryTable(string sql, object p)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal DataTable QueryChildInstance(string instanceId, object unspecifiedId, WorkflowInstanceState running, BoolValue unspecified)
         {
             throw new NotImplementedException();
         }

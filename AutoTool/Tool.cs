@@ -365,6 +365,29 @@ public class Tools
             throw new NotImplementedException();
         }
     }
+
+    public class Query
+    {
+        public static H3.DataModel.BizObject GetProductParameterFrom(H3.IEngine Engine, string planObjectId)
+        {
+            // 生产计划,ABCD工序计划表    
+            string Plan_TableCode = "D001419Szlywopbivyrv1d64301ta5xv4";        // ABCD工序计划表    
+            string OrderSpecification_TableCode = "D001419Skniz33124ryujrhb4hry7md21";         //订单规格表TableCode
+            string ProductParameter_TableCode = "D0014196b62f7decd924e1e8713025dc6a39aa5";     //产品参数表TableCode
+                                                                                               //工序计划表
+            H3.DataModel.BizObject Obj_Plan = Tools.BizOperation.Load(Engine, Plan_TableCode, planObjectId + string.Empty);
+
+            string dg = "F0000145";
+            //订单规格表
+            H3.DataModel.BizObject Obj_OrderSpecification = Tools.BizOperation.Load(Engine, OrderSpecification_TableCode, Obj_Plan[dg] + string.Empty);
+            string cs = "F0000142";
+
+            //产品参数记录
+            H3.DataModel.BizObject productObj = Tools.BizOperation.Load(Engine, ProductParameter_TableCode, Obj_OrderSpecification[cs] + string.Empty);
+
+            return productObj;
+        }
+    }
 }
 
 
