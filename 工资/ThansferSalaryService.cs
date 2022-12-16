@@ -8,25 +8,25 @@ using H3.DataModel;
 public class ThansferSalaryService
 {
     H3.IEngine Engine;
-    BizObject me;
+    BizObject taSalary;
     H3.SmartForm.SmartFormRequest request;
 
     public ThansferSalaryService(H3.IEngine Engine, BizObject bizObject)
     {
         this.Engine = Engine;
-        this.me = bizObject;
+        this.taSalary = bizObject;
     }
     public ThansferSalaryService(H3.IEngine Engine, H3.SmartForm.SmartFormRequest request)
     {
         this.Engine = Engine;
         this.request = request;
-        this.me = request.BizObject;
+        this.taSalary = request.BizObject;
     }
 
     public void SyncSalary()
     {
         string TSalaryTableObjectId = "F0000001";//转运记录ObjectId
-        BizObject b = Tools.BizOperation.Load(this.Engine, TransferRecord_TableCode, (string)me[TSalaryTableObjectId]);//物流转运（记录）
+        BizObject b = Tools.BizOperation.Load(this.Engine, TransferRecord_TableCode, (string)taSalary[TSalaryTableObjectId]);//物流转运（记录）
         string _Id = (string)b[TransferRecord_Id];
         string _OrderSpecificationNumber = (string)b[TransferRecord_OrderSpecificationNumber];
         string _WorkpieceNumber = (string)b[TransferRecord_WorkpieceNumber];
@@ -91,7 +91,7 @@ public class ThansferSalaryService
             b["CreatedTime"],
             b[TransferRecord_DepartmentCode],
             b[TransferRecord_State],
-            me[TSalaryTableObjectId],
+            taSalary[TSalaryTableObjectId],
             // b[TransferRecord_DataCode],
             b[TransferRecord_VersionNumber]);
 

@@ -3,6 +3,7 @@
     public enum WorkflowInstanceState
     {
         Finished,
-        Running
+        Running,
+        Unspecified
     }
 }

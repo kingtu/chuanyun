@@ -1,4 +1,5 @@
-﻿using H3.Data;
+﻿using Chuanyun;
+using H3.Data;
 using System;
 
 namespace H3.Workflow.Instance
@@ -13,6 +14,7 @@ namespace H3.Workflow.Instance
         DateTime CreatedTime { get; set; }
         DateTime FinishedTime { get; set; }
         TimeSpan UsedTime { get; set; }
+        TokenState State { get; set; }
     }
 
     public class WorkflowInstance
@@ -28,6 +30,7 @@ namespace H3.Workflow.Instance
         public string SchemaCode { get; internal set; }
         public string WorkflowDisplayName { get; internal set; }
         public string ParentInstanceId { get; internal set; }
+        public string ObjectId { get; internal set; }
 
         internal Token GetRunningToken(object activityCode)
         {
