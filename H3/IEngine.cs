@@ -14,6 +14,7 @@ namespace H3
         WorkflowTemplateManager WorkflowTemplateManager { get; set; }
         Query Query { get; set; }
         IOrganization Organization { get; set; }
+        BizBus BizBus { get; set; }
     }
 
   

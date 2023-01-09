@@ -1,9 +1,7 @@
 ﻿using System;
 
-namespace H3.Workflow
-{
-    internal class Template
-    {
+namespace H3.Workflow.Template
+{     
         internal class WorkflowTemplate
         {
             public object WorkflowVersion { get; internal set; }
@@ -18,5 +16,5 @@ namespace H3.Workflow
         {
             public string DisplayName { get; internal set; }
         }
-    }
+     
 }

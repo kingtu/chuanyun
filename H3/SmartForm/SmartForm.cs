@@ -23,6 +23,8 @@ namespace H3
             public string Message { get; internal set; }
             public bool ClosePage { get; internal set; }
             public Dictionary<string, object> ReturnData { get; internal set; }
+            public List< object> Infos { get; set; }
+            public bool IsMobile { get; internal set; }
         }
 
         public class LoadSmartFormResponse
@@ -30,6 +32,8 @@ namespace H3
             internal Errors Errors;
 
             public Dictionary <string ,object> ReturnData { get; internal set; }
+            public List <object> Infos { get; internal set; }
+            public bool IsMobile { get; internal set; }
         }
 
         public class SmartFormController
@@ -59,7 +63,7 @@ namespace H3
             }
         }
 
-        public class SmartFormRequest
+        public class SmartFormRequest: H3.SmartForm.RequestContext
         {
             public string ActivityCode { get;  set; }
             //public Workflow.Instance.WorkflowInstance WorkflowInstance { get; internal set; }
@@ -92,21 +96,29 @@ namespace H3
             protected virtual void OnSubmit(string actionName, H3.SmartForm.ListViewPostValue postValue, H3.SmartForm.SubmitListViewResponse response) { }
         }
 
-        public class ListViewRequest
+        public class ListViewRequest: H3.SmartForm.RequestContext
         {
             public string SchemaCode { get; internal set; }
             public UserContext UserContext { get; internal set; }
             public H3.IEngine Engine { get; internal set; }
+            public string DisplayName { get; internal set; }
+            public object ListScene { get; internal set; }
+            public object CurrentUserId { get; internal set; }
         }
 
         public class LoadListViewResponse
         {
             public string SchemaCode { get; internal set; }
+            public List<object> Errors { get; set; }
+            public List<object> Infos { get;  set; }
+            public bool IsMobile { get; internal set; }
         }
 
         public class SubmitListViewResponse
         {
             public string Message { get; internal set; }
+            public List<object> Errors { get; internal set; }
+            public bool IsMobile { get; internal set; }
         }
 
         public class RestApiController
@@ -118,11 +130,23 @@ namespace H3
 
         public class RestApiRequest
         {
+            internal T GetValue<T>(T key, T empty)
+            {
+                throw new NotImplementedException();
+            }
         }
 
         public class RestApiResponse
         {
             public Dictionary <string ,object > ReturnData { get;  set; }
+        }
+
+        public class RequestContext
+        {
+            internal Dictionary<string, object> CreateLog()
+            {
+                throw new NotImplementedException();
+            }
         }
 
         internal class SmartFormResponseDataItem
