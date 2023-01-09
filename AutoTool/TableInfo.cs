@@ -1,11961 +1,3587 @@
-ï»¿using System.Data;
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,å–æ ·å­æµç¨‹å–æ ·æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class SamplingSubProcessSamplingAssignmentInformation
-{
-	public static readonly string TableCode = "D0014199bf30a21df3f43f7b5cd8f0fda256d4c";
-	public SamplingSubProcessSamplingAssignmentInformation() { }
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000204";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipRemovalQuantity = "F0000200";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000162";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000163";
-	/// <summary>
-	/// å–æ ·è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string SamplingWorkshopLocation = "F0000202";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// å–æ ·è½¦é—´åç§°
-	/// </summary>
-	public static readonly string SamplingWorkshopName = "F0000201";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000205";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000159";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000160";
-	/// <summary>
-	/// å–æ ·å·¥æ—¶
-	/// </summary>
-	public static readonly string SamplingManHour = "F0000199";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletionQuantity = "F0000198";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000197";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,é’»å­”é’»å­”æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class DrillDrillingAssignmentInformation
-{
-	public static readonly string TableCode = "D001419F8fbb65b863804a5dbad51c9fc80e2a71";
-	public DrillDrillingAssignmentInformation() { }
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000217";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000216";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletionQuantity = "F0000210";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000201";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000203";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000202";
-	/// <summary>
-	/// é’»å­”è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string DrillingWorkshopLocation = "F0000207";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000204";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// é’»å­”è½¦é—´åç§°
-	/// </summary>
-	public static readonly string DrillingWorkshopName = "F0000206";
-	/// <summary>
-	/// é’»å­”å·¥æ—¶
-	/// </summary>
-	public static readonly string DrillingManHour = "F0000205";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipCuttingQuantity = "F0000209";
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000208";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,ç²¾è½¦é’»å­”æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class FinishingDrillingAssignmentInformation
-{
-	public static readonly string TableCode = "D001419F06c8fa4adf4c443f927667fb6f01a714";
-	public FinishingDrillingAssignmentInformation() { }
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000225";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000218";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000220";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000219";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000226";
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000244";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletionQuantity = "F0000222";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000221";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipCuttingQuantity = "F0000223";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// é’»å­”è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string DrillingWorkshopLocation = "F0000228";
-	/// <summary>
-	/// é’»å­”å·¥æ—¶
-	/// </summary>
-	public static readonly string DrillingManHour = "F0000224";
-	/// <summary>
-	/// é’»å­”è½¦é—´åç§°
-	/// </summary>
-	public static readonly string DrillingWorkshopName = "F0000227";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,ç²¾è½¦ç²¾è½¦æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class FinishingPrecisionVehicleDispatchInformation
-{
-	public static readonly string TableCode = "D001419Fb0b1377c38b14d0498f902cac5491fda";
-	public FinishingPrecisionVehicleDispatchInformation() { }
-	/// <summary>
-	/// ç²¾è½¦è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string FinishingWorkshopLocation = "F0000210";
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskCompletion = "F0000232";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000208";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ç²¾è½¦å·¥æ—¶
-	/// </summary>
-	public static readonly string FinishingManHour = "F0000214";
-	/// <summary>
-	/// ç²¾è½¦è½¦é—´åç§°
-	/// </summary>
-	public static readonly string FinishingWorkshopName = "F0000209";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000207";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000204";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000233";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000202";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000215";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletionQuantity = "F0000230";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipRemovalQuantity = "F0000231";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,ç²—è½¦ç²¾è½¦æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class RoughingPrecisionVehicleDispatchInformation
-{
-	public static readonly string TableCode = "D001419F6dd1cc155f624fc494b7335d1b781b75";
-	public RoughingPrecisionVehicleDispatchInformation() { }
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000232";
-	/// <summary>
-	/// ç²¾è½¦è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string FinishingWorkshopLocation = "F0000234";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletionQuantity = "F0000228";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000224";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// ç²¾è½¦å·¥æ—¶
-	/// </summary>
-	public static readonly string FinishingManHour = "F0000229";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000226";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000227";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000231";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000225";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipRemovalQuantity = "F0000230";
-	/// <summary>
-	/// ç²¾è½¦è½¦é—´åç§°
-	/// </summary>
-	public static readonly string FinishingWorkshopName = "F0000233";
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000248";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,ç²—è½¦ç²—è½¦æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class RoughingSubtableRoughDispatchInformation
-{
-	public static readonly string TableCode = "D001419F58e740c91ed94897a7ec260f666efb2b";
-	public RoughingSubtableRoughDispatchInformation() { }
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000239";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipRemovalQuantity = "F0000235";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000218";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000214";
-	/// <summary>
-	/// ç²—è½¦å·¥æ—¶
-	/// </summary>
-	public static readonly string RoughTurningManHour = "F0000219";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000236";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000208";
-	/// <summary>
-	/// ç²—è½¦è½¦é—´åç§°
-	/// </summary>
-	public static readonly string RoughTurningWorkshopName = "F0000237";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ç²—è½¦è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string RoughTurningWorkshopLocation = "F0000238";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000210";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletionQuantity = "F0000222";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000213";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,æ¯›å¯ç²—è½¦æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class RoughCastSubtableRoughDispatchInformation
-{
-	public static readonly string TableCode = "D001419F550f0900f370420cb3346c763f61538f";
-	public RoughCastSubtableRoughDispatchInformation() { }
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000200";
-	/// <summary>
-	/// ç²—è½¦è½¦é—´åç§°
-	/// </summary>
-	public static readonly string RoughTurningWorkshopName = "F0000205";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipRemovalQuantity = "F0000208";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000214";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletionQuantity = "F0000206";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000204";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000201";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000209";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000202";
-	/// <summary>
-	/// ç²—è½¦è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string RoughTurningWorkshopLocation = "F0000210";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000203";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ç²—è½¦å·¥æ—¶
-	/// </summary>
-	public static readonly string RoughTurningManHour = "F0000207";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,æ¯›å¯å–æ ·æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class RoughCastSamplingAssignmentInformation
-{
-	public static readonly string TableCode = "D0014194a44f0404f864f0dbfbe630064922ac9";
-	public RoughCastSamplingAssignmentInformation() { }
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipQuantity = "F0000208";
-	/// <summary>
-	/// å–æ ·è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string SamplingWorkshopLocation = "F0000210";
-	/// <summary>
-	/// å–æ ·å·¥æ—¶
-	/// </summary>
-	public static readonly string SamplingManHour = "F0000207";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000201";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000202";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000209";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000213";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000204";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000203";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000200";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletedQuantity = "F0000206";
-	/// <summary>
-	/// å–æ ·è½¦é—´åç§°
-	/// </summary>
-	public static readonly string SamplingWorkshopName = "F0000205";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,è½¬è¿è®°å½•é’»å­”æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class TransferRecordDrillingAssignmentInformation
-{
-	public static readonly string TableCode = "D001419383f520ca2254c4cb7ee0d8f12414570";
-	public TransferRecordDrillingAssignmentInformation() { }
-	/// <summary>
-	/// é’»å­”è½¦é—´åç§°
-	/// </summary>
-	public static readonly string DrillingWorkshopName = "F0000206";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletionQuantity = "F0000209";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000201";
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000219";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000208";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipRemovalQuantity = "F0000211";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000205";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000202";
-	/// <summary>
-	/// é’»å­”è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string DrillingWorkshopLocation = "F0000207";
-	/// <summary>
-	/// ä½ç½®å˜æ›´
-	/// </summary>
-	public static readonly string PositionChange = "F0000223";
-	/// <summary>
-	/// é’»å­”å·¥æ—¶
-	/// </summary>
-	public static readonly string DrillingManHour = "F0000210";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000204";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000203";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,è½¬è¿è®°å½•ç²¾è½¦æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class TransferRecordPrecisionVehicleDispatchInformation
-{
-	public static readonly string TableCode = "D001419075f27a131064201a9bbc08b11212c7a";
-	public TransferRecordPrecisionVehicleDispatchInformation() { }
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletionQuantity = "F0000209";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000208";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000204";
-	/// <summary>
-	/// ç²¾è½¦å·¥æ—¶
-	/// </summary>
-	public static readonly string FinishingManHour = "F0000210";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ç²¾è½¦è½¦é—´åç§°
-	/// </summary>
-	public static readonly string FinishingWorkshopName = "F0000206";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000201";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000202";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000203";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000218";
-	/// <summary>
-	/// ä½ç½®å˜æ›´
-	/// </summary>
-	public static readonly string PositionChange = "F0000222";
-	/// <summary>
-	/// ç²¾è½¦è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string FinishingWorkshopLocation = "F0000207";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipRemovalQuantity = "F0000211";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000205";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,è½¬è¿è®°å½•ç²—è½¦æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class TransferRecordSubtableRoughDispatchInformation
-{
-	public static readonly string TableCode = "D001419Fbb3d5ad0035e43d89dee3ff7581f834a";
-	public TransferRecordSubtableRoughDispatchInformation() { }
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000217";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000204";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000201";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000202";
-	/// <summary>
-	/// ä½ç½®å˜æ›´
-	/// </summary>
-	public static readonly string PositionChange = "F0000221";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000208";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000205";
-	/// <summary>
-	/// ç²—è½¦è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string RoughTurningWorkshopLocation = "F0000207";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipRemovalQuantity = "F0000211";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletionQuantity = "F0000209";
-	/// <summary>
-	/// ç²—è½¦å·¥æ—¶
-	/// </summary>
-	public static readonly string RoughTurningManHour = "F0000210";
-	/// <summary>
-	/// ç²—è½¦è½¦é—´åç§°
-	/// </summary>
-	public static readonly string RoughTurningWorkshopName = "F0000206";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000203";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,è½¬è¿è®°å½•å–æ ·æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class TransferRecordSamplingAssignmentInformation
-{
-	public static readonly string TableCode = "D001419ecc5c8296a99449dafb0e96f942fcd87";
-	public TransferRecordSamplingAssignmentInformation() { }
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000216";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000202";
-	/// <summary>
-	/// ä½ç½®å˜æ›´
-	/// </summary>
-	public static readonly string PositionChange = "F0000220";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000204";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipQuantity = "F0000211";
-	/// <summary>
-	/// å–æ ·è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string SamplingWorkshopLocation = "F0000207";
-	/// <summary>
-	/// å–æ ·å·¥æ—¶
-	/// </summary>
-	public static readonly string SamplingManHour = "F0000210";
-	/// <summary>
-	/// å–æ ·è½¦é—´åç§°
-	/// </summary>
-	public static readonly string SamplingWorkshopName = "F0000206";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000208";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletedQuantity = "F0000209";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000205";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000203";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000201";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,è½¬è¿è®°å½•
-/// </summary>
-public class TransferRecord
-{
-	public static readonly string TableCode = "D001419Son0vyw9n413fhgqud7zeeocz2";
-	public TransferRecord() { }
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000057";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000016";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000198";
-	/// <summary>
-	/// ç‰ˆæœ¬å·
-	/// </summary>
-	public static readonly string VersionNumber = "F0000196";
-	/// <summary>
-	/// ç²¾è½¦æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string FineCarDispatchingInformation = "D001419075f27a131064201a9bbc08b11212c7a";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000025";
-	/// <summary>
-	/// å¼‚å¸¸æè¿°
-	/// </summary>
-	public static readonly string ExceptionDescription = "F0000199";
-	/// <summary>
-	/// å‘èµ·å¼‚å¸¸
-	/// </summary>
-	public static readonly string InitiatingException = "F0000197";
-	/// <summary>
-	/// éƒ¨é—¨ä»£ç 
-	/// </summary>
-	public static readonly string DepartmentCode = "F0000200";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000064";
-	/// <summary>
-	/// åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string ProcessingUnit = "F0000061";
-	/// <summary>
-	/// è½¬è¿ä½ç½®
-	/// </summary>
-	public static readonly string TransferLocation = "F0000134";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string RegionalLocation = "F0000068";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000002";
-	/// <summary>
-	/// è®¡åˆ’è®¾å¤‡
-	/// </summary>
-	public static readonly string PlanningEquipment = "PlanDevices";
-	/// <summary>
-	/// é’»å­”é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string DrillingRestrictedDispatchingSequence = "F0000215";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// ç²—è½¦æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string RoughTruckDispatchInformation = "D001419Fbb3d5ad0035e43d89dee3ff7581f834a";
-	/// <summary>
-	/// å·¥äºº
-	/// </summary>
-	public static readonly string Worker = "F0000135";
-	/// <summary>
-	/// ç²¾è½¦é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string FineCarRestrictedDispatchingSequence = "F0000214";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string WorkshopLocation = "F0000067";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// é’»å­”æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string DrillingDispatchingInformation = "D001419383f520ca2254c4cb7ee0d8f12414570";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000012";
-	/// <summary>
-	/// ç²—è½¦é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string RoughCarRestrictedDispatchingSequence = "F0000213";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string ProductSpecification = "F0000003";
-	/// <summary>
-	/// è½¬è¿è½¦é—´
-	/// </summary>
-	public static readonly string TransferWorkshop = "F0000133";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// å–æ ·æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string SamplingDispatchInformation = "D001419ecc5c8296a99449dafb0e96f942fcd87";
-	/// <summary>
-	/// å½“å‰å·¥åº
-	/// </summary>
-	public static readonly string CurrentOperation = "F0000071";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// å–æ ·é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string SamplingRestrictionDispatchSequence = "F0000212";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000058";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000014";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// å½“å‰å·¥æ­¥
-	/// </summary>
-	public static readonly string CurrentWorkStep = "F0000069";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperation = "F0000073";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,äººå·¥è°ƒæ•´å·¥åºé’»å­”æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class ManualAdjustProcessDrillingAssignmentInformation
-{
-	public static readonly string TableCode = "D001419db49d738eebb477bb8834e1888dea99e";
-	public ManualAdjustProcessDrillingAssignmentInformation() { }
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000037";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000039";
-	/// <summary>
-	/// é’»å­”è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string DrillingWorkshopLocation = "F0000042";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000035";
-	/// <summary>
-	/// é’»å­”å·¥æ—¶
-	/// </summary>
-	public static readonly string DrillingManHour = "F0000044";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000038";
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000054";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000036";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletionQuantity = "F0000041";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipRemovalQuantity = "F0000045";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000043";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// é’»å­”è½¦é—´åç§°
-	/// </summary>
-	public static readonly string DrillingWorkshopName = "F0000040";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,äººå·¥è°ƒæ•´å·¥åºç²¾è½¦æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class ManualAdjustProcessPrecisionVehicleDispatchInformation
-{
-	public static readonly string TableCode = "D0014193e4d0039034146699786aa82e5473577";
-	public ManualAdjustProcessPrecisionVehicleDispatchInformation() { }
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000038";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000036";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000043";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000035";
-	/// <summary>
-	/// ç²¾è½¦è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string FinishingWorkshopLocation = "F0000042";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000037";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletionQuantity = "F0000041";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000039";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipRemovalQuantity = "F0000045";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000053";
-	/// <summary>
-	/// ç²¾è½¦å·¥æ—¶
-	/// </summary>
-	public static readonly string FinishingManHour = "F0000044";
-	/// <summary>
-	/// ç²¾è½¦è½¦é—´åç§°
-	/// </summary>
-	public static readonly string FinishingWorkshopName = "F0000040";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,äººå·¥è°ƒæ•´å·¥åºç²—è½¦æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class ManualAdjustProcessSubtableRoughDispatchInformation
-{
-	public static readonly string TableCode = "D001419F56f2385caf1a4f4395f9eb9d4a241b98";
-	public ManualAdjustProcessSubtableRoughDispatchInformation() { }
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000039";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000036";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000035";
-	/// <summary>
-	/// ç²—è½¦è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string RoughTurningWorkshopLocation = "F0000042";
-	/// <summary>
-	/// ç²—è½¦å·¥æ—¶
-	/// </summary>
-	public static readonly string RoughTurningManHour = "F0000044";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipRemovalQuantity = "F0000045";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000038";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletionQuantity = "F0000041";
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000052";
-	/// <summary>
-	/// ç²—è½¦è½¦é—´åç§°
-	/// </summary>
-	public static readonly string RoughTurningWorkshopName = "F0000040";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000037";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000043";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,äººå·¥è°ƒæ•´å·¥åºå–æ ·æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class ManualAdjustProcessSamplingAssignmentInformation
-{
-	public static readonly string TableCode = "D001419aee1715331f8480ea6d28e10f197f211";
-	public ManualAdjustProcessSamplingAssignmentInformation() { }
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000051";
-	/// <summary>
-	/// å–æ ·å·¥æ—¶
-	/// </summary>
-	public static readonly string SamplingManHour = "F0000044";
-	/// <summary>
-	/// å–æ ·è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string SamplingWorkshopLocation = "F0000042";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000036";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletedQuantity = "F0000041";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000035";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// å–æ ·è½¦é—´åç§°
-	/// </summary>
-	public static readonly string SamplingWorkshopName = "F0000040";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000039";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000043";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000038";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipQuantity = "F0000045";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000037";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,å·¥è‰ºæµç¨‹è¡¨é’»å­”æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class ProcessFlowDrillingAssignmentInformation
-{
-	public static readonly string TableCode = "D001419F25876c23d35344549f57d7984a02799b";
-	public ProcessFlowDrillingAssignmentInformation() { }
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000158";
-	/// <summary>
-	/// é’»å­”è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string DrillingWorkshopLocation = "F0000168";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000165";
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000187";
-	/// <summary>
-	/// é’»å­”å·¥æ—¶
-	/// </summary>
-	public static readonly string DrillingManHour = "F0000164";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000166";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipCuttingQuantity = "F0000163";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000159";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000161";
-	/// <summary>
-	/// é’»å­”è½¦é—´åç§°
-	/// </summary>
-	public static readonly string DrillingWorkshopName = "F0000167";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000160";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletionQuantity = "F0000162";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,å·¥è‰ºæµç¨‹è¡¨ç²¾è½¦æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class ProcessFlowPrecisionVehicleDispatchInformation
-{
-	public static readonly string TableCode = "D001419Fd1392d69e5f64364891b498615182d3a";
-	public ProcessFlowPrecisionVehicleDispatchInformation() { }
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000176";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// ç²¾è½¦è½¦é—´åç§°
-	/// </summary>
-	public static readonly string FinishingWorkshopName = "F0000178";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000177";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipRemovalQuantity = "F0000175";
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000186";
-	/// <summary>
-	/// ç²¾è½¦å·¥æ—¶
-	/// </summary>
-	public static readonly string FinishingManHour = "F0000174";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000172";
-	/// <summary>
-	/// ç²¾è½¦è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string FinishingWorkshopLocation = "F0000179";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000171";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletionQuantity = "F0000173";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000170";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000169";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,å·¥è‰ºæµç¨‹è¡¨ç²—è½¦æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class ProcessFlowSubtableRoughDispatchInformation
-{
-	public static readonly string TableCode = "D001419e42ff66466da42bc9f15cb307abc7eee";
-	public ProcessFlowSubtableRoughDispatchInformation() { }
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipRemovalQuantity = "F0000175";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000170";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000177";
-	/// <summary>
-	/// ç²—è½¦è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string RoughTurningWorkshopLocation = "F0000179";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000185";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000171";
-	/// <summary>
-	/// ç²—è½¦å·¥æ—¶
-	/// </summary>
-	public static readonly string RoughTurningManHour = "F0000174";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000172";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000176";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletionQuantity = "F0000173";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ç²—è½¦è½¦é—´åç§°
-	/// </summary>
-	public static readonly string RoughTurningWorkshopName = "F0000178";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000169";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,å·¥è‰ºæµç¨‹è¡¨å–æ ·æ´¾å·¥ä¿¡æ¯
-/// </summary>
-public class ProcessFlowSamplingAssignmentInformation
-{
-	public static readonly string TableCode = "D001419114f2ec1226346b08a087432c560af24";
-	public ProcessFlowSamplingAssignmentInformation() { }
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// å–æ ·å·¥æ—¶
-	/// </summary>
-	public static readonly string SamplingManHour = "F0000174";
-	/// <summary>
-	/// ä»»åŠ¡çŠ¶æ€
-	/// </summary>
-	public static readonly string TaskStatus = "F0000184";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000171";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string CompletedQuantity = "F0000173";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string ChipQuantity = "F0000175";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Dispatcher = "F0000170";
-	/// <summary>
-	/// å–æ ·è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string SamplingWorkshopLocation = "F0000179";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000176";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string DispatchQuantity = "F0000172";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000169";
-	/// <summary>
-	/// å–æ ·è½¦é—´åç§°
-	/// </summary>
-	public static readonly string SamplingWorkshopName = "F0000178";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000177";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,å…¶ä»–å¼‚å¸¸å­æµç¨‹
-/// </summary>
-public class OtherExceptionSubprocesses
-{
-	public static readonly string TableCode = "D001419Szr2tt8gu0sreu8bs3murql8t3";
-	public OtherExceptionSubprocesses() { }
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000010";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000012";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000008";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000013";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// çˆ¶æµç¨‹å…³è”
-	/// </summary>
-	public static readonly string ParentProcessAssociation = "F0000005";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000011";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000009";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000001";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,æµè½¬å¼‚å¸¸å­æµç¨‹
-/// </summary>
-public class FlowExceptionSubprocess
-{
-	public static readonly string TableCode = "D001419Saeqois2povjyjzpkeoq5jdun0";
-	public FlowExceptionSubprocess() { }
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000010";
-	/// <summary>
-	/// çˆ¶æµç¨‹å…³è”
-	/// </summary>
-	public static readonly string ParentProcessAssociation = "F0000005";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000013";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000012";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000009";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000001";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000008";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000011";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,éœ€æ±‚å¼‚å¸¸å­æµç¨‹
-/// </summary>
-public class RequirementExceptionSubprocess
-{
-	public static readonly string TableCode = "D001419Sgjabljxw2o9jao9ayazmhbe51";
-	public RequirementExceptionSubprocess() { }
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000011";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000013";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000012";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// çˆ¶æµç¨‹å…³è”
-	/// </summary>
-	public static readonly string ParentProcessAssociation = "F0000005";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000008";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000010";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000001";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000009";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,è´¨é‡å¼‚å¸¸å­æµç¨‹
-/// </summary>
-public class QualityExceptionSubprocess
-{
-	public static readonly string TableCode = "D001419484c1007b0574159979cecf1f8357991";
-	public QualityExceptionSubprocess() { }
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000001";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000013";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000012";
-	/// <summary>
-	/// çˆ¶æµç¨‹å…³è”
-	/// </summary>
-	public static readonly string ParentProcessAssociation = "F0000005";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000009";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000010";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000008";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000011";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,æµè½¬å¼‚å¸¸å®¡æ‰¹å•
-/// </summary>
-public class ApprovalSheetForAbnormalFlowOfProcess
-{
-	public static readonly string TableCode = "D001419Syxtf86zuesfqtp9k87mug0il2";
-	public ApprovalSheetForAbnormalFlowOfProcess() { }
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// å…¶ä»–å¼‚å¸¸å…³è”æ§ä»¶è¡¨å•
-	/// </summary>
-	public static readonly string OtherExceptionRelatedControlForm = "F0000006";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000016";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000010";
-	/// <summary>
-	/// å…¶å®ƒå¼‚å¸¸å·¥ä»¶
-	/// </summary>
-	public static readonly string OtherAbnormalWorkPieces = "D001419Fydfgww6k2l568121uhy4nv741";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// å¼‚å¸¸ä»£è¡¨
-	/// </summary>
-	public static readonly string ExceptionRepresentative = "F0000015";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000009";
-	/// <summary>
-	/// å·¥åºåç§°
-	/// </summary>
-	public static readonly string OperationName = "F0000004";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// çº¸è´¨å•æ®è®°å½•
-	/// </summary>
-	public static readonly string PaperDocumentRecord = "F0000005";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000003";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000012";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000011";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string WorkshopLocation = "F0000013";
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string RegionalLocation = "F0000014";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º
-	/// </summary>
-	public static readonly string QualityInspectionConclusion = "F0000001";
-	/// <summary>
-	/// å®¡æ‰¹äºº
-	/// </summary>
-	public static readonly string Approver = "Approver";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000008";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,éœ€æ±‚å¼‚å¸¸å®¡æ‰¹å•
-/// </summary>
-public class RequestExceptionApprovalForm
-{
-	public static readonly string TableCode = "D001419Skk7vgg7h6fxn1n4cb9imiydu4";
-	public RequestExceptionApprovalForm() { }
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000010";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000009";
-	/// <summary>
-	/// å·¥åºåç§°
-	/// </summary>
-	public static readonly string OperationName = "F0000004";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000003";
-	/// <summary>
-	/// çº¸è´¨å•æ®è®°å½•
-	/// </summary>
-	public static readonly string PaperDocumentRecord = "F0000005";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string WorkshopLocation = "F0000013";
-	/// <summary>
-	/// å…¶å®ƒå¼‚å¸¸å·¥ä»¶
-	/// </summary>
-	public static readonly string OtherAbnormalWorkPieces = "D001419Fvo9til7seo94j2a3aum0trd11";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// å¼‚å¸¸ä»£è¡¨
-	/// </summary>
-	public static readonly string ExceptionRepresentative = "F0000015";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string RegionalLocation = "F0000014";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000011";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000016";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º
-	/// </summary>
-	public static readonly string QualityInspectionConclusion = "F0000001";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000008";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// å…¶ä»–å¼‚å¸¸å…³è”æ§ä»¶è¡¨å•
-	/// </summary>
-	public static readonly string OtherExceptionRelatedControlForm = "F0000006";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000012";
-	/// <summary>
-	/// å®¡æ‰¹äºº
-	/// </summary>
-	public static readonly string Approver = "Approver";
-}
-/// <summary>
-/// åˆ¶é€ æµç¨‹,å…¶ä»–å¼‚å¸¸å®¡æ‰¹å•
-/// </summary>
-public class OtherAbnormalApprovalDocuments
-{
-	public static readonly string TableCode = "D001419Sk5o69536e6w6pev17ghk3u7y6";
-	public OtherAbnormalApprovalDocuments() { }
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000012";
-	/// <summary>
-	/// å…¶ä»–å¼‚å¸¸å…³è”æ§ä»¶è¡¨å•
-	/// </summary>
-	public static readonly string OtherExceptionRelatedControlForm = "F0000006";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º
-	/// </summary>
-	public static readonly string QualityInspectionConclusion = "F0000001";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string WorkshopLocation = "F0000013";
-	/// <summary>
-	/// å¼‚å¸¸ä»£è¡¨
-	/// </summary>
-	public static readonly string ExceptionRepresentative = "F0000015";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000008";
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string RegionalLocation = "F0000014";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000003";
-	/// <summary>
-	/// å…¶å®ƒå¼‚å¸¸å·¥ä»¶
-	/// </summary>
-	public static readonly string OtherAbnormalWorkPieces = "D001419Fqjbv8x1r2mfzvltivxlibyia4";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000016";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000011";
-	/// <summary>
-	/// å®¡æ‰¹äºº
-	/// </summary>
-	public static readonly string Approver = "Approver";
-	/// <summary>
-	/// å·¥åºåç§°
-	/// </summary>
-	public static readonly string OperationName = "F0000004";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000009";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000010";
-	/// <summary>
-	/// çº¸è´¨å•æ®è®°å½•
-	/// </summary>
-	public static readonly string PaperDocumentRecord = "F0000005";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-}
-/// <summary>
-/// ç”Ÿäº§-åˆ¶é€ æµç¨‹,è´¨é‡å¼‚å¸¸å®¡æ‰¹å•
-/// </summary>
-public class QualityApprovalList
-{
-	public static readonly string TableCode = "D001419c587c429cb0e457fb094bd05641d07e4";
-	public QualityApprovalList() { }
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// éƒ¨é—¨ä»£ç 
-	/// </summary>
-	public static readonly string DepartmentCode = "F0000022";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000010";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º
-	/// </summary>
-	public static readonly string QualityInspectionConclusion = "F0000001";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// å·¥åºåç§°
-	/// </summary>
-	public static readonly string OperationName = "F0000004";
-	/// <summary>
-	/// çº¸è´¨å•æ®è®°å½•
-	/// </summary>
-	public static readonly string PaperDocumentRecord = "F0000005";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000011";
-	/// <summary>
-	/// å…³è”æœºåŠ è´¨é‡å¤„ç†
-	/// </summary>
-	public static readonly string AssociatedMachineQualityVolumeHandling = "F0000015";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000023";
-	/// <summary>
-	/// å‘èµ·çš„å¼‚å¸¸ä»£è¡¨
-	/// </summary>
-	public static readonly string InitiatedExceptionRepresentation = "F0000019";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000012";
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string RegionalLocation = "F0000014";
-	/// <summary>
-	/// ç¬¬å‡ æ¬¡è¿›å…¥èŠ‚ç‚¹
-	/// </summary>
-	public static readonly string HowManyTimesToEnterTheNode = "F0000024";
-	/// <summary>
-	/// æ˜¯å¦æœ‰å­æµç¨‹
-	/// </summary>
-	public static readonly string WhetherThereAreSubprocesses = "F0000020";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// é€‰æ‹©å¼‚å¸¸ä»£è¡¨
-	/// </summary>
-	public static readonly string SelectExceptionRepresentative = "F0000016";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000003";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// éƒ¨é—¨å¤šé€‰
-	/// </summary>
-	public static readonly string DepartmentOfAlternative = "F0000021";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000017";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string WorkshopLocation = "F0000013";
-	/// <summary>
-	/// å¼‚å¸¸ä»£è¡¨
-	/// </summary>
-	public static readonly string ExceptionRepresentative = "F0000018";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// å…¶ä»–å¼‚å¸¸å…³è”æ§ä»¶è¡¨å•
-	/// </summary>
-	public static readonly string OtherExceptionRelatedControlForm = "F0000006";
-	/// <summary>
-	/// å®¡æ‰¹äºº
-	/// </summary>
-	public static readonly string Approver = "Approver";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000008";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000009";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,å¼€å‘å¼‚å¸¸æ—¥å¿—
-/// </summary>
-public class BusinessExcepitonLog
-{
-	public static readonly string TableCode = "D00141915d12cb7f30046f78e79f622c5b8b643";
-	public BusinessExcepitonLog() { }
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// è¡¨å•åç§°
-	/// </summary>
-	public static readonly string FormName = "F0000001";
-	/// <summary>
-	/// æ–¹æ³•åç§°
-	/// </summary>
-	public static readonly string MethodName = "F0000002";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// é”™è¯¯ä¿¡æ¯
-	/// </summary>
-	public static readonly string ErrorInformation = "F0000004";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// å¼€å‘äººå‘˜
-	/// </summary>
-	public static readonly string Developer = "F0000003";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,è´¨é‡å¤„ç†ç„Šä¿®
-/// </summary>
-public class QualityTreatmentWeldingRepair
-{
-	public static readonly string TableCode = "D00141952a9b2b90603449d995cde88061d4008";
-	public QualityTreatmentWeldingRepair() { }
-	/// <summary>
-	/// æ˜¯/å¦ç²¾æ•´
-	/// </summary>
-	public static readonly string IsFinishing = "F0000012";
-	/// <summary>
-	/// æ¢ä¼¤è¡¨
-	/// </summary>
-	public static readonly string FlawDetectionTable = "F0000004";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000001";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string ProductSpecification = "F0000011";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000009";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string CurrentLocation = "F0000018";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000006";
-	/// <summary>
-	/// å¤‡æ³¨
-	/// </summary>
-	public static readonly string Remarks = "F0000013";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000010";
-	/// <summary>
-	/// æ˜¯/å¦æ‰“ç£¨
-	/// </summary>
-	public static readonly string IsGrinding = "F0000014";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// å½“å‰å·¥åº
-	/// </summary>
-	public static readonly string CurrentOperation = "F0000002";
-	/// <summary>
-	/// å½“å‰å·¥æ­¥
-	/// </summary>
-	public static readonly string CurrentStep = "F0000016";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// æ¢ä¼¤è®¤å®š
-	/// </summary>
-	public static readonly string FlawDetectionIdentification = "F0000015";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// æ£€éªŒç»“æœ
-	/// </summary>
-	public static readonly string QualityInspectionConclusion = "F0000003";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000007";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string CurrentWorkshop = "F0000017";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000008";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000005";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-}
-/// <summary>
-/// æœºåŠ å·¥ç»©æ•ˆ,å·¥èµ„è®¡ç®—å¼‚å¸¸è®°å½•
-/// </summary>
-public class AbnormalRecordOfPayrollCalculation
-{
-	public static readonly string TableCode = "D00141929f4bdeb2b694a26a50b7b7f50ffa3f5";
-	public AbnormalRecordOfPayrollCalculation() { }
-	/// <summary>
-	/// å·¥åºåç§°
-	/// </summary>
-	public static readonly string OperationName = "F0000004";
-	/// <summary>
-	/// å¼‚å¸¸æè¿°
-	/// </summary>
-	public static readonly string ExceptionDescription = "F0000005";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// æ—¥æœŸ
-	/// </summary>
-	public static readonly string Date = "F0000001";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000003";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000002";
-}
-/// <summary>
-/// åˆ¶é€ æµç¨‹,é”¯åˆ‡å­è¡¨
-/// </summary>
-public class SawCutSubTable
-{
-	public static readonly string TableCode = "D001419Fff99042207274f8da1c422c807b2e7f0";
-	public SawCutSubTable() { }
-	/// <summary>
-	/// åŠ å·¥é‡
-	/// </summary>
-	public static readonly string ProcessingQuantity = "F0000088";
-	/// <summary>
-	/// è®¾å¤‡é€‰æ‹©
-	/// </summary>
-	public static readonly string EquipmentSelection = "F0000087";
-	/// <summary>
-	/// ç»“æŸæ—¶é—´
-	/// </summary>
-	public static readonly string EndTime = "F0000094";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000091";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000089";
-	/// <summary>
-	/// å¼€å§‹æ—¶é—´
-	/// </summary>
-	public static readonly string StartTime = "F0000093";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000090";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// åŠ å·¥è€…
-	/// </summary>
-	public static readonly string Processor = "F0000092";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-}
-/// <summary>
-/// ç”Ÿäº§è®¡åˆ’,é”¯åˆ‡æ´¾å·¥å­è¡¨
-/// </summary>
-public class DispatchSawCutSubTable
-{
-	public static readonly string TableCode = "D001419c87d435bbb0e41b581239eaec26fd6bb";
-	public DispatchSawCutSubTable() { }
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000008";
-	/// <summary>
-	/// å·¥æ—¶
-	/// </summary>
-	public static readonly string ManHour = "F0000023";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000045";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// å§“å
-	/// </summary>
-	public static readonly string Name = "F0000036";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000049";
-	/// <summary>
-	/// åŠ å·¥é‡
-	/// </summary>
-	public static readonly string ProcessingQuantity = "F0000019";
-}
-/// <summary>
-/// ç”Ÿäº§å¤–åç®¡ç†,å¤–ååˆåŒ-äº§å“åˆ—è¡¨
-/// </summary>
-public class ProductList
-{
-	public static readonly string TableCode = "D001419Faebf741cae044316a15f4db3db5ebc18";
-	public ProductList() { }
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// äº§å“ID
-	/// </summary>
-	public static readonly string ProductID = "F0000010";
-	/// <summary>
-	/// ä¸‹æ–™å•é‡
-	/// </summary>
-	public static readonly string BlankingOrderWeight = "F0000014";
-	/// <summary>
-	/// å›¾å·_è§„æ ¼
-	/// </summary>
-	public static readonly string DrawingNoSpecification = "F0000013";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000012";
-	/// <summary>
-	/// äº¤è´§çŠ¶æ€
-	/// </summary>
-	public static readonly string DeliveryStatus = "F0000015";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ABCDå·¥åºè®¡åˆ’è¡¨
-	/// </summary>
-	public static readonly string ABCDOperationPlan = "F0000009";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// å¤–åå·¥åº
-	/// </summary>
-	public static readonly string OutsourcingOperation = "F0000018";
-	/// <summary>
-	/// å•ä»·
-	/// </summary>
-	public static readonly string UnitPrice = "F0000016";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000011";
-	/// <summary>
-	/// å¤–åæµç¨‹è¡¨
-	/// </summary>
-	public static readonly string OutsourcingFlowTable = "F0000017";
-}
-/// <summary>
-/// ç”Ÿäº§è®¡åˆ’,ç²—è½¦å››é¢å…‰æ´¾å·¥å­è¡¨
-/// </summary>
-public class DispatchRoughFourLatheSubTable
-{
-	public static readonly string TableCode = "D001419F694a0d18773d4a329ad4e145ccee2bb7";
-	public DispatchRoughFourLatheSubTable() { }
-	/// <summary>
-	/// å·¥æ—¶
-	/// </summary>
-	public static readonly string ManHour = "F0000060";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000064";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000056";
-	/// <summary>
-	/// å§“å
-	/// </summary>
-	public static readonly string Name = "F0000054";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000062";
-	/// <summary>
-	/// ç‰¹æ®Šä»»åŠ¡
-	/// </summary>
-	public static readonly string SpecialTask = "F0000078";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// åŠ å·¥é‡
-	/// </summary>
-	public static readonly string ProcessingQuantity = "F0000058";
-}
-/// <summary>
-/// ç”Ÿäº§è®¡åˆ’,å–æ ·å››é¢å…‰æ´¾å·¥å­è¡¨
-/// </summary>
-public class DispatchSamplingFourLatheSubTable
-{
-	public static readonly string TableCode = "D001419Fbb3556b399a44f998b82f9aa74624afd";
-	public DispatchSamplingFourLatheSubTable() { }
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000055";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// åŠ å·¥é‡
-	/// </summary>
-	public static readonly string ProcessingQuantity = "F0000057";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000063";
-	/// <summary>
-	/// å·¥æ—¶
-	/// </summary>
-	public static readonly string ManHour = "F0000059";
-	/// <summary>
-	/// ç‰¹æ®Šä»»åŠ¡
-	/// </summary>
-	public static readonly string SpecialTask = "F0000077";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000061";
-	/// <summary>
-	/// å§“å
-	/// </summary>
-	public static readonly string Name = "F0000053";
-}
-/// <summary>
-/// ç”Ÿäº§è®¡åˆ’,é’»å­”æ´¾å·¥å­è¡¨
-/// </summary>
-public class DispatchDrillSubTable
-{
-	public static readonly string TableCode = "D001419F5ccfa7d5acad41bf98c640057f2570ae";
-	public DispatchDrillSubTable() { }
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string TheAmountOfScrap = "F0000084";
-	/// <summary>
-	/// é’»å­”å·¥æ—¶
-	/// </summary>
-	public static readonly string ManHour = "F0000034";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000052";
-	/// <summary>
-	/// é’»å­”è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string LocationDrillWorkshop = "F0000069";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000017";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000048";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string TaskName = "F0000061";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Name = "F0000015";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string ProcessedQuantity = "F0000077";
-	/// <summary>
-	/// é’»å­”è½¦é—´åç§°
-	/// </summary>
-	public static readonly string NameDrillWorkshop = "F0000068";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string ProcessingQuantity = "F0000022";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-}
-/// <summary>
-/// ç”Ÿäº§è®¡åˆ’,ç²¾è½¦æ´¾å·¥å­è¡¨
-/// </summary>
-public class DispatchFinishSubTable
-{
-	public static readonly string TableCode = "D001419F4a23f2f26a01428f952a593da3d99fe5";
-	public DispatchFinishSubTable() { }
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string ProcessingQuantity = "F0000021";
-	/// <summary>
-	/// ç²¾è½¦è½¦é—´åç§°
-	/// </summary>
-	public static readonly string NameFinishingWorkshop = "F0000066";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000051";
-	/// <summary>
-	/// ç²¾è½¦å·¥æ—¶
-	/// </summary>
-	public static readonly string ManHour = "F0000035";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Name = "F0000014";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string TaskName = "F0000060";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string TheAmountOfScrap = "F0000083";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000013";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000047";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string ProcessedQuantity = "F0000078";
-	/// <summary>
-	/// ç²¾è½¦è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string LocationFinishingWorkshop = "F0000067";
-}
-/// <summary>
-/// ç”Ÿäº§è®¡åˆ’,ç²—è½¦æ´¾å·¥å­è¡¨
-/// </summary>
-public class DispatchRoughSubTable
-{
-	public static readonly string TableCode = "D001419Ffb3f2e583e31421e8aaa5a085bbada58";
-	public DispatchRoughSubTable() { }
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string TaskName = "F0000058";
-	/// <summary>
-	/// ç²—è½¦è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string LocationRoughingWorkshop = "F0000065";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000046";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string TheAmountOfScrap = "F0000082";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Name = "F0000037";
-	/// <summary>
-	/// ç²—è½¦å·¥æ—¶
-	/// </summary>
-	public static readonly string ManHour = "F0000024";
-	/// <summary>
-	/// ç²—è½¦è½¦é—´åç§°
-	/// </summary>
-	public static readonly string NameRoughingWorkshop = "F0000064";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000009";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000050";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string ProcessedQuantity = "F0000079";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string ProcessingQuantity = "F0000020";
-}
-/// <summary>
-/// ç”Ÿäº§è®¡åˆ’,å–æ ·æ´¾å·¥å­è¡¨
-/// </summary>
-public class DispatchSamplingSubTable
-{
-	public static readonly string TableCode = "D001419Fc9380612ad364043a33702a36bf5fde9";
-	public DispatchSamplingSubTable() { }
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000045";
-	/// <summary>
-	/// å–æ ·è½¦é—´åç§°
-	/// </summary>
-	public static readonly string NameSamplingWorkshop = "F0000062";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string TheAmountOfScrap = "F0000081";
-	/// <summary>
-	/// å®Œæˆé‡
-	/// </summary>
-	public static readonly string ProcessedQuantity = "F0000080";
-	/// <summary>
-	/// æ´¾å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Name = "F0000036";
-	/// <summary>
-	/// å–æ ·è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string LocationSamplingWorkshop = "F0000063";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000008";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string TaskName = "F0000059";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000049";
-	/// <summary>
-	/// å–æ ·å·¥æ—¶
-	/// </summary>
-	public static readonly string ManHour = "F0000023";
-	/// <summary>
-	/// æ´¾å·¥é‡
-	/// </summary>
-	public static readonly string ProcessingQuantity = "F0000019";
-}
-/// <summary>
-/// å¸‚åœºéœ€æ±‚,å®šæ—¶å™¨æ‰§è¡Œè®°å½•
-/// </summary>
-public class TimerExecutionRecord
-{
-	public static readonly string TableCode = "D0014198d2b9fb1d48f4ef5804db6fd5a757be7";
-	public TimerExecutionRecord() { }
-	/// <summary>
-	/// æ’å…¥è®°å½•
-	/// </summary>
-	public static readonly string InsertRecord = "F0000001";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000003";
-	/// <summary>
-	/// æ’å…¥æ—¶é—´
-	/// </summary>
-	public static readonly string InsertTime = "F0000002";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string BatchNumber = "F0000004";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// è§„æ ¼å·
-	/// </summary>
-	public static readonly string SpecificationNumber = "F0000005";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-}
-/// <summary>
-/// å¸‚åœºéœ€æ±‚,ç™¾åˆ†æ¯”ç¼–ç 
-/// </summary>
-public class PercentageCoding
-{
-	public static readonly string TableCode = "D00141958c632b106f8486582d5f5f36808da78";
-	public PercentageCoding() { }
-	/// <summary>
-	/// A-B-Cå·²æŠ•æœªå®Œæˆç™¾åˆ†æ¯”
-	/// </summary>
-	public static readonly string MarketDeliveryDate = "F0000029";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000010";
-	/// <summary>
-	/// A-Bå·²æŠ•æœªå®Œæˆç™¾åˆ†æ¯”
-	/// </summary>
-	public static readonly string OrderSpecificationNoAc = "F0000023";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·A-B-C
-	/// </summary>
-	public static readonly string AbcFinishedProductPercentage = "F0000032";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "DataNum";
-	/// <summary>
-	/// A-Cå‘è¿ç™¾åˆ†æ¯”
-	/// </summary>
-	public static readonly string AcDeliveredUnfinishedPercentage = "F0000025";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// Aæˆå“ç™¾åˆ†æ¯”
-	/// </summary>
-	public static readonly string PercentageOfAShipped = "F0000016";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// A-B-Cæˆå“ç™¾åˆ†æ¯”
-	/// </summary>
-	public static readonly string AbCShippingPercentage = "F0000027";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// A-Bå‘è¿ç™¾åˆ†æ¯”
-	/// </summary>
-	public static readonly string PercentageOfABDeliveredButNotCompletedRatio = "F0000022";
-	/// <summary>
-	/// Aå‘è¿ç™¾åˆ†æ¯”
-	/// </summary>
-	public static readonly string PercentageOfADeliveredButNotCompleted = "F0000017";
-	/// <summary>
-	/// æˆå“æ•°
-	/// </summary>
-	public static readonly string NumberOfFinishedProducts = "F0000012";
-	/// <summary>
-	/// æœ¬æ‰¹æŠ•äº§æ•°
-	/// </summary>
-	public static readonly string NumberOfPutIntoProductionInThisBatch = "F0000011";
-	/// <summary>
-	/// è®¢å•çŠ¶æ€
-	/// </summary>
-	public static readonly string TheOrderStatus = "F0000043";
-	/// <summary>
-	/// A-Bæˆå“ç™¾åˆ†æ¯”
-	/// </summary>
-	public static readonly string PercentageOfABShipped = "F0000021";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// å·²å‘è¿æ•°
-	/// </summary>
-	public static readonly string NumberOfShippedProducts = "F0000013";
-	/// <summary>
-	/// å¸‚åœºäº¤è´§æœŸ
-	/// </summary>
-	public static readonly string OrderStatus = "F0000042";
-	/// <summary>
-	/// ç™¾åˆ†ç™¾
-	/// </summary>
-	public static readonly string PercentageOfFinishedProducts = "F0000015";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// è§„æ ¼å·
-	/// </summary>
-	public static readonly string SpecificationNumber = "F0000020";
-	/// <summary>
-	/// æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string BatchNumber = "F0000019";
-	/// <summary>
-	/// Aå·²æŠ•æœªå®Œæˆç™¾åˆ†æ¯”
-	/// </summary>
-	public static readonly string OrderBatchNumberAB = "F0000018";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·A-B
-	/// </summary>
-	public static readonly string PercentageOfABFinishedProducts = "F0000030";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·A-C
-	/// </summary>
-	public static readonly string AcFinishedProductPercentage = "F0000031";
-	/// <summary>
-	/// A-Cæˆå“ç™¾åˆ†æ¯”
-	/// </summary>
-	public static readonly string AcShippingPercentage = "F0000024";
-	/// <summary>
-	/// A-B -Cå‘è¿ç™¾åˆ†æ¯”
-	/// </summary>
-	public static readonly string AbcDeliveredUnfinishedPercentage = "F0000028";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// A-Cå·²æŠ•æœªå®Œæˆç™¾åˆ†æ¯”
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNoAbc = "F0000026";
-	/// <summary>
-	/// åœ¨äº§æ•°
-	/// </summary>
-	public static readonly string NumberOfInProgress = "F0000014";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-}
-/// <summary>
-/// å¸‚åœºéœ€æ±‚,ç±»åˆ«æ¯”ç¼–ç 
-/// </summary>
-public class CategoryRatioCoding
-{
-	public static readonly string TableCode = "D001419Sfejnmky2bnj51kryzbei29lu2";
-	public CategoryRatioCoding() { }
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·A-C
-	/// </summary>
-	public static readonly string OrderSpecificationNumberAc = "F0000031";
-	/// <summary>
-	/// å¸‚åœºäº¤è´§æœŸ
-	/// </summary>
-	public static readonly string MarketDeliveryDate = "F0000042";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000010";
-	/// <summary>
-	/// åˆ†ç±»æ•°é‡
-	/// </summary>
-	public static readonly string ClassifiedQuantity = "F0000044";
-	/// <summary>
-	/// è§„æ ¼å·
-	/// </summary>
-	public static readonly string SpecificationNumber = "F0000020";
-	/// <summary>
-	/// æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string BatchNumber = "F0000019";
-	/// <summary>
-	/// è®¢å•çŠ¶æ€
-	/// </summary>
-	public static readonly string TheOrderStatus = "F0000045";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·A-B
-	/// </summary>
-	public static readonly string OrderBatchNumberAB = "F0000030";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·A-B-C
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumberAbc = "F0000032";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// è§„æ ¼å·²æéœ€æ±‚æ•°
-	/// </summary>
-	public static readonly string NumberOfRequirementsRaisedForSpecification = "F0000046";
-	/// <summary>
-	/// äº§å“çŠ¶æ€
-	/// </summary>
-	public static readonly string ProductStatus = "F0000043";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// æœ¬æ‰¹éœ€æ±‚æ•°
-	/// </summary>
-	public static readonly string NumberOfRequirementsInThisBatch = "F0000011";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,ç‚‰æ¬¡è®¡åˆ’
-/// </summary>
-public class FurnaceTimePlan
-{
-	public static readonly string TableCode = "D00141981ce4a75d2344a21bd7d94cfac348515";
-	public FurnaceTimePlan() { }
-	/// <summary>
-	/// ç‚‰æ¸©
-	/// </summary>
-	public static readonly string FurnaceTemperature = "F0000007";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000012";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// ç‚‰æ¬¡ç¼–å·
-	/// </summary>
-	public static readonly string FurnaceTimeNumber = "F0000003";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// æ£€éªŒç»“æœ
-	/// </summary>
-	public static readonly string InspectionResult = "F0000006";
-	/// <summary>
-	/// ç‚‰å†…ä½ç½®ç¡®è®¤è¡¨
-	/// </summary>
-	public static readonly string FurnacePositionConfirmationForm = "D001419F729c594834b84e09a487bf329aaed3d2";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// æµæ°´å·
-	/// </summary>
-	public static readonly string SerialNumber = "SeqNo";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000005";
-	/// <summary>
-	/// ç‚‰å·
-	/// </summary>
-	public static readonly string FurnaceNumber = "F0000002";
-	/// <summary>
-	/// å…³è”ç‚‰è®¾å¤‡
-	/// </summary>
-	public static readonly string AssociatedFurnaceEquipment = "F0000001";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000004";
-	/// <summary>
-	/// è£…ç‚‰æ—¶é—´
-	/// </summary>
-	public static readonly string ChargingTime = "CreatedTime";
-}
-/// <summary>
-/// ç”Ÿäº§è®¡åˆ’,ç”Ÿäº§è®¡åˆ’è¡¨æƒé™è®¾ç½®å­è¡¨
-/// </summary>
-public class ABCDAuthorizationSubTable
-{
-	public static readonly string TableCode = "D001419Fd16ddf64c56a4ff2a76d53a508e9f407";
-	public ABCDAuthorizationSubTable() { }
-	/// <summary>
-	/// æƒé™
-	/// </summary>
-	public static readonly string Permission = "F0000012";
-	/// <summary>
-	/// å­—æ®µåç§°
-	/// </summary>
-	public static readonly string FieldName = "F0000011";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// å­—æ®µç¼–ç 
-	/// </summary>
-	public static readonly string FieldCode = "F0000013";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-}
-/// <summary>
-/// ç”Ÿäº§æ•°æ®åˆ†æ,å®æ—¶ç”Ÿäº§åŠ¨æ€
-/// </summary>
-public class RealTimeDynamicProduction
-{
-	public static readonly string TableCode = "D0014197b0d6db6d8d44c0a9f472411b6e754bd";
-	public RealTimeDynamicProduction() { }
-	/// <summary>
-	/// è¾—ç¯-æå‰å¤©æ•°
-	/// </summary>
-	public static readonly string RingRollingAdvanceDays = "F0000059";
-	/// <summary>
-	/// å†·åŠ å·¥-å»¶æœŸå¤©æ•°
-	/// </summary>
-	public static readonly string ColdWorkingDelayDays = "F0000035";
-	/// <summary>
-	/// é’»å­”-æå‰å¤©æ•°
-	/// </summary>
-	public static readonly string DrillingAdvanceDays = "F0000044";
-	/// <summary>
-	/// æ¯›å¯-æå‰å¤©æ•°
-	/// </summary>
-	public static readonly string BlankAdvanceDays = "F0000041";
-	/// <summary>
-	/// é”»å‹-æå‰å¤©æ•°
-	/// </summary>
-	public static readonly string ForgingLeadDays = "F0000058";
-	/// <summary>
-	/// çƒ­åŠ å·¥-å®Œæˆæ—¥æœŸ
-	/// </summary>
-	public static readonly string HotWorkingCompletionDate = "F0000029";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// åŒºåŸŸ
-	/// </summary>
-	public static readonly string Area = "F0000074";
-	/// <summary>
-	/// è½¦é—´
-	/// </summary>
-	public static readonly string Workshop = "F0000073";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// å¸‚åœºéœ€æ±‚è¾¾æˆè¿›åº¦
-	/// </summary>
-	public static readonly string MarketDemandAchievementProgress = "F0000020";
-	/// <summary>
-	/// æ¯›å¯-å®Œæˆæ—¥æœŸ
-	/// </summary>
-	public static readonly string BlankCompletionDate = "F0000037";
-	/// <summary>
-	/// ç²—è½¦-æå‰å¤©æ•°
-	/// </summary>
-	public static readonly string RoughTurningAdvanceDays = "F0000042";
-	/// <summary>
-	/// é”»å‹-å»¶æœŸå¤©æ•°
-	/// </summary>
-	public static readonly string ForgingDelayDays = "F0000062";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// è¾—ç¯-å‡†æ—¶å®Œå·¥
-	/// </summary>
-	public static readonly string RingRollingOnTimeCompletion = "F0000067";
-	/// <summary>
-	/// çƒ­å¤„ç†-å‡†æ—¶å®Œå·¥
-	/// </summary>
-	public static readonly string HeatTreatmentOnTimeCompletion = "F0000068";
-	/// <summary>
-	/// å½“å‰å·¥æ­¥
-	/// </summary>
-	public static readonly string CurrentWorkStep = "F0000003";
-	/// <summary>
-	/// å·¥äºº
-	/// </summary>
-	public static readonly string Worker = "F0000005";
-	/// <summary>
-	/// çƒ­å¤„ç†-å®Œæˆæ—¥æœŸ
-	/// </summary>
-	public static readonly string HeatTreatmentCompletionDate = "F0000056";
-	/// <summary>
-	/// é”¯åˆ‡-å‡†æ—¶å®Œå·¥
-	/// </summary>
-	public static readonly string SawingOnTimeCompletion = "F0000065";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000014";
-	/// <summary>
-	/// å†·åŠ å·¥-æå‰å¤©æ•°
-	/// </summary>
-	public static readonly string ColdWorkingAdvanceDays = "F0000034";
-	/// <summary>
-	/// é’»å­”-å®Œæˆæ—¥æœŸ
-	/// </summary>
-	public static readonly string DrillingCompletionDate = "F0000040";
-	/// <summary>
-	/// çƒ­å¤„ç†-å»¶æœŸå¤©æ•°
-	/// </summary>
-	public static readonly string HeatTreatmentDelayDays = "F0000064";
-	/// <summary>
-	/// é”»å‹-å‡†æ—¶å®Œå·¥
-	/// </summary>
-	public static readonly string ForgingOnTimeCompletion = "F0000066";
-	/// <summary>
-	/// é”¯åˆ‡-å®Œæˆæ—¥æœŸ
-	/// </summary>
-	public static readonly string SawingCompletionDate = "F0000053";
-	/// <summary>
-	/// æ¯›å¯-å»¶æœŸå¤©æ•°
-	/// </summary>
-	public static readonly string BlankDelayDays = "F0000045";
-	/// <summary>
-	/// å†·åŠ å·¥-å®Œæˆæ—¥æœŸ
-	/// </summary>
-	public static readonly string ColdWorkingCompletionDate = "F0000033";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼è¡¨
-	/// </summary>
-	public static readonly string OrderBatchSpecificationTable = "F0000069";
-	/// <summary>
-	/// é”¯åˆ‡-å»¶æœŸå¤©æ•°
-	/// </summary>
-	public static readonly string SawingDelayDays = "F0000061";
-	/// <summary>
-	/// ç²¾è½¦-å‡†æ—¶å®Œå·¥
-	/// </summary>
-	public static readonly string FinishTurningOnTimeCompletion = "F0000051";
-	/// <summary>
-	/// è®¢å•è§„æ ¼è¡¨
-	/// </summary>
-	public static readonly string OrderSpecificationTable = "F0000018";
-	/// <summary>
-	/// çƒ­åŠ å·¥-å»¶æœŸå¤©æ•°
-	/// </summary>
-	public static readonly string HotWorkingDelayDays = "F0000031";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// é”¯åˆ‡-æå‰å¤©æ•°
-	/// </summary>
-	public static readonly string SawingLeadDays = "F0000057";
-	/// <summary>
-	/// å·¥åºç¼–å·
-	/// </summary>
-	public static readonly string OperationNumber = "F0000008";
-	/// <summary>
-	/// ç²¾è½¦-å»¶æœŸå¤©æ•°
-	/// </summary>
-	public static readonly string FinishTurningDelayDays = "F0000047";
-	/// <summary>
-	/// ç²—è½¦-å‡†æ—¶å®Œå·¥
-	/// </summary>
-	public static readonly string RoughTurningOnTimeCompletion = "F0000050";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000001";
-	/// <summary>
-	/// è´¨é‡çŠ¶æ€
-	/// </summary>
-	public static readonly string QualityStatus = "F0000010";
-	/// <summary>
-	/// å‡†æ—¶å®Œå·¥
-	/// </summary>
-	public static readonly string OnTimeCompletion = "F0000025";
-	/// <summary>
-	/// å†·åŠ å·¥éœ€æ±‚è¾¾æˆè¿›åº¦
-	/// </summary>
-	public static readonly string ColdProcessingDemandCompletionSchedule = "F0000022";
-	/// <summary>
-	/// è¾—ç¯-å®Œæˆæ—¥æœŸ
-	/// </summary>
-	public static readonly string RingRollingCompletionDate = "F0000055";
-	/// <summary>
-	/// æ¯›å¯-å‡†æ—¶å®Œå·¥
-	/// </summary>
-	public static readonly string BlankOnTimeCompletion = "F0000049";
-	/// <summary>
-	/// äº§å“ä½ç½®
-	/// </summary>
-	public static readonly string ProductLocation = "F0000004";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// å·¥è‰ºæµç¨‹è¡¨
-	/// </summary>
-	public static readonly string ProcessFlowTable = "F0000075";
-	/// <summary>
-	/// å½“å‰å·¥åºè¡¨SchemaCode
-	/// </summary>
-	public static readonly string CurrentPreviousOperationTableSchemacode = "F0000071";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// ç²—è½¦-å»¶æœŸå¤©æ•°
-	/// </summary>
-	public static readonly string RoughTurningDelayDays = "F0000046";
-	/// <summary>
-	/// å·¥åºè¡¨æ•°æ®ID
-	/// </summary>
-	public static readonly string OperationTableDataID = "F0000070";
-	/// <summary>
-	/// çƒ­åŠ å·¥-å‡†æ—¶å®Œå·¥
-	/// </summary>
-	public static readonly string HotWorkingOnTimeCompletion = "F0000032";
-	/// <summary>
-	/// ç²¾è½¦-æå‰å¤©æ•°
-	/// </summary>
-	public static readonly string FinishTurningAdvanceDays = "F0000043";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// åŠ å·¥è®¾å¤‡
-	/// </summary>
-	public static readonly string ProcessingEquipment = "F0000007";
-	/// <summary>
-	/// æˆå“éœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string FinishedProductDemandPeriod = "F0000027";
-	/// <summary>
-	/// å‚åŒº
-	/// </summary>
-	public static readonly string PlantArea = "F0000072";
-	/// <summary>
-	/// ç”Ÿäº§å®Œæˆæ—¥æœŸ
-	/// </summary>
-	public static readonly string ProductionCompletionDate = "F0000028";
-	/// <summary>
-	/// å·¥åºè®¡åˆ’è¡¨
-	/// </summary>
-	public static readonly string OperationPlanTable = "F0000019";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è¡¨
-	/// </summary>
-	public static readonly string OrderBatchTable = "F0000026";
-	/// <summary>
-	/// çƒ­åŠ å·¥-æå‰å¤©æ•°
-	/// </summary>
-	public static readonly string HotWorkingLeadDays = "F0000030";
-	/// <summary>
-	/// å†·åŠ å·¥è®¡åˆ’æœŸ
-	/// </summary>
-	public static readonly string ColdProcessingPlanPeriod = "F0000013";
-	/// <summary>
-	/// ç­ç»„
-	/// </summary>
-	public static readonly string Team = "F0000006";
-	/// <summary>
-	/// ç²¾è½¦-å®Œæˆæ—¥æœŸ
-	/// </summary>
-	public static readonly string FinishTurningCompletionDate = "F0000039";
-	/// <summary>
-	/// è¾—ç¯-å»¶æœŸå¤©æ•°
-	/// </summary>
-	public static readonly string RingRollingDelayDays = "F0000063";
-	/// <summary>
-	/// é’»å­”-å»¶æœŸå¤©æ•°
-	/// </summary>
-	public static readonly string DrillingDelayDays = "F0000048";
-	/// <summary>
-	/// å½“å‰å·¥åº
-	/// </summary>
-	public static readonly string CurrentOperation = "F0000002";
-	/// <summary>
-	/// å†·åŠ å·¥-å‡†æ—¶å®Œå·¥
-	/// </summary>
-	public static readonly string ColdWorkingOnTimeCompletion = "F0000036";
-	/// <summary>
-	/// ç”Ÿäº§æå‰å¤©æ•°
-	/// </summary>
-	public static readonly string ProductionLeadDays = "F0000024";
-	/// <summary>
-	/// çƒ­åŠ å·¥è®¡åˆ’æœŸ
-	/// </summary>
-	public static readonly string HotProcessingPlanPeriod = "F0000012";
-	/// <summary>
-	/// çƒ­åŠ å·¥éœ€æ±‚è¾¾æˆè¿›åº¦
-	/// </summary>
-	public static readonly string HotProcessingDemandAchievementProgress = "F0000021";
-	/// <summary>
-	/// é”»å‹-å®Œæˆæ—¥æœŸ
-	/// </summary>
-	public static readonly string ForgingCompletionDate = "F0000054";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// ç²—è½¦-å®Œæˆæ—¥æœŸ
-	/// </summary>
-	public static readonly string RoughTurningCompletionDatePeriod = "F0000038";
-	/// <summary>
-	/// æ›´æ–°æ—¥æœŸ
-	/// </summary>
-	public static readonly string UpdateDate = "F0000009";
-	/// <summary>
-	/// é’»å­”-å‡†æ—¶å®Œå·¥
-	/// </summary>
-	public static readonly string DrillingOnTimeCompletion = "F0000052";
-	/// <summary>
-	/// çƒ­å¤„ç†-æå‰å¤©æ•°
-	/// </summary>
-	public static readonly string HeatTreatmentAdvanceDays = "F0000060";
-	/// <summary>
-	/// ç”Ÿäº§å»¶æœŸå¤©æ•°
-	/// </summary>
-	public static readonly string ProductionDelayDays = "F0000023";
-}
-/// <summary>
-/// ç”Ÿäº§è®¡åˆ’,ç”Ÿäº§è®¡åˆ’è¡¨æƒé™è®¾ç½®
-/// </summary>
-public class ABCDAuthorization
-{
-	public static readonly string TableCode = "D001419ec1a1b145bd14be48e1ae68ce1b6b5bc";
-	public ABCDAuthorization() { }
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è§’è‰²åç§°
-	/// </summary>
-	public static readonly string RoleName = "F0000014";
-	/// <summary>
-	/// æƒé™è¡¨
-	/// </summary>
-	public static readonly string PermissionTable = "D001419Fd16ddf64c56a4ff2a76d53a508e9f407";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,æ¢ä¼¤å­è¡¨
-/// </summary>
-public class InspectionSubTable
-{
-	public static readonly string TableCode = "D001419F89050d4fc56d4bf7b41f343f2e3bd5a1";
-	public InspectionSubTable() { }
-	/// <summary>
-	/// å·¥æ­¥
-	/// </summary>
-	public static readonly string WorkStep = "F0000018";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// æ—¥æœŸ
-	/// </summary>
-	public static readonly string Date = "F0000015";
-	/// <summary>
-	/// æ¢ä¼¤å·
-	/// </summary>
-	public static readonly string FlawDetectionNumber = "F0000003";
-	/// <summary>
-	/// å·²åŠ å·¥é‡
-	/// </summary>
-	public static readonly string ProcessedQuantity = "F0000019";
-	/// <summary>
-	/// å·¥åº
-	/// </summary>
-	public static readonly string Process = "F0000017";
-	/// <summary>
-	/// ç»“æœè®¤å®š
-	/// </summary>
-	public static readonly string ResultIdentification = "F0000024";
-	/// <summary>
-	/// æœ¬æ¬¡æ¢ä¼¤ç»“æœ
-	/// </summary>
-	public static readonly string ThisFlawDetectionResult = "F0000002";
-	/// <summary>
-	/// æ¢ä¼¤å‘˜
-	/// </summary>
-	public static readonly string ProbeTheWounded = "F0000016";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// å·²åŠ å·¥é¢
-	/// </summary>
-	public static readonly string MachinedSurface = "F0000020";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,ç²—è½¦æœºåŠ å·¥å­è¡¨
-/// </summary>
-public class RoughSubTable
-{
-	public static readonly string TableCode = "D001419F8cbba24c57a74ad99bd809ab8e262996";
-	public RoughSubTable() { }
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000159";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string TaskName = "F0000206";
-	/// <summary>
-	/// æ´¾å·¥é‡å˜æ›´
-	/// </summary>
-	public static readonly string MakeDifference = "F0000247";
-	/// <summary>
-	/// è®¾å¤‡å·¥æ—¶ç³»æ•°
-	/// </summary>
-	public static readonly string EquipmentTimeCoefficient = "F0000199";
-	/// <summary>
-	/// ä»»åŠ¡è®¡æ•°
-	/// </summary>
-	public static readonly string CountingTask = "F0000166";
-	/// <summary>
-	/// äº§å“å·¥æ—¶
-	/// </summary>
-	public static readonly string TheProductWorkingHours = "F0000196";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ä¸ªäººå·¥æ—¶
-	/// </summary>
-	public static readonly string PersonWorkingHours = "F0000197";
-	/// <summary>
-	/// åŠ å·¥è®°å½•
-	/// </summary>
-	public static readonly string ProcessingRecord = "F0000161";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// ç”³è¯·éš¾åº¦è°ƒæ•´
-	/// </summary>
-	public static readonly string ApplicationDifficultyAdjustment = "F0000181";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000158";
-	/// <summary>
-	/// æ˜¯å¦æ¢ä¼¤
-	/// </summary>
-	public static readonly string FlawDetectionOrNot = "F0000168";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000160";
-	/// <summary>
-	/// å¼€å§‹æ—¶é—´
-	/// </summary>
-	public static readonly string StartTime = "F0000164";
-	/// <summary>
-	/// åŠ å·¥é‡
-	/// </summary>
-	public static readonly string ProcessingQuantity = "F0000162";
-	/// <summary>
-	/// åŠ å·¥è€…
-	/// </summary>
-	public static readonly string Processor = "F0000157";
-	/// <summary>
-	/// è®¾å¤‡é€‰æ‹©
-	/// </summary>
-	public static readonly string EquipmentSelection = "F0000163";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,ç²¾è½¦æœºåŠ å·¥å­è¡¨
-/// </summary>
-public class FinishSubTable
-{
-	public static readonly string TableCode = "D001419Fd25eb8064b424ed9855ced1923841f1c";
-	public FinishSubTable() { }
-	/// <summary>
-	/// è®¾å¤‡å·¥æ—¶ç³»æ•°
-	/// </summary>
-	public static readonly string EquipmentTimeCoefficient = "F0000187";
-	/// <summary>
-	/// æ´¾å·¥é‡å˜æ›´
-	/// </summary>
-	public static readonly string MakeDifference = "F0000242";
-	/// <summary>
-	/// ä»»åŠ¡è®¡æ•°
-	/// </summary>
-	public static readonly string CountingTask = "F0000141";
-	/// <summary>
-	/// è®¾å¤‡é€‰æ‹©
-	/// </summary>
-	public static readonly string EquipmentSelection = "F0000136";
-	/// <summary>
-	/// æ˜¯å¦æ¢ä¼¤
-	/// </summary>
-	public static readonly string FlawDetectionOrNot = "F0000169";
-	/// <summary>
-	/// äº§å“å·¥æ—¶
-	/// </summary>
-	public static readonly string TheProductWorkingHours = "F0000183";
-	/// <summary>
-	/// åŠ å·¥è€…
-	/// </summary>
-	public static readonly string Processor = "F0000143";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000139";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// å¼€å§‹æ—¶é—´
-	/// </summary>
-	public static readonly string StartTime = "F0000142";
-	/// <summary>
-	/// ä¸ªäººå·¥æ—¶
-	/// </summary>
-	public static readonly string PersonWorkingHours = "F0000184";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000138";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ä»»åŠ¡åç§°
-	/// </summary>
-	public static readonly string TaskName = "F0000229";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// åŠ å·¥é‡
-	/// </summary>
-	public static readonly string ProcessingQuantity = "F0000140";
-	/// <summary>
-	/// åŠ å·¥è®°å½•
-	/// </summary>
-	public static readonly string ProcessingRecord = "F0000144";
-	/// <summary>
-	/// ç”³è¯·è°ƒæ•´éš¾åº¦
-	/// </summary>
-	public static readonly string DifficultyOfApplyingForAdjustment = "F0000171";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000137";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,é’»å­”æœºåŠ å·¥å­è¡¨
-/// </summary>
-public class DrillSubTable
-{
-	public static readonly string TableCode = "D001419F790f3a6b004e4988abe9511380792293";
-	public DrillSubTable() { }
-	/// <summary>
-	/// ç”³è¯·è°ƒæ•´éš¾åº¦
-	/// </summary>
-	public static readonly string DifficultyOfApplyingForAdjustment = "F0000168";
-	/// <summary>
-	/// äº§å“å·¥æ—¶
-	/// </summary>
-	public static readonly string TheProductWorkingHours = "F0000177";
-	/// <summary>
-	/// å¼€å§‹æ—¶é—´
-	/// </summary>
-	public static readonly string StartTime = "F0000142";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è®¾å¤‡é€‰æ‹©
-	/// </summary>
-	public static readonly string DrillingSelection = "F0000136";
-	/// <summary>
-	/// ä»»åŠ¡è®¡æ•°
-	/// </summary>
-	public static readonly string CountingTask = "F0000141";
-	/// <summary>
-	/// ä¸ªäººå·¥æ—¶
-	/// </summary>
-	public static readonly string PersonWorkingHours = "F0000178";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string TaskName = "F0000218";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000139";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000138";
-	/// <summary>
-	/// åŠ å·¥é‡
-	/// </summary>
-	public static readonly string ProcessingQuantity = "F0000140";
-	/// <summary>
-	/// åŠ å·¥è®°å½•
-	/// </summary>
-	public static readonly string ProcessingRecord = "F0000144";
-	/// <summary>
-	/// åŠ å·¥è€…
-	/// </summary>
-	public static readonly string Processor = "F0000143";
-	/// <summary>
-	/// æ´¾å·¥é‡å˜æ›´
-	/// </summary>
-	public static readonly string MakeDifference = "F0000212";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000137";
-	/// <summary>
-	/// è®¾å¤‡å·¥æ—¶ç³»æ•°
-	/// </summary>
-	public static readonly string EquipmentTimeCoefficient = "F0000181";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,è®¾å¤‡å·¥æ—¶ç³»æ•°è¡¨å­è¡¨
-/// </summary>
-public class EquipmentTimeCoefficientSubtabulation
-{
-	public static readonly string TableCode = "D001419Fbb7854d117af4bba8eff4de46d128f63";
-	public EquipmentTimeCoefficientSubtabulation() { }
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// åŒè½§å·¥æ—¶ç³»æ•°
-	/// </summary>
-	public static readonly string DoubleRollingManHourCoefficient = "F0000008";
-	/// <summary>
-	/// å­”å¾„ä¸Šé™
-	/// </summary>
-	public static readonly string UpperApertureLimit = "F0000011";
-	/// <summary>
-	/// å¤–å¾„ä¸‹é™
-	/// </summary>
-	public static readonly string LowerOuterDiameterLimit = "F0000013";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// å•è½§å·¥æ—¶ç³»æ•°
-	/// </summary>
-	public static readonly string SingleRollingManHourCoefficient = "F0000007";
-	/// <summary>
-	/// å­”å¾„ä¸‹é™
-	/// </summary>
-	public static readonly string LowerApertureLimit = "F0000010";
-	/// <summary>
-	/// å¤–å¾„ä¸Šé™
-	/// </summary>
-	public static readonly string UpperOuterDiameterLimit = "F0000012";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000004";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,å–æ ·å­æµç¨‹å­è¡¨
-/// </summary>
-public class ProcessOfAppearanceSubtabulation
-{
-	public static readonly string TableCode = "D001419Fj7nrmbgha1j10v5zst0zg7hi1";
-	public ProcessOfAppearanceSubtabulation() { }
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000160";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// æ´¾å·¥ä»»åŠ¡
-	/// </summary>
-	public static readonly string DispatchTask = "F0000211";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// è®¾å¤‡é€‰æ‹©
-	/// </summary>
-	public static readonly string EquipmentSelection = "F0000163";
-	/// <summary>
-	/// æ´¾å·¥é‡å˜æ›´
-	/// </summary>
-	public static readonly string MakeDifference = "F0000209";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000159";
-	/// <summary>
-	/// ç”³è¯·éš¾åº¦è°ƒæ•´
-	/// </summary>
-	public static readonly string ApplicationDifficultyAdjustment = "F0000185";
-	/// <summary>
-	/// å¼€å§‹æ—¶é—´
-	/// </summary>
-	public static readonly string StartTime = "F0000164";
-	/// <summary>
-	/// åŠ å·¥è®°å½•
-	/// </summary>
-	public static readonly string ProcessingRecord = "F0000161";
-	/// <summary>
-	/// åŠ å·¥é‡
-	/// </summary>
-	public static readonly string ProcessingQuantity = "F0000162";
-	/// <summary>
-	/// ä»»åŠ¡è®¡æ•°
-	/// </summary>
-	public static readonly string CountingTask = "F0000210";
-	/// <summary>
-	/// åŠ å·¥è€…
-	/// </summary>
-	public static readonly string Processor = "F0000157";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000158";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
+//using System;
+//using System.Collections.Generic;
+//using System.Text;
 
-    public static string TaskName { get; internal set; }
-}
+//namespace Chuanyun.AutoTool
+//{
+//    class TableInfo
+//    {
+//    }
+//}
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using H3;
+
+
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,æ¢ä¼¤è¡¨
+/// Éú²úÍâĞ­¹ÜÀí,ÍâĞ­ºÏÍ¬
 /// </summary>
-public class InspectionTable
-{
-	public static readonly string TableCode = "D001419fdcaecf556264750ae2d5684b2a3706e";
-	public InspectionTable() { }
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ç²—è½¦
-	/// </summary>
-	public static readonly string RoughCutting = "F0000022";
-	/// <summary>
-	/// æ¢ä¼¤è®°å½•
-	/// </summary>
-	public static readonly string FlawDetectionRecord = "D001419F89050d4fc56d4bf7b41f343f2e3bd5a1";
-	/// <summary>
-	/// å½“å‰å·¥åº
-	/// </summary>
-	public static readonly string CurrentOperation = "F0000023";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// æ¢ä¼¤è®¤å®š
-	/// </summary>
-	public static readonly string FlawDetectionIdentification = "F0000004";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// å–æ ·å­æµç¨‹
-	/// </summary>
-	public static readonly string SampleProcess = "F0000021";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000001";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,è¾—ç¯ä¿¡æ¯å­è¡¨
-/// </summary>
-public class RingRollingInformation
-{
-	public static readonly string TableCode = "D001419Fc33fc9abe5f2451e83ce06a5edc1669f";
-	public RingRollingInformation() { }
-	/// <summary>
-	/// ä¸‹æœºæ¸©åº¦
-	/// </summary>
-	public static readonly string ThePlaneTemperature = "F0000071";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// åŠ å·¥é‡
-	/// </summary>
-	public static readonly string ProcessingQuantity = "F0000075";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// é‡é‡
-	/// </summary>
-	public static readonly string Weight = "F0000074";
-	/// <summary>
-	/// ä¸Šæœºæ¸©åº¦
-	/// </summary>
-	public static readonly string OperatingTemperature = "F0000095";
-	/// <summary>
-	/// éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "F0000079";
-	/// <summary>
-	/// åŠ å·¥ç»„æˆå‘˜
-	/// </summary>
-	public static readonly string ProcessingGroupMember = "F0000070";
-	/// <summary>
-	/// å¼€å§‹æ—¶é—´
-	/// </summary>
-	public static readonly string StartTime = "F0000076";
-	/// <summary>
-	/// é«˜åº¦
-	/// </summary>
-	public static readonly string Height = "F0000072";
-	/// <summary>
-	/// ä»»åŠ¡åç§°
-	/// </summary>
-	public static readonly string TaskName = "F0000073";
-	/// <summary>
-	/// ç»“æŸæ—¶é—´
-	/// </summary>
-	public static readonly string EndTime = "F0000096";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-}
-/// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,é”»å‹çƒ­åŠ å·¥ä¿¡æ¯å­è¡¨
-/// </summary>
-public class ForgingHotProcessingInformationSubtable
-{
-	public static readonly string TableCode = "D001419Fe6ad4c9956ed4788927c31123893dc9e";
-	public ForgingHotProcessingInformationSubtable() { }
-	/// <summary>
-	/// åŠ å·¥é‡
-	/// </summary>
-	public static readonly string ProcessingQuantity = "F0000070";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string Parentobjectid = "ParentObjectId";
-	/// <summary>
-	/// åŠ å·¥ç»„æˆå‘˜
-	/// </summary>
-	public static readonly string ProcessingGroupMember = "F0000066";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ä»»åŠ¡åç§°
-	/// </summary>
-	public static readonly string TaskName = "F0000080";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// é‡é‡
-	/// </summary>
-	public static readonly string Weight = "F0000069";
-	/// <summary>
-	/// é«˜åº¦
-	/// </summary>
-	public static readonly string Height = "F0000068";
-	/// <summary>
-	/// ä¸‹æœºæ¸©åº¦
-	/// </summary>
-	public static readonly string ThePlaneTemperature = "F0000067";
-	/// <summary>
-	/// ä¸Šæœºæ¸©åº¦
-	/// </summary>
-	public static readonly string OperatingTemperature = "F0000100";
-	/// <summary>
-	/// å¼€å§‹æ—¶é—´
-	/// </summary>
-	public static readonly string StartTime = "F0000083";
-	/// <summary>
-	/// éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "F0000084";
-	/// <summary>
-	/// ç»“æŸæ—¶é—´
-	/// </summary>
-	public static readonly string EndTime = "F0000101";
-}
-/// <summary>
-/// ç”Ÿäº§ç”Ÿäº§è®¡åˆ’,å·¥è‰ºé…ç½®è¡¨
-/// </summary>
-public class ProcessConfig
-{
-	public static readonly string TableCode = "D0014194755c7eecbe9410c84cf6640d9cb147b";
-	public ProcessConfig() { }
-	/// <summary>
-	/// ä¼˜å…ˆå±‚çº§ï¼ˆå›ç«ï¼‰
-	/// </summary>
-	public static readonly string PriorityLevelTempering = "F0000008";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// å·¥è‰ºç®¡ç†å‘˜
-	/// </summary>
-	public static readonly string ProcessAdministrator = "F0000004";
-	/// <summary>
-	/// å…¨å±€å››é¢å…‰é…ç½®
-	/// </summary>
-	public static readonly string GlobalFourSideLightConfiguration = "F0000011";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// ä¼˜å…ˆå±‚çº§ï¼ˆç²¾æ•´ï¼‰
-	/// </summary>
-	public static readonly string PriorityLevelFinishing = "F0000006";
-	/// <summary>
-	/// å…¨å±€å¼€å¯åˆ¶æ ·æµç¨‹
-	/// </summary>
-	public static readonly string GlobalOpenSamplePreparationProcess = "F0000002";
-	/// <summary>
-	/// å…¨å±€ç²¾æ•´é…ç½®
-	/// </summary>
-	public static readonly string GlobalFinishingConfiguration = "F0000001";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// æ ‡é¢˜
-	/// </summary>
-	public static readonly string Title = "F0000007";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// å…¨å±€å›ç«é…ç½®
-	/// </summary>
-	public static readonly string GlobalTemperingConfiguration = "F0000009";
-	/// <summary>
-	/// ä¼˜å…ˆå±‚çº§ï¼ˆå››é¢å…‰ï¼‰
-	/// </summary>
-	public static readonly string PriorityLevelFourSideLight = "F0000010";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-}
-/// <summary>
-/// ç”Ÿäº§ç”Ÿäº§è®¡åˆ’,è´¨é‡é…ç½®è¡¨
-/// </summary>
-public class QAConfig
-{
-	public static readonly string TableCode = "D0014198feb957936e040648d486b034af96597";
-	public QAConfig() { }
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// ä¼˜å…ˆå±‚çº§ï¼ˆè£…ç‚‰å‰æ£€éªŒï¼‰
-	/// </summary>
-	public static readonly string PriorityLevelInspectionBeforeCharging = "F0000008";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// é’»å­”ä¸Šæœºå‰äº’æ£€
-	/// </summary>
-	public static readonly string MutualInspectionBeforeDrillingMachine = "F0000002";
-	/// <summary>
-	/// ä¼˜å…ˆå±‚çº§ï¼ˆé’»å­”äº’æ£€ï¼‰
-	/// </summary>
-	public static readonly string PriorityLeveldrillingHoleMutualInspection = "F0000007";
-	/// <summary>
-	/// ä¼˜å…ˆå±‚çº§ï¼ˆç²—è½¦äº’æ£€ï¼‰
-	/// </summary>
-	public static readonly string PriorityLevelRoughCarMutualInspection = "F0000011";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// å…¨å±€å¿½ç•¥ç†åŒ–ç»“æœ
-	/// </summary>
-	public static readonly string GlobalIgnorePhysicochemicalResults = "F0000004";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// æ ‡é¢˜
-	/// </summary>
-	public static readonly string Title = "F0000006";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// å…¨å±€è£…ç‚‰å‰æ£€éªŒ
-	/// </summary>
-	public static readonly string GlobalInspectionBeforeCharging = "F0000001";
-	/// <summary>
-	/// ä¼˜å…ˆå±‚çº§ï¼ˆç²¾è½¦äº’æ£€ï¼‰
-	/// </summary>
-	public static readonly string PriorityLevelfineCarMutualInspection = "F0000009";
-	/// <summary>
-	/// ç²¾è½¦ä¸Šæœºå‰äº’æ£€
-	/// </summary>
-	public static readonly string FineCarMutualInspectionBeforeLoading = "F0000010";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// è´¨é‡ç®¡ç†å‘˜
-	/// </summary>
-	public static readonly string QualityAdministrator = "F0000003";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ä¼˜å…ˆå±‚çº§ï¼ˆç†åŒ–ï¼‰
-	/// </summary>
-	public static readonly string PriorityLevelphysicochemical = "F0000005";
-	/// <summary>
-	/// ç²—è½¦ä¸Šæœºå‰äº’æ£€
-	/// </summary>
-	public static readonly string RoughCarMutualInspectionBeforeLoading = "F0000012";
-}
-/// <summary>
-/// ç”Ÿäº§å¤–åç®¡ç†,å¤–ååˆåŒ
-/// </summary>
+[Table("ÍâĞ­ºÏÍ¬")]
 public class OutsourcingContract
 {
-	public static readonly string TableCode = "D00141939df0a783f8d4124bb9ee8119e4e1147";
-	public OutsourcingContract() { }
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// é”»é€ å·¥è‰º
-	/// </summary>
-	public static readonly string ForgingProcess = "F0000007";
-	/// <summary>
-	/// ç”²æ–¹
-	/// </summary>
-	public static readonly string PartyA = "F0000002";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// äº§å“åˆ—è¡¨
-	/// </summary>
-	public static readonly string ProductList = "D001419Faebf741cae044316a15f4db3db5ebc18";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// ä¹™æ–¹
-	/// </summary>
-	public static readonly string PartyB = "F0000004";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000008";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// åˆåŒç¼–å·
-	/// </summary>
-	public static readonly string ContractNumber = "F0000003";
-	/// <summary>
-	/// ç­¾è®¢æ—¶é—´
-	/// </summary>
-	public static readonly string SigningTime = "F0000005";
+    public static readonly string TableCode = "39df0a783f8d4124bb9ee8119e4e1147";
+    public OutsourcingContract() { }
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //¶ÍÔì¹¤ÒÕ
+    public static readonly string ForgingProcess = "F0000007";
+    //¼×·½
+    public static readonly string PartyA = "F0000002";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //²úÆ·ÁĞ±í
+    public static readonly string ProductList = "D001419Faebf741cae044316a15f4db3db5ebc18";
+    //Status
+    public static readonly string Status = "Status";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //ÒÒ·½
+    public static readonly string PartyB = "F0000004";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000008";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //ºÏÍ¬±àºÅ
+    public static readonly string ContractNumber = "F0000003";
+    //Ç©¶©Ê±¼ä
+    public static readonly string SigningTime = "F0000005";
 }
 /// <summary>
-/// ç”Ÿäº§å¤–åç®¡ç†,å¤–åæµç¨‹
+/// Éú²úÍâĞ­¹ÜÀí,ÍâĞ­Á÷³Ì
 /// </summary>
+[Table("ÍâĞ­Á÷³Ì")]
 public class Outsource
 {
-	public static readonly string TableCode = "D001419Spznzknfgeoyf3x14nmw70r7h2";
-	public Outsource() { }
-	/// <summary>
-	/// ä¸å¹³
-	/// </summary>
-	public static readonly string Unevenness = "F0000024";
-	/// <summary>
-	/// å¤–åå·¥åº1
-	/// </summary>
-	public static readonly string OutsourcingProcedure1 = "F0000089";
-	/// <summary>
-	/// å¤–ååˆåŒ2
-	/// </summary>
-	public static readonly string OutsourcingContract2 = "F0000087";
-	/// <summary>
-	/// æ¤­åœ†
-	/// </summary>
-	public static readonly string Ellipse = "F0000021";
-	/// <summary>
-	/// å¤–ååˆåŒ1
-	/// </summary>
-	public static readonly string OutsourcingContract1 = "F0000086";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// å¤–ååˆåŒ3
-	/// </summary>
-	public static readonly string OutsourcingContract3 = "F0000088";
-	/// <summary>
-	/// å½“å‰å·¥æ­¥
-	/// </summary>
-	public static readonly string CurrentStep = "F0000078";
-	/// <summary>
-	/// å‘å‡ºå·¥åº
-	/// </summary>
-	public static readonly string SendingOperation = "F0000005";
-	/// <summary>
-	/// å·¥è‰ºæµç¨‹è¡¨
-	/// </summary>
-	public static readonly string ProcessFlowTable = "F0000048";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000004";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000010";
-	/// <summary>
-	/// å†…å¾„
-	/// </summary>
-	public static readonly string InnerDiameter = "F0000019";
-	/// <summary>
-	/// å‘å‡ºå•ä½
-	/// </summary>
-	public static readonly string SendingCompany = "F0000006";
-	/// <summary>
-	/// æ£€éªŒç»“æœ
-	/// </summary>
-	public static readonly string InspectionResults = "F0000025";
-	/// <summary>
-	/// å¤–åå·¥åº3
-	/// </summary>
-	public static readonly string OutsourcingProcedure3 = "F0000091";
-	/// <summary>
-	/// æ¥æ”¶å·¥åº
-	/// </summary>
-	public static readonly string ReceivingOperation = "F0000009";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000003";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000011";
-	/// <summary>
-	/// å½“å‰å·¥åº
-	/// </summary>
-	public static readonly string CurrentOperation = "F0000079";
-	/// <summary>
-	/// æ€»é«˜
-	/// </summary>
-	public static readonly string TotalHeight = "F0000023";
-	/// <summary>
-	/// å¤–åçŠ¶æ€
-	/// </summary>
-	public static readonly string OutsourcingStatus = "F0000028";
-	/// <summary>
-	/// æ ‡é¢˜
-	/// </summary>
-	public static readonly string Title = "F0000017";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// å…¶ä»–ç‰©æµæ•°æ®åˆ†ç±»
-	/// </summary>
-	public static readonly string OtherLogisticsDataClassifications = "F0000092";
-	/// <summary>
-	/// ç‰‡åš
-	/// </summary>
-	public static readonly string SheetThickness = "F0000022";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// å¤–åå·¥åº2
-	/// </summary>
-	public static readonly string OutsourcingProcedure2 = "F0000090";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// å’€å†…å¾„
-	/// </summary>
-	public static readonly string NozzleInnerDiameter = "F0000020";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000077";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000002";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// å¤–å¾„
-	/// </summary>
-	public static readonly string OuterDiameter = "F0000018";
-	/// <summary>
-	/// ä¾›åº”å•†
-	/// </summary>
-	public static readonly string Supplier = "F0000013";
-	/// <summary>
-	/// æ¥æ”¶å•ä½
-	/// </summary>
-	public static readonly string ReceivingCompany = "F0000008";
-	/// <summary>
-	/// å®¡æ ¸
-	/// </summary>
-	public static readonly string Review = "F0000027";
-	/// <summary>
-	/// æ£€éªŒå‘˜
-	/// </summary>
-	public static readonly string Inspector = "F0000026";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000001";
+    public static readonly string TableCode = "Spznzknfgeoyf3x14nmw70r7h2";
+    public Outsource() { }
+    //²»Æ½
+    public static readonly string Unevenness = "F0000024";
+    //ÍâĞ­¹¤Ğò1
+    public static readonly string OutsourcingProcedure1 = "F0000089";
+    //ÍâĞ­ºÏÍ¬2
+    public static readonly string OutsourcingContract2 = "F0000087";
+    //ÍÖÔ²
+    public static readonly string Ellipse = "F0000021";
+    //ÍâĞ­ºÏÍ¬1
+    public static readonly string OutsourcingContract1 = "F0000086";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //ÍâĞ­ºÏÍ¬3
+    public static readonly string OutsourcingContract3 = "F0000088";
+    //µ±Ç°¹¤²½
+    public static readonly string CurrentStep = "F0000078";
+    //·¢³ö¹¤Ğò
+    public static readonly string SendingOperation = "F0000005";
+    //¹¤ÒÕÁ÷³Ì±í
+    public static readonly string ProcessFlowTable = "F0000048";
+    //Status
+    public static readonly string Status = "Status";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000004";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000010";
+    //ÄÚ¾¶
+    public static readonly string InnerDiameter = "F0000019";
+    //·¢³öµ¥Î»
+    public static readonly string SendingCompany = "F0000006";
+    //¼ìÑé½á¹û
+    public static readonly string InspectionResults = "F0000025";
+    //ÍâĞ­¹¤Ğò3
+    public static readonly string OutsourcingProcedure3 = "F0000091";
+    //½ÓÊÕ¹¤Ğò
+    public static readonly string ReceivingOperation = "F0000009";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000003";
+    //ID
+    public static readonly string ID = "F0000011";
+    //µ±Ç°¹¤Ğò
+    public static readonly string CurrentOperation = "F0000079";
+    //×Ü¸ß
+    public static readonly string TotalHeight = "F0000023";
+    //ÍâĞ­×´Ì¬
+    public static readonly string OutsourcingStatus = "F0000028";
+    //±êÌâ
+    public static readonly string Title = "F0000017";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //ÆäËûÎïÁ÷Êı¾İ·ÖÀà
+    public static readonly string OtherLogisticsDataClassifications = "F0000092";
+    //Æ¬ºñ
+    public static readonly string SheetThickness = "F0000022";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //ÍâĞ­¹¤Ğò2
+    public static readonly string OutsourcingProcedure2 = "F0000090";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //¾×ÄÚ¾¶
+    public static readonly string NozzleInnerDiameter = "F0000020";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000077";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000002";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //Íâ¾¶
+    public static readonly string OuterDiameter = "F0000018";
+    //¹©Ó¦ÉÌ
+    public static readonly string Supplier = "F0000013";
+    //½ÓÊÕµ¥Î»
+    public static readonly string ReceivingCompany = "F0000008";
+    //ÉóºË
+    public static readonly string Review = "F0000027";
+    //¼ìÑéÔ±
+    public static readonly string Inspector = "F0000026";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000001";
 }
 /// <summary>
-/// å¸‚åœºéœ€æ±‚,Aé”€å”®è®¢å•è¡¨
+/// ÊĞ³¡ĞèÇó,AÏúÊÛ¶©µ¥±í
 /// </summary>
+[Table("AÏúÊÛ¶©µ¥±í")]
 public class Order
 {
-	public static readonly string TableCode = "D001419Shla6mrsjywq2pl57mjs5x80y4";
-	public Order() { }
-	/// <summary>
-	/// å¡”ç­’åŠ¨æ€
-	/// </summary>
-	public static readonly string TowerDynamics = "F0000046";
-	/// <summary>
-	/// ç¬¬ä¸‰åœ°å€
-	/// </summary>
-	public static readonly string ThirdAddress = "F0000069";
-	/// <summary>
-	/// è®¢å•å›æ¬¾æƒ…å†µ
-	/// </summary>
-	public static readonly string OrderPaymentCollection = "F0000047";
-	/// <summary>
-	/// å®¢æˆ·ç¼–å·
-	/// </summary>
-	public static readonly string CustomerNumber = "F0000061";
-	/// <summary>
-	/// é¡¹ç›®ç¼–å·
-	/// </summary>
-	public static readonly string ProjectNumber = "F0000062";
-	/// <summary>
-	/// å¡”ç­’è°ƒæŸ¥
-	/// </summary>
-	public static readonly string TowerSurvey = "F0000054";
-	/// <summary>
-	/// é¡¹ç›®è°ƒæŸ¥
-	/// </summary>
-	public static readonly string ProjectSurvey = "F0000031";
-	/// <summary>
-	/// ä¸»æœºå®¢æˆ·
-	/// </summary>
-	public static readonly string HostCustomer = "F0000005";
-	/// <summary>
-	/// é¡¹ç›®åç§°
-	/// </summary>
-	public static readonly string ProjectName = "F0000020";
-	/// <summary>
-	/// é»˜è®¤è”ç³»äºº
-	/// </summary>
-	public static readonly string DefaultContact = "F0000052";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// æŠ€æœ¯è§„èŒƒ
-	/// </summary>
-	public static readonly string TechnicalSpecifications = "F0000050";
-	/// <summary>
-	/// åˆ†å…¬å¸åç§°
-	/// </summary>
-	public static readonly string BranchName = "F0000073";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// å®¢æˆ·è¯„çº§
-	/// </summary>
-	public static readonly string CustomerRating = "F0000042";
-	/// <summary>
-	/// ç¬¬äºŒä¼™ä¼´
-	/// </summary>
-	public static readonly string SecondPartner = "F0000006";
-	/// <summary>
-	/// éœ€æ±‚è¾¾æˆ
-	/// </summary>
-	public static readonly string DemandFulfillment = "F0000064";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// è®¢å•æ€»å¨ä½
-	/// </summary>
-	public static readonly string TotalOrderTonnage = "F0000057";
-	/// <summary>
-	/// ç¬¬äºŒåœ°å€
-	/// </summary>
-	public static readonly string SecondAddress = "F0000068";
-	/// <summary>
-	/// ç”Ÿäº§å®Œæˆ
-	/// </summary>
-	public static readonly string ProductionComplete = "F0000065";
-	/// <summary>
-	/// è®¢å•å±¥è¡Œæƒ…å†µ
-	/// </summary>
-	public static readonly string OrderFulfillment = "F0000010";
-	/// <summary>
-	/// å‘è¿å®Œæˆ
-	/// </summary>
-	public static readonly string ShipmentCompletion = "F0000036";
-	/// <summary>
-	/// æ‰§è¡Œæ—¥æœŸ
-	/// </summary>
-	public static readonly string ExecutionDate = "F0000018";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// é»˜è®¤åœ°å€
-	/// </summary>
-	public static readonly string DefaultAddress = "F0000063";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// æè®®å¤‡æ³¨å†å²
-	/// </summary>
-	public static readonly string ProposalRemarksHistory = "F0000070";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000041";
-	/// <summary>
-	/// ä¾›åº”å‹åŠ›
-	/// </summary>
-	public static readonly string SupplyPressure = "F0000060";
-	/// <summary>
-	/// æ‰¿è¯ºäºº
-	/// </summary>
-	public static readonly string Promisor = "F0000072";
-	/// <summary>
-	/// è®¢å•å¨å•ä»·
-	/// </summary>
-	public static readonly string OrderTonUnitPrice = "F0000058";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// è®¢å•æ€»ä»·
-	/// </summary>
-	public static readonly string TotalOrderPrice = "F0000056";
-	/// <summary>
-	/// åˆåŒç¼–å·
-	/// </summary>
-	public static readonly string ContractNumber = "F0000048";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000028";
-	/// <summary>
-	/// ä»˜æ¬¾äº¤è´§æ¡æ¬¾
-	/// </summary>
-	public static readonly string PaymentAndDeliveryTerms = "F0000059";
-	/// <summary>
-	/// ç­¾è®¢æ—¥æœŸ
-	/// </summary>
-	public static readonly string SigningDate = "F0000017";
-	/// <summary>
-	/// æˆ˜ç•¥æ„ä¹‰
-	/// </summary>
-	public static readonly string StrategicSignificance = "F0000022";
-	/// <summary>
-	/// è®¢å•å¥—æ•°
-	/// </summary>
-	public static readonly string OrderSets = "F0000055";
-	/// <summary>
-	/// é¡¹ç›®ç»ç†
-	/// </summary>
-	public static readonly string ProjectManager = "F0000049";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// å…³è”å®¢æˆ·è¡¨
-	/// </summary>
-	public static readonly string AssociatedCustomerTable = "F0000032";
-	/// <summary>
-	/// è®¢å•æ•°
-	/// </summary>
-	public static readonly string NumberOfOrders = "F0000043";
-	/// <summary>
-	/// é¡¹ç›®åŠ¨æ€
-	/// </summary>
-	public static readonly string ProjectDynamics = "F0000045";
-	/// <summary>
-	/// æ€»å…¬å¸åç§°
-	/// </summary>
-	public static readonly string HeadOfficeName = "F0000033";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// æ‰¿è¯ºå¤‡æ³¨å†å²
-	/// </summary>
-	public static readonly string CommitmentRemarksHistory = "F0000071";
-	/// <summary>
-	/// è®¢å•è¯„çº§
-	/// </summary>
-	public static readonly string OrderRating = "F0000044";
-	/// <summary>
-	/// é»˜è®¤ç”µè¯
-	/// </summary>
-	public static readonly string DefaultTelephone = "F0000053";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
+    public static readonly string TableCode = "Shla6mrsjywq2pl57mjs5x80y4";
+    public Order() { }
+    //ËşÍ²¶¯Ì¬
+    public static readonly string TowerDynamics = "F0000046";
+    //µÚÈıµØÖ·
+    public static readonly string ThirdAddress = "F0000069";
+    //¶©µ¥»Ø¿îÇé¿ö
+    public static readonly string OrderPaymentCollection = "F0000047";
+    //¿Í»§±àºÅ
+    public static readonly string CustomerNumber = "F0000061";
+    //ÏîÄ¿±àºÅ
+    public static readonly string ProjectNumber = "F0000062";
+    //ËşÍ²µ÷²é
+    public static readonly string TowerSurvey = "F0000054";
+    //ÏîÄ¿µ÷²é
+    public static readonly string ProjectSurvey = "F0000031";
+    //Ö÷»ú¿Í»§
+    public static readonly string HostCustomer = "F0000005";
+    //ÏîÄ¿Ãû³Æ
+    public static readonly string ProjectName = "F0000020";
+    //Ä¬ÈÏÁªÏµÈË
+    public static readonly string DefaultContact = "F0000052";
+    //Status
+    public static readonly string Status = "Status";
+    //¼¼Êõ¹æ·¶
+    public static readonly string TechnicalSpecifications = "F0000050";
+    //·Ö¹«Ë¾Ãû³Æ
+    public static readonly string BranchName = "F0000073";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //¿Í»§ÆÀ¼¶
+    public static readonly string CustomerRating = "F0000042";
+    //µÚ¶ş»ï°é
+    public static readonly string SecondPartner = "F0000006";
+    //ĞèÇó´ï³É
+    public static readonly string DemandFulfillment = "F0000064";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //¶©µ¥×Ü¶ÖÎ»
+    public static readonly string TotalOrderTonnage = "F0000057";
+    //µÚ¶şµØÖ·
+    public static readonly string SecondAddress = "F0000068";
+    //Éú²úÍê³É
+    public static readonly string ProductionComplete = "F0000065";
+    //¶©µ¥ÂÄĞĞÇé¿ö
+    public static readonly string OrderFulfillment = "F0000010";
+    //·¢ÔËÍê³É
+    public static readonly string ShipmentCompletion = "F0000036";
+    //Ö´ĞĞÈÕÆÚ
+    public static readonly string ExecutionDate = "F0000018";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //Ä¬ÈÏµØÖ·
+    public static readonly string DefaultAddress = "F0000063";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //ÌáÒé±¸×¢ÀúÊ·
+    public static readonly string ProposalRemarksHistory = "F0000070";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000041";
+    //¹©Ó¦Ñ¹Á¦
+    public static readonly string SupplyPressure = "F0000060";
+    //³ĞÅµÈË
+    public static readonly string Promisor = "F0000072";
+    //¶©µ¥¶Öµ¥¼Û
+    public static readonly string OrderTonUnitPrice = "F0000058";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //¶©µ¥×Ü¼Û
+    public static readonly string TotalOrderPrice = "F0000056";
+    //ºÏÍ¬±àºÅ
+    public static readonly string ContractNumber = "F0000048";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000028";
+    //¸¶¿î½»»õÌõ¿î
+    public static readonly string PaymentAndDeliveryTerms = "F0000059";
+    //Ç©¶©ÈÕÆÚ
+    public static readonly string SigningDate = "F0000017";
+    //Õ½ÂÔÒâÒå
+    public static readonly string StrategicSignificance = "F0000022";
+    //¶©µ¥Ì×Êı
+    public static readonly string OrderSets = "F0000055";
+    //ÏîÄ¿¾­Àí
+    public static readonly string ProjectManager = "F0000049";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //¹ØÁª¿Í»§±í
+    public static readonly string AssociatedCustomerTable = "F0000032";
+    //¶©µ¥Êı
+    public static readonly string NumberOfOrders = "F0000043";
+    //ÏîÄ¿¶¯Ì¬
+    public static readonly string ProjectDynamics = "F0000045";
+    //×Ü¹«Ë¾Ãû³Æ
+    public static readonly string HeadOfficeName = "F0000033";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //³ĞÅµ±¸×¢ÀúÊ·
+    public static readonly string CommitmentRemarksHistory = "F0000071";
+    //¶©µ¥ÆÀ¼¶
+    public static readonly string OrderRating = "F0000044";
+    //Ä¬ÈÏµç»°
+    public static readonly string DefaultTelephone = "F0000053";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
 }
 /// <summary>
-/// å¸‚åœºéœ€æ±‚,A-Bè®¢å•æ‰¹æ¬¡è¡¨
+/// ÊĞ³¡ĞèÇó,AB¶©µ¥Åú´Î±í
 /// </summary>
+[Table("AB¶©µ¥Åú´Î±í")]
 public class OrderBatch
 {
-	public static readonly string TableCode = "D001419Sv3ey3zxy6sufw6mrqg0p3rv76";
-	public OrderBatch() { }
-	/// <summary>
-	/// åˆåŒéœ€æ±‚å¥—æ•°
-	/// </summary>
-	public static readonly string NumberOfContractDemandSets = "F0000059";
-	/// <summary>
-	/// é»˜è®¤å‘è¿åœ°å€
-	/// </summary>
-	public static readonly string DefaultShippingAddress = "F0000072";
-	/// <summary>
-	/// æˆå“éœ€æ±‚å¥—æ•°
-	/// </summary>
-	public static readonly string NumberOfFinishedProductDemandSets = "F0000058";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// è®¢å•ä»˜æ¬¾æƒ…å†µ	
-	/// </summary>
-	public static readonly string OrderPaymentStatus = "F0000054";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000001";
-	/// <summary>
-	/// é»˜è®¤ç”µè¯
-	/// </summary>
-	public static readonly string DefaultTelephone = "F0000084";
-	/// <summary>
-	/// æè®®äº¤æœŸ
-	/// </summary>
-	public static readonly string ProposedDeliveryDate = "F0000079";
-	/// <summary>
-	/// ç”Ÿäº§æå‰å¤©æ•°
-	/// </summary>
-	public static readonly string ProductionAdvanceDays = "F0000055";
-	/// <summary>
-	/// åå•†å¥—æ•°
-	/// </summary>
-	public static readonly string NegotiatedSets = "F0000066";
-	/// <summary>
-	/// æ‰¿è¯ºäº¤æœŸ
-	/// </summary>
-	public static readonly string CommittedDeliveryDate = "F0000081";
-	/// <summary>
-	/// åœ¨äº§å¤‡æ³¨
-	/// </summary>
-	public static readonly string InProductionRemarks = "F0000067";
-	/// <summary>
-	/// åˆåŒäº¤æœŸ
-	/// </summary>
-	public static readonly string ContractDeliveryDate = "F0000048";
-	/// <summary>
-	/// å‘è¿æ—¥æœŸ
-	/// </summary>
-	public static readonly string ShippingDate = "F0000023";
-	/// <summary>
-	/// å‘è¿çœä»½
-	/// </summary>
-	public static readonly string ShippingProvince = "F0000085";
-	/// <summary>
-	/// å‘è¿è¯¦æƒ…
-	/// </summary>
-	public static readonly string ShippingDetails = "F0000076";
-	/// <summary>
-	/// ç”Ÿäº§å»¶æœŸå¤©æ•°
-	/// </summary>
-	public static readonly string ProductionDelayDays = "F0000038";
-	/// <summary>
-	/// å¡”ç­’åŠ¨æ€
-	/// </summary>
-	public static readonly string TowerDynamics = "F0000063";
-	/// <summary>
-	/// å®¢æˆ·ä»˜æ¬¾ä¿¡èª‰
-	/// </summary>
-	public static readonly string CustomerPaymentReputation = "F0000050";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000042";
-	/// <summary>
-	/// æ‰¿è¯ºæ•°é‡
-	/// </summary>
-	public static readonly string CommittedQuantity = "F0000082";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// å‡†æ—¶å®Œå·¥
-	/// </summary>
-	public static readonly string OntimeCompletion = "F0000041";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// å‘è¿å®Œæˆ
-	/// </summary>
-	public static readonly string ShippingCompletion = "F0000024";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// æ‰¿è¯ºå¤‡æ³¨
-	/// </summary>
-	public static readonly string CommitmentRemarks = "F0000078";
-	/// <summary>
-	/// æˆå“éœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string FinishedProductDemandPeriod = "F0000016";
-	/// <summary>
-	/// é¡¹ç›®åŠ¨æ€
-	/// </summary>
-	public static readonly string ProjectDynamics = "F0000062";
-	/// <summary>
-	/// åˆåŒæ‰¹æ¬¡
-	/// </summary>
-	public static readonly string ContractBatch = "F0000071";
-	/// <summary>
-	/// åå•†äº¤æœŸ
-	/// </summary>
-	public static readonly string NegotiatedDeliveryDate = "F0000049";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// å®¢æˆ·ç¼–å·
-	/// </summary>
-	public static readonly string CustomerNumber = "F0000069";
-	/// <summary>
-	/// æè®®æ•°é‡
-	/// </summary>
-	public static readonly string ProposalQuantity = "F0000080";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// å‘è¿å¤‡æ³¨
-	/// </summary>
-	public static readonly string ShippingRemarks = "F0000068";
-	/// <summary>
-	/// é¡¹ç›®ç¼–å·
-	/// </summary>
-	public static readonly string ProjectNumber = "F0000070";
-	/// <summary>
-	/// é»˜è®¤è”ç³»äºº
-	/// </summary>
-	public static readonly string DefaultContact = "F0000083";
-	/// <summary>
-	/// æ€»å…¬å¸åç§°
-	/// </summary>
-	public static readonly string HeadOfficeName = "F0000026";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// åå•†å¤‡å¿˜
-	/// </summary>
-	public static readonly string NegotiationNotes = "F0000047";
-	/// <summary>
-	/// å‘è¿åŒºåŸŸ
-	/// </summary>
-	public static readonly string ShippingRegion = "F0000022";
-	/// <summary>
-	/// ç”Ÿäº§å®Œæˆæ—¥æœŸ
-	/// </summary>
-	public static readonly string ProductionCompletionDate = "FinishDate";
-	/// <summary>
-	/// ç”Ÿäº§å®Œæˆ
-	/// </summary>
-	public static readonly string ProductionProductionCompletion = "F0000074";
-	/// <summary>
-	/// è®¢å•è¯„çº§	
-	/// </summary>
-	public static readonly string OrderRating = "F0000051";
-	/// <summary>
-	/// æè®®å¤‡æ³¨
-	/// </summary>
-	public static readonly string ProposalRemarks = "F0000077";
-	/// <summary>
-	/// æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string BatchNumber = "F0000002";
-	/// <summary>
-	/// é”€å”®è®¢å•
-	/// </summary>
-	public static readonly string SalesOrder = "F0000009";
-	/// <summary>
-	///  éœ€æ±‚è¾¾æˆ
-	/// </summary>
-	public static readonly string DemandFulfillment = "F0000073";
-	/// <summary>
-	/// å®¢æˆ·è¯„çº§
-	/// </summary>
-	public static readonly string CustomerRating = "F0000036";
-	/// <summary>
-	/// æˆå“å‘å‡ºè€—æ—¶
-	/// </summary>
-	public static readonly string TimeconsumingOfFinishedProducts = "F0000043";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// é¡¹ç›®åç§°
-	/// </summary>
-	public static readonly string ProjectName = "F0000020";
-	/// <summary>
-	/// åˆåŒéœ€æ±‚ä»¶æ•°
-	/// </summary>
-	public static readonly string NumberOfContractDemandPieces = "F0000064";
-	/// <summary>
-	/// ç”Ÿäº§çº¢ç»¿ç¯
-	/// </summary>
-	public static readonly string ProductionTrafficLight = "F0000013";
+    public static readonly string TableCode = "Sv3ey3zxy6sufw6mrqg0p3rv76";
+    public OrderBatch() { }
+    //ºÏÍ¬ĞèÇóÌ×Êı
+    public static readonly string NumberOfContractDemandSets = "F0000059";
+    //Ä¬ÈÏ·¢ÔËµØÖ·
+    public static readonly string DefaultShippingAddress = "F0000072";
+    //³ÉÆ·ĞèÇóÌ×Êı
+    public static readonly string NumberOfFinishedProductDemandSets = "F0000058";
+    //Status
+    public static readonly string Status = "Status";
+    //¶©µ¥¸¶¿îÇé¿ö
+    public static readonly string OrderPaymentStatus = "F0000054";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000001";
+    //Ä¬ÈÏµç»°
+    public static readonly string DefaultTelephone = "F0000084";
+    //ÌáÒé½»ÆÚ
+    public static readonly string ProposedDeliveryDate = "F0000079";
+    //Éú²úÌáÇ°ÌìÊı
+    public static readonly string ProductionAdvanceDays = "F0000055";
+    //Ğ­ÉÌÌ×Êı
+    public static readonly string NegotiatedSets = "F0000066";
+    //³ĞÅµ½»ÆÚ
+    public static readonly string CommittedDeliveryDate = "F0000081";
+    //ÔÚ²ú±¸×¢
+    public static readonly string InProductionRemarks = "F0000067";
+    //ºÏÍ¬½»ÆÚ
+    public static readonly string ContractDeliveryDate = "F0000048";
+    //·¢ÔËÈÕÆÚ
+    public static readonly string ShippingDate = "F0000023";
+    //·¢ÔËÊ¡·İ
+    public static readonly string ShippingProvince = "F0000085";
+    //·¢ÔËÏêÇé
+    public static readonly string ShippingDetails = "F0000076";
+    //Éú²úÑÓÆÚÌìÊı
+    public static readonly string ProductionDelayDays = "F0000038";
+    //ËşÍ²¶¯Ì¬
+    public static readonly string TowerDynamics = "F0000063";
+    //¿Í»§¸¶¿îĞÅÓş
+    public static readonly string CustomerPaymentReputation = "F0000050";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000042";
+    //³ĞÅµÊıÁ¿
+    public static readonly string CommittedQuantity = "F0000082";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //×¼Ê±Íê¹¤
+    public static readonly string OntimeCompletion = "F0000041";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //·¢ÔËÍê³É
+    public static readonly string ShippingCompletion = "F0000024";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //³ĞÅµ±¸×¢
+    public static readonly string CommitmentRemarks = "F0000078";
+    //³ÉÆ·ĞèÇóÆÚ
+    public static readonly string FinishedProductDemandPeriod = "F0000016";
+    //ÏîÄ¿¶¯Ì¬
+    public static readonly string ProjectDynamics = "F0000062";
+    //ºÏÍ¬Åú´Î
+    public static readonly string ContractBatch = "F0000071";
+    //Ğ­ÉÌ½»ÆÚ
+    public static readonly string NegotiatedDeliveryDate = "F0000049";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //¿Í»§±àºÅ
+    public static readonly string CustomerNumber = "F0000069";
+    //ÌáÒéÊıÁ¿
+    public static readonly string ProposalQuantity = "F0000080";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //·¢ÔË±¸×¢
+    public static readonly string ShippingRemarks = "F0000068";
+    //ÏîÄ¿±àºÅ
+    public static readonly string ProjectNumber = "F0000070";
+    //Ä¬ÈÏÁªÏµÈË
+    public static readonly string DefaultContact = "F0000083";
+    //×Ü¹«Ë¾Ãû³Æ
+    public static readonly string HeadOfficeName = "F0000026";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //Ğ­ÉÌ±¸Íü
+    public static readonly string NegotiationNotes = "F0000047";
+    //·¢ÔËÇøÓò
+    public static readonly string ShippingRegion = "F0000022";
+    //Éú²úÍê³ÉÈÕÆÚ
+    public static readonly string ProductionCompletionDate = "FinishDate";
+    //Éú²úÍê³É
+    public static readonly string ProductionProductionCompletion = "F0000074";
+    //¶©µ¥ÆÀ¼¶
+    public static readonly string OrderRating = "F0000051";
+    //ÌáÒé±¸×¢
+    public static readonly string ProposalRemarks = "F0000077";
+    //Åú´ÎºÅ
+    public static readonly string BatchNumber = "F0000002";
+    //ÏúÊÛ¶©µ¥
+    public static readonly string SalesOrder = "F0000009";
+    //ĞèÇó´ï³É
+    public static readonly string DemandFulfillment = "F0000073";
+    //¿Í»§ÆÀ¼¶
+    public static readonly string CustomerRating = "F0000036";
+    //³ÉÆ··¢³öºÄÊ±
+    public static readonly string TimeconsumingOfFinishedProducts = "F0000043";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //ÏîÄ¿Ãû³Æ
+    public static readonly string ProjectName = "F0000020";
+    //ºÏÍ¬ĞèÇó¼şÊı
+    public static readonly string NumberOfContractDemandPieces = "F0000064";
+    //Éú²úºìÂÌµÆ
+    public static readonly string ProductionTrafficLight = "F0000013";
 }
 /// <summary>
-/// å¸‚åœºéœ€æ±‚,A-Cè®¢å•è§„æ ¼è¡¨
+/// ÊĞ³¡ĞèÇó,AC¶©µ¥¹æ¸ñ±í
 /// </summary>
+[Table("AC¶©µ¥¹æ¸ñ±í")]
 public class OrderSpecification
 {
-	public static readonly string TableCode = "D001419Skniz33124ryujrhb4hry7md21";
-	public OrderSpecification() { }
-	/// <summary>
-	/// äº§å“ç²¾æ•´é…ç½®
-	/// </summary>
-	public static readonly string ProductFinishingConfiguration = "F0000130";
-	/// <summary>
-	/// è§„æ ¼å·²æéœ€æ±‚æ•°
-	/// </summary>
-	public static readonly string SpecificationDemandQuantity = "F0000095";
-	/// <summary>
-	/// æ€»å…¬å¸åç§°
-	/// </summary>
-	public static readonly string HeadOfficeName = "F0000101";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// åœ¨äº§å¤‡æ³¨
-	/// </summary>
-	public static readonly string InProductionRemarks = "F0000114";
-	/// <summary>
-	/// é’»åŠ å·¥ç±»åˆ«
-	/// </summary>
-	public static readonly string DrillingCategory = "F0000006";
-	/// <summary>
-	/// æ€»é«˜
-	/// </summary>
-	public static readonly string TotalHeight = "F0000107";
-	/// <summary>
-	/// èƒ½å¦åŒè½§
-	/// </summary>
-	public static readonly string WhetherDoubleRollingCanBeCarriedOut = "F0000128";
-	/// <summary>
-	/// è¯•æ ·å°ºå¯¸
-	/// </summary>
-	public static readonly string SampleSize = "F0000134";
-	/// <summary>
-	/// é’»åŠ å·¥ç±»åˆ«ä»£å·
-	/// </summary>
-	public static readonly string DrillingCategoryCode = "F0000007";
-	/// <summary>
-	/// è½¦åŠ å·¥ç±»åˆ«ä»£å·
-	/// </summary>
-	public static readonly string MachiningCategoryCode = "F0000005";
-	/// <summary>
-	/// äº§å“ç§ç±»
-	/// </summary>
-	public static readonly string ProductCategory = "F0000118";
-	/// <summary>
-	/// æŠ€æœ¯è§„èŒƒ
-	/// </summary>
-	public static readonly string TechnicalSpecification = "F0000072";
-	/// <summary>
-	/// å…¨å±€ç²¾æ•´
-	/// </summary>
-	public static readonly string GlobalFinishing = "F0000132";
-	/// <summary>
-	/// å¤–å¾„æ–‡æœ¬
-	/// </summary>
-	public static readonly string OuterDiameterText = "F0000113";
-	/// <summary>
-	/// ç‰‡åš
-	/// </summary>
-	public static readonly string SheetThickness = "F0000108";
-	/// <summary>
-	/// è§„æ ¼å››é¢å…‰é…ç½®
-	/// </summary>
-	public static readonly string WhetherRoughTurningIsSmoothOnAllSides = "F0000136";
-	/// <summary>
-	/// åˆåŒé‡é‡
-	/// </summary>
-	public static readonly string ContractWeight = "F0000100";
-	/// <summary>
-	/// è§„æ ¼åœ¨åº“æ€»é‡
-	/// </summary>
-	public static readonly string TotalWeightOfSpecificationInStock = "F0000115";
-	/// <summary>
-	/// å›¾çº¸
-	/// </summary>
-	public static readonly string Drawing = "F0000117";
-	/// <summary>
-	/// é¡¹ç›®ç¼–å·
-	/// </summary>
-	public static readonly string ItemNumber = "F0000103";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string ProductSpecification = "F0000003";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// è®¢å•åœ¨åº“æ€»é‡æ–‡æœ¬
-	/// </summary>
-	public static readonly string TotalWeightOfOrderInStockText = "F0000112";
-	/// <summary>
-	/// è§„æ ¼æœªæéœ€æ±‚æ•°æ–‡æœ¬
-	/// </summary>
-	public static readonly string SpecificationNotMentionedDemandQuantityText = "F0000093";
-	/// <summary>
-	/// å·¥è‰ºé…ç½®è¡¨
-	/// </summary>
-	public static readonly string ProcessConfigurationTable = "F0000131";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// å¤–å¾„
-	/// </summary>
-	public static readonly string OuterDiameter = "F0000105";
-	/// <summary>
-	/// å®¢æˆ·ç¼–å·
-	/// </summary>
-	public static readonly string CustomerNumber = "F0000102";
-	/// <summary>
-	/// åˆåŒæˆå“å•é‡
-	/// </summary>
-	public static readonly string UnitWeightOfContractFinishedProduct = "F0000104";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderDocNo = "ProductCode";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000067";
-	/// <summary>
-	/// è®¢å•æ•°æ–‡æœ¬
-	/// </summary>
-	public static readonly string OrderQuantityText = "F0000092";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// å­”å¾„
-	/// </summary>
-	public static readonly string HoleDiameter = "F0000110";
-	/// <summary>
-	/// è½¦åŠ å·¥ç±»åˆ«
-	/// </summary>
-	public static readonly string MachiningCategory = "F0000004";
-	/// <summary>
-	/// è§„æ ¼å·
-	/// </summary>
-	public static readonly string SpecificationNumber = "F0000066";
-	/// <summary>
-	/// å†…å¾„
-	/// </summary>
-	public static readonly string InnerDiameter = "F0000106";
-	/// <summary>
-	/// æè´¨
-	/// </summary>
-	public static readonly string Material = "F0000068";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000076";
-	/// <summary>
-	/// æŠ€æœ¯è§„èŒƒ2
-	/// </summary>
-	public static readonly string TechnicalSpecification2 = "F0000116";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000098";
-	/// <summary>
-	/// IconId
-	/// </summary>
-	public static readonly string Iconid = "IconId";
-	/// <summary>
-	/// ä¸‹æ–™å•é‡
-	/// </summary>
-	public static readonly string BlankingUnitWeight = "F0000015";
-	/// <summary>
-	/// æˆå“å•é‡
-	/// </summary>
-	public static readonly string UnitWeightOfFinishedProduct = "F0000014";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// é”€å”®è®¢å•
-	/// </summary>
-	public static readonly string SalesOrder = "F0000089";
-	/// <summary>
-	/// äº§å“ä¸Šæœºå‰äº’æ£€
-	/// </summary>
-	public static readonly string MutualInspectionBeforeProductOnMachine = "F0000135";
-	/// <summary>
-	/// è®¢å•åœ¨åº“æ€»é‡
-	/// </summary>
-	public static readonly string TotalWeightOfOrderInStock = "F0000111";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// è§„æ ¼æœªæéœ€æ±‚æ•°
-	/// </summary>
-	public static readonly string SpecificationDemandQuantityNotMentioned = "F0000087";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// åˆ’çº¿ç»æ‰£
-	/// </summary>
-	public static readonly string ScribingTwistBuckle = "F0000133";
-	/// <summary>
-	/// å¡å£å›¾
-	/// </summary>
-	public static readonly string GrooveDiagram = "F0000071";
-	/// <summary>
-	/// å­”æ•°
-	/// </summary>
-	public static readonly string NumberOfHoles = "F0000109";
-	/// <summary>
-	/// å…¨å±€å››é¢å…‰é…ç½®
-	/// </summary>
-	public static readonly string GlobalFourSideLightConfiguration = "F0000137";
-	/// <summary>
-	/// åˆåŒæ•°
-	/// </summary>
-	public static readonly string ContractQuantity = "F0000077";
-	/// <summary>
-	/// è§„æ ¼åˆåŒæ•°æ–‡æœ¬
-	/// </summary>
-	public static readonly string SpecificationContractQuantityText = "F0000099";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
+    public static readonly string TableCode = "Skniz33124ryujrhb4hry7md21";
+    public OrderSpecification() { }
+    //²úÆ·¾«ÕûÅäÖÃ
+    public static readonly string ProductFinishingConfiguration = "F0000130";
+    //¹æ¸ñÒÑÌáĞèÇóÊı
+    public static readonly string SpecificationDemandQuantity = "F0000095";
+    //×Ü¹«Ë¾Ãû³Æ
+    public static readonly string HeadOfficeName = "F0000101";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //ÔÚ²ú±¸×¢
+    public static readonly string InProductionRemarks = "F0000114";
+    //×ê¼Ó¹¤Àà±ğ
+    public static readonly string DrillingCategory = "F0000006";
+    //×Ü¸ß
+    public static readonly string TotalHeight = "F0000107";
+    //ÄÜ·ñË«Ôş
+    public static readonly string WhetherDoubleRollingCanBeCarriedOut = "F0000128";
+    //ÊÔÑù³ß´ç
+    public static readonly string SampleSize = "F0000134";
+    //×ê¼Ó¹¤Àà±ğ´úºÅ
+    public static readonly string DrillingCategoryCode = "F0000007";
+    //³µ¼Ó¹¤Àà±ğ´úºÅ
+    public static readonly string MachiningCategoryCode = "F0000005";
+    //²úÆ·ÖÖÀà
+    public static readonly string ProductCategory = "F0000118";
+    //¼¼Êõ¹æ·¶
+    public static readonly string TechnicalSpecification = "F0000072";
+    //È«¾Ö¾«Õû
+    public static readonly string GlobalFinishing = "F0000132";
+    //Íâ¾¶ÎÄ±¾
+    public static readonly string OuterDiameterText = "F0000113";
+    //Æ¬ºñ
+    public static readonly string SheetThickness = "F0000108";
+    //´Ö³µÊÇ·ñËÄÃæ¹â
+    public static readonly string WhetherRoughTurningIsSmoothOnAllSides = "F0000136";
+    //ºÏÍ¬ÖØÁ¿
+    public static readonly string ContractWeight = "F0000100";
+    //¹æ¸ñÔÚ¿â×ÜÖØ
+    public static readonly string TotalWeightOfSpecificationInStock = "F0000115";
+    //Í¼Ö½
+    public static readonly string Drawing = "F0000117";
+    //ÏîÄ¿±àºÅ
+    public static readonly string ItemNumber = "F0000103";
+    //²úÆ·¹æ¸ñ
+    public static readonly string ProductSpecification = "F0000003";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //¶©µ¥ÔÚ¿â×ÜÖØÎÄ±¾
+    public static readonly string TotalWeightOfOrderInStockText = "F0000112";
+    //¹æ¸ñÎ´ÌáĞèÇóÊıÎÄ±¾
+    public static readonly string SpecificationNotMentionedDemandQuantityText = "F0000093";
+    //¹¤ÒÕÅäÖÃ±í
+    public static readonly string ProcessConfigurationTable = "F0000131";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //Íâ¾¶
+    public static readonly string OuterDiameter = "F0000105";
+    //¿Í»§±àºÅ
+    public static readonly string CustomerNumber = "F0000102";
+    //ºÏÍ¬³ÉÆ·µ¥ÖØ
+    public static readonly string UnitWeightOfContractFinishedProduct = "F0000104";
+    //¶©µ¥ºÅ
+    public static readonly string OrderDocNo = "ProductCode";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000067";
+    //¶©µ¥ÊıÎÄ±¾
+    public static readonly string OrderQuantityText = "F0000092";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //¿×¾¶
+    public static readonly string HoleDiameter = "F0000110";
+    //³µ¼Ó¹¤Àà±ğ
+    public static readonly string MachiningCategory = "F0000004";
+    //¹æ¸ñºÅ
+    public static readonly string SpecificationNumber = "F0000066";
+    //ÄÚ¾¶
+    public static readonly string InnerDiameter = "F0000106";
+    //²ÄÖÊ
+    public static readonly string Material = "F0000068";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000076";
+    //¼¼Êõ¹æ·¶2
+    public static readonly string TechnicalSpecification2 = "F0000116";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000098";
+    //IconId
+    public static readonly string Iconid = "IconId";
+    //ÏÂÁÏµ¥ÖØ
+    public static readonly string BlankingUnitWeight = "F0000015";
+    //³ÉÆ·µ¥ÖØ
+    public static readonly string UnitWeightOfFinishedProduct = "F0000014";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //ÏúÊÛ¶©µ¥
+    public static readonly string SalesOrder = "F0000089";
+    //²úÆ·ÉÏ»úÇ°»¥¼ì
+    public static readonly string MutualInspectionBeforeProductOnMachine = "F0000135";
+    //¶©µ¥ÔÚ¿â×ÜÖØ
+    public static readonly string TotalWeightOfOrderInStock = "F0000111";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //¹æ¸ñÎ´ÌáĞèÇóÊı
+    public static readonly string SpecificationDemandQuantityNotMentioned = "F0000087";
+    //Status
+    public static readonly string Status = "Status";
+    //»®Ïß½Ê¿Û
+    public static readonly string ScribingTwistBuckle = "F0000133";
+    //ÆÂ¿ÚÍ¼
+    public static readonly string GrooveDiagram = "F0000071";
+    //¿×Êı
+    public static readonly string NumberOfHoles = "F0000109";
+    //ºÏÍ¬Êı
+    public static readonly string ContractQuantity = "F0000077";
+    //¹æ¸ñºÏÍ¬ÊıÎÄ±¾
+    public static readonly string SpecificationContractQuantityText = "F0000099";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
 }
 /// <summary>
-/// å¸‚åœºéœ€æ±‚,A-B-Cè®¢å•æ‰¹æ¬¡è§„æ ¼è¡¨
+/// ÊĞ³¡ĞèÇó,ABC¶©µ¥Åú´Î¹æ¸ñ±í
 /// </summary>
+[Table("ABC¶©µ¥Åú´Î¹æ¸ñ±í")]
 public class OrderBatchSpecification
 {
-	public static readonly string TableCode = "D001419Sh8z1xnes2iju59dzn4ett4bb2";
-	public OrderBatchSpecification() { }
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// è®¢å•è§„æ ¼è¡¨
-	/// </summary>
-	public static readonly string OrderSpecificationTable = "F0000019";
-	/// <summary>
-	/// äº§å“æ‰¹æ¬¡è§„æ ¼A-B-C
-	/// </summary>
-	public static readonly string ProductBatchSpecificationAbc = "F0000066";
-	/// <summary>
-	/// æœ¬æ‰¹åéœ€æ±‚æ•°
-	/// </summary>
-	public static readonly string DemandQuantityAfterThisBatch = "F0000062";
-	/// <summary>
-	/// å˜æ›´æ¯›å¯æ•°
-	/// </summary>
-	public static readonly string ChangedBlankQuantity = "F0000115";
-	/// <summary>
-	/// è¾¾æˆæˆå“æ•°
-	/// </summary>
-	public static readonly string NumberOfFinishedProductsReached = "F0000122";
-	/// <summary>
-	/// ç”Ÿäº§å®Œæˆ
-	/// </summary>
-	public static readonly string ProductionCompletion = "F0000125";
-	/// <summary>
-	/// è§„æ ¼å·
-	/// </summary>
-	public static readonly string SpecificationNumber = "F0000021";
-	/// <summary>
-	/// å˜æ›´æˆå“æ ‡è¯†
-	/// </summary>
-	public static readonly string ChangeFinishedProductIdentification = "F0000136";
-	/// <summary>
-	/// åœ¨åº“æˆå“é‡é‡
-	/// </summary>
-	public static readonly string WeightOfFinishedProductsInStock = "F0000045";
-	/// <summary>
-	/// ç”Ÿäº§å·®æ•°é‡é‡
-	/// </summary>
-	public static readonly string ProductionDifferenceWeight = "F0000093";
-	/// <summary>
-	/// è§„æ ¼æœªæéœ€æ±‚æ•°
-	/// </summary>
-	public static readonly string DemandQuantityNotMentionedInTheSpecification = "F0000103";
-	/// <summary>
-	/// æˆå“å‘å‡ºè€—å°æ—¶
-	/// </summary>
-	public static readonly string FinishedProductDeliveryHours = "F0000129";
-	/// <summary>
-	/// åœ¨åº“çƒ­åŠ å·¥æ•°
-	/// </summary>
-	public static readonly string HotWorkingQuantityInTheWarehouse = "F0000111";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000022";
-	/// <summary>
-	/// æˆå“éœ€æ±‚å·®æ•°é‡é‡
-	/// </summary>
-	public static readonly string DemandDifferenceWeightOfFinishedProducts = "F0000132";
-	/// <summary>
-	/// æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string BatchNumber = "F0000020";
-	/// <summary>
-	/// ç”Ÿäº§å»¶æœŸå¤©æ•°
-	/// </summary>
-	public static readonly string ProductionDelayDays = "DelayedDays";
-	/// <summary>
-	/// éœ€æ±‚è¾¾æˆ
-	/// </summary>
-	public static readonly string DemandFulfillment = "F0000124";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string ProductSpecification = "F0000026";
-	/// <summary>
-	/// æˆå“å‘å‡ºè€—åˆ†é’Ÿæ•°
-	/// </summary>
-	public static readonly string FinishedProductDeliveryMinutes = "F0000130";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// å˜æ›´å‰æˆå“éœ€æ±‚æ•°
-	/// </summary>
-	public static readonly string FinishedProductDemandBeforeChange = "F0000106";
-	/// <summary>
-	/// æœ¬æ‰¹åéœ€æ±‚é‡é‡
-	/// </summary>
-	public static readonly string DemandQuantityAfterThisBatchWeight = "F0000099";
-	/// <summary>
-	/// åˆåŒæˆå“å•é‡
-	/// </summary>
-	public static readonly string ContractFinishedProductUnitWeight = "F0000046";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// é¡¹ç›®ç¼–å·
-	/// </summary>
-	public static readonly string ProjectNumber = "F0000101";
-	/// <summary>
-	/// æˆå“å‘å‡ºè€—æ—¶
-	/// </summary>
-	public static readonly string FinishedProductsProductDeliveryTime = "F0000076";
-	/// <summary>
-	/// æˆå“å‘å‡ºè€—ç§’æ•°
-	/// </summary>
-	public static readonly string FinishedProductDeliverySeconds = "F0000134";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è¡¨
-	/// </summary>
-	public static readonly string OrderBatchTable = "F0000012";
-	/// <summary>
-	/// äº§å“ç¼–å·A-C
-	/// </summary>
-	public static readonly string ProductNumberAc = "F0000058";
-	/// <summary>
-	/// å†·åŠ å·¥è®¡åˆ’
-	/// </summary>
-	public static readonly string ColdProcessingPlan = "F0000139";
-	/// <summary>
-	/// ç´¯è®¡æˆå“å…¥åº“é‡é‡
-	/// </summary>
-	public static readonly string CumulativeFinishedProductWarehousingWeight = "F0000092";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// åœ¨åº“å†·åŠ å·¥æ•°
-	/// </summary>
-	public static readonly string ColdWorkingQuantityInTheWarehouse = "F0000112";
-	/// <summary>
-	/// æˆå“éœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string FinishedProductDemandPeriod = "F0000027";
-	/// <summary>
-	/// æˆå“éœ€æ±‚å·®æ•°
-	/// </summary>
-	public static readonly string DemandDifferenceOfFinishedProducts = "F0000131";
-	/// <summary>
-	/// ç´¯è®¡å‘è¿é‡é‡
-	/// </summary>
-	public static readonly string CumulativeShipmentWeight = "F0000091";
-	/// <summary>
-	/// ç´¯è®¡æˆå“æ•°
-	/// </summary>
-	public static readonly string CumulativeFinishedProductQuantity = "F0000071";
-	/// <summary>
-	/// ç”Ÿäº§å»¶æœŸç§’æ•°
-	/// </summary>
-	public static readonly string ProductionDelaySeconds = "F0000127";
-	/// <summary>
-	/// æ¡æ•°è®¡æ•°
-	/// </summary>
-	public static readonly string NumberOfPiecesCount = "F0000135";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// éœ€æ±‚å¤–æˆå“æ•°
-	/// </summary>
-	public static readonly string NumberOfFinishedProductsOutsideTheDemand = "F0000121";
-	/// <summary>
-	/// å˜æ›´æˆå“å¤‡æ³¨
-	/// </summary>
-	public static readonly string RemarksOnChangedFinishedProducts = "F0000120";
-	/// <summary>
-	/// åœ¨äº§è¯¦æƒ…
-	/// </summary>
-	public static readonly string ProductionDetails = "F0000098";
-	/// <summary>
-	/// ç”Ÿäº§å®Œæˆæ—¥æœŸ
-	/// </summary>
-	public static readonly string ProductionCompletionDate = "FinishDate";
-	/// <summary>
-	/// äº§å“æ‰¹æ¬¡A-B
-	/// </summary>
-	public static readonly string ProductBatchAB = "F0000067";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000079";
-	/// <summary>
-	/// è§„æ ¼æœªæéœ€æ±‚é‡é‡
-	/// </summary>
-	public static readonly string DemandWeightNotMentionedInTheSpecification = "F0000104";
-	/// <summary>
-	/// åœ¨åº“æˆå“æ•°
-	/// </summary>
-	public static readonly string NumberOfFinishedProductsInStock = "F0000064";
-	/// <summary>
-	/// ç”Ÿäº§å»¶æœŸå°æ—¶
-	/// </summary>
-	public static readonly string ProductionDelayHours = "F0000133";
-	/// <summary>
-	/// å‘è¿æ—¥æœŸ
-	/// </summary>
-	public static readonly string ShipmentDate = "F0000077";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ç”Ÿäº§æå‰å¤©æ•°
-	/// </summary>
-	public static readonly string ProductionLeadDays = "F0000097";
-	/// <summary>
-	/// è§„æ ¼å·²æéœ€æ±‚é‡é‡
-	/// </summary>
-	public static readonly string DemandWeightRaisedInTheSpecification = "F0000105";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// å˜æ›´æ¯›å¯å¤‡æ³¨
-	/// </summary>
-	public static readonly string ChangeBlankRemarks = "F0000116";
-	/// <summary>
-	/// å˜æ›´æ¯›å¯æ ‡è¯†
-	/// </summary>
-	public static readonly string ChangeBlankIdentification = "F0000137";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000017";
-	/// <summary>
-	/// ç´¯è®¡å‘è¿æ•°
-	/// </summary>
-	public static readonly string CumulativeShipmentNumber = "F0000063";
-	/// <summary>
-	/// ç´¯è®¡æ¯›å¯æ•°
-	/// </summary>
-	public static readonly string CumulativeBlankQuantity = "F0000108";
-	/// <summary>
-	/// å‘è¿å®Œæˆ
-	/// </summary>
-	public static readonly string ShipmentCompletion = "F0000123";
-	/// <summary>
-	/// çƒ­åŠ å·¥è®¡åˆ’
-	/// </summary>
-	public static readonly string HotProcessingPlan = "F0000138";
-	/// <summary>
-	/// è¾¾æˆæ¯›å¯æ•°
-	/// </summary>
-	public static readonly string AchievedBlankQuantity = "F0000117";
-	/// <summary>
-	/// ç”Ÿäº§å»¶æœŸåˆ†é’Ÿ
-	/// </summary>
-	public static readonly string ProductionDelayMinutes = "F0000126";
-	/// <summary>
-	/// ç”Ÿäº§å·®æ•°
-	/// </summary>
-	public static readonly string ProductionDifference = "F0000065";
-	/// <summary>
-	/// è§„æ ¼å·²æéœ€æ±‚æ•°
-	/// </summary>
-	public static readonly string DemandQuantityRaisedInTheSpecification = "F0000102";
-	/// <summary>
-	/// æˆå“éœ€æ±‚æ•°
-	/// </summary>
-	public static readonly string FinishedProductDemandQuantity = "F0000047";
-	/// <summary>
-	/// å‡†æ—¶å®Œå·¥
-	/// </summary>
-	public static readonly string OntimeCompletion = "F0000069";
-	/// <summary>
-	/// å˜æ›´æˆå“æ•°
-	/// </summary>
-	public static readonly string ChangeNumberOfFinishedProducts = "F0000119";
-	/// <summary>
-	/// æˆå“éœ€æ±‚é‡é‡
-	/// </summary>
-	public static readonly string FinishedProductDemandWeight = "F0000081";
+    public static readonly string TableCode = "Sh8z1xnes2iju59dzn4ett4bb2";
+    public OrderBatchSpecification() { }
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //¶©µ¥¹æ¸ñ±í
+    public static readonly string OrderSpecificationTable = "F0000019";
+    //²úÆ·Åú´Î¹æ¸ñABC
+    public static readonly string ProductBatchSpecificationAbc = "F0000066";
+    //±¾ÅúºóĞèÇóÊı
+    public static readonly string DemandQuantityAfterThisBatch = "F0000062";
+    //±ä¸üÃ«Å÷Êı
+    public static readonly string ChangeBlankQuantity = "F0000115";
+    //´ï³É³ÉÆ·Êı
+    public static readonly string NumberOfFinishedProductsReached = "F0000122";
+    //Éú²úÍê³É
+    public static readonly string ProductionCompletion = "F0000125";
+    //¹æ¸ñºÅ
+    public static readonly string SpecificationNumber = "F0000021";
+    //±ä¸ü³ÉÆ·±êÊ¶
+    public static readonly string ChangeFinishedProductIdentification = "F0000136";
+    //ÔÚ¿â³ÉÆ·ÖØÁ¿
+    public static readonly string WeightOfFinishedProductsInStock = "F0000045";
+    //Éú²ú²îÊıÖØÁ¿
+    public static readonly string ProductionDifferenceWeight = "F0000093";
+    //¹æ¸ñÎ´ÌáĞèÇóÊı
+    public static readonly string DemandQuantityNotMentionedInTheSpecification = "F0000103";
+    //³ÉÆ··¢³öºÄĞ¡Ê±
+    public static readonly string FinishedProductDeliveryHours = "F0000129";
+    //ÔÚ¿âÈÈ¼Ó¹¤Êı
+    public static readonly string HotWorkInStock = "F0000111";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000022";
+    //³ÉÆ·ĞèÇó²îÊıÖØÁ¿
+    public static readonly string DemandDifferenceWeightOfFinishedProducts = "F0000132";
+    //Åú´ÎºÅ
+    public static readonly string BatchNumber = "F0000020";
+    //Éú²úÑÓÆÚÌìÊı
+    public static readonly string ProductionDelayDays = "DelayedDays";
+    //ĞèÇó´ï³É
+    public static readonly string DemandFulfillment = "F0000124";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //²úÆ·¹æ¸ñ
+    public static readonly string ProductSpecification = "F0000026";
+    //³ÉÆ··¢³öºÄ·ÖÖÓÊı
+    public static readonly string FinishedProductDeliveryMinutes = "F0000130";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //±ä¸üÇ°³ÉÆ·ĞèÇóÊı
+    public static readonly string FinishedProductDemandBeforeChange = "F0000106";
+    //±¾ÅúºóĞèÇóÖØÁ¿
+    public static readonly string DemandQuantityAfterThisBatchWeightCalculation = "F0000099";
+    //ºÏÍ¬³ÉÆ·µ¥ÖØ
+    public static readonly string ContractFinishedProductUnitWeight = "F0000046";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //ÏîÄ¿±àºÅ
+    public static readonly string ProjectNumber = "F0000101";
+    //³ÉÆ··¢³öºÄÊ±
+    public static readonly string FinishedProductDeliveryTime = "F0000076";
+    //³ÉÆ··¢³öºÄÃëÊı
+    public static readonly string FinishedProductDeliverySeconds = "F0000134";
+    //¶©µ¥Åú´Î±í
+    public static readonly string OrderBatchTable = "F0000012";
+    //²úÆ·±àºÅAC
+    public static readonly string ProductNumberAc = "F0000058";
+    //Àä¼Ó¹¤¼Æ»®
+    public static readonly string ColdProcessingPlan = "F0000139";
+    //ÀÛ¼Æ³ÉÆ·Èë¿âÖØÁ¿
+    public static readonly string CumulativeFinishedProductWarehousingWeight = "F0000092";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //ÔÚ¿âÀä¼Ó¹¤Êı
+    public static readonly string ColdWorkInStock = "F0000112";
+    //³ÉÆ·ĞèÇóÆÚ
+    public static readonly string FinishedProductDemandPeriod = "F0000027";
+    //³ÉÆ·ĞèÇó²îÊı
+    public static readonly string DemandDifferenceOfFinishedProducts = "F0000131";
+    //ÀÛ¼Æ·¢ÔËÖØÁ¿
+    public static readonly string CumulativeShipmentWeight = "F0000091";
+    //ÀÛ¼Æ³ÉÆ·Êı
+    public static readonly string CumulativeFinishedProductQuantity = "F0000071";
+    //Éú²úÑÓÆÚÃëÊı
+    public static readonly string ProductionDelaySeconds = "F0000127";
+    //ÌõÊı¼ÆÊı
+    public static readonly string NumberOfPiecesCount = "F0000135";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //ĞèÇóÍâ³ÉÆ·Êı
+    public static readonly string NumberOfFinishedProductsOutsideTheDemand = "F0000121";
+    //±ä¸ü³ÉÆ·±¸×¢
+    public static readonly string RemarksOfFinishedProductsChanged = "F0000120";
+    //ÔÚ²úÏêÇé
+    public static readonly string ProductionDetails = "F0000098";
+    //Éú²úÍê³ÉÈÕÆÚ
+    public static readonly string ProductionCompletionDate = "FinishDate";
+    //²úÆ·Åú´ÎAB
+    public static readonly string ProductBatchAB = "F0000067";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000079";
+    //¹æ¸ñÎ´ÌáĞèÇóÖØÁ¿
+    public static readonly string DemandWeightNotMentionedInTheSpecification = "F0000104";
+    //ÔÚ¿â³ÉÆ·Êı
+    public static readonly string NumberOfFinishedProductsInStock = "F0000064";
+    //Éú²úÑÓÆÚĞ¡Ê±
+    public static readonly string ProductionDelayHours = "F0000133";
+    //·¢ÔËÈÕÆÚ
+    public static readonly string ShipmentDate = "F0000077";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //Éú²úÌáÇ°ÌìÊı
+    public static readonly string ProductionAdvanceDays = "F0000097";
+    //¹æ¸ñÒÑÌáĞèÇóÖØÁ¿
+    public static readonly string DemandWeightRaisedInTheSpecification = "F0000105";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //Status
+    public static readonly string Status = "Status";
+    //±ä¸üÃ«Å÷±¸×¢
+    public static readonly string ChangeBlankRemarks = "F0000116";
+    //±ä¸üÃ«Å÷±êÊ¶
+    public static readonly string ChangeBlankIdentification = "F0000137";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000017";
+    //ÀÛ¼Æ·¢ÔËÊı
+    public static readonly string CumulativeShipmentNumber = "F0000063";
+    //ÀÛ¼ÆÃ«Å÷Êı
+    public static readonly string CumulativeBlankQuantity = "F0000108";
+    //·¢ÔËÍê³É
+    public static readonly string ShipmentCompletion = "F0000123";
+    //ÈÈ¼Ó¹¤¼Æ»®
+    public static readonly string HotProcessingPlan = "F0000138";
+    //´ï³ÉÃ«Å÷Êı
+    public static readonly string AchievedBlankQuantity = "F0000117";
+    //Éú²úÑÓÆÚ·ÖÖÓ
+    public static readonly string ProductionDelayMinutes = "F0000126";
+    //Éú²ú²îÊı
+    public static readonly string ProductionDifference = "F0000065";
+    //¹æ¸ñÒÑÌáĞèÇóÊı
+    public static readonly string DemandQuantityRaisedInTheSpecification = "F0000102";
+    //³ÉÆ·ĞèÇóÊı
+    public static readonly string FinishedProductDemandQuantity = "F0000047";
+    //×¼Ê±Íê¹¤
+    public static readonly string OntimeCompletion = "F0000069";
+    //±ä¸ü³ÉÆ·Êı
+    public static readonly string ChangeNumberOfFinishedProducts = "F0000119";
+    //³ÉÆ·ĞèÇóÖØÁ¿
+    public static readonly string FinishedProductDemandWeight = "F0000081";
 }
 /// <summary>
-/// å¸‚åœºéœ€æ±‚,å®¢æˆ·è¡¨
+/// ÊĞ³¡ĞèÇó,¿Í»§±í
 /// </summary>
+[Table("¿Í»§±í")]
 public class Customers
 {
-	public static readonly string TableCode = "D001419cace8d77e69a4113b425d16711ee46e9";
-	public Customers() { }
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000020";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// æ€»å…¬å¸åç§°
-	/// </summary>
-	public static readonly string HeadOfficeName = "F0000003";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// å¹³å‡ä»˜æ¬¾æ—¶é•¿
-	/// </summary>
-	public static readonly string AveragePaymentDuration = "F0000016";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// è”ç³»äºº
-	/// </summary>
-	public static readonly string ContactPerson = "F0000024";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// æ€»å·²æ¬ æ¬¾é¢
-	/// </summary>
-	public static readonly string TotalAmountOwed = "F0000023";
-	/// <summary>
-	/// å®¢æˆ·å…¨ç§°
-	/// </summary>
-	public static readonly string FullNameOfCustomer = "F0000028";
-	/// <summary>
-	/// å®¢æˆ·åœ°å€
-	/// </summary>
-	public static readonly string CustomerAddress = "F0000006";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// å®¢æˆ·åç§°
-	/// </summary>
-	public static readonly string CustomerName = "F0000029";
-	/// <summary>
-	/// å®¢æˆ·ä¿¡èª‰
-	/// </summary>
-	public static readonly string CustomerReputation = "F0000022";
-	/// <summary>
-	/// ç”µè¯
-	/// </summary>
-	public static readonly string Telephone = "F0000009";
-	/// <summary>
-	/// ä¸»è¥è¡Œä¸š
-	/// </summary>
-	public static readonly string MainIndustry = "F0000010";
-	/// <summary>
-	/// å®¢æˆ·å‘å±•æ½œåŠ›
-	/// </summary>
-	public static readonly string CustomerDevelopmentPotential = "F0000026";
-	/// <summary>
-	/// å®¢æˆ·ç±»åˆ«
-	/// </summary>
-	public static readonly string CustomerCategory = "F0000027";
-	/// <summary>
-	/// å‘ç¥¨ä¿¡æ¯
-	/// </summary>
-	public static readonly string InvoiceInformation = "F0000025";
-	/// <summary>
-	/// å…è®¸å®¢æˆ·æ¬ æ¬¾é¢åº¦
-	/// </summary>
-	public static readonly string AllowableAmountOwedByCustomer = "F0000015";
-	/// <summary>
-	/// å®¢æˆ·è¯„çº§
-	/// </summary>
-	public static readonly string CustomerRating = "F0000004";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// ä¸»è¥äº§å“
-	/// </summary>
-	public static readonly string MainProduct = "F0000011";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// å®¢æˆ·ç¼–å·
-	/// </summary>
-	public static readonly string CustomerNumber = "SeqNo";
+    public static readonly string TableCode = "cace8d77e69a4113b425d16711ee46e9";
+    public Customers() { }
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000020";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //×Ü¹«Ë¾Ãû³Æ
+    public static readonly string HeadOfficeName = "F0000003";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //Æ½¾ù¸¶¿îÊ±³¤
+    public static readonly string AveragePaymentDuration = "F0000016";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //Status
+    public static readonly string Status = "Status";
+    //ÁªÏµÈË
+    public static readonly string ContactPerson = "F0000024";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //×ÜÒÑÇ·¿î¶î
+    public static readonly string TotalAmountOwed = "F0000023";
+    //¿Í»§È«³Æ
+    public static readonly string FullNameOfCustomer = "F0000028";
+    //¿Í»§µØÖ·
+    public static readonly string CustomerAddress = "F0000006";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //¿Í»§Ãû³Æ
+    public static readonly string CustomerName = "F0000029";
+    //¿Í»§ĞÅÓş
+    public static readonly string CustomerReputation = "F0000022";
+    //µç»°
+    public static readonly string Telephone = "F0000009";
+    //Ö÷ÓªĞĞÒµ
+    public static readonly string MainIndustry = "F0000010";
+    //¿Í»§·¢Õ¹Ç±Á¦
+    public static readonly string CustomerDevelopmentPotential = "F0000026";
+    //¿Í»§Àà±ğ
+    public static readonly string CustomerCategory = "F0000027";
+    //·¢Æ±ĞÅÏ¢
+    public static readonly string InvoiceInformation = "F0000025";
+    //ÔÊĞí¿Í»§Ç·¿î¶î¶È
+    public static readonly string AllowableAmountOwedByCustomer = "F0000015";
+    //¿Í»§ÆÀ¼¶
+    public static readonly string CustomerRating = "F0000004";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //Ö÷Óª²úÆ·
+    public static readonly string MainProduct = "F0000011";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //¿Í»§±àºÅ
+    public static readonly string CustomerNumber = "SeqNo";
 }
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,æˆå“åº“
+/// Éú²úÖÆÔìÁ÷³Ì,³ÉÆ·¿â
 /// </summary>
+[Table("³ÉÆ·¿â")]
 public class FinishedStore
 {
-	public static readonly string TableCode = "D001419Sazlj5e6epn2ek3eiukcbzt321";
-	public FinishedStore() { }
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// å•é‡
-	/// </summary>
-	public static readonly string UnitWeight = "F0000008";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// å‡ºåº“æ—¶é—´
-	/// </summary>
-	public static readonly string IssueTime = "F0000014";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000015";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string WorkshopLocation = "F0000019";
-	/// <summary>
-	/// å½“å‰å·¥æ­¥
-	/// </summary>
-	public static readonly string CurrentStep = "F0000021";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000016";
-	/// <summary>
-	/// å®Œæˆæ—¶é—´
-	/// </summary>
-	public static readonly string CompletionTime = "F0000009";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000002";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string ProductSpecification = "F0000006";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000018";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string ProductLocation = "F0000020";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000005";
-	/// <summary>
-	/// æ›´æ–°å¼‚å¸¸æ—¥å¿—objectID
-	/// </summary>
-	public static readonly string ObjectIDForUpdateTheExceptionLog = "F0000023";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// å‚åŒºä½ç½®
-	/// </summary>
-	public static readonly string FactoryLocation = "F0000024";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000003";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000001";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// å½“å‰å·¥åº
-	/// </summary>
-	public static readonly string CurrentOperation = "F0000022";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string PieceNumber = "F0000004";
-	/// <summary>
-	/// å…¥åº“æ—¶é—´
-	/// </summary>
-	public static readonly string ReceiptTime = "F0000013";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
+    public static readonly string TableCode = "Sazlj5e6epn2ek3eiukcbzt321";
+    public FinishedStore() { }
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //µ¥ÖØ
+    public static readonly string UnitWeight = "F0000008";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //³ö¿âÊ±¼ä
+    public static readonly string IssueTime = "F0000014";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000015";
+    //³µ¼äÎ»ÖÃ
+    public static readonly string WorkshopLocation = "F0000019";
+    //µ±Ç°¹¤²½
+    public static readonly string CurrentStep = "F0000021";
+    //ID
+    public static readonly string ID = "F0000016";
+    //Íê³ÉÊ±¼ä
+    public static readonly string CompletionTime = "F0000009";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000002";
+    //²úÆ·¹æ¸ñ
+    public static readonly string ProductSpecification = "F0000006";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000018";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //²úÆ·Î»ÖÃ
+    public static readonly string ProductLocation = "F0000020";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000005";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000003";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000001";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //µ±Ç°¹¤Ğò
+    public static readonly string CurrentOperation = "F0000022";
+    //¹¤¼şºÅ
+    public static readonly string PieceNumber = "F0000004";
+    //Èë¿âÊ±¼ä
+    public static readonly string ReceiptTime = "F0000013";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //Status
+    public static readonly string Status = "Status";
 }
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,äººå·¥è°ƒæ•´å·¥åº
+/// Éú²úÖÆÔìÁ÷³Ì,ÈË¹¤µ÷Õû¹¤Ğò
 /// </summary>
+[Table("ÈË¹¤µ÷Õû¹¤Ğò")]
 public class ManualAdjustProcess
 {
-	public static readonly string TableCode = "D001419Se0zvmpq4f9zpi894bxzf5sz35";
-	public ManualAdjustProcess() { }
-	/// <summary>
-	/// ç‰ˆæœ¬å·
-	/// </summary>
-	public static readonly string TheVersionNumber = "F0000059";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000006";
-	/// <summary>
-	/// å–æ ·é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string SamplingLimitsTheOrderOfDispatch = "F0000046";
-	/// <summary>
-	/// ç²¾è½¦ç­ç»„é•¿
-	/// </summary>
-	public static readonly string FinishingTeamLeader = "F0000062";
-	/// <summary>
-	/// ç²¾è½¦æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string PrecisionVehicleDispatchInformation = "D0014193e4d0039034146699786aa82e5473577";
-	/// <summary>
-	/// é”™è¯¯æ¶ˆæ¯
-	/// </summary>
-	public static readonly string TheErrorMessage = "Message";
-	/// <summary>
-	/// ç²—è½¦åŠ å·¥è€…
-	/// </summary>
-	public static readonly string RoughingWorker = "F0000056";
-	/// <summary>
-	/// ç²¾è½¦é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string TheOrderOfDispatchIsLimited = "F0000048";
-	/// <summary>
-	/// é’»å­”æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string DrillingAssignmentInformation = "D001419db49d738eebb477bb8834e1888dea99e";
-	/// <summary>
-	/// å½“å‰å·¥æ­¥
-	/// </summary>
-	public static readonly string CurrentJobStep = "F0000029";
-	/// <summary>
-	/// æ˜¯å¦å–æ ·
-	/// </summary>
-	public static readonly string SamplingOrNot = "F0000019";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000004";
-	/// <summary>
-	/// å–æ ·æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string SamplingAssignmentInformation = "D001419aee1715331f8480ea6d28e10f197f211";
-	/// <summary>
-	/// å·¥äºº
-	/// </summary>
-	public static readonly string Worker = "F0000030";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000007";
-	/// <summary>
-	/// å…¶å®ƒæ¥æº
-	/// </summary>
-	public static readonly string OtherSources = "F0000023";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000001";
-	/// <summary>
-	/// åŸææ–™å·
-	/// </summary>
-	public static readonly string RawMaterialNumber = "F0000013";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// è¿›åº¦ç®¡ç†ä¿¡æ¯
-	/// </summary>
-	public static readonly string ScheduleManagementInformation = "Progress";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000005";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// æ•°æ®åˆ†ç±»
-	/// </summary>
-	public static readonly string DataClassification = "F0000024";
-	/// <summary>
-	/// ç²—è½¦æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string RoughVehicleDispatchInformation = "D001419F56f2385caf1a4f4395f9eb9d4a241b98";
-	/// <summary>
-	/// å–æ ·ç­ç»„é•¿
-	/// </summary>
-	public static readonly string SamplingTeamLeader = "F0000060";
-	/// <summary>
-	/// è½¬è‡³å·¥æ­¥
-	/// </summary>
-	public static readonly string TransferToWorkStep = "F0000022";
-	/// <summary>
-	/// å–æ ·åŠ å·¥è€…
-	/// </summary>
-	public static readonly string SamplingWorker = "F0000055";
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string ProductLocation = "F0000027";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// éƒ¨é—¨ä»£ç 
-	/// </summary>
-	public static readonly string DepartmentCode = "F0000033";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// æ´¾å·¥è®¡åˆ’
-	/// </summary>
-	public static readonly string DispatchingPlan = "F0000050";
-	/// <summary>
-	/// é’»å­”ç­ç»„é•¿
-	/// </summary>
-	public static readonly string DrillTeamLeader = "F0000063";
-	/// <summary>
-	/// é’»å­”é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string DrillingLimitsTheOrderOfDispatch = "F0000049";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// æ›´æ–°å¼‚å¸¸æ—¥å¿—objectID
-	/// </summary>
-	public static readonly string ObjectIDForUpdateTheExceptionLog = "F0000031";
-	/// <summary>
-	/// éƒ¨é—¨å¤šé€‰
-	/// </summary>
-	public static readonly string DepartmentOfAlternative = "F0000034";
-	/// <summary>
-	/// å•é‡
-	/// </summary>
-	public static readonly string UnitWeight = "F0000017";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string WorkshopLocation = "F0000026";
-	/// <summary>
-	/// è½§åˆ¶æ–¹å¼
-	/// </summary>
-	public static readonly string RollingMethod = "F0000014";
-	/// <summary>
-	/// å†·åŠ å·¥ç§‘é•¿
-	/// </summary>
-	public static readonly string ColdWorkingSectionChief = "F0000064";
-	/// <summary>
-	/// ç²—è½¦é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string HeavyTruckLimitsTheOrderOfDispatch = "F0000047";
-	/// <summary>
-	/// è½¬è‡³å·¥åº
-	/// </summary>
-	public static readonly string TransferToOperation = "F0000020";
-	/// <summary>
-	/// æ€»è®¡åˆ’å‘˜
-	/// </summary>
-	public static readonly string TotalPlanner = "F0000065";
-	/// <summary>
-	/// ç²¾è½¦åŠ å·¥è€…
-	/// </summary>
-	public static readonly string FinishingWorker = "F0000057";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000028";
-	/// <summary>
-	/// é’»å­”åŠ å·¥è€…
-	/// </summary>
-	public static readonly string DrillWorker = "F0000058";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string BatchNumber = "F0000002";
-	/// <summary>
-	/// è§„æ ¼å·
-	/// </summary>
-	public static readonly string SpecificationNumber = "F0000003";
-	/// <summary>
-	/// ç²—è½¦ç­ç»„é•¿
-	/// </summary>
-	public static readonly string RoughingTeamLeader = "F0000061";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
+    public static readonly string TableCode = "Se0zvmpq4f9zpi894bxzf5sz35";
+    public ManualAdjustProcess() { }
+    //ID
+    public static readonly string ID = "F0000006";
+    //µ±Ç°¹¤²½
+    public static readonly string CurrentJobStep = "F0000029";
+    //ÊÇ·ñÈ¡Ñù
+    public static readonly string SamplingOrNot = "F0000019";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000004";
+    //¹¤ÈË
+    public static readonly string Worker = "F0000030";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000007";
+    //ÆäËüÀ´Ô´
+    public static readonly string OtherSources = "F0000023";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000001";
+    //Ô­²ÄÁÏºÅ
+    public static readonly string RawMaterialNumber = "F0000013";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000005";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //Êı¾İ·ÖÀà
+    public static readonly string DataClassification = "F0000024";
+    //×ªÖÁ¹¤²½
+    public static readonly string TransferToWorkStep = "F0000022";
+    //²úÆ·Î»ÖÃ
+    public static readonly string ProductLocation = "F0000027";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //Status
+    public static readonly string Status = "Status";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //µ¥ÖØ
+    public static readonly string UnitWeight = "F0000017";
+    //³µ¼äÎ»ÖÃ
+    public static readonly string WorkshopLocation = "F0000026";
+    //ÔşÖÆ·½Ê½
+    public static readonly string RollingMethod = "F0000014";
+    //×ªÖÁ¹¤Ğò
+    public static readonly string TransferToOperation = "F0000020";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000028";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //Åú´ÎºÅ
+    public static readonly string BatchNumber = "F0000002";
+    //¹æ¸ñºÅ
+    public static readonly string SpecificationNumber = "F0000003";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
 }
 /// <summary>
-/// ç”Ÿäº§è®¡åˆ’,ABCDå·¥åºè®¡åˆ’è¡¨
+/// Éú²ú¼Æ»®,ABCD¹¤Ğò¼Æ»®±í
 /// </summary>
+[Table("ABCD¹¤Ğò¼Æ»®±í")]
 public class ABCDProcessPlan
 {
-	public static readonly string TableCode = "D001419Szlywopbivyrv1d64301ta5xv4";
-	public ABCDProcessPlan() { }
-	/// <summary>
-	/// èƒ½å¦åŒè½§
-	/// </summary>
-	public static readonly string DoubleRollingPossible = "F0000153";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è¡¨
-	/// </summary>
-	public static readonly string OrderBatchTable = "F0000144";
-	/// <summary>
-	/// å¤–ååˆåŒè¡¨-ç²¾è½¦
-	/// </summary>
-	public static readonly string OutsourcingContractFormFinishTurning = "F0000087";
-	/// <summary>
-	/// æˆå“éœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string FinishedProductDemandPeriod = "F0000021";
-	/// <summary>
-	/// é’»å­”ç­ç»„é•¿
-	/// </summary>
-	public static readonly string DrillTeamLeader = "F0000250";
-	/// <summary>
-	/// å¤–ååˆåŒè¡¨-é”»å‹
-	/// </summary>
-	public static readonly string OutsourcingContractTableForgingPressing = "F0000065";
-	/// <summary>
-	/// é”»è¾—å®é™…ç‚‰æ¬¡
-	/// </summary>
-	public static readonly string ForgingActualFurnace = "F0000239";
-	/// <summary>
-	/// å•ä»¶å››é¢å…‰é…ç½®
-	/// </summary>
-	public static readonly string SinglePieceFourSideLightConfiguration = "F0000224";
-	/// <summary>
-	/// å…¨å±€å›ç«é…ç½®
-	/// </summary>
-	public static readonly string GlobalTemperingConfiguration = "F0000215";
-	/// <summary>
-	/// è®¡åˆ’çƒ­å¤„ç†ç‚‰å·
-	/// </summary>
-	public static readonly string HeatTreatmentFurnaceNumber = "F0000140";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// ç²¾è½¦ç­ç»„é•¿
-	/// </summary>
-	public static readonly string FinishingTeamLeader = "F0000249";
-	/// <summary>
-	/// åŠ å·¥å•ä½-é”»å‹
-	/// </summary>
-	public static readonly string ProcessingUnitForging = "F0000062";
-	/// <summary>
-	/// å…¨å±€å››é¢å…‰é…ç½®
-	/// </summary>
-	public static readonly string GlobalFourSideLightConfiguration = "F0000222";
-	/// <summary>
-	/// æµç¨‹å‚ä¸éƒ¨é—¨
-	/// </summary>
-	public static readonly string ProcessParticipatingDepartments = "F0000229";
-	/// <summary>
-	/// åŒæ‰åˆ†å‰²å‰å·¥ä»¶
-	/// </summary>
-	public static readonly string DoubleTieTheWorkpieceBeforeSegmentation = "F0000232";
-	/// <summary>
-	/// å…¨å±€è£…ç‚‰å‰æ£€éªŒ
-	/// </summary>
-	public static readonly string GlobalInspectionBeforeFurnaceLoading = "F0000191";
-	/// <summary>
-	/// çƒ­åŠ å·¥å®Œæˆæ—¶é—´
-	/// </summary>
-	public static readonly string HotProcessingPlan = "F0000023";
-	/// <summary>
-	/// åŒè½§å…³è”è¡¨å•
-	/// </summary>
-	public static readonly string DoubleTieAssociatedForm = "F0000226";
-	/// <summary>
-	/// å®é™…ç‚‰æ¬¡ç¼–å·
-	/// </summary>
-	public static readonly string ActualNumberOfFurnace = "F0000217";
-	/// <summary>
-	/// å¤–ååˆåŒè¡¨-çƒ­å¤„ç†
-	/// </summary>
-	public static readonly string OutsourcingContractTableHeatTreatment = "F0000073";
-	/// <summary>
-	/// å…¨éƒ¨åˆ©ç”¨
-	/// </summary>
-	public static readonly string AllUtilization = "Finish";
-	/// <summary>
-	/// æ•°é‡-åˆ‡å‰²å‰
-	/// </summary>
-	public static readonly string QuantityBeforeCutting = "F0000228";
-	/// <summary>
-	/// ç²—è½¦ç­ç»„é•¿
-	/// </summary>
-	public static readonly string RoughingTeamLeader = "F0000248";
-	/// <summary>
-	/// å¼€å‘æµ‹è¯•éƒ¨é—¨
-	/// </summary>
-	public static readonly string DevelopmentTestDepartment = "F0000230";
-	/// <summary>
-	/// ç²¾è½¦ç­ç»„
-	/// </summary>
-	public static readonly string FinishTeam = "FinishTeam";
-	/// <summary>
-	/// å•ä»¶è£…ç‚‰å‰æ£€éªŒ
-	/// </summary>
-	public static readonly string InspectionBeforeSinglePieceFurnaceLoading = "F0000148";
-	/// <summary>
-	/// å½“å‰ç”¨æˆ·
-	/// </summary>
-	public static readonly string CurrentUser = "F0000143";
-	/// <summary>
-	/// å·¥è‰ºé…ç½®è¡¨
-	/// </summary>
-	public static readonly string ProcessConfigurationTable = "F0000158";
-	/// <summary>
-	/// åŸææ–™ç¼–å·
-	/// </summary>
-	public static readonly string RawMaterialNumber = "F0000221";
-	/// <summary>
-	/// å•ä»¶å¿½ç•¥ç†åŒ–ç»“æœ
-	/// </summary>
-	public static readonly string SinglePieceIgnorePhysicochemicalResults = "F0000161";
-	/// <summary>
-	/// æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string BatchNumber = "F0000125";
-	/// <summary>
-	/// å¼€å¯æµç¨‹
-	/// </summary>
-	public static readonly string OpenProcess = "F0000020";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000054";
-	/// <summary>
-	/// åŠ å·¥å•ä½-é”¯åˆ‡
-	/// </summary>
-	public static readonly string ProcessingUnitSawing = "F0000058";
-	/// <summary>
-	/// è®¡åˆ’æœ¬å–
-	/// </summary>
-	public static readonly string PlanThisOptionTakes = "F0000141";
-	/// <summary>
-	/// åŒè½§å·¥ä»¶å·
-	/// </summary>
-	public static readonly string DoubleTieWorkpieceNumber = "F0000227";
-	/// <summary>
-	/// ç²—è½¦ç­ç»„
-	/// </summary>
-	public static readonly string RoughTeam = "RoughTeam";
-	/// <summary>
-	/// åŠ å·¥å•ä½-ç²—è½¦
-	/// </summary>
-	public static readonly string ProcessingUnitRoughTurning = "F0000078";
-	/// <summary>
-	/// å†·åŠ å·¥ç§‘å®¤
-	/// </summary>
-	public static readonly string ColdProcessingDepartment = "F0000135";
-	/// <summary>
-	/// è´¨é‡é…ç½®è¡¨
-	/// </summary>
-	public static readonly string QualityConfigurationTable = "F0000173";
-	/// <summary>
-	/// äº§å“å›ç«è¦æ±‚
-	/// </summary>
-	public static readonly string ProductTemperingRequirements = "F0000243";
-	/// <summary>
-	/// å¤–ååˆåŒè¡¨-é’»å­”
-	/// </summary>
-	public static readonly string OutsourcingContractFormDrilling = "F0000089";
-	/// <summary>
-	/// ä¼˜å…ˆå±‚çº§ï¼ˆç²¾æ•´ï¼‰
-	/// </summary>
-	public static readonly string PriorityLevelRefinement = "F0000244";
-	/// <summary>
-	/// ç²¾è½¦è®¡åˆ’å®Œæˆæ—¶é—´
-	/// </summary>
-	public static readonly string FinishTurningPlannedCompletionTime = "F0000098";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000006";
-	/// <summary>
-	/// å·¥è‰ºæµç¨‹è¡¨
-	/// </summary>
-	public static readonly string ProcessFlowTable = "F0000190";
-	/// <summary>
-	/// åŠ å·¥å•ä½-ç²¾è½¦
-	/// </summary>
-	public static readonly string ProcessingUnitFinishTurning = "F0000082";
-	/// <summary>
-	/// çƒ­åŠ å·¥ç§‘å®¤
-	/// </summary>
-	public static readonly string HotProcessingDepartment = "F0000134";
-	/// <summary>
-	/// è®¡åˆ’è½§åˆ¶æ–¹å¼
-	/// </summary>
-	public static readonly string PlannedRollingMethod = "F0000152";
-	/// <summary>
-	/// ç²—è½¦è®¡åˆ’å®Œæˆæ—¶é—´
-	/// </summary>
-	public static readonly string RoughTurningPlanCompletionTime = "F0000095";
-	/// <summary>
-	/// å®é™…çƒ­å¤„ç†ç‚‰å·
-	/// </summary>
-	public static readonly string ActualHeatTreatmentFurnaceNumber = "F0000218";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000004";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "shuj";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ-è¾—ç¯
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperationRingRolling = "F0000067";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// ä¼˜å…ˆå±‚çº§ï¼ˆè£…ç‚‰å‰æ£€éªŒï¼‰
-	/// </summary>
-	public static readonly string PriorityLevelInspectionBeforeLoading = "F0000246";
-	/// <summary>
-	/// è§„æ ¼å››é¢å…‰é…ç½®
-	/// </summary>
-	public static readonly string SpecificationsFourSideLightConfiguration = "F0000223";
-	/// <summary>
-	/// åŠ å·¥å•ä½-çƒ­å¤„ç†
-	/// </summary>
-	public static readonly string ProcessingUnitHeatTreatment = "F0000070";
-	/// <summary>
-	/// å•ä»¶å›ç«é…ç½®
-	/// </summary>
-	public static readonly string SinglePieceTemperingConfiguration = "F0000216";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000025";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// åŸæ–™åº“
-	/// </summary>
-	public static readonly string RawMaterialStorage = "F0000219";
-	/// <summary>
-	/// é”¯åˆ‡ç­ç»„
-	/// </summary>
-	public static readonly string SawcutTeam = "SawcutTeam";
-	/// <summary>
-	/// å–æ ·ç­ç»„é•¿
-	/// </summary>
-	public static readonly string SamplingTeamLeader = "F0000247";
-	/// <summary>
-	/// è®¡åˆ’ç‚‰æ¬¡ç¼–å·
-	/// </summary>
-	public static readonly string PlannedFurnaceNumber = "F0000139";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000007";
-	/// <summary>
-	/// å¤–ååˆåŒè¡¨-é”¯åˆ‡
-	/// </summary>
-	public static readonly string OutsourcingContractTableSawing = "F0000061";
-	/// <summary>
-	/// æ€»è®¡åˆ’å‘˜
-	/// </summary>
-	public static readonly string TotalPlanner = "F0000252";
-	/// <summary>
-	/// è®¢å•è§„æ ¼è¡¨
-	/// </summary>
-	public static readonly string OrderSpecificationTable = "F0000145";
-	/// <summary>
-	/// æˆå“å•é‡
-	/// </summary>
-	public static readonly string FinishedProductUnitWeight = "F0000031";
-	/// <summary>
-	/// é”»è¾—ç‚‰æ¬¡è¡¨
-	/// </summary>
-	public static readonly string TableOfForgingAndRollingFurnace = "F0000237";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼è¡¨
-	/// </summary>
-	public static readonly string OrderBatchSpecificationTable = "F0000017";
-	/// <summary>
-	/// å…¨å±€å¿½ç•¥ç†åŒ–ç»“æœ
-	/// </summary>
-	public static readonly string GlobalIgnorePhysicochemicalResults = "F0000174";
-	/// <summary>
-	/// ç‰ˆæœ¬å·
-	/// </summary>
-	public static readonly string TheVersionNumber = "F0000235";
-	/// <summary>
-	/// å¤–ååˆåŒè¡¨-ç²—è½¦
-	/// </summary>
-	public static readonly string OutsourcingContractTableRoughCar = "F0000081";
-	/// <summary>
-	/// å–æ ·è®¡åˆ’å®Œæˆæ—¶é—´
-	/// </summary>
-	public static readonly string CompletionTimeOfSamplingPlan = "F0000212";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ-é”¯åˆ‡
-	/// </summary>
-	public static readonly string DemandPeriodOfThisProcedureSawing = "F0000059";
-	/// <summary>
-	/// å†ç”Ÿåº“
-	/// </summary>
-	public static readonly string RegenerationWarehouseTable = "F0000018";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ-é”»å‹
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperationForging = "F0000063";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000001";
-	/// <summary>
-	/// åŠ å·¥å•ä½-é’»å­”
-	/// </summary>
-	public static readonly string ProcessingUnitDrilling = "F0000084";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// è§„æ ¼å·
-	/// </summary>
-	public static readonly string SpecificationNumber = "F0000093";
-	/// <summary>
-	/// å†ç”Ÿå·¥åº
-	/// </summary>
-	public static readonly string RegenerationProcess = "F0000142";
-	/// <summary>
-	/// å†·åŠ å·¥å®Œæˆæ—¶é—´
-	/// </summary>
-	public static readonly string ColdProcessingPlan = "F0000024";
-	/// <summary>
-	/// è´¨é‡çŠ¶æ€
-	/// </summary>
-	public static readonly string QualityStatus = "F0000114";
-	/// <summary>
-	/// ä¼˜å…ˆå±‚çº§ï¼ˆå›ç«ï¼‰
-	/// </summary>
-	public static readonly string PriorityLevelTemper = "F0000242";
-	/// <summary>
-	/// å…¨å±€ç²¾æ•´é…ç½®
-	/// </summary>
-	public static readonly string GlobalFinishingConfiguration = "F0000160";
-	/// <summary>
-	/// å†·åŠ å·¥ç§‘é•¿
-	/// </summary>
-	public static readonly string ColdWorkingSectionChief = "F0000251";
-	/// <summary>
-	/// ä¼˜å…ˆå±‚çº§ï¼ˆå››é¢å…‰ï¼‰
-	/// </summary>
-	public static readonly string PriorityLevelFourSideLight = "F0000241";
-	/// <summary>
-	/// ä¼˜å…ˆå±‚çº§ï¼ˆç†åŒ–ï¼‰
-	/// </summary>
-	public static readonly string PriorityLevelPhysicalAndChemical = "F0000245";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ-çƒ­å¤„ç†
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperationHeatTreatment = "F0000071";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000003";
-	/// <summary>
-	/// å•ä»¶ç²¾æ•´é…ç½®
-	/// </summary>
-	public static readonly string SinglePieceFinishingConfiguration = "F0000146";
-	/// <summary>
-	/// é’»å­”è®¡åˆ’å®Œæˆæ—¶é—´
-	/// </summary>
-	public static readonly string DrillingPlannedCompletionTime = "F0000102";
-	/// <summary>
-	/// æ˜¯å¦åˆ¶æ ·
-	/// </summary>
-	public static readonly string YesOrNoopenSamplePreparationProcess = "F0000225";
-	/// <summary>
-	/// åŠ å·¥å•ä½-è¾—ç¯
-	/// </summary>
-	public static readonly string ProcessingUnitRingRolling = "F0000066";
-	/// <summary>
-	/// é”™è¯¯æ¶ˆæ¯
-	/// </summary>
-	public static readonly string TheErrorMessage = "Message";
-	/// <summary>
-	/// å¤–ååˆåŒè¡¨-è¾—ç¯
-	/// </summary>
-	public static readonly string OutsourcingContractTableRingRolling = "F0000069";
-	/// <summary>
-	/// å†ç”Ÿå“ID
-	/// </summary>
-	public static readonly string RecycledProductID = "F0000137";
-	/// <summary>
-	/// å¤–ååˆåŒè¡¨-æ¯›å¯
-	/// </summary>
-	public static readonly string OutsourcingContractTableBlank = "F0000077";
-	/// <summary>
-	/// äº§å“ç²¾æ•´é…ç½®
-	/// </summary>
-	public static readonly string ProductFinishingConfiguration = "F0000157";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string ObjectId = "ObjectId";
-	/// <summary>
-	/// è§„æ ¼å‚æ•°
-	/// </summary>
-	public static readonly string SpecificationParameters = "F0000028";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ-æ¯›å¯
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperationBlank = "F0000075";
-	/// <summary>
-	/// åŠ å·¥å•ä½-æ¯›å¯
-	/// </summary>
-	public static readonly string ProcessingUnitBlank = "F0000074";
-	/// <summary>
-	/// åŸææ–™ç±»å‹
-	/// </summary>
-	public static readonly string RawMaterialType = "F0000220";
-	/// <summary>
-	/// é’»å­”ç­ç»„
-	/// </summary>
-	public static readonly string DrillTeam = "DrillTeam";
-	/// <summary>
-	/// éƒ¨é—¨å¤šé€‰
-	/// </summary>
-	public static readonly string DepartmentOfAlternative = "F0000234";
-	/// <summary>
-	/// é”»è¾—è®¡åˆ’ç‚‰æ¬¡
-	/// </summary>
-	public static readonly string ForgingPlanFurnaceNumber = "F0000238";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// é”»è¾—å®é™…ç‚‰å·
-	/// </summary>
-	public static readonly string ForgingActualFurnaceNumber = "F0000240";
-	/// <summary>
-	/// æˆå“éœ€æ±‚æ•°
-	/// </summary>
-	public static readonly string FinishedProductDemandQuantity = "F0000039";
-	/// <summary>
-	/// éƒ¨é—¨ä»£ç 
-	/// </summary>
-	public static readonly string DepartmentCode = "F0000236";
+    public static readonly string TableCode = "Szlywopbivyrv1d64301ta5xv4";
+    public ABCDProcessPlan() { }
+    //ÄÜ·ñË«Ôş
+    public static readonly string DoubleRollingPossible = "F0000153";
+    //Status
+    public static readonly string Status = "Status";
+    //´Ö³µ
+    public static readonly string RoughTurning = "D001419e4ec5c3c47594922975c8553366c47d0";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //È¡Ñù
+    public static readonly string Sampling = "D001419Fef5c946a47b04101889b43bf290ada42";
+    //¶©µ¥Åú´Î±í
+    public static readonly string OrderBatchTable = "F0000144";
+    //¾«³µ×ªÔË³µ¼äÃû³Æ
+    public static readonly string NameOfFinishTurningTransferWorkshop = "F0000195";
+    //ÍâĞ­ºÏÍ¬±í¾«³µ
+    public static readonly string OutsourcingContractFormFinishTurning = "F0000087";
+    //³ÉÆ·ĞèÇóÆÚ
+    public static readonly string FinishedProductDemandPeriod = "F0000021";
+    //ÍâĞ­ºÏÍ¬±í¶ÍÑ¹
+    public static readonly string OutsourcingContractTableForgingPressing = "F0000065";
+    //Â¯´Î¼Æ»®
+    public static readonly string HeatCountPlan = "F0000138";
+    //ÈÈ´¦ÀíÂ¯ºÅ
+    public static readonly string HeatTreatmentFurnaceNumber = "F0000140";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //¼Ó¹¤µ¥Î»¶ÍÑ¹
+    public static readonly string ProcessingUnitForging = "F0000062";
+    //¾«³µ
+    public static readonly string FinishTurning = "D001419e351edfd0ae44d3e960e3f1c14991f82";
+    //È«¾Ö×°Â¯Ç°¼ìÑé
+    public static readonly string GlobalInspectionBeforeFurnaceLoading = "F0000191";
+    //ÈÈ¼Ó¹¤¼Æ»®
+    public static readonly string HotProcessingPlan = "F0000023";
+    //ÍâĞ­ºÏÍ¬±íÈÈ´¦Àí
+    public static readonly string OutsourcingContractTableHeatTreatment = "F0000073";
+    //È«²¿ÀûÓÃ
+    public static readonly string AllUtilization = "Finish";
+    //µ¥¼ş×°Â¯Ç°¼ìÑé
+    public static readonly string InspectionBeforeSinglePieceFurnaceLoading = "F0000148";
+    //µ±Ç°ÓÃ»§
+    public static readonly string CurrentUser = "F0000143";
+    //¹¤ÒÕÅäÖÃ±í
+    public static readonly string ProcessConfigurationTable = "F0000158";
+    //µ¥¼şºöÂÔÀí»¯½á¹û
+    public static readonly string SinglePieceIgnorePhysicochemicalResults = "F0000161";
+    //Åú´ÎºÅ
+    public static readonly string BatchNumber = "F0000125";
+    //¿ªÆôÁ÷³Ì
+    public static readonly string OpenProcess = "F0000020";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000054";
+    //¼Ó¹¤µ¥Î»¾âÇĞ
+    public static readonly string ProcessingUnitSawing = "F0000058";
+    //¼Æ»®±¾È¡
+    public static readonly string PlanThisOptionTakes = "F0000141";
+    //¼Ó¹¤µ¥Î»´Ö³µ
+    public static readonly string ProcessingUnitRoughTurning = "F0000078";
+    //Àä¼Ó¹¤¿ÆÊÒ
+    public static readonly string ColdProcessingDepartment = "F0000135";
+    //²úÆ·ÉÏ»úÇ°»¥¼ì
+    public static readonly string MutualInspectionBeforeProductMachineOperation = "F0000189";
+    //×ê¿×
+    public static readonly string Drilling = "D001419f342384a36db4bd2ac53ffbc5b86d8b4";
+    //ÖÊÁ¿ÅäÖÃ±í
+    public static readonly string QualityConfigurationTable = "F0000173";
+    //ÍâĞ­ºÏÍ¬±í×ê¿×
+    public static readonly string OutsourcingContractFormDrilling = "F0000089";
+    //¾«³µ¼Æ»®Íê³ÉÊ±¼ä
+    public static readonly string FinishTurningPlannedCompletionTime = "F0000098";
+    //È¡Ñù×ªÔË³µ¼äÎ»ÖÃ
+    public static readonly string LocationOfSamplingTransferWorkshop = "F0000214";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000006";
+    //¹¤ÒÕÁ÷³Ì±í
+    public static readonly string ProcessFlowTable = "F0000190";
+    //¼Ó¹¤µ¥Î»¾«³µ
+    public static readonly string ProcessingUnitFinishTurning = "F0000082";
+    //ÈÈ¼Ó¹¤¿ÆÊÒ
+    public static readonly string HotProcessingDepartment = "F0000134";
+    //¼Æ»®ÔşÖÆ·½Ê½
+    public static readonly string PlannedRollingMethod = "F0000152";
+    //´Ö³µ¼Æ»®Íê³ÉÊ±¼ä
+    public static readonly string RoughTurningPlanCompletionTime = "F0000095";
+    //µ¥¼şÉÏ»úÇ°»¥¼ì
+    public static readonly string MutualInspectionBeforeSinglePieceMachineOperation = "F0000175";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000004";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "shuj";
+    //±¾¹¤ĞòĞèÇóÆÚÕ·»·
+    public static readonly string DemandPeriodOfThisOperationRingRolling = "F0000067";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //¾«³µ×ªÔË³µ¼äÎ»ÖÃ
+    public static readonly string LocationOfFinishTurningTransferWorkshop = "F0000196";
+    //¼Ó¹¤µ¥Î»ÈÈ´¦Àí
+    public static readonly string ProcessingUnitHeatTreatment = "F0000070";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000025";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //¼Æ»®Â¯´Î±àºÅ
+    public static readonly string PlannedFurnaceNumber = "F0000139";
+    //ID
+    public static readonly string ID = "F0000007";
+    //ÍâĞ­ºÏÍ¬±í¾âÇĞ
+    public static readonly string OutsourcingContractTableSawing = "F0000061";
+    //¶©µ¥¹æ¸ñ±í
+    public static readonly string OrderSpecificationTable = "F0000145";
+    //³ÉÆ·µ¥ÖØ
+    public static readonly string FinishedProductUnitWeight = "F0000031";
+    //¶©µ¥Åú´Î¹æ¸ñ±í
+    public static readonly string OrderBatchSpecificationTable = "F0000017";
+    //Ô­²ÄÁÏ±àºÅ
+    public static readonly string RawMaterialNumber = "F0000192";
+    //È«¾ÖºöÂÔÀí»¯½á¹û
+    public static readonly string GlobalIgnorePhysicochemicalResults = "F0000174";
+    //ÍâĞ­ºÏÍ¬±í´Ö³µ
+    public static readonly string OutsourcingContractTableRoughTurning = "F0000081";
+    //´Ö³µ×ªÔË³µ¼äÃû³Æ
+    public static readonly string RoughTurningTransferWorkshopName = "F0000193";
+    //È¡Ñù¼Æ»®Íê³ÉÊ±¼ä
+    public static readonly string CompletionTimeOfSamplingPlan = "F0000212";
+    //±¾¹¤ĞòĞèÇóÆÚ¾âÇĞ
+    public static readonly string DemandPeriodOfThisProcedureSawing = "F0000059";
+    //ÔÙÉú¿â±í
+    public static readonly string RegenerationWarehouseTable = "F0000018";
+    //±¾¹¤ĞòĞèÇóÆÚ¶ÍÑ¹
+    public static readonly string DemandPeriodOfThisOperationForging = "F0000063";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000001";
+    //¼Ó¹¤µ¥Î»×ê¿×
+    public static readonly string ProcessingUnitDrilling = "F0000084";
+    //È«¾ÖÉÏ»úÇ°»¥¼ì
+    public static readonly string GlobalMutualInspectionBeforeMachineOperation = "F0000185";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //¹æ¸ñºÅ
+    public static readonly string SpecificationNumber = "F0000093";
+    //ÔÙÉú¹¤Ğò
+    public static readonly string RegenerationProcess = "F0000142";
+    //Àä¼Ó¹¤¼Æ»®
+    public static readonly string ColdProcessingPlan = "F0000024";
+    //ÖÊÁ¿×´Ì¬
+    public static readonly string QualityStatus = "F0000114";
+    //È«¾Ö¾«ÕûÅäÖÃ
+    public static readonly string GlobalFinishingConfiguration = "F0000160";
+    //È¡Ñù×ªÔË³µ¼äÃû³Æ
+    public static readonly string NameOfSamplingTransferWorkshop = "F0000213";
+    //±¾¹¤ĞòĞèÇóÆÚÈÈ´¦Àí
+    public static readonly string DemandPeriodOfThisOperationHeatTreatment = "F0000071";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000003";
+    //µ¥¼ş¾«ÕûÅäÖÃ
+    public static readonly string SinglePieceFinishingConfiguration = "F0000146";
+    //×ê¿×¼Æ»®Íê³ÉÊ±¼ä
+    public static readonly string DrillingPlannedCompletionTime = "F0000102";
+    //¼Ó¹¤µ¥Î»Õ·»·
+    public static readonly string ProcessingUnitRingRolling = "F0000066";
+    //×ê¿××ªÔË³µ¼äÃû³Æ
+    public static readonly string NameOfDrillingTransferWorkshop = "F0000197";
+    //ÍâĞ­ºÏÍ¬±íÕ·»·
+    public static readonly string OutsourcingContractTableRingRolling = "F0000069";
+    //´Ö³µ×ªÔË³µ¼äÎ»ÖÃ
+    public static readonly string RoughTurningLocationOfTransferWorkshop = "F0000194";
+    //ÔÙÉúÆ·ID
+    public static readonly string RecycledProductID = "F0000137";
+    //ÍâĞ­ºÏÍ¬±íÃ«Å÷
+    public static readonly string OutsourcingContractTableBlank = "F0000077";
+    //²úÆ·¾«ÕûÅäÖÃ
+    public static readonly string ProductFinishingConfiguration = "F0000157";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //¹æ¸ñ²ÎÊı
+    public static readonly string SpecificationParameters = "F0000028";
+    //±¾¹¤ĞòĞèÇóÆÚÃ«Å÷
+    public static readonly string DemandPeriodOfThisOperationBlank = "F0000075";
+    //¼Ó¹¤µ¥Î»Ã«Å÷
+    public static readonly string ProcessingUnitBlank = "F0000074";
+    //×ê¿××ªÔË³µ¼äÎ»ÖÃ
+    public static readonly string LocationOfDrillingTransferWorkshop = "F0000198";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //³ÉÆ·ĞèÇóÊı
+    public static readonly string FinishedProductDemandQuantity = "F0000039";
 }
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,å–æ ·å››é¢å…‰å­è¡¨
+/// ABCD¼Æ»®,ABCD×ê¿××Ó±í
 /// </summary>
+[Table("ABCD×ê¿××Ó±í")]
+public class ABCDDrillSubTable
+{
+    public static readonly string TableCode = "f342384a36db4bd2ac53ffbc5b86d8b4";
+    public ABCDDrillSubTable() { }
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //Éè±¸±àºÅ
+    public static readonly string DeviceNum = "F0000217";
+    //ParentObjectId
+    public static readonly string ParentObjectId = "ParentObjectId";
+    //¼Ó¹¤Á¿
+    public static readonly string WorkLoad = "F0000219";
+    //Éè±¸Ãû³Æ
+    public static readonly string DeviceName = "F0000216";
+    //ĞÕÃû
+    public static readonly string FullName = "F0000215";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //¹¤Ê±
+    public static readonly string WorkingHours = "F0000220";
+}
+/// <summary>
+/// ABCD¼Æ»®,ABCD¾«³µ×Ó±í
+/// </summary>
+[Table("ABCD¾«³µ×Ó±í")]
+public class ABCDFinishSubTable
+{
+    public static readonly string TableCode = "e351edfd0ae44d3e960e3f1c14991f82";
+    public ABCDFinishSubTable() { }
+    //ĞÕÃû
+    public static readonly string FullName = "F0000215";
+    //Éè±¸±àºÅ
+    public static readonly string DeviceNum = "F0000217";
+    //¹¤Ê±
+    public static readonly string WorkingHours = "F0000220";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //ParentObjectId
+    public static readonly string ParentObjectId = "ParentObjectId";
+    //¼Ó¹¤Á¿
+    public static readonly string WorkLoad = "F0000219";
+    //Éè±¸Ãû³Æ
+    public static readonly string DeviceName = "F0000216";
+}
+/// <summary>
+/// ABCD¼Æ»®,ABCD´Ö³µ×Ó±í
+/// </summary>
+[Table("ABCD´Ö³µ×Ó±í")]
+public class ABCDRoughSubTable
+{
+    public static readonly string TableCode = "e4ec5c3c47594922975c8553366c47d0";
+    public ABCDRoughSubTable() { }
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //Éè±¸Ãû³Æ
+    public static readonly string DeviceName = "F0000216";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //¹¤Ê±
+    public static readonly string WorkingHours = "F0000220";
+    //ĞÕÃû
+    public static readonly string FullName = "F0000215";
+    //ParentObjectId
+    public static readonly string ParentObjectId = "ParentObjectId";
+    //Éè±¸±àºÅ
+    public static readonly string DeviceNum = "F0000217";
+    //¼Ó¹¤Á¿
+    public static readonly string WorkLoad = "F0000219";
+}
+/// <summary>
+/// ABCD¹¤Ğò¼Æ»®±í,ABCDÈ¡Ñù×Ó±í
+/// </summary>
+[Table("ABCDÈ¡Ñù×Ó±í")]
+public class ABCDSimpleSubTable
+{
+    public static readonly string TableCode = "Fef5c946a47b04101889b43bf290ada42";
+    public ABCDSimpleSubTable() { }
+    //¹¤Ê±
+    public static readonly string WorkingHours = "F0000220";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //¼Ó¹¤Á¿
+    public static readonly string WorkLoad = "F0000219";
+    //Éè±¸±àºÅ
+    public static readonly string DeviceNum = "F0000217";
+    //ParentObjectId
+    public static readonly string ParentObjectId = "ParentObjectId";
+    //Éè±¸Ãû³Æ
+    public static readonly string DeviceName = "F0000216";
+    //ĞÕÃû
+    public static readonly string FullName = "F0000215";
+}
+/// <summary>
+/// Éú²úÖÆÔìÁ÷³Ì,È¡ÑùËÄÃæ¹â×Ó±í
+/// </summary>
+[Table("È¡ÑùËÄÃæ¹â×Ó±í")]
 public class SamplingFourLathe
 {
-	public static readonly string TableCode = "D001419a955856dedeb4b27b86c6424f525bbeb";
-	public SamplingFourLathe() { }
-	/// <summary>
-	/// å·¥æ—¶
-	/// </summary>
-	public static readonly string WorkingHours = "F0000192";
-	/// <summary>
-	/// åŠ å·¥é‡
-	/// </summary>
-	public static readonly string WorkLoad = "F0000162";
-	/// <summary>
-	/// åŠ å·¥è®°å½•
-	/// </summary>
-	public static readonly string ProcessRecord = "F0000161";
-	/// <summary>
-	/// ç”³è¯·éš¾åº¦è°ƒæ•´
-	/// </summary>
-	public static readonly string Adjustment = "F0000184";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string DeviceNum = "F0000159";
-	/// <summary>
-	/// åŠ å·¥è€…
-	/// </summary>
-	public static readonly string Worker = "F0000157";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string DeviceType = "F0000160";
-	/// <summary>
-	/// ç»“æŸæ—¶é—´
-	/// </summary>
-	public static readonly string EndTime = "F0000187";
-	/// <summary>
-	/// è®¾å¤‡é€‰æ‹©
-	/// </summary>
-	public static readonly string DeviceSelect = "F0000163";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string ObjectId = "ObjectId";
-	/// <summary>
-	/// å¼€å§‹æ—¶é—´
-	/// </summary>
-	public static readonly string StartTime = "F0000164";
-	/// <summary>
-	/// æ˜¯å¦æ¢ä¼¤
-	/// </summary>
-	public static readonly string IsUt = "F0000188";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string DeviceName = "F0000158";
-	/// <summary>
-	/// ä»»åŠ¡åç§°
-	/// </summary>
-	public static readonly string TaskName = "F0000166";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string ParentObjectId = "ParentObjectId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
+    public static readonly string TableCode = "a955856dedeb4b27b86c6424f525bbeb";
+    public SamplingFourLathe() { }
+    //¼Ó¹¤Á¿
+    public static readonly string WorkLoad = "F0000162";
+    //¼Ó¹¤¼ÇÂ¼
+    public static readonly string ProcessRecord = "F0000161";
+    //ÉêÇëÄÑ¶Èµ÷Õû
+    public static readonly string Adjustment = "F0000184";
+    //Éè±¸±àºÅ
+    public static readonly string DeviceNum = "F0000159";
+    //¼Ó¹¤Õß
+    public static readonly string Worker = "F0000157";
+    //Éè±¸ÀàĞÍ
+    public static readonly string DeviceType = "F0000160";
+    //½áÊøÊ±¼ä
+    public static readonly string EndTime = "F0000187";
+    //Éè±¸Ñ¡Ôñ
+    public static readonly string DeviceSelect = "F0000163";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //¿ªÊ¼Ê±¼ä
+    public static readonly string StartTime = "F0000164";
+    //ÊÇ·ñÌ½ÉË
+    public static readonly string IsUt = "F0000188";
+    //Éè±¸Ãû³Æ
+    public static readonly string DeviceName = "F0000158";
+    //ÈÎÎñÃû³Æ
+    public static readonly string TaskName = "F0000166";
+    //ParentObjectId
+    public static readonly string ParentObjectId = "ParentObjectId";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
 }
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,ç²—è½¦å››é¢å…‰å­è¡¨
+/// Éú²úÖÆÔìÁ÷³Ì,´Ö³µËÄÃæ¹â×Ó±í
 /// </summary>
+[Table("´Ö³µËÄÃæ¹â×Ó±í")]
 public class RoughFourLathe
 {
-	public static readonly string TableCode = "D0014199e58919544424654bcc75ef1dc953be6";
-	public RoughFourLathe() { }
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string DeviceType = "F0000160";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string DeviceNum = "F0000159";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string ObjectId = "ObjectId";
-	/// <summary>
-	/// ç”³è¯·éš¾åº¦è°ƒæ•´
-	/// </summary>
-	public static readonly string Adjustment = "F0000181";
-	/// <summary>
-	/// æ˜¯å¦æ¢ä¼¤
-	/// </summary>
-	public static readonly string IsUt = "F0000168";
-	/// <summary>
-	/// å¼€å§‹æ—¶é—´
-	/// </summary>
-	public static readonly string StartTime = "F0000164";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// åŠ å·¥è€…
-	/// </summary>
-	public static readonly string Worker = "F0000157";
-	/// <summary>
-	/// ä»»åŠ¡åç§°
-	/// </summary>
-	public static readonly string TaskName = "F0000166";
-	/// <summary>
-	/// ç»“æŸæ—¶é—´
-	/// </summary>
-	public static readonly string EndTime = "F0000185";
-	/// <summary>
-	/// è®¾å¤‡é€‰æ‹©
-	/// </summary>
-	public static readonly string DeviceSelect = "F0000163";
-	/// <summary>
-	/// è®¾å¤‡å·¥æ—¶ç³»æ•°
-	/// </summary>
-	public static readonly string EquipmentTimeCoefficient = "F0000201";
-	/// <summary>
-	/// å·¥æ—¶
-	/// </summary>
-	public static readonly string WorkingHours = "F0000195";
-	/// <summary>
-	/// åŠ å·¥é‡
-	/// </summary>
-	public static readonly string WorkLoad = "F0000162";
-	/// <summary>
-	/// ParentObjectId
-	/// </summary>
-	public static readonly string ParentObjectId = "ParentObjectId";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string DeviceName = "F0000158";
-	/// <summary>
-	/// åŠ å·¥è®°å½•
-	/// </summary>
-	public static readonly string ProcessRecord = "F0000161";
+    public static readonly string TableCode = "9e58919544424654bcc75ef1dc953be6";
+    public RoughFourLathe() { }
+    //Éè±¸ÀàĞÍ
+    public static readonly string DeviceType = "F0000160";
+    //Éè±¸±àºÅ
+    public static readonly string DeviceNum = "F0000159";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //ÉêÇëÄÑ¶Èµ÷Õû
+    public static readonly string Adjustment = "F0000181";
+    //ÊÇ·ñÌ½ÉË
+    public static readonly string IsUt = "F0000168";
+    //¿ªÊ¼Ê±¼ä
+    public static readonly string StartTime = "F0000164";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //¼Ó¹¤Õß
+    public static readonly string Worker = "F0000157";
+    //ÈÎÎñÃû³Æ
+    public static readonly string TaskName = "F0000166";
+    //½áÊøÊ±¼ä
+    public static readonly string EndTime = "F0000185";
+    //Éè±¸Ñ¡Ôñ
+    public static readonly string DeviceSelect = "F0000163";
+    //¼Ó¹¤Á¿
+    public static readonly string WorkLoad = "F0000162";
+    //ParentObjectId
+    public static readonly string ParentObjectId = "ParentObjectId";
+    //Éè±¸Ãû³Æ
+    public static readonly string DeviceName = "F0000158";
+    //¼Ó¹¤¼ÇÂ¼
+    public static readonly string ProcessRecord = "F0000161";
 }
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,å–æ ·å­æµç¨‹
+/// Éú²úÖÆÔìÁ÷³Ì,È¡Ñù×ÓÁ÷³Ì
 /// </summary>
+[Table("È¡Ñù×ÓÁ÷³Ì")]
 public class SamplingSubProcess
 {
-	public static readonly string TableCode = "D001419Sgljz62e1rneytbqjckbe1vu25";
-	public SamplingSubProcess() { }
-	/// <summary>
-	/// å½“å‰å·¥åº
-	/// </summary>
-	public static readonly string CurrentOperation = "F0000071";
-	/// <summary>
-	/// å–æ ·é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string SamplingLimitsTheOrderOfDispatch = "F0000203";
-	/// <summary>
-	/// ä»»åŠ¡åç§°
-	/// </summary>
-	public static readonly string TaskName = "F0000082";
-	/// <summary>
-	/// åŠ å·¥å®¡æ‰¹æƒé™äºº
-	/// </summary>
-	public static readonly string Worker = "F0000135";
-	/// <summary>
-	/// éƒ¨é—¨ä»£ç 
-	/// </summary>
-	public static readonly string DepartmentCode = "F0000195";
-	/// <summary>
-	/// è½¬è¿ä½ç½®
-	/// </summary>
-	public static readonly string TransferLocation = "F0000134";
-	/// <summary>
-	/// å››é¢å…‰
-	/// </summary>
-	public static readonly string FourSideLight = "D001419a955856dedeb4b27b86c6424f525bbeb";
-	/// <summary>
-	/// è½§åˆ¶æ–¹å¼
-	/// </summary>
-	public static readonly string RollingMethod = "F0000039";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000057";
-	/// <summary>
-	/// æ˜¯å¦è°ƒæ•´è‡³å…¶ä»–å·¥åº
-	/// </summary>
-	public static readonly string WhetherToAdjustToOtherProcesses = "F0000066";
-	/// <summary>
-	/// è®¡åˆ’å·¥æ—¶
-	/// </summary>
-	public static readonly string PlanMonHour = "PlanMonHour";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string ProductSpecification = "F0000003";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperation = "F0000073";
-	/// <summary>
-	/// ç†åŒ–ç»“æœä¸åˆæ ¼
-	/// </summary>
-	public static readonly string UnqualifiedPhysicalAndChemicalResults = "F0000170";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000064";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000016";
-	/// <summary>
-	/// ç†åŒ–æ•°æ®
-	/// </summary>
-	public static readonly string PhysicalAndChemicalData = "D001419F74390f3bba284177a2924f383ae069eb";
-	/// <summary>
-	/// å‘èµ·æ¢ä¼¤
-	/// </summary>
-	public static readonly string InitiateFlawDetection = "F0000116";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// æ¢ä¼¤è®¤å®š
-	/// </summary>
-	public static readonly string FlawDetectionIdentification = "F0000174";
-	/// <summary>
-	/// éƒ¨é—¨å¤šé€‰
-	/// </summary>
-	public static readonly string DepartmentOfAlternative = "F0000194";
-	/// <summary>
-	/// å››é¢å…‰æ˜¯å¦æ¢ä¼¤
-	/// </summary>
-	public static readonly string FourSideLightFlawDetection = "F0000183";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000012";
-	/// <summary>
-	/// å››é¢å…‰ä»»åŠ¡åç§°
-	/// </summary>
-	public static readonly string TaskNameLog = "F0000193";
-	/// <summary>
-	/// ç¡®è®¤æœ¬å–
-	/// </summary>
-	public static readonly string ConfirmationBookRetrieval = "F0000040";
-	/// <summary>
-	/// å–æ ·æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string SamplingAssignmentInformation = "D0014199bf30a21df3f43f7b5cd8f0fda256d4c";
-	/// <summary>
-	/// ç‰ˆæœ¬å·
-	/// </summary>
-	public static readonly string TheVersionNumber = "F0000196";
-	/// <summary>
-	/// ç­ç»„é•¿
-	/// </summary>
-	public static readonly string TeamLeader = "F0000128";
-	/// <summary>
-	/// ç‚‰æ¬¡è®¡åˆ’
-	/// </summary>
-	public static readonly string HeatPlan = "F0000075";
-	/// <summary>
-	/// æ¢ä¼¤è¡¨
-	/// </summary>
-	public static readonly string FlawDetectionTable = "F0000173";
-	/// <summary>
-	/// å½“å‰å·¥æ­¥
-	/// </summary>
-	public static readonly string CurrentWorkStep = "F0000069";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º
-	/// </summary>
-	public static readonly string QualityInspectionConclusion = "qualityResult";
-	/// <summary>
-	/// ç¡®è®¤ç‚‰æ¬¡ç¼–å·
-	/// </summary>
-	public static readonly string ConfirmationFurnaceNumber = "F0000074";
-	/// <summary>
-	/// æ¢ä¼¤ç»“æœ
-	/// </summary>
-	public static readonly string FlawDetectionResults = "F0000105";
-	/// <summary>
-	/// è®¢å•è§„æ ¼è¡¨
-	/// </summary>
-	public static readonly string OrderSpecificationTable = "F0000102";
-	/// <summary>
-	/// æ€»è®¡åˆ’å‘˜
-	/// </summary>
-	public static readonly string TotalPlanner = "F0000213";
-	/// <summary>
-	/// ç¡®è®¤çƒ­å¤„ç†ç‚‰å·
-	/// </summary>
-	public static readonly string ConfirmationHeatTreatmentFurnaceno = "F0000076";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// æ˜¯å¦å¼€å¯åˆ¶æ ·æµç¨‹
-	/// </summary>
-	public static readonly string YesOrNoopenSamplePreparationProcess = "F0000124";
-	/// <summary>
-	/// é”™è¯¯æ¶ˆæ¯
-	/// </summary>
-	public static readonly string TheErrorMessage = "Message";
-	/// <summary>
-	/// å–æ ·ç­ç»„é•¿
-	/// </summary>
-	public static readonly string SamplingTeamLeader = "F0000215";
-	/// <summary>
-	/// å‘èµ·å¼‚å¸¸
-	/// </summary>
-	public static readonly string InitiateException = "F0000060";
-	/// <summary>
-	/// è®¡åˆ’åŠ å·¥é‡
-	/// </summary>
-	public static readonly string PlanWorkLoad = "PlanWorkLoad";
-	/// <summary>
-	/// å®¡æ‰¹äºº
-	/// </summary>
-	public static readonly string Approver = "Approver";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000002";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string ProcessingUnit = "F0000061";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000058";
-	/// <summary>
-	/// è½¬è¿è½¦é—´
-	/// </summary>
-	public static readonly string TransferWorkshop = "F0000133";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000025";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000014";
-	/// <summary>
-	/// å¤‡æ³¨
-	/// </summary>
-	public static readonly string Remarks = "F0000080";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000070";
-	/// <summary>
-	/// æ´¾å·¥è®¡åˆ’
-	/// </summary>
-	public static readonly string DispatchingPlan = "DispatchPlan";
-	/// <summary>
-	/// å†·åŠ å·¥ç§‘é•¿
-	/// </summary>
-	public static readonly string ColdWorkingSectionChief = "F0000212";
-	/// <summary>
-	/// å•é‡
-	/// </summary>
-	public static readonly string UnitWeight = "F0000045";
-	/// <summary>
-	/// å®é™…åŠ å·¥è€—æ—¶
-	/// </summary>
-	public static readonly string ActualProcessingTime = "CountTime";
-	/// <summary>
-	/// å®Œæˆæœ¬å–
-	/// </summary>
-	public static readonly string CompletionCost = "F0000106";
-	/// <summary>
-	/// å·¥åºè®¡åˆ’è¡¨
-	/// </summary>
-	public static readonly string OperationSchedule = "F0000190";
-	/// <summary>
-	/// å®Œæˆæ€»é‡
-	/// </summary>
-	public static readonly string TotalAmountCompleted = "F0000104";
-	/// <summary>
-	/// å–æ ·
-	/// </summary>
-	public static readonly string Sampling = "D001419Fj7nrmbgha1j10v5zst0zg7hi1";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string Datatitle = "Name";
-	/// <summary>
-	/// å–æ ·åŠ å·¥è€…
-	/// </summary>
-	public static readonly string SamplingWorker = "F0000214";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// å½“å‰æœ¬å–åŠ å·¥è€…
-	/// </summary>
-	public static readonly string CurrentProcessor = "F0000129";
-	/// <summary>
-	/// äº§å“å‚æ•°è¡¨
-	/// </summary>
-	public static readonly string ProductParameterTable = "F0000103";
-	/// <summary>
-	/// å–æ ·éœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string SamplingDemandPeriod = "F0000191";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string CurrentWorkshop = "F0000067";
-	/// <summary>
-	/// è½¬è‡³å·¥æ­¥
-	/// </summary>
-	public static readonly string TransferToWorkStep = "F0000072";
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string CurrentLocation = "F0000068";
-	/// <summary>
-	/// å¼‚å¸¸æè¿°
-	/// </summary>
-	public static readonly string ExceptionDescription = "F0000079";
-	/// <summary>
-	/// è¯•æ ·ç±»å‹
-	/// </summary>
-	public static readonly string SampleType = "F0000119";
-	/// <summary>
-	/// è®¡åˆ’è®¾å¤‡
-	/// </summary>
-	public static readonly string PlanDevices = "PlanDevices";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// äº§å“ç±»åˆ«
-	/// </summary>
-	public static readonly string ProductCategory = "F0000088";
-
-    public static string InspectionResults { get; internal set; }
+    public static readonly string TableCode = "Sgljz62e1rneytbqjckbe1vu25";
+    public SamplingSubProcess() { }
+    //·µĞŞÀàĞÍ
+    public static readonly string RepairType = "F0000127";
+    //µ±Ç°¹¤Ğò
+    public static readonly string CurrentProcess = "F0000071";
+    //ÈÎÎñÃû³Æ
+    public static readonly string TaskName = "F0000082";
+    //¹¤ÈË
+    public static readonly string Worker = "F0000135";
+    //×ªÔËÎ»ÖÃ
+    public static readonly string TransferLocation = "F0000134";
+    //ËÄÃæ¹â
+    public static readonly string FourSideLight = "D001419a955856dedeb4b27b86c6424f525bbeb";
+    //ÔşÖÆ·½Ê½
+    public static readonly string RollingMethod = "F0000039";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000057";
+    //ÊÇ·ñµ÷ÕûÖÁÆäËû¹¤Ğò
+    public static readonly string WhetherToAdjustToOtherProcesses = "F0000066";
+    //Status
+    public static readonly string Status = "Status";
+    //²úÆ·¹æ¸ñ
+    public static readonly string ProductSpecification = "F0000003";
+    //±¾¹¤ĞòĞèÇóÆÚ
+    public static readonly string DemandPeriodOfThisProcess = "F0000073";
+    //Àí»¯½á¹û²»ºÏ¸ñ
+    public static readonly string UnqualifiedPhysicalAndChemicalResults = "F0000170";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000064";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000016";
+    //Àí»¯Êı¾İ
+    public static readonly string PhysicalAndChemicalData = "D001419F74390f3bba284177a2924f383ae069eb";
+    //·¢ÆğÌ½ÉË
+    public static readonly string InitiateFlawDetection = "F0000116";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //Ì½ÉËÈÏ¶¨
+    public static readonly string FlawDetectionIdentification = "F0000174";
+    //ËÄÃæ¹âÊÇ·ñÌ½ÉË
+    public static readonly string FourSideLightFlawDetection = "F0000183";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000012";
+    //¼Æ»®±¾È¡
+    public static readonly string PlanBookRetrieval = "F0000077";
+    //È·ÈÏ±¾È¡
+    public static readonly string ConfirmationBookRetrieval = "F0000040";
+    //°à×é³¤
+    public static readonly string TeamLeader = "F0000128";
+    //Â¯´Î¼Æ»®
+    public static readonly string HeatPlan = "F0000075";
+    //Ì½ÉË±í
+    public static readonly string FlawDetectionTable = "F0000173";
+    //µ±Ç°¹¤²½
+    public static readonly string CurrentWorkStep = "F0000069";
+    //ÖÊ¼ì½áÂÛ
+    public static readonly string QualityInspectionConclusion = "qualityResult";
+    //È·ÈÏÂ¯´Î±àºÅ
+    public static readonly string ConfirmationFurnaceNumber = "F0000074";
+    //Ì½ÉË½á¹û
+    public static readonly string FlawDetectionResults = "F0000105";
+    //¶©µ¥¹æ¸ñ±í
+    public static readonly string OrderSpecificationTable = "F0000102";
+    //ÊÇ·ñÌ½ÉË
+    public static readonly string FlawDetection = "F0000123";
+    //È·ÈÏÈÈ´¦ÀíÂ¯ºÅ
+    public static readonly string ConfirmationHeatTreatmentFurnaceno = "F0000076";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //ÊÇ·ñ¿ªÆôÖÆÑùÁ÷³Ì
+    public static readonly string YesOrNoopenSamplePreparationProcess = "F0000124";
+    //·¢ÆğÒì³£
+    public static readonly string InitiateException = "F0000060";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000002";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //¼Ó¹¤µ¥Î»
+    public static readonly string ProcessingUnit = "F0000061";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //ID
+    public static readonly string ID = "F0000058";
+    //×ªÔË³µ¼ä
+    public static readonly string TransferWorkshop = "F0000133";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000025";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000014";
+    //±¸×¢
+    public static readonly string Remarks = "F0000080";
+    //Òì³£Àà±ğ
+    public static readonly string ExceptionCategory = "F0000070";
+    //µ¥ÖØ
+    public static readonly string UnitWeight = "F0000045";
+    //Êµ¼Ê¼Ó¹¤ºÄÊ±
+    public static readonly string ActualProcessingTime = "CountTime";
+    //Íê³É±¾È¡
+    public static readonly string CompletionCost = "F0000106";
+    //Íê³É×ÜÁ¿
+    public static readonly string TotalAmountCompleted = "F0000104";
+    //È¡Ñù
+    public static readonly string Sampling = "D001419Fj7nrmbgha1j10v5zst0zg7hi1";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //µ±Ç°±¾È¡¼Ó¹¤Õß
+    public static readonly string CurrentProcessor = "F0000129";
+    //²úÆ·²ÎÊı±í
+    public static readonly string ProductParameterTable = "F0000103";
+    //ËùÓĞÕß
+    public static readonly string Owner = "F0000126";
+    //ÖØ´¦ÀíÀàĞÍ
+    public static readonly string ReprocessingType = "F0000140";
+    //Àí»¯½á¹û
+    public static readonly string PhysicalAndChemicalResults = "F0000122";
+    //µ±Ç°³µ¼ä
+    public static readonly string CurrentWorkshop = "F0000067";
+    //×ªÖÁ¹¤²½
+    public static readonly string TransferToWorkStep = "F0000072";
+    //¼ìÑé½á¹û
+    public static readonly string InspectionResults = "F0000041";
+    //µ±Ç°Î»ÖÃ
+    public static readonly string CurrentLocation = "F0000068";
+    //Òì³£ÃèÊö
+    public static readonly string ExceptionDescription = "F0000079";
+    //ÊÔÑùÀàĞÍ
+    public static readonly string SampleType = "F0000119";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //²úÆ·Àà±ğ
+    public static readonly string ProductCategory = "F0000088";
 }
 /// <summary>
-/// ç”Ÿäº§è®¡åˆ’,æ´¾å·¥è¡¨
+/// Éú²ú¼Æ»®,ÅÉ¹¤±í
 /// </summary>
+[Table("ÅÉ¹¤±í")]
 public class Dispatchs
 {
-	public static readonly string TableCode = "D001419c08bb982ac44481a9439076269a8f783";
-	public Dispatchs() { }
-	/// <summary>
-	/// äº§å“å‚æ•°è¡¨
-	/// </summary>
-	public static readonly string ProductParameterTable = "ParameterForm";
-	/// <summary>
-	/// ç²—è½¦è®¡åˆ’å®Œæˆæ—¶é—´
-	/// </summary>
-	public static readonly string RoughTurningPlanCompletionTime = "F0000004";
-	/// <summary>
-	/// è®¢å•è§„æ ¼è¡¨
-	/// </summary>
-	public static readonly string OrderSpecificationSheet = "F0000055";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// å†·åŠ å·¥ç§‘é•¿
-	/// </summary>
-	public static readonly string ColdWorkingSectionChief = "F0000086";
-	/// <summary>
-	/// ç‰ˆæœ¬å·
-	/// </summary>
-	public static readonly string TheVersionNumber = "F0000091";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000025";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// ç²¾è½¦é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string FinishTurningUnlimitedDispatchSequence = "F0000043";
-	/// <summary>
-	/// ç²¾è½¦æ´¾å·¥
-	/// </summary>
-	public static readonly string RoughFourSideLightPlannedCompletionTime = "F0000075";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// éƒ¨é—¨ä»£ç 
-	/// </summary>
-	public static readonly string DepartmentCode = "F0000071";
-	/// <summary>
-	/// éƒ¨é—¨å¤šé€‰
-	/// </summary>
-	public static readonly string DepartmentOfAlternative = "F0000072";
-	/// <summary>
-	/// ç²—è½¦æ´¾å·¥
-	/// </summary>
-	public static readonly string SamplingTetrahedralLightUnlimitedDispatchSequence = "F0000074";
-	/// <summary>
-	/// è§„æ ¼å·
-	/// </summary>
-	public static readonly string SpecificationNumber = "F0000040";
-	/// <summary>
-	/// å–æ ·é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string SamplingUnlimitedDispatchSequence = "F0000041";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// ç²—è½¦
-	/// </summary>
-	public static readonly string RoughTurning = "D001419Ffb3f2e583e31421e8aaa5a085bbada58";
-	/// <summary>
-	/// æ€»è®¡åˆ’å‘˜
-	/// </summary>
-	public static readonly string TotalPlanner = "F0000085";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// å–æ ·æ´¾å·¥
-	/// </summary>
-	public static readonly string SamplingTetrahedralLightPlanCompletionTime = "F0000073";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string Datatitle = "Name";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// é’»å­”ç­ç»„é•¿
-	/// </summary>
-	public static readonly string DrillTeamLeader = "F0000090";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000038";
-	/// <summary>
-	/// å–æ ·
-	/// </summary>
-	public static readonly string Sampling = "D001419Fc9380612ad364043a33702a36bf5fde9";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// ç²¾è½¦ç­ç»„é•¿
-	/// </summary>
-	public static readonly string FinishingTeamLeader = "F0000089";
-	/// <summary>
-	/// ç²—è½¦é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string RoughTurningUnlimitedDispatchSequence = "F0000042";
-	/// <summary>
-	/// ç²¾è½¦
-	/// </summary>
-	public static readonly string FinishTurning = "D001419F4a23f2f26a01428f952a593da3d99fe5";
-	/// <summary>
-	/// é’»å­”æ´¾å·¥
-	/// </summary>
-	public static readonly string RoughFourSideLightUnlimitedDispatchSequence = "F0000076";
-	/// <summary>
-	/// é’»å­”é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string DrillingUnlimitedDispatchSequence = "F0000044";
-	/// <summary>
-	/// ç²¾è½¦è®¡åˆ’å®Œæˆæ—¶é—´
-	/// </summary>
-	public static readonly string FinishTurningPlanCompletionTime = "F0000005";
-	/// <summary>
-	/// å­”æ•°
-	/// </summary>
-	public static readonly string NumberHoles = "F0000056";
-	/// <summary>
-	/// å­”å¾„
-	/// </summary>
-	public static readonly string Aperture = "F0000057";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// é’»å­”
-	/// </summary>
-	public static readonly string Drilling = "D001419F5ccfa7d5acad41bf98c640057f2570ae";
-	/// <summary>
-	/// å–æ ·è®¡åˆ’å®Œæˆæ—¶é—´
-	/// </summary>
-	public static readonly string SamplingPlanCompletionTime = "F0000003";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// ç²—è½¦ç­ç»„é•¿
-	/// </summary>
-	public static readonly string RoughingTeamLeader = "F0000088";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000070";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000039";
-	/// <summary>
-	/// é’»å­”è®¡åˆ’å®Œæˆæ—¶é—´
-	/// </summary>
-	public static readonly string DrillingPlanCompletionTime = "F0000006";
-	/// <summary>
-	/// å–æ ·ç­ç»„é•¿
-	/// </summary>
-	public static readonly string SamplingTeamLeader = "F0000087";
-	/// <summary>
-	/// å·¥è‰ºæµç¨‹ä¿¡æ¯
-	/// </summary>
-	public static readonly string ProcessInformation = "FlowInfo";
-
-    public static string Sawing { get; internal set; }
-    public static DataColumn SawingDoesNotLimitTheOrderOfDispatch { get; internal set; }
-    public static DataColumn SamplingWorkshopName { get; internal set; }
-    public static DataColumn SamplingWorkshopLocation { get; internal set; }
-    public static DataColumn RoughTurningWorkshopName { get; internal set; }
-    public static DataColumn RoughTurningWorkshopLocation { get; internal set; }
-    public static DataColumn FinishTurningWorkshopName { get; internal set; }
-    public static DataColumn FinishTurningWorkshopLocation { get; internal set; }
-    public static DataColumn DrillingWorkshopName { get; internal set; }
-    public static DataColumn DrillingWorkshopLocation { get; internal set; }
+    public static readonly string TableCode = "c08bb982ac44481a9439076269a8f783";
+    public Dispatchs() { }
+    //´Ö³µ¼Æ»®Íê³ÉÊ±¼ä
+    public static readonly string RoughTurningPlanCompletionTime = "F0000004";
+    //´Ö³µ³µ¼äÃû³Æ
+    public static readonly string RoughTurningWorkshopName = "F0000028";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //ID
+    public static readonly string ID = "F0000025";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //¾«³µ²»ÏŞÖÆÅÉ¹¤Ë³Ğò
+    public static readonly string FinishTurningUnlimitedDispatchSequence = "F0000043";
+    //´Ö³µËÄÃæ¹â³µ¼äÎ»ÖÃ
+    public static readonly string RoughFourSideLightWorkshopLocation = "F0000082";
+    //´Ö³µËÄÃæ¹â¼Æ»®Íê³ÉÊ±¼ä
+    public static readonly string RoughFourSideLightPlannedCompletionTime = "F0000075";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //È¡ÑùËÄÃæ¹â
+    public static readonly string samplingTetrahedralLight = "D001419Fbb3556b399a44f998b82f9aa74624afd";
+    //´Ö³µËÄÃæ¹â³µ¼äÃû³Æ
+    public static readonly string RoughTurningTetrahedralLightWorkshopName = "F0000081";
+    //È¡ÑùËÄÃæ¹â²»ÏŞÖÆÅÉ¹¤Ë³Ğò
+    public static readonly string SamplingTetrahedralLightUnlimitedDispatchSequence = "F0000074";
+    //×ê¿×³µ¼äÎ»ÖÃ
+    public static readonly string DrillingWorkshopLocation = "F0000033";
+    //È¡Ñù³µ¼äÃû³Æ
+    public static readonly string SamplingWorkshopName = "F0000026";
+    //×ê¿×³µ¼äÃû³Æ
+    public static readonly string DrillingWorkshopName = "F0000032";
+    //¹æ¸ñºÅ
+    public static readonly string SpecificationNumber = "F0000040";
+    //È¡Ñù²»ÏŞÖÆÅÉ¹¤Ë³Ğò
+    public static readonly string SamplingUnlimitedDispatchSequence = "F0000041";
+    //È¡ÑùËÄÃæ¹â³µ¼äÎ»ÖÃ
+    public static readonly string SamplingFourSideLightWorkshopLocation = "F0000080";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //´Ö³µ
+    public static readonly string RoughTurning = "D001419Ffb3f2e583e31421e8aaa5a085bbada58";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //´Ö³µËÄÃæ¹â
+    public static readonly string RoughTurningTetrahedralLight = "D001419F694a0d18773d4a329ad4e145ccee2bb7";
+    //È¡ÑùËÄÃæ¹â¼Æ»®Íê³ÉÊ±¼ä
+    public static readonly string SamplingTetrahedralLightPlanCompletionTime = "F0000073";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //¾«³µ³µ¼äÎ»ÖÃ
+    public static readonly string FinishTurningWorkshopLocation = "F0000031";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //´Ö³µ³µ¼äÎ»ÖÃ
+    public static readonly string RoughTurningWorkshopLocation = "F0000029";
+    //¶©µ¥ºÅ
+    public static readonly string orderNumber = "F0000038";
+    //È¡Ñù
+    public static readonly string Sampling = "D001419Fc9380612ad364043a33702a36bf5fde9";
+    //Status
+    public static readonly string Status = "Status";
+    //È¡ÑùËÄÃæ¹â³µ¼äÃû³Æ
+    public static readonly string SamplingTetrahedralLightWorkshopNameweighing = "F0000079";
+    //´Ö³µ²»ÏŞÖÆÅÉ¹¤Ë³Ğò
+    public static readonly string RoughTurningUnlimitedDispatchSequence = "F0000042";
+    //¾«³µ
+    public static readonly string FinishTurning = "D001419F4a23f2f26a01428f952a593da3d99fe5";
+    //´Ö³µËÄÃæ¹â²»ÏŞÖÆÅÉ¹¤Ë³Ğò
+    public static readonly string RoughFourSideLightUnlimitedDispatchSequence = "F0000076";
+    //È¡Ñù³µ¼äÎ»ÖÃ
+    public static readonly string SamplingWorkshopLocation = "F0000027";
+    //×ê¿×²»ÏŞÖÆÅÉ¹¤Ë³Ğò
+    public static readonly string DrillingUnlimitedDispatchSequence = "F0000044";
+    //¾«³µ¼Æ»®Íê³ÉÊ±¼ä
+    public static readonly string FinishTurningPlanCompletionTime = "F0000005";
+    //¾«³µ³µ¼äÃû³Æ
+    public static readonly string FinishTurningWorkshopName = "F0000030";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //×ê¿×
+    public static readonly string Drilling = "D001419F5ccfa7d5acad41bf98c640057f2570ae";
+    //È¡Ñù¼Æ»®Íê³ÉÊ±¼ä
+    public static readonly string SamplingPlanCompletionTime = "F0000003";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000039";
+    //×ê¿×¼Æ»®Íê³ÉÊ±¼ä
+    public static readonly string DrillingPlanCompletionTime = "F0000006";
 }
 /// <summary>
-/// ç”Ÿäº§è®¡åˆ’,è½¦é—´åŒºåŸŸè´£ä»»åˆ’åˆ†
+/// Éú²úÖÆÔìÁ÷³Ì,·µĞŞ
 /// </summary>
+[Table("·µĞŞ")]
+public class Repair
+{
+    public static readonly string TableCode = "Sz2y3t1gjtgld76g5dcl3edj24";
+    public Repair() { }
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //×ªÖÁ¹¤Ğò
+    public static readonly string TransferToProcess = "F0000006";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000024";
+    //²úÆ·¹æ¸ñ
+    public static readonly string ProductSpecification = "F0000003";
+    //Status
+    public static readonly string Status = "Status";
+    //¹¤ÈË
+    public static readonly string Worker = "F0000017";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //×ªÖÁ¹¤²½
+    public static readonly string TransferToWorkStep = "F0000031";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000020";
+    //¹¤ĞòÀ´Ô´
+    public static readonly string OperationSource = "F0000035";
+    //³µ¼äÎ»ÖÃ
+    public static readonly string WorkshopLocation = "F0000022";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000014";
+    //²úÆ·Î»ÖÃ
+    public static readonly string ProductLocation = "F0000023";
+    //Àí»¯½á¹û
+    public static readonly string PhysicalAndChemicalResults = "F0000032";
+    //Â¯´Î±àºÅ
+    public static readonly string HeatNumber = "F0000027";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //Â¯´Î¼Æ»®
+    public static readonly string HeatPlan = "F0000026";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000016";
+    //¼ìÑéºó´¦Àí
+    public static readonly string PostInspectionProcessing = "F0000034";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //ÈÈ´¦ÀíÂ¯ºÅ
+    public static readonly string HeatTreatmentFurnaceNumber = "F0000028";
+    //ÖÊ¼ì½áÂÛ
+    public static readonly string QualityInspectionConclusion = "F0000036";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000002";
+    //ID
+    public static readonly string ID = "F0000021";
+    //×Ó±í
+    public static readonly string SubTable = "D001419F24790e6009c14d8a9b7e1473ad7d8db7";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000001";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000012";
+    //Ê¹ÓÃÉè±¸
+    public static readonly string EquipmentUsed = "F0000009";
+    //·µĞŞÀàĞÍ
+    public static readonly string RepairType = "F0000025";
+    //¼ìÑé½á¹û
+    public static readonly string InspectionResults = "F0000033";
+}
+/// <summary>
+/// Éú²ú¼Æ»®,³µ¼äÇøÓòÔğÈÎ»®·Ö
+/// </summary>
+[Table("³µ¼äÇøÓòÔğÈÎ»®·Ö")]
 public class WorkshopManager
 {
-	public static readonly string TableCode = "D00141919b80510f0e24d8695f5e80f8c485fa8";
-	public WorkshopManager() { }
-	/// <summary>
-	/// é’»å­”äººå‘˜è§’è‰²
-	/// </summary>
-	public static readonly string DrillingPersonnelAngleColor = "F0000005";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// é’»å­”æ´¾å·¥è§’è‰²
-	/// </summary>
-	public static readonly string DrillingDispatchingRole = "F0000003";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ç²¾è½¦äººå‘˜è§’è‰²
-	/// </summary>
-	public static readonly string FineTurningPersonnelRole = "F0000007";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// è½¦é—´
-	/// </summary>
-	public static readonly string Workshop = "F0000004";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// ç²—è½¦äººå‘˜è§’è‰²
-	/// </summary>
-	public static readonly string RoughTurningPersonnelRole = "F0000006";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// ç²¾è½¦æ´¾å·¥è§’è‰²
-	/// </summary>
-	public static readonly string FineTurningDispatchingRole = "F0000002";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// æ£€éªŒäººå‘˜è§’è‰²
-	/// </summary>
-	public static readonly string InspectorRole = "F0000008";
-	/// <summary>
-	/// å–æ ·æ´¾å·¥è§’è‰²
-	/// </summary>
-	public static readonly string SamplingDispatchingRole = "F0000009";
-	/// <summary>
-	/// ç²—è½¦æ´¾å·¥è§’è‰²
-	/// </summary>
-	public static readonly string RoughTurningDispatchingRole = "F0000001";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
+    public static readonly string TableCode = "19b80510f0e24d8695f5e80f8c485fa8";
+    public WorkshopManager() { }
+    //×ê¿×ÈËÔ±½ÇÉ«
+    public static readonly string DrillingPersonnelAngleColor = "F0000005";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //×ê¿×ÅÉ¹¤½ÇÉ«
+    public static readonly string DrillingDispatchingRole = "F0000003";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //¾«³µÈËÔ±½ÇÉ«
+    public static readonly string FineTurningPersonnelRole = "F0000007";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //³µ¼ä
+    public static readonly string Workshop = "F0000004";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //Status
+    public static readonly string Status = "Status";
+    //´Ö³µÈËÔ±½ÇÉ«
+    public static readonly string RoughTurningPersonnelRole = "F0000006";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //¾«³µÅÉ¹¤½ÇÉ«
+    public static readonly string FineTurningDispatchingRole = "F0000002";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //¼ìÑéÈËÔ±½ÇÉ«
+    public static readonly string InspectorRole = "F0000008";
+    //È¡ÑùÅÉ¹¤½ÇÉ«
+    public static readonly string SamplingDispatchingRole = "F0000009";
+    //´Ö³µÅÉ¹¤½ÇÉ«
+    public static readonly string RoughTurningDispatchingRole = "F0000001";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
 }
+
 /// <summary>
-/// æœºåŠ å·¥ç»©æ•ˆ,ä»»åŠ¡ç»©æ•ˆè¡¨
+/// »ú¼Ó¹¤¼¨Ğ§,ÈÎÎñ¼¨Ğ§±í
 /// </summary>
+[Table("ÈÎÎñ¼¨Ğ§±í")]
 public class TaskPerformance
 {
-	public static readonly string TableCode = "D00141922a4f64f7fd74aed89a85e018fca456d";
-	public TaskPerformance() { }
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "ProductNum";
-	/// <summary>
-	/// å·¥æ—¶å·¥èµ„
-	/// </summary>
-	public static readonly string ManHoursSalary = "F0000008";
-	/// <summary>
-	/// å·¥è‰ºä¸‹å±‘é‡é‡
-	/// </summary>
-	public static readonly string ProcessChipWeight = "F0000011";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// æ€»å·¥æ—¶
-	/// </summary>
-	public static readonly string TotalManHours = "F0000006";
-	/// <summary>
-	/// å·¥åºåç§°
-	/// </summary>
-	public static readonly string OperationName = "F0000003";
-	/// <summary>
-	/// æ£€éªŒç»“æœ
-	/// </summary>
-	public static readonly string InspectionResult = "F0000015";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// è¡¥åˆ€é‡‘é¢
-	/// </summary>
-	public static readonly string ToolReplenishmentAmount = "F0000013";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000002";
-	/// <summary>
-	/// å•ä»¶æ‹Ÿå®šå·¥æ—¶
-	/// </summary>
-	public static readonly string PlannedManHoursForASinglePiece = "F0000005";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000016";
-	/// <summary>
-	/// æ€»å·¥ä½œé‡
-	/// </summary>
-	public static readonly string TotalWorkload = "gongzuoliang";
-	/// <summary>
-	/// ä»»åŠ¡åç§°
-	/// </summary>
-	public static readonly string TaskName = "F0000004";
-	/// <summary>
-	/// éƒ¨é—¨åç§°
-	/// </summary>
-	public static readonly string DepartmentName = "F0000018";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000020";
-	/// <summary>
-	/// åŠ å·¥é‡
-	/// </summary>
-	public static readonly string ProcessingQuantity = "F0000010";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// æ€»ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string TotalScrap = "F0000012";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string PieceNumber = "F0000014";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// å·¥ä»·
-	/// </summary>
-	public static readonly string WorkPrice = "F0000009";
-	/// <summary>
-	/// ä»»åŠ¡ç±»åˆ«
-	/// </summary>
-	public static readonly string TaskCategory = "F0000017";
-	/// <summary>
-	/// åŠ å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Processor = "F0000019";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
+    public static readonly string TableCode = "22a4f64f7fd74aed89a85e018fca456d";
+    public TaskPerformance() { }
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "ProductNum";
+    //¹¤Ê±¹¤×Ê
+    public static readonly string WorkhourlyWage = "F0000008";
+    //¹¤ÒÕÏÂĞ¼ÖØÁ¿
+    public static readonly string ProcessChipWeight = "F0000011";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //×Ü¹¤Ê±
+    public static readonly string TotalManHours = "F0000006";
+    //¹¤ĞòÃû³Æ
+    public static readonly string OperationName = "F0000003";
+    //¼ìÑé½á¹û
+    public static readonly string InspectionResult = "F0000015";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //²¹µ¶½ğ¶î
+    public static readonly string ToolReplenishmentAmount = "F0000013";
+    //Éè±¸Ãû³Æ
+    public static readonly string EquipmentName = "F0000002";
+    //µ¥¼şÄâ¶¨¹¤Ê±
+    public static readonly string PlannedManHoursForASinglePiece = "F0000005";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //ID
+    public static readonly string ID = "F0000016";
+    //×Ü¹¤×÷Á¿
+    public static readonly string TotalWorkload = "gongzuoliang";
+    //ÈÎÎñÃû³Æ
+    public static readonly string TaskName = "F0000004";
+    //²¿ÃÅÃû³Æ
+    public static readonly string DepartmentName = "F0000018";
+    //Éè±¸ÀàĞÍ
+    public static readonly string EquipmentType = "F0000020";
+    //¼Ó¹¤ÊıÁ¿
+    public static readonly string ProcessingQuantity = "F0000010";
+    //Status
+    public static readonly string Status = "Status";
+    //×ÜÏÂĞ¼Á¿
+    public static readonly string TotalScrap = "F0000012";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000014";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //¹¤¼Û
+    public static readonly string WorkPrice = "F0000009";
+    //ÈÎÎñÀà±ğ
+    public static readonly string TaskCategory = "F0000017";
+    //¼Ó¹¤ÈËÔ±
+    public static readonly string Processor = "F0000019";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
 }
 /// <summary>
-/// æœºåŠ å·¥ç»©æ•ˆ,åŠ å·¥ä»»åŠ¡è®°å½•
+/// »ú¼Ó¹¤¼¨Ğ§,¼Ó¹¤ÈÎÎñ¼ÇÂ¼
 /// </summary>
+[Table("¼Ó¹¤ÈÎÎñ¼ÇÂ¼")]
 public class MachiningTaskRecord
 {
-	public static readonly string TableCode = "D0014194963919529e44d60be759656d4a16b63";
-	public MachiningTaskRecord() { }
-	/// <summary>
-	/// æ€»é«˜
-	/// </summary>
-	public static readonly string TotalHeight = "F0000020";
-	/// <summary>
-	/// é’»åŠ å·¥ç±»åˆ«
-	/// </summary>
-	public static readonly string DrillingProcessingCategory = "F0000025";
-	/// <summary>
-	/// ä¸‹æœºæ—¶é—´
-	/// </summary>
-	public static readonly string EndTime = "EndTime";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string CreateBy = "CreatedBy";
-	/// <summary>
-	/// ä»»åŠ¡åç§°
-	/// </summary>
-	public static readonly string TaskName = "F0000002";
-	/// <summary>
-	/// æœ¬å·¥åºäº§å“å·¥æ—¶
-	/// </summary>
-	public static readonly string ProcessManHour = "F0000004";
-	/// <summary>
-	/// å†…å¾„
-	/// </summary>
-	public static readonly string InsideDiameter = "F0000018";
-	/// <summary>
-	/// å­”æ•°
-	/// </summary>
-	public static readonly string HoleAmount = "F0000021";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkPieceNumber = "F0000040";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string OwnerId = "OwnerId";
-	/// <summary>
-	/// ä»»åŠ¡å·¥æ—¶
-	/// </summary>
-	public static readonly string TaskManHour = "F0000006";
-	/// <summary>
-	/// å®é™…ç‰‡åš
-	/// </summary>
-	public static readonly string ActualThickness = "F0000036";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecifications = "ProductNum";
-	/// <summary>
-	/// å®é™…æ€»é«˜
-	/// </summary>
-	public static readonly string ActualTotalHeight = "F0000035";
-	/// <summary>
-	/// å®é™…å­”å¾„
-	/// </summary>
-	public static readonly string ActualAperture = "F0000039";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string DeviceName = "F0000007";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000026";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ä»»åŠ¡ç±»åˆ«
-	/// </summary>
-	public static readonly string TaskType = "F0000031";
-	/// <summary>
-	/// å®é™…è€—æ—¶
-	/// </summary>
-	public static readonly string ActualElapsedTime = "F0000013";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string NumberAccordingToTitle = "Name";
-	/// <summary>
-	/// æ¢ä¼¤ç»“æœ
-	/// </summary>
-	public static readonly string UltrasonicResults = "F0000029";
-	/// <summary>
-	/// å­”å¾„
-	/// </summary>
-	public static readonly string Aperture = "F0000022";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000015";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "ID";
-	/// <summary>
-	/// åŠ å·¥é‡
-	/// </summary>
-	public static readonly string WorkLoad = "F0000010";
-	/// <summary>
-	/// å®é™…å†…å¾„
-	/// </summary>
-	public static readonly string ActualInsideDiameter = "F0000034";
-	/// <summary>
-	/// å·¥èµ„å·²ç®—
-	/// </summary>
-	public static readonly string IsCumpute = "F0000028";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string OwnerDeptId = "OwnerDeptId";
-	/// <summary>
-	/// è½¦åŠ å·¥ç±»åˆ«
-	/// </summary>
-	public static readonly string LatheProcessingCategory = "F0000027";
-	/// <summary>
-	/// è®°å½•æ ‡è¯†
-	/// </summary>
-	public static readonly string RecordGuid = "F0000054";
-	/// <summary>
-	/// åŠ å·¥éš¾åº¦
-	/// </summary>
-	public static readonly string ProcessDifficulty = "F0000043";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreatedTime = "CreatedTime";
-	/// <summary>
-	/// å®é™…å¤–å¾„
-	/// </summary>
-	public static readonly string ActualOutsideDiameter = "F0000033";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string ProductSpecification = "F0000003";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModifiedTime = "ModifiedTime";
-	/// <summary>
-	/// æ£€éªŒç»“æœ
-	/// </summary>
-	public static readonly string InspectionResults = "F0000009";
-	/// <summary>
-	/// éƒ¨é—¨åç§°
-	/// </summary>
-	public static readonly string DepartmentName = "F0000030";
-	/// <summary>
-	/// å¤‡æ³¨
-	/// </summary>
-	public static readonly string Remarks = "F0000042";
-	/// <summary>
-	/// å·¥è‰ºä¸‹å±‘é‡é‡
-	/// </summary>
-	public static readonly string ProcessChipWeight = "F0000023";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// å•ä»¶æ‹Ÿå®šå·¥æ—¶
-	/// </summary>
-	public static readonly string UnitmanHour = "F0000005";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// åŠ å·¥äººå‘˜
-	/// </summary>
-	public static readonly string Processor = "F0000011";
-	/// <summary>
-	/// è¯•æ ·ç±»å‹
-	/// </summary>
-	public static readonly string SampleType = "F0000032";
-	/// <summary>
-	/// å·¥åºåç§°
-	/// </summary>
-	public static readonly string OperationName = "F0000001";
-	/// <summary>
-	/// ä¸Šæœºæ—¶é—´
-	/// </summary>
-	public static readonly string StartTime = "StartTime";
-	/// <summary>
-	/// æˆå“å•é‡
-	/// </summary>
-	public static readonly string UnitWeightofFinish = "F0000017";
-	/// <summary>
-	/// è½§åˆ¶æ–¹å¼
-	/// </summary>
-	public static readonly string RollingMethod = "F0000024";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string DeviceType = "F0000041";
-	/// <summary>
-	/// å®é™…å­”æ•°
-	/// </summary>
-	public static readonly string ActualHoleCount = "F0000038";
-	/// <summary>
-	/// ç”³è¯·éš¾åº¦è°ƒæ•´
-	/// </summary>
-	public static readonly string ApplyAdjust = "F0000044";
-	/// <summary>
-	/// è®¾å¤‡ç³»æ•°
-	/// </summary>
-	public static readonly string DeviceCoefficient = "F0000008";
-	/// <summary>
-	/// å®é™…å•é‡
-	/// </summary>
-	public static readonly string Actualunitweight = "F0000037";
-	/// <summary>
-	/// å¤–å¾„
-	/// </summary>
-	public static readonly string OutsideDiameter = "F0000016";
-	/// <summary>
-	/// ç‰‡åš
-	/// </summary>
-	public static readonly string Thickness = "F0000019";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string DeviceNumber = "F0000014";
+    public static readonly string TableCode = "4963919529e44d60be759656d4a16b63";
+    public MachiningTaskRecord() { }
+    //×Ü¸ß
+    public static readonly string TotalHeight = "F0000020";
+    //³µ¼Ó¹¤Àà±ğ
+    public static readonly string DrillingProcessingCategory = "F0000025";
+    //ÏÂ»úÊ±¼ä
+    public static readonly string EndTime = "EndTime";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //ÈÎÎñÃû³Æ
+    public static readonly string TaskName = "F0000002";
+    //±¾¹¤Ğò²úÆ·¹¤Ê±
+    public static readonly string ProcessManHour = "F0000004";
+    //ÄÚ¾¶
+    public static readonly string InsideDiameter = "F0000018";
+    //¿×Êı
+    public static readonly string HoleAmount = "F0000021";
+    //Status
+    public static readonly string Status = "Status";
+    //¹¤¼şºÅ
+    public static readonly string WorkPieceNumber = "F0000040";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //ÈÎÎñ¹¤Ê±
+    public static readonly string TaskManHour = "F0000006";
+    //Êµ¼ÊÆ¬ºñ
+    public static readonly string ActualThickness = "F0000036";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecifications = "ProductNum";
+    //Êµ¼Ê×Ü¸ß
+    public static readonly string ActualTotalHeight = "F0000035";
+    //Êµ¼Ê¿×¾¶
+    public static readonly string ActualAperture = "F0000039";
+    //Éè±¸Ãû³Æ
+    public static readonly string DeviceName = "F0000007";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000026";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //ÈÎÎñÀà±ğ
+    public static readonly string TaskType = "F0000031";
+    //Êµ¼ÊºÄÊ±
+    public static readonly string ElapsedTime = "F0000013";
+    //Ì½ÉË½á¹û
+    public static readonly string UltrasonicResults = "F0000029";
+    //¿×¾¶
+    public static readonly string Aperture = "F0000022";
+    //ID
+    public static readonly string ID = "ID";
+    //¼Ó¹¤ÊıÁ¿
+    public static readonly string WorkLoad = "F0000010";
+    //Êµ¼ÊÄÚ¾¶
+    public static readonly string ActualInsideDiameter = "F0000034";
+    //¹¤×ÊÒÑËã
+    public static readonly string IsCumpute = "F0000028";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //×ê¼Ó¹¤Àà±ğ
+    public static readonly string LatheProcessingCategory = "F0000027";
+    //¼ÇÂ¼±êÊ¶
+    public static readonly string RecordGuid = "F0000054";
+    //¼Ó¹¤ÄÑ¶È
+    public static readonly string ProcessDifficulty = "F0000043";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //Êµ¼ÊÍâ¾¶
+    public static readonly string ActualOutsideDiameter = "F0000033";
+    //²úÆ·¹æ¸ñ
+    public static readonly string ProductSpecification = "F0000003";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //¼ìÑé½á¹û
+    public static readonly string InspectionResults = "F0000009";
+    //²¿ÃÅÃû³Æ
+    public static readonly string DepartmentName = "F0000030";
+    //±¸×¢
+    public static readonly string Remarks = "F0000042";
+    //¹¤ÒÕÏÂĞ¼ÖØÁ¿
+    public static readonly string CraftScrapWeight = "F0000023";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //µ¥¼şÄâ¶¨¹¤Ê±
+    public static readonly string UnitmanHour = "F0000005";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //¼Ó¹¤ÈËÔ±
+    public static readonly string Worker = "F0000011";
+    //ÊÔÑùÀàĞÍ
+    public static readonly string SampleType = "F0000032";
+    //¹¤ĞòÃû³Æ
+    public static readonly string ProcessName = "F0000001";
+    //ÉÏ»úÊ±¼ä
+    public static readonly string StartTime = "StartTime";
+    //³ÉÆ·µ¥ÖØ
+    public static readonly string UnitWeightofFinish = "F0000017";
+    //ÔşÖÆ·½Ê½
+    public static readonly string RollingMethod = "F0000024";
+    //Éè±¸ÀàĞÍ
+    public static readonly string DeviceType = "F0000041";
+    //Êµ¼Ê¿×Êı
+    public static readonly string ActualHoleCount = "F0000038";
+    //ÉêÇëÄÑ¶Èµ÷Õû
+    public static readonly string ApplyAdjust = "F0000044";
+    //Éè±¸ÏµÊı
+    public static readonly string DeviceCoefficient = "F0000008";
+    //Êµ¼Êµ¥ÖØ
+    public static readonly string Actualunitweight = "F0000037";
+    //Íâ¾¶
+    public static readonly string OutsideDiameter = "F0000016";
+    //Æ¬ºñ
+    public static readonly string Thickness = "F0000019";
+    //Éè±¸±àºÅ
+    public static readonly string DeviceNumber = "F0000014";
 }
 /// <summary>
-/// ç”Ÿäº§è®¡åˆ’,å†ç”Ÿåº“
+/// Éú²ú¼Æ»®,ÔÙÉú¿â
 /// </summary>
+[Table("ÔÙÉú¿â")]
 public class ReviveWarehouse
 {
-	public static readonly string TableCode = "D001419Sfb3zsjf4iglhv1sjs995pmho4";
-	public ReviveWarehouse() { }
-	/// <summary>
-	/// ææ–™å‹å·
-	/// </summary>
-	public static readonly string MaterialModel = "F0000020";
-	/// <summary>
-	/// æŠ¥åºŸå·¥åº
-	/// </summary>
-	public static readonly string ScrappingProcedure = "F0000005";
-	/// <summary>
-	/// æ£€éªŒç»“è®º-çƒ­å¤„ç†
-	/// </summary>
-	public static readonly string InspectionInspectionConclusionHeatTreatment = "F0000023";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000018";
-	/// <summary>
-	/// å†ç”ŸåŸå› 
-	/// </summary>
-	public static readonly string RegenerationReason = "F0000007";
-	/// <summary>
-	/// æŠ¥åºŸåŸå› 
-	/// </summary>
-	public static readonly string ScrappingReason = "F0000032";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000017";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000031";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// æ›´æ–°å¼‚å¸¸æ—¥å¿—objectID
-	/// </summary>
-	public static readonly string ObjectIDForUpdateTheExceptionLog = "F0000000";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000003";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000002";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// æ£€éªŒç»“è®º-è¾—ç¯
-	/// </summary>
-	public static readonly string InspectionConclusionRingRolling = "F0000022";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000004";
-	/// <summary>
-	/// æ£€éªŒç»“è®º-æ¯›å¯
-	/// </summary>
-	public static readonly string InspectionConclusionBlank = "F0000024";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è´¨é‡å¼‚å¸¸å•
-	/// </summary>
-	public static readonly string QualityExceptionForm = "F0000016";
-	/// <summary>
-	/// æ£€éªŒç»“è®º-é”»å‹
-	/// </summary>
-	public static readonly string InspectionConclusionForging = "F0000021";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// æ£€éªŒç»“è®º-ç²—è½¦
-	/// </summary>
-	public static readonly string InspectionConclusionRoughTurning = "F0000025";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// å·²åˆ©ç”¨
-	/// </summary>
-	public static readonly string Used = "IsUsed";
-	/// <summary>
-	/// æ£€éªŒç»“è®º-ç²¾è½¦
-	/// </summary>
-	public static readonly string InspectionConclusionFineTurning = "F0000027";
-	/// <summary>
-	/// æ£€éªŒç»“è®º-é’»å­”
-	/// </summary>
-	public static readonly string InspectionConclusionDrilling = "F0000029";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// æ£€éªŒç»“è®º-é”¯åˆ‡
-	/// </summary>
-	public static readonly string InspectionConclusionSawing = "F0000019";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000001";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
+    public static readonly string TableCode = "Sfb3zsjf4iglhv1sjs995pmho4";
+    public ReviveWarehouse() { }
+    //²ÄÁÏĞÍºÅ
+    public static readonly string MaterialModel = "F0000020";
+    //±¨·Ï¹¤Ğò
+    public static readonly string ScrappingProcedure = "F0000005";
+    //¼ìÑé½áÂÛÈÈ´¦Àí
+    public static readonly string InspectionInspectionConclusionHeatTreatment = "F0000023";
+    //ID
+    public static readonly string ID = "F0000018";
+    //ÔÙÉúÔ­Òò
+    public static readonly string RegenerationReason = "F0000007";
+    //±¨·ÏÔ­Òò
+    public static readonly string ScrappingReason = "F0000032";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000017";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000031";
+    //Status
+    public static readonly string Status = "Status";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000003";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000002";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //¼ìÑé½áÂÛÕ·»·
+    public static readonly string InspectionConclusionRingRolling = "F0000022";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000004";
+    //¼ìÑé½áÂÛÃ«Å÷
+    public static readonly string InspectionConclusionBlank = "F0000024";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //ÖÊÁ¿Òì³£µ¥
+    public static readonly string QualityExceptionForm = "F0000016";
+    //¼ìÑé½áÂÛ¶ÍÑ¹
+    public static readonly string InspectionConclusionForging = "F0000021";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //¼ìÑé½áÂÛ´Ö³µ
+    public static readonly string InspectionConclusionRoughTurning = "F0000025";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //ÒÑÀûÓÃ
+    public static readonly string Used = "IsUsed";
+    //¼ìÑé½áÂÛ¾«³µ
+    public static readonly string InspectionConclusionFineTurning = "F0000027";
+    //¼ìÑé½áÂÛ×ê¿×
+    public static readonly string InspectionConclusionDrilling = "F0000029";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //¼ìÑé½áÂÛ¾âÇĞ
+    public static readonly string InspectionConclusionSawing = "F0000019";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000001";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
 }
 /// <summary>
-/// ç”Ÿäº§è®¾å¤‡ç®¡ç†,è®¾å¤‡æ¡£æ¡ˆ
+/// Éú²úÉè±¸¹ÜÀí,Éè±¸µµ°¸
 /// </summary>
+[Table("Éè±¸µµ°¸")]
 public class DeviceArchives
 {
-	public static readonly string TableCode = "D001419Sb175tv643xxed05vt7nacc9p6";
-	public DeviceArchives() { }
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// è®¾å¤‡çŠ¶æ€æè¿°
-	/// </summary>
-	public static readonly string EquipmentStatusDescription = "F0000012";
-	/// <summary>
-	/// æ‰€å±å·¥åº
-	/// </summary>
-	public static readonly string Operation = "F0000023";
-	/// <summary>
-	/// ä½¿ç”¨å•ä½
-	/// </summary>
-	public static readonly string User = "F0000017";
-	/// <summary>
-	/// è§„æ ¼å‹å·
-	/// </summary>
-	public static readonly string Specification = "F0000008";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// è®¾å¤‡çŠ¶æ€
-	/// </summary>
-	public static readonly string EquipmentStatus = "F0000016";
-	/// <summary>
-	/// è®¾å¤‡åˆ†ç±»
-	/// </summary>
-	public static readonly string EquipmentClassification = "F0000022";
-	/// <summary>
-	/// å®‰è£…è½¦é—´
-	/// </summary>
-	public static readonly string InstallationWorkshop = "F0000026";
-	/// <summary>
-	/// å®‰è£…ä½ç½®
-	/// </summary>
-	public static readonly string InstallationLocation = "F0000018";
-	/// <summary>
-	/// å¯ç”¨æ—¥æœŸ
-	/// </summary>
-	public static readonly string ActivationDate = "F0000011";
-	/// <summary>
-	/// è®¾å¤‡ç…§ç‰‡
-	/// </summary>
-	public static readonly string EquipmentPhoto = "F0000014";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000015";
-	/// <summary>
-	/// åˆ¶é€ æ—¥æœŸ
-	/// </summary>
-	public static readonly string ManufacturingDate = "F0000009";
-	/// <summary>
-	/// å‚åŒº
-	/// </summary>
-	public static readonly string Factory = "F0000025";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// å“ç‰Œ
-	/// </summary>
-	public static readonly string Brand = "F0000020";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// æ—¥æœŸ
-	/// </summary>
-	public static readonly string Date = "F0000019";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "DeviceType";
-	/// <summary>
-	/// è®¾å¤‡å‚å•†
-	/// </summary>
-	public static readonly string EquipmentManufacturer = "F0000021";
-	/// <summary>
-	/// è®¾å¤‡æ¡£æ¡ˆé™„ä»¶
-	/// </summary>
-	public static readonly string EquipmentFileAttachment = "F0000013";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000002";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// åˆ«å
-	/// </summary>
-	public static readonly string Alias = "F0000024";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
+    public static readonly string TableCode = "Sq0biizim9l50i2rl6kgbpo3u4";
+    public DeviceArchives() { }
+    //ÈÈ´¦Àí×ªÒÆÖÁÈË¹¤µ÷Õû¹¤Ğò
+    public static readonly string HeatTreatmentTransferredToManualAdjustmentOperation = "F0000105";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //±¾¹¤ĞòĞèÇóÆÚ¾«³µ
+    public static readonly string DemandPeriodOfThisProcessFinishTurning = "F0000088";
+    //´Ö³µ¼Ó¹¤µ¥Î»
+    public static readonly string RoughTurningUnit = "F0000039";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000003";
+    //Íê³É±¾È¡
+    public static readonly string CompletedTake = "F0000120";
+    //²úÆ·ÖÖÀà
+    public static readonly string ProductType = "F0000023";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000005";
+    //¼Æ»®ÈÈ´¦ÀíÂ¯ºÅ
+    public static readonly string PlannedHeatTreatmentHeatNumber = "F0000124";
+    //È·¶¨ÔşÖÆ·½Ê½
+    public static readonly string DeterminedRollingMethod = "F0000111";
+    //È·ÈÏÂ¯´Î¼Æ»®
+    public static readonly string ConfirmedHeatPlan = "F0000125";
+    //Â¯´Î¼Æ»®
+    public static readonly string HeatPlan = "F0000115";
+    //×ªÖÁ¹¤²½
+    public static readonly string TransferToStep = "F0000057";
+    //×ªÖÁ¹¤Ğò
+    public static readonly string TransferToOperation = "F0000056";
+    //´Ö³µ¹¤Ğò×ªÒÆÖÁÈË¹¤µ÷Õû¹¤Ğò
+    public static readonly string RoughTurningOperationTransferredToManualAdjustmentOperation = "F0000107";
+    //¹¤Ğò¼Æ»®±í
+    public static readonly string OperationSchedule = "F0000126";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000002";
+    //ÈË¹¤µ÷Õû¹¤ĞòÊı¾İ·ÖÀà
+    public static readonly string ManuallyAdjustOperationDataClassification = "F0000110";
+    //¾«³µ×ªÒÆÖÁÈË¹¤µ÷Õû¹¤Ğò
+    public static readonly string FinishTurningTransferredToManualAdjustmentProcess = "F0000108";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000001";
+    //Ô­²ÄÁÏ±àºÅ
+    public static readonly string RawMaterialNumber = "F0000058";
+    //Õ·»·×ªÒÆÖÁÈË¹¤µ÷Õû¹¤Ğò
+    public static readonly string RingRollingTransferredToManualAdjustmentProcedure = "F0000104";
+    //ÖÊ¼ì½áÂÛ¾âÇĞ
+    public static readonly string QualityinspectionConclusionSawing = "F0000026";
+    //¾«³µÒÑ¼Ó¹¤Á¿
+    public static readonly string FinishTurningProcessedQuantity = "F0000134";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //È·ÈÏÈÈ´¦ÀíÂ¯ºÅ
+    public static readonly string ConfirmedHeatTreatmentHeatNumber = "F0000116";
+    //Õ·»·ÍâĞ­ºÏÍ¬±í
+    public static readonly string RingRollingOutsourcingContractForm = "F0000075";
+    //×ê¿×¼Ó¹¤µ¥Î»
+    public static readonly string DrillingUnit = "F0000041";
+    //¾âÇĞÍâĞ­ºÏÍ¬±í
+    public static readonly string SawingOutsourcingContractForm = "F0000070";
+    //±¾¹¤ĞòĞèÇóÆÚ´Ö³µ
+    public static readonly string DemandPeriodOfThisOperationRoughTurning = "F0000085";
+    //×ê¿×¹¤Ğò×ªÒÆÖÁÈË¹¤µ÷Õû¹¤Ğò
+    public static readonly string DrillingProcessTransferredToManualAdjustmentProcess = "F0000109";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //¶ÍÑ¹ÍâĞ­ºÏÍ¬±í
+    public static readonly string ForgingOutsourcingContractForm = "F0000072";
+    //´Ö³µÒÑ¼Ó¹¤Á¿
+    public static readonly string RoughTurningProcessedQuantity = "F0000133";
+    //´Ö³µÍâĞ­ºÏÍ¬±í
+    public static readonly string RoughTurningOutsourcingContractTable = "F0000084";
+    //Ë«Ôş±àºÅ
+    public static readonly string DoubleRollingNumber = "F0000127";
+    //¼Æ»®ÔşÖÆ·½Ê½
+    public static readonly string PlannedRollingMethod = "F0000112";
+    //¶ÍÑ¹¼Ó¹¤µ¥Î»
+    public static readonly string ForgingProcessingUnit = "F0000027";
+    //ÈÈ´¦ÀíÈÎÎñÀàĞÍ
+    public static readonly string HeatTreatmentUnitbusinessType = "F0000122";
+    //Ô­²ÄÁÏÀàĞÍ
+    public static readonly string RawMaterialType = "F0000062";
+    //ÖÊ¼ì½áÂÛ¶ÍÑ¹
+    public static readonly string QualityInspectionConclusionForging = "F0000035";
+    //ÖÊ¼ì½áÂÛ¾«³µ
+    public static readonly string QualityInspectionConclusionFinishTurning = "F0000045";
+    //³ÉÆ·µ¥ÖØ
+    public static readonly string FinishedProductUnitWeight = "F0000017";
+    //×ê¿×ÍâĞ­ºÏÍ¬±í
+    public static readonly string DrillingOutsourcingContractTable = "F0000096";
+    //Ã«Å÷ÍâĞ­ºÏÍ¬±í
+    public static readonly string BlankOutsourcingContractTable = "F0000081";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //¾«³µÍâĞ­ºÏÍ¬±í
+    public static readonly string FinishTurningOutsourcingContractTable = "F0000087";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000069";
+    //¼Æ»®Â¯´Î±àºÅ
+    public static readonly string PlannedHeatNumber = "F0000113";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000007";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //¶ÍÑ¹×ªÒÆÖÁÈË¹¤µ÷Õû¹¤Ğò
+    public static readonly string ForgingTransferredToManualAdjustmentProcedure = "F0000103";
+    //ÖÊ¼ì½áÂÛ×ê¿×
+    public static readonly string QualityInspectionConclusionDrilling = "F0000046";
+    //ÖÊÁ¿×´Ì¬
+    public static readonly string QualityStatus = "F0000065";
+    //È·ÈÏÂ¯´Î±àºÅ
+    public static readonly string ConfirmedHeatNumber = "F0000114";
+    //Õ·»·¼Ó¹¤µ¥Î»
+    public static readonly string RingRollingProcessingUnit = "F0000028";
+    //ÊÇ·ñºöÂÔÀí»¯½á¹û
+    public static readonly string IgnorePhysicalAndChemicalResults = "F0000123";
+    //´Ö³µ·¢ÆğÌ½ÉË
+    public static readonly string RoughTurningInitiatedFlawDetection = "F0000131";
+    //ÔÙÉú¹¤Ğò
+    public static readonly string regenerationProcess = "F0000121";
+    //ÈÈ´¦Àí¼Ó¹¤µ¥Î»
+    public static readonly string HeatTreatmentProcessingUnit = "F0000029";
+    //Ë«ÔşÇĞ¸î
+    public static readonly string DoubleRollingCutting = "F0000132";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000004";
+    //±¾¹¤ĞòĞèÇóÆÚÃ«Å÷
+    public static readonly string DemandPeriodOfThisOperationblank = "F0000082";
+    //¼Æ»®±¾È¡
+    public static readonly string PlannedTake = "F0000118";
+    //Status
+    public static readonly string Status = "Status";
+    //·µĞŞÀàĞÍ
+    public static readonly string RepairType = "F0000130";
+    //ÖÊ¼ì½áÂÛ´Ö³µ
+    public static readonly string QualityInspectionconclusionRoughTurning = "F0000047";
+    //±¾¹¤ĞòĞèÇóÆÚ¶ÍÑ¹
+    public static readonly string DemandPeriodOfThisProcedureForging = "F0000073";
+    //È·¶¨±¾È¡
+    public static readonly string DeterminedTake = "F0000019";
+    //¾âÇĞ¼Ó¹¤µ¥Î»
+    public static readonly string SawingProcessingUnit = "F0000024";
+    //±¾¹¤ĞòĞèÇóÆÚ¾âÇĞ
+    public static readonly string DemandPeriodOfThisProcessSawing = "F0000068";
+    //ÖÊ¼ì½áÂÛ·µĞŞ
+    public static readonly string QualityInspectionConclusionReturnrepair = "F0000129";
+    //ÈÈ´¦ÀíÍâĞ­ºÏÍ¬±í
+    public static readonly string HeatTreatmentOutsourcingContractForm = "F0000078";
+    //ID
+    public static readonly string ID = "F0000006";
+    //ÖÊ¼ì½áÂÛÕ·»·
+    public static readonly string QualityInspectionConclusionRingRolling = "F0000036";
+    //ÖÊ¼ì½áÂÛÈÈ´¦Àí
+    public static readonly string QualityInspectionConclusionHeatTreatment = "F0000037";
+    //±¾¹¤ĞòĞèÇóÆÚ×ê¿×
+    public static readonly string DemandPeriodOfThisProcessdrilling = "F0000097";
+    //±¾¹¤ĞòĞèÇóÆÚÕ·»·
+    public static readonly string DemandPeriodOfThisProcedureRingRolling = "F0000076";
+    //Ã«Å÷¹¤Ğò×ªÒÆÖÁÈË¹¤µ÷Õû¹¤Ğò
+    public static readonly string BlankOperationTransferredToManualAdjustmentOperation = "F0000106";
+    //µ±Ç°¹¤Ğò
+    public static readonly string CurrentOperation = "F0000018";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //ÉÏÒ»¹¤²½
+    public static readonly string PreviousStep = "F0000128";
+    //¾«³µ¼Ó¹¤µ¥Î»
+    public static readonly string FinishTurningUnit = "F0000040";
+    //ÖÊ¼ì½áÂÛÃ«Å÷
+    public static readonly string QualityInspectionConclusionblank = "F0000038";
+    //±¾¹¤ĞòĞèÇóÆÚÈÈ´¦Àí
+    public static readonly string DemandPeriodOfThisProcedureHeatTreatment = "F0000079";
+    //ÔÙÉúÆ·ID
+    public static readonly string RecycledProductid = "F0000060";
+    //¾âÇĞ×ªÒÆÖÁÈË¹¤µ÷Õû¹¤Ğò
+    public static readonly string SawingTransferredToManualAdjustmentProcess = "F0000102";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //Ã«Å÷¼Ó¹¤µ¥Î»
+    public static readonly string BlankProcessingUnit = "F0000030";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //Ô­ÁÏ¿â
+    public static readonly string RawMaterialWarehouse = "F0000119";
 }
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,å·¥è‰ºæµç¨‹è¡¨
+/// Éú²úÖÆÔìÁ÷³Ì,¹¤ÒÕÁ÷³Ì±í
 /// </summary>
+[Table("¹¤ÒÕÁ÷³Ì±í")]
 public class ProcessFlow
 {
-	public static readonly string TableCode = "D001419Sq0biizim9l50i2rl6kgbpo3u4";
-	public ProcessFlow() { }
-	/// <summary>
-	/// è®¡åˆ’æœ¬å–
-	/// </summary>
-	public static readonly string PlannedTake = "F0000118";
-	/// <summary>
-	/// ç²¾è½¦é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string TheOrderOfDispatchIsLimited = "F0000182";
-	/// <summary>
-	/// ç²—è½¦ç­ç»„é•¿
-	/// </summary>
-	public static readonly string RoughingTeamLeader = "F0000196";
-	/// <summary>
-	/// ç¡®å®šè½§åˆ¶æ–¹å¼
-	/// </summary>
-	public static readonly string DeterminedRollingMethod = "F0000111";
-	/// <summary>
-	/// åŒè½§å…³è”è¡¨å•
-	/// </summary>
-	public static readonly string DoubleTieAssociatedForm = "F0000143";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// ç²—è½¦æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string RoughVehicleDispatchInformation = "D001419e42ff66466da42bc9f15cb307abc7eee";
-	/// <summary>
-	/// å–æ ·ç­ç»„é•¿
-	/// </summary>
-	public static readonly string SamplingTeamLeader = "F0000195";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000002";
-	/// <summary>
-	/// ç²—è½¦å·²åŠ å·¥é‡
-	/// </summary>
-	public static readonly string RoughTurningProcessedQuantity = "F0000133";
-	/// <summary>
-	/// ç¡®è®¤ç‚‰æ¬¡è®¡åˆ’
-	/// </summary>
-	public static readonly string ConfirmedHeatPlan = "F0000125";
-	/// <summary>
-	/// ç²¾è½¦æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string PrecisionVehicleDispatchInformation = "D001419Fd1392d69e5f64364891b498615182d3a";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string SpecificationParameters = "F0000151";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ-é”»å‹
-	/// </summary>
-	public static readonly string DemandPeriodOfThisProcedureForging = "F0000073";
-	/// <summary>
-	/// è´¨é‡çŠ¶æ€
-	/// </summary>
-	public static readonly string QualityStatus = "F0000065";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ-æ¯›å¯
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperationBlank = "F0000082";
-	/// <summary>
-	/// åŸææ–™ç±»å‹
-	/// </summary>
-	public static readonly string RawMaterialType = "F0000062";
-	/// <summary>
-	/// è¾—ç¯è½¬ç§»è‡³äººå·¥è°ƒæ•´å·¥åº
-	/// </summary>
-	public static readonly string RingRollingTransferredToManualAdjustmentProcedure = "F0000104";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º-è¾—ç¯
-	/// </summary>
-	public static readonly string QualityInspectionConclusionRingRolling = "F0000036";
-	/// <summary>
-	/// æ¯›å¯å·¥åºè½¬ç§»è‡³äººå·¥è°ƒæ•´å·¥åº
-	/// </summary>
-	public static readonly string BlankOperationTransferredToManualAdjustmentOperation = "F0000106";
-	/// <summary>
-	/// è®¡åˆ’çƒ­å¤„ç†ç‚‰å·
-	/// </summary>
-	public static readonly string PlannedHeatTreatmentHeatNumber = "F0000124";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ-è¾—ç¯
-	/// </summary>
-	public static readonly string DemandPeriodOfThisProcedureRingRolling = "F0000076";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ-é”¯åˆ‡
-	/// </summary>
-	public static readonly string DemandPeriodOfThisProcessSawing = "F0000068";
-	/// <summary>
-	/// ç‚‰æ¬¡è®¡åˆ’
-	/// </summary>
-	public static readonly string HeatPlan = "F0000115";
-	/// <summary>
-	/// è®¡åˆ’ç‚‰æ¬¡ç¼–å·
-	/// </summary>
-	public static readonly string PlannedHeatNumber = "F0000113";
-	/// <summary>
-	/// çƒ­å¤„ç†è½¬ç§»è‡³äººå·¥è°ƒæ•´å·¥åº
-	/// </summary>
-	public static readonly string HeatTreatmentTransferredToManualAdjustmentOperation = "F0000105";
-	/// <summary>
-	/// ç²¾è½¦åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string FinishTurningUnit = "F0000040";
-	/// <summary>
-	/// ç²¾è½¦åŠ å·¥è€…
-	/// </summary>
-	public static readonly string FinishingWorker = "F0000190";
-	/// <summary>
-	/// åˆ‡å‰²è½¬ç§»è‡³äººå·¥è°ƒæ•´å·¥åº
-	/// </summary>
-	public static readonly string CuttingIsTransferredToManualAdjustmentProcess = "F0000136";
-	/// <summary>
-	/// è§„æ ¼å·
-	/// </summary>
-	public static readonly string SpecificationNumber = "F0000135";
-	/// <summary>
-	/// æ‰“ç£¨è½¬ç§»è‡³äººå·¥è°ƒæ•´å·¥åº
-	/// </summary>
-	public static readonly string TransferGrindingToManualAdjustmentProcess = "F0000140";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º-æ¯›å¯
-	/// </summary>
-	public static readonly string QualityInspectionConclusionBlank = "F0000038";
-	/// <summary>
-	/// å–æ ·åŠ å·¥è€…
-	/// </summary>
-	public static readonly string SamplingWorker = "F0000188";
-	/// <summary>
-	/// ç²¾è½¦è½¬ç§»è‡³äººå·¥è°ƒæ•´å·¥åº
-	/// </summary>
-	public static readonly string FinishTurningTransferredToManualAdjustmentProcess = "F0000108";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000006";
-	/// <summary>
-	/// ç²—è½¦å·¥åºè½¬ç§»è‡³äººå·¥è°ƒæ•´å·¥åº
-	/// </summary>
-	public static readonly string RoughTurningOperationTransferredToManualAdjustmentOperation = "F0000107";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// é’»å­”åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string DrillingUnit = "F0000041";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000004";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000001";
-	/// <summary>
-	/// å®Œæˆæœ¬å–
-	/// </summary>
-	public static readonly string CompletedTake = "F0000120";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// å®Œæˆæ€»é‡
-	/// </summary>
-	public static readonly string ToCompleteTheTotalAmount = "F0000146";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º-çƒ­å¤„ç†
-	/// </summary>
-	public static readonly string QualityInspectionConclusionHeatTreatment = "F0000037";
-	/// <summary>
-	/// é”¯åˆ‡åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string SawingProcessingUnit = "F0000024";
-	/// <summary>
-	/// åŸææ–™ç¼–å·
-	/// </summary>
-	public static readonly string RawMaterialNumber = "F0000058";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000069";
-	/// <summary>
-	/// ç²—è½¦é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string HeavyTruckLimitsTheOrderOfDispatch = "F0000181";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// å†ç”Ÿå“ID
-	/// </summary>
-	public static readonly string RecycledProductID = "F0000060";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// ç¡®è®¤ç‚‰æ¬¡ç¼–å·
-	/// </summary>
-	public static readonly string ConfirmedHeatNumber = "F0000114";
-	/// <summary>
-	/// æ€»è®¡åˆ’å‘˜
-	/// </summary>
-	public static readonly string TotalPlanner = "F0000194";
-	/// <summary>
-	/// ç¡®å®šæœ¬å–
-	/// </summary>
-	public static readonly string DeterminedTake = "F0000019";
-	/// <summary>
-	/// ç‰ˆæœ¬å·
-	/// </summary>
-	public static readonly string TheVersionNumber = "F0000153";
-	/// <summary>
-	/// è¿”ä¿®ç±»å‹
-	/// </summary>
-	public static readonly string RepairType = "F0000130";
-	/// <summary>
-	/// è®¡åˆ’è½§åˆ¶æ–¹å¼
-	/// </summary>
-	public static readonly string PlannedRollingMethod = "F0000112";
-	/// <summary>
-	/// è¿›åº¦ç®¡ç†ä¿¡æ¯
-	/// </summary>
-	public static readonly string ScheduleManagementInformation = "Progress";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ-ç²¾è½¦
-	/// </summary>
-	public static readonly string DemandPeriodOfThisProcessFinishTurning = "F0000088";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º-æ‰“ç£¨
-	/// </summary>
-	public static readonly string QualityInspectionConclusionPolishing = "F0000141";
-	/// <summary>
-	/// è¾—ç¯åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string RingRollingProcessingUnit = "F0000028";
-	/// <summary>
-	/// å–æ ·é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string SamplingLimitsTheOrderOfDispatch = "F0000180";
-	/// <summary>
-	/// å†·åŠ å·¥ç§‘é•¿
-	/// </summary>
-	public static readonly string ColdWorkingSectionChief = "F0000193";
-	/// <summary>
-	/// åŒè½§å·¥ä»¶å·
-	/// </summary>
-	public static readonly string DoubleTieWorkpieceNumber = "F0000144";
-	/// <summary>
-	/// é’»å­”æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string DrillingAssignmentInformation = "D001419F25876c23d35344549f57d7984a02799b";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// çƒ­å¤„ç†ä»»åŠ¡ç±»å‹
-	/// </summary>
-	public static readonly string HeatTreatmentUnitBusinessType = "F0000122";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000003";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// æˆå“å•é‡
-	/// </summary>
-	public static readonly string FinishedProductUnitWeight = "F0000017";
-	/// <summary>
-	/// é’»å­”åŠ å·¥è€…
-	/// </summary>
-	public static readonly string DrillWorker = "F0000191";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º-é“£é¢
-	/// </summary>
-	public static readonly string QualityInspectionConclusionMillingSurface = "F0000139";
-	/// <summary>
-	/// ç²—è½¦åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string RoughTurningUnit = "F0000039";
-	/// <summary>
-	/// çƒ­å¤„ç†å¤–ååˆåŒè¡¨
-	/// </summary>
-	public static readonly string HeatTreatmentOutsourcingContractForm = "F0000078";
-	/// <summary>
-	/// ç²—è½¦å¤–ååˆåŒè¡¨
-	/// </summary>
-	public static readonly string RoughTurningOutsourcingContractTable = "F0000084";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000005";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ-é’»å­”
-	/// </summary>
-	public static readonly string DemandPeriodOfThisProcessDrilling = "F0000097";
-	/// <summary>
-	/// è¾—ç¯å¤–ååˆåŒè¡¨
-	/// </summary>
-	public static readonly string RingRollingOutsourcingContractForm = "F0000075";
-	/// <summary>
-	/// é”»å‹è½¬ç§»è‡³äººå·¥è°ƒæ•´å·¥åº
-	/// </summary>
-	public static readonly string ForgingTransferredToManualAdjustmentProcedure = "F0000103";
-	/// <summary>
-	/// åŒè½§åˆ‡å‰²çŠ¶æ€
-	/// </summary>
-	public static readonly string DoubleRollingCutting = "F0000132";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º-é”»å‹
-	/// </summary>
-	public static readonly string QualityInspectionConclusionForging = "F0000035";
-	/// <summary>
-	/// æ¯›å¯åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string BlankProcessingUnit = "F0000030";
-	/// <summary>
-	/// é”»å‹åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string ForgingProcessingUnit = "F0000027";
-	/// <summary>
-	/// é’»å­”ç­ç»„é•¿
-	/// </summary>
-	public static readonly string DrillTeamLeader = "F0000198";
-	/// <summary>
-	/// é”¯åˆ‡å¤–ååˆåŒè¡¨
-	/// </summary>
-	public static readonly string SawingOutsourcingContractForm = "F0000070";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º-åˆ‡å‰²
-	/// </summary>
-	public static readonly string QualityInspectionConclusionCutting = "F0000137";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º-ç²¾è½¦
-	/// </summary>
-	public static readonly string QualityInspectionConclusionFinishTurning = "F0000045";
-	/// <summary>
-	/// è½¬è‡³å·¥åº
-	/// </summary>
-	public static readonly string TransferToOperation = "F0000056";
-	/// <summary>
-	/// ç²¾è½¦ç­ç»„é•¿
-	/// </summary>
-	public static readonly string FinishingTeamLeader = "F0000197";
-	/// <summary>
-	/// è½¬è‡³å·¥æ­¥
-	/// </summary>
-	public static readonly string TransferToStep = "F0000057";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º-é”¯åˆ‡
-	/// </summary>
-	public static readonly string QualityInspectionConclusionSawing = "F0000026";
-	/// <summary>
-	/// å·¥åºè®¡åˆ’è¡¨
-	/// </summary>
-	public static readonly string OperationSchedule = "F0000126";
-	/// <summary>
-	/// å–æ ·æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string SamplingAssignmentInformation = "D001419114f2ec1226346b08a087432c560af24";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// åŸæ–™åº“
-	/// </summary>
-	public static readonly string RawMaterialWarehouse = "F0000119";
-	/// <summary>
-	/// é’»å­”é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string DrillingLimitsTheOrderOfDispatch = "F0000183";
-	/// <summary>
-	/// äººå·¥è°ƒæ•´å·¥åºæ•°æ®åˆ†ç±»
-	/// </summary>
-	public static readonly string ManuallyAdjustOperationDataClassification = "F0000110";
-	/// <summary>
-	/// å†ç”Ÿå·¥åº
-	/// </summary>
-	public static readonly string RegenerationProcess = "F0000121";
-	/// <summary>
-	/// æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string DispatchingInformation = "F0000148";
-	/// <summary>
-	/// é’»å­”å¤–ååˆåŒè¡¨
-	/// </summary>
-	public static readonly string DrillingOutsourcingContractTable = "F0000096";
-	/// <summary>
-	/// çƒ­å¤„ç†åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string HeatTreatmentProcessingUnit = "F0000029";
-	/// <summary>
-	/// ç²¾è½¦å¤–ååˆåŒè¡¨
-	/// </summary>
-	public static readonly string FinishTurningOutsourcingContractTable = "F0000087";
-	/// <summary>
-	/// ç²—è½¦åŠ å·¥è€…
-	/// </summary>
-	public static readonly string RoughingWorker = "F0000189";
-	/// <summary>
-	/// ä¸Šä¸€å·¥æ­¥
-	/// </summary>
-	public static readonly string PreviousStep = "F0000128";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º-è¿”ä¿®
-	/// </summary>
-	public static readonly string QualityInspectionConclusionReturnRepair = "F0000129";
-	/// <summary>
-	/// ç²—è½¦å‘èµ·æ¢ä¼¤
-	/// </summary>
-	public static readonly string RoughTurningInitiatedFlawDetection = "F0000131";
-	/// <summary>
-	/// æµç¨‹å‚ä¸è€…
-	/// </summary>
-	public static readonly string TheCirculationDepartment = "F0000147";
-	/// <summary>
-	/// åŒæ‰åˆ†å‰²å‰å·¥ä»¶
-	/// </summary>
-	public static readonly string DoubleTieTheWorkpieceBeforeSegmentation = "F0000150";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ-ç²—è½¦
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperationRoughTurning = "F0000085";
-	/// <summary>
-	/// éƒ¨é—¨ä»£ç 
-	/// </summary>
-	public static readonly string DepartmentCode = "F0000154";
-	/// <summary>
-	/// å½“å‰å·¥åº
-	/// </summary>
-	public static readonly string CurrentOperation = "F0000018";
-	/// <summary>
-	/// äº§å“ç§ç±»
-	/// </summary>
-	public static readonly string ProductType = "F0000023";
-	/// <summary>
-	/// é’»å­”å·¥åºè½¬ç§»è‡³äººå·¥è°ƒæ•´å·¥åº
-	/// </summary>
-	public static readonly string DrillingProcessTransferredToManualAdjustmentProcess = "F0000109";
-	/// <summary>
-	/// éƒ¨é—¨å¤šé€‰
-	/// </summary>
-	public static readonly string DepartmentOfAlternative = "F0000152";
-	/// <summary>
-	/// æ•°é‡-åˆ‡å‰²å‰
-	/// </summary>
-	public static readonly string QuantityBeforeCutting = "F0000145";
-	/// <summary>
-	/// ç²¾è½¦å·²åŠ å·¥é‡
-	/// </summary>
-	public static readonly string FinishTurningProcessedQuantity = "F0000134";
-	/// <summary>
-	/// é”¯åˆ‡è½¬ç§»è‡³äººå·¥è°ƒæ•´å·¥åº
-	/// </summary>
-	public static readonly string SawingTransferredToManualAdjustmentProcess = "F0000102";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º-é’»å­”
-	/// </summary>
-	public static readonly string QualityInspectionConclusionDrilling = "F0000046";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string ObjectId = "ObjectId";
-	/// <summary>
-	/// é“£é¢è½¬ç§»è‡³äººå·¥è°ƒæ•´å·¥åº
-	/// </summary>
-	public static readonly string MillingSurfaceTransferToManualAdjustmentProcess = "F0000138";
-	/// <summary>
-	/// é”»å‹å¤–ååˆåŒè¡¨
-	/// </summary>
-	public static readonly string ForgingOutsourcingContractForm = "F0000072";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000007";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ-çƒ­å¤„ç†
-	/// </summary>
-	public static readonly string DemandPeriodOfThisProcedureHeatTreatment = "F0000079";
-	/// <summary>
-	/// æ¯›å¯å¤–ååˆåŒè¡¨
-	/// </summary>
-	public static readonly string BlankOutsourcingContractTable = "F0000081";
-	/// <summary>
-	/// ç¡®è®¤çƒ­å¤„ç†ç‚‰å·
-	/// </summary>
-	public static readonly string ConfirmedHeatTreatmentHeatNumber = "F0000116";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º-ç²—è½¦
-	/// </summary>
-	public static readonly string QualityInspectionConclusionRoughTurning = "F0000047";
+    public static readonly string TableCode = "Sq0biizim9l50i2rl6kgbpo3u4";
+    public ProcessFlow() { }
+    //¼Æ»®±¾È¡
+    public static readonly string PlannedTake = "F0000118";
+    //È·¶¨ÔşÖÆ·½Ê½
+    public static readonly string DeterminedRollingMethod = "F0000111";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000002";
+    //´Ö³µÒÑ¼Ó¹¤Á¿
+    public static readonly string RoughTurningProcessedQuantity = "F0000133";
+    //È·ÈÏÂ¯´Î¼Æ»®
+    public static readonly string ConfirmedHeatPlan = "F0000125";
+    //Ë«Ôş±àºÅ
+    public static readonly string DoubleRollingNumber = "F0000127";
+    //±¾¹¤ĞòĞèÇóÆÚ¶ÍÑ¹
+    public static readonly string DemandPeriodOfThisProcedureForging = "F0000073";
+    //ÖÊÁ¿×´Ì¬
+    public static readonly string QualityStatus = "F0000065";
+    //±¾¹¤ĞòĞèÇóÆÚÃ«Å÷
+    public static readonly string DemandPeriodOfThisOperationBlank = "F0000082";
+    //Ô­²ÄÁÏÀàĞÍ
+    public static readonly string RawMaterialType = "F0000062";
+    //Õ·»·×ªÒÆÖÁÈË¹¤µ÷Õû¹¤Ğò
+    public static readonly string RingRollingTransferredToManualAdjustmentProcedure = "F0000104";
+    //ÖÊ¼ì½áÂÛÕ·»·
+    public static readonly string QualityInspectionConclusionRingRolling = "F0000036";
+    //Ã«Å÷¹¤Ğò×ªÒÆÖÁÈË¹¤µ÷Õû¹¤Ğò
+    public static readonly string BlankOperationTransferredToManualAdjustmentOperation = "F0000106";
+    //¼Æ»®ÈÈ´¦ÀíÂ¯ºÅ
+    public static readonly string PlannedHeatTreatmentHeatNumber = "F0000124";
+    //±¾¹¤ĞòĞèÇóÆÚÕ·»·
+    public static readonly string DemandPeriodOfThisProcedureRingRolling = "F0000076";
+    //±¾¹¤ĞòĞèÇóÆÚ¾âÇĞ
+    public static readonly string DemandPeriodOfThisProcessSawing = "F0000068";
+    //Â¯´Î¼Æ»®
+    public static readonly string HeatPlan = "F0000115";
+    //¼Æ»®Â¯´Î±àºÅ
+    public static readonly string PlannedHeatNumber = "F0000113";
+    //ÈÈ´¦Àí×ªÒÆÖÁÈË¹¤µ÷Õû¹¤Ğò
+    public static readonly string HeatTreatmentTransferredToManualAdjustmentOperation = "F0000105";
+    //¾«³µ¼Ó¹¤µ¥Î»
+    public static readonly string FinishTurningUnit = "F0000040";
+    //ÖÊ¼ì½áÂÛÃ«Å÷
+    public static readonly string QualityInspectionConclusionBlank = "F0000038";
+    //¾«³µ×ªÒÆÖÁÈË¹¤µ÷Õû¹¤Ğò
+    public static readonly string FinishTurningTransferredToManualAdjustmentProcess = "F0000108";
+    //ID
+    public static readonly string ID = "F0000006";
+    //´Ö³µ¹¤Ğò×ªÒÆÖÁÈË¹¤µ÷Õû¹¤Ğò
+    public static readonly string RoughTurningOperationTransferredToManualAdjustmentOperation = "F0000107";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //×ê¿×¼Ó¹¤µ¥Î»
+    public static readonly string DrillingUnit = "F0000041";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000004";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000001";
+    //Íê³É±¾È¡
+    public static readonly string CompletedTake = "F0000120";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //ÖÊ¼ì½áÂÛÈÈ´¦Àí
+    public static readonly string QualityInspectionConclusionHeatTreatment = "F0000037";
+    //¾âÇĞ¼Ó¹¤µ¥Î»
+    public static readonly string SawingProcessingUnit = "F0000024";
+    //Ô­²ÄÁÏ±àºÅ
+    public static readonly string RawMaterialNumber = "F0000058";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000069";
+    //Status
+    public static readonly string Status = "Status";
+    //ÔÙÉúÆ·ID
+    public static readonly string RecycledProductID = "F0000060";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //È·ÈÏÂ¯´Î±àºÅ
+    public static readonly string ConfirmedHeatNumber = "F0000114";
+    //È·¶¨±¾È¡
+    public static readonly string DeterminedTake = "F0000019";
+    //·µĞŞÀàĞÍ
+    public static readonly string RepairType = "F0000130";
+    //¼Æ»®ÔşÖÆ·½Ê½
+    public static readonly string PlannedRollingMethod = "F0000112";
+    //±¾¹¤ĞòĞèÇóÆÚ¾«³µ
+    public static readonly string DemandPeriodOfThisProcessFinishTurning = "F0000088";
+    //Õ·»·¼Ó¹¤µ¥Î»
+    public static readonly string RingRollingProcessingUnit = "F0000028";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //ÈÈ´¦ÀíÈÎÎñÀàĞÍ
+    public static readonly string HeatTreatmentUnitBusinessType = "F0000122";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000003";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //³ÉÆ·µ¥ÖØ
+    public static readonly string FinishedProductUnitWeight = "F0000017";
+    //´Ö³µ¼Ó¹¤µ¥Î»
+    public static readonly string RoughTurningUnit = "F0000039";
+    //ÈÈ´¦ÀíÍâĞ­ºÏÍ¬±í
+    public static readonly string HeatTreatmentOutsourcingContractForm = "F0000078";
+    //´Ö³µÍâĞ­ºÏÍ¬±í
+    public static readonly string RoughTurningOutsourcingContractTable = "F0000084";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000005";
+    //±¾¹¤ĞòĞèÇóÆÚ×ê¿×
+    public static readonly string DemandPeriodOfThisProcessDrilling = "F0000097";
+    //Õ·»·ÍâĞ­ºÏÍ¬±í
+    public static readonly string RingRollingOutsourcingContractForm = "F0000075";
+    //¶ÍÑ¹×ªÒÆÖÁÈË¹¤µ÷Õû¹¤Ğò
+    public static readonly string ForgingTransferredToManualAdjustmentProcedure = "F0000103";
+    //Ë«ÔşÇĞ¸î
+    public static readonly string DoubleRollingCutting = "F0000132";
+    //ÖÊ¼ì½áÂÛ¶ÍÑ¹
+    public static readonly string QualityInspectionConclusionForging = "F0000035";
+    //Ã«Å÷¼Ó¹¤µ¥Î»
+    public static readonly string BlankProcessingUnit = "F0000030";
+    //¶ÍÑ¹¼Ó¹¤µ¥Î»
+    public static readonly string ForgingProcessingUnit = "F0000027";
+    //¾âÇĞÍâĞ­ºÏÍ¬±í
+    public static readonly string SawingOutsourcingContractForm = "F0000070";
+    //ÖÊ¼ì½áÂÛ¾«³µ
+    public static readonly string QualityInspectionConclusionFinishTurning = "F0000045";
+    //×ªÖÁ¹¤Ğò
+    public static readonly string TransferToOperation = "F0000056";
+    //×ªÖÁ¹¤²½
+    public static readonly string TransferToStep = "F0000057";
+    //ÖÊ¼ì½áÂÛ¾âÇĞ
+    public static readonly string QualityInspectionConclusionSawing = "F0000026";
+    //¹¤Ğò¼Æ»®±í
+    public static readonly string OperationSchedule = "F0000126";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //Ô­ÁÏ¿â
+    public static readonly string RawMaterialWarehouse = "F0000119";
+    //ÈË¹¤µ÷Õû¹¤ĞòÊı¾İ·ÖÀà
+    public static readonly string ManuallyAdjustOperationDataClassification = "F0000110";
+    //ÊÇ·ñºöÂÔÀí»¯½á¹û
+    public static readonly string IgnorePhysicalAndChemicalResults = "F0000123";
+    //ÔÙÉú¹¤Ğò
+    public static readonly string RegenerationProcess = "F0000121";
+    //×ê¿×ÍâĞ­ºÏÍ¬±í
+    public static readonly string DrillingOutsourcingContractTable = "F0000096";
+    //ÈÈ´¦Àí¼Ó¹¤µ¥Î»
+    public static readonly string HeatTreatmentProcessingUnit = "F0000029";
+    //¾«³µÍâĞ­ºÏÍ¬±í
+    public static readonly string FinishTurningOutsourcingContractTable = "F0000087";
+    //ÉÏÒ»¹¤²½
+    public static readonly string PreviousStep = "F0000128";
+    //ÖÊ¼ì½áÂÛ·µĞŞ
+    public static readonly string QualityInspectionConclusionReturnRepair = "F0000129";
+    //´Ö³µ·¢ÆğÌ½ÉË
+    public static readonly string RoughTurningInitiatedFlawDetection = "F0000131";
+    //±¾¹¤ĞòĞèÇóÆÚ´Ö³µ
+    public static readonly string DemandPeriodOfThisOperationRoughTurning = "F0000085";
+    //µ±Ç°¹¤Ğò
+    public static readonly string CurrentOperation = "F0000018";
+    //²úÆ·ÖÖÀà
+    public static readonly string ProductType = "F0000023";
+    //×ê¿×¹¤Ğò×ªÒÆÖÁÈË¹¤µ÷Õû¹¤Ğò
+    public static readonly string DrillingProcessTransferredToManualAdjustmentProcess = "F0000109";
+    //¾«³µÒÑ¼Ó¹¤Á¿
+    public static readonly string FinishTurningProcessedQuantity = "F0000134";
+    //¾âÇĞ×ªÒÆÖÁÈË¹¤µ÷Õû¹¤Ğò
+    public static readonly string SawingTransferredToManualAdjustmentProcess = "F0000102";
+    //ÖÊ¼ì½áÂÛ×ê¿×
+    public static readonly string QualityInspectionConclusionDrilling = "F0000046";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //¶ÍÑ¹ÍâĞ­ºÏÍ¬±í
+    public static readonly string ForgingOutsourcingContractForm = "F0000072";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000007";
+    //±¾¹¤ĞòĞèÇóÆÚÈÈ´¦Àí
+    public static readonly string DemandPeriodOfThisProcedureHeatTreatment = "F0000079";
+    //Ã«Å÷ÍâĞ­ºÏÍ¬±í
+    public static readonly string BlankOutsourcingContractTable = "F0000081";
+    //È·ÈÏÈÈ´¦ÀíÂ¯ºÅ
+    public static readonly string ConfirmedHeatTreatmentHeatNumber = "F0000116";
+    //ÖÊ¼ì½áÂÛ´Ö³µ
+    public static readonly string QualityInspectionConclusionRoughTurning = "F0000047";
 }
 /// <summary>
-/// æŠ€æœ¯è´¨é‡ç®¡ç†,è´¨é‡å¼‚è®®
+/// ¼¼ÊõÖÊÁ¿¹ÜÀí,ÖÊÁ¿ÒìÒé
 /// </summary>
+[Table("ÖÊÁ¿ÒìÒé")]
 public class QualityObjection
 {
-	public static readonly string TableCode = "D001419Sw5x3oekte0p227mti924vmf21";
-	public QualityObjection() { }
-	/// <summary>
-	/// å·¥åºè®¡åˆ’è¡¨
-	/// </summary>
-	public static readonly string OperationPlan = "F0000030";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000004";
-	/// <summary>
-	/// æ£€éªŒç±»å‹
-	/// </summary>
-	public static readonly string InspectionType = "F0000009";
-	/// <summary>
-	/// æ£€éªŒæ•°é‡
-	/// </summary>
-	public static readonly string InspectionQuantity = "F0000010";
-	/// <summary>
-	/// åˆæ ¼ç‡%
-	/// </summary>
-	public static readonly string QualifiedRate = "F0000013";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000007";
-	/// <summary>
-	/// å…³è”è¾—ç¯
-	/// </summary>
-	public static readonly string AssociatedRingRolling = "F0000022";
-	/// <summary>
-	/// äº§å“æ¥æº
-	/// </summary>
-	public static readonly string ProductSource = "F0000028";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000024";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000005";
-	/// <summary>
-	/// ä¸åˆæ ¼æ•°é‡
-	/// </summary>
-	public static readonly string UnqualifiedQuantity = "F0000011";
-	/// <summary>
-	/// å…³è”é”¯åˆ‡
-	/// </summary>
-	public static readonly string AssociatedSawing = "F0000020";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000006";
-	/// <summary>
-	/// å¤‡æ³¨
-	/// </summary>
-	public static readonly string Remarks = "F0000015";
-	/// <summary>
-	/// å…³è”é”»å‹
-	/// </summary>
-	public static readonly string AssociatedForging = "F0000021";
-	/// <summary>
-	/// å…³è”å¼‚å¸¸
-	/// </summary>
-	public static readonly string AssociatedAbnormality = "F0000027";
-	/// <summary>
-	/// å…³è”çƒ­å¤„ç†
-	/// </summary>
-	public static readonly string AssociatedHeatTreatment = "F0000023";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// è½¬è‡³å·¥åº
-	/// </summary>
-	public static readonly string TransferToWorkSequence = "F0000016";
-	/// <summary>
-	/// æ‰€åœ¨å·¥åº
-	/// </summary>
-	public static readonly string Operation = "F0000025";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000026";
-	/// <summary>
-	/// æ£€éªŒå‘˜
-	/// </summary>
-	public static readonly string Inspector = "F0000003";
-	/// <summary>
-	/// è½¬è‡³å·¥æ­¥
-	/// </summary>
-	public static readonly string GoToWorkStep = "F0000017";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// æ£€éªŒç»“è®º
-	/// </summary>
-	public static readonly string InspectionConclusion = "F0000018";
-	/// <summary>
-	/// æ—¥æœŸ
-	/// </summary>
-	public static readonly string Date = "F0000002";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// åˆæ ¼æ•°é‡
-	/// </summary>
-	public static readonly string QualifiedQuantity = "F0000012";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000029";
+    public static readonly string TableCode = "Sw5x3oekte0p227mti924vmf21";
+    public QualityObjection() { }
+    //¹¤Ğò¼Æ»®±í
+    public static readonly string OperationPlan = "F0000030";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000004";
+    //¼ìÑéÀàĞÍ
+    public static readonly string InspectionType = "F0000009";
+    //¼ìÑéÊıÁ¿
+    public static readonly string InspectionQuantity = "F0000010";
+    //ºÏ¸ñÂÊ%
+    public static readonly string QualifiedRate = "F0000013";
+
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000007";
+    //¹ØÁªÕ·»·
+    public static readonly string AssociatedRingRolling = "F0000022";
+    //²úÆ·À´Ô´
+    public static readonly string ProductSource = "F0000028";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //ID
+    public static readonly string ID = "F0000024";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000005";
+    //²»ºÏ¸ñÊıÁ¿
+    public static readonly string UnqualifiedQuantity = "F0000011";
+    //¹ØÁª¾âÇĞ
+    public static readonly string AssociatedSawing = "F0000020";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000006";
+    //±¸×¢
+    public static readonly string Remarks = "F0000015";
+    //¹ØÁª¶ÍÑ¹
+    public static readonly string AssociatedForging = "F0000021";
+    //¹ØÁªÒì³£
+    public static readonly string AssociatedAbnormality = "F0000027";
+    //¹ØÁªÈÈ´¦Àí
+    public static readonly string AssociatedHeatTreatment = "F0000023";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //×ªÖÁ¹¤Ğò
+    public static readonly string TransferToWorkSequence = "F0000016";
+    //ËùÔÚ¹¤Ğò
+    public static readonly string Operation = "F0000025";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000026";
+    //¼ìÑéÔ±
+    public static readonly string Inspector = "F0000003";
+    //×ªÖÁ¹¤²½
+    public static readonly string GoToWorkStep = "F0000017";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //¼ìÑé½áÂÛ
+    public static readonly string InspectionConclusion = "F0000018";
+    //ÈÕÆÚ
+    public static readonly string Date = "F0000002";
+    //Status
+    public static readonly string Status = "Status";
+    //ºÏ¸ñÊıÁ¿
+    public static readonly string QualifiedQuantity = "F0000012";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000029";
 }
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,äº§å“å‚æ•°è¡¨
+/// Éú²úÖÆÔìÁ÷³Ì,²úÆ·²ÎÊı±í
 /// </summary>
+[Table("²úÆ·²ÎÊı±í")]
 public class ProductParameter
 {
-	public static readonly string TableCode = "D0014196b62f7decd924e1e8713025dc6a39aa5";
-	public ProductParameter() { }
-	/// <summary>
-	/// ACå­”æ•°
-	/// </summary>
-	public static readonly string ACNumberOfHoles = "F0000086";
-	/// <summary>
-	/// å•è½§ç²—è½¦ä¸‹å±‘
-	/// </summary>
-	public static readonly string SingleRollingRoughTurningChip = "F0000045";
-	/// <summary>
-	/// ä¾§å­”å¾„5ï¼ˆç«‹é¢ï¼‰
-	/// </summary>
-	public static readonly string SideHoleDiameter5 = "F0000063";
-	/// <summary>
-	/// åˆåŒæˆå“å•é‡
-	/// </summary>
-	public static readonly string ContractFinishedProductUnitWeight = "F0000088";
-	/// <summary>
-	/// ä¾§å­”æ•°4ï¼ˆç«‹é¢ï¼‰
-	/// </summary>
-	public static readonly string NumberOfSideHoles4 = "F0000061";
-	/// <summary>
-	/// ä¾§å­”æ·±1ï¼ˆå¹³é¢ï¼‰
-	/// </summary>
-	public static readonly string SideSoleSepth1 = "F0000053";
-	/// <summary>
-	/// äº§å“è½¦åŠ å·¥ç±»åˆ«ä»£å·
-	/// </summary>
-	public static readonly string ProductMachiningCategoryCode = "F0000005";
-	/// <summary>
-	/// æŠ€æœ¯è§„èŒƒ
-	/// </summary>
-	public static readonly string TechnicalSpecification = "F0000072";
-	/// <summary>
-	/// å¡å£å›¾
-	/// </summary>
-	public static readonly string GrooveDiagram = "F0000071";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// å­”æ•°
-	/// </summary>
-	public static readonly string NumberOfHoles = "F0000080";
-	/// <summary>
-	/// å­”å¾„
-	/// </summary>
-	public static readonly string HoleDiameter = "F0000081";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// æè´¨
-	/// </summary>
-	public static readonly string Material = "F0000068";
-	/// <summary>
-	/// ä¸‹æ–™å•é‡
-	/// </summary>
-	public static readonly string BlankingUnitWeight = "F0000015";
-	/// <summary>
-	/// è§„æ ¼å·
-	/// </summary>
-	public static readonly string SpecificationNumber = "F0000066";
-	/// <summary>
-	/// é’»å­”ä¸‹å±‘
-	/// </summary>
-	public static readonly string DrillingChip = "F0000074";
-	/// <summary>
-	/// äº§å“è½¦åŠ å·¥ç±»åˆ«
-	/// </summary>
-	public static readonly string ProductMachiningCategory = "F0000004";
-	/// <summary>
-	/// åŒè½§ç²—è½¦ä¸‹å±‘
-	/// </summary>
-	public static readonly string DoubleRollingRoughingChip = "F0000046";
-	/// <summary>
-	/// ä¾§å­”æ•°5ï¼ˆç«‹é¢ï¼‰
-	/// </summary>
-	public static readonly string NumberOfSideHoles5 = "F0000064";
-	/// <summary>
-	/// ä¾§å­”å¾„2ï¼ˆå¹³é¢ï¼‰
-	/// </summary>
-	public static readonly string SideHoleDiameter2 = "F0000054";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string ProductSpecification = "F0000003";
-	/// <summary>
-	/// ä¾§å­”æ·±2ï¼ˆå¹³é¢ï¼‰
-	/// </summary>
-	public static readonly string SideHoleDepth2 = "F0000056";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// ACå¤–å¾„
-	/// </summary>
-	public static readonly string ACOuterDiameter = "F0000082";
-	/// <summary>
-	/// ACå­”å¾„
-	/// </summary>
-	public static readonly string ACHoleDiameter = "F0000087";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// ç²¾è½¦ä¸‹å±‘
-	/// </summary>
-	public static readonly string FinishingChip = "F0000047";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000067";
-	/// <summary>
-	/// ä¾§å­”å¾„3ï¼ˆå¹³é¢ï¼‰
-	/// </summary>
-	public static readonly string SideHoleDiameter3 = "F0000057";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// å†…å¾„
-	/// </summary>
-	public static readonly string InnerDiameter = "F0000077";
-	/// <summary>
-	/// ä¾§å­”æ•°3ï¼ˆå¹³é¢ï¼‰
-	/// </summary>
-	public static readonly string SideHoleNumber3 = "F0000058";
-	/// <summary>
-	/// å•è½§ç²—è½¦å·¥æ—¶
-	/// </summary>
-	public static readonly string SingleRoughingMaNHour = "F0000048";
-	/// <summary>
-	/// ç‰‡åš
-	/// </summary>
-	public static readonly string SliceThickness = "F0000079";
-	/// <summary>
-	/// å››é¢è§å…‰ç²—è½¦å·¥æ—¶
-	/// </summary>
-	public static readonly string FoursidesRoughingManHour = "F0000050";
-	/// <summary>
-	/// ä¾§å­”æ·±5ï¼ˆç«‹é¢ï¼‰
-	/// </summary>
-	public static readonly string SideHoleDepth5 = "F0000065";
-	/// <summary>
-	/// é’»å­”å·¥æ—¶
-	/// </summary>
-	public static readonly string DrillingManHour = "F0000052";
-	/// <summary>
-	/// å¤–å¾„
-	/// </summary>
-	public static readonly string OuterDiameter = "F0000076";
-	/// <summary>
-	/// ä¾§å­”æ•°2ï¼ˆå¹³é¢ï¼‰
-	/// </summary>
-	public static readonly string SideHoleNumber2 = "F0000055";
-	/// <summary>
-	/// åŒè½§ç²—è½¦å·¥æ—¶
-	/// </summary>
-	public static readonly string DoubleRoughingManhour = "F0000049";
-	/// <summary>
-	/// ä¾§å­”æ·±3ï¼ˆå¹³é¢ï¼‰
-	/// </summary>
-	public static readonly string SideHoleDepth3 = "F0000059";
-	/// <summary>
-	/// æˆå“å•é‡
-	/// </summary>
-	public static readonly string FinishedProductUnitWeight = "F0000014";
-	/// <summary>
-	/// ä¾§å­”å¾„4ï¼ˆç«‹é¢ï¼‰
-	/// </summary>
-	public static readonly string SideHoleDiameter4 = "F0000060";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000073";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// ACæ€»é«˜
-	/// </summary>
-	public static readonly string ACTotalHeight = "F0000084";
-	/// <summary>
-	/// äº§å“é’»åŠ å·¥ç±»åˆ«ä»£å·
-	/// </summary>
-	public static readonly string ProductDrillingCategoryCode = "F0000007";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string ModifiedBy = "ModifiedBy";
-	/// <summary>
-	/// äº§å“é’»åŠ å·¥ç±»åˆ«
-	/// </summary>
-	public static readonly string ProductDrillingCategory = "F0000006";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// å›¾ç‰‡
-	/// </summary>
-	public static readonly string Picture = "MainDrawing";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "ProductCode";
-	/// <summary>
-	/// ä¾§å­”æ·±4ï¼ˆç«‹é¢ï¼‰
-	/// </summary>
-	public static readonly string SIdeHoleDepth4 = "F0000062";
-	/// <summary>
-	/// ç²¾è½¦å·¥æ—¶
-	/// </summary>
-	public static readonly string FinishingManHour = "F0000051";
-	/// <summary>
-	/// æ€»é«˜
-	/// </summary>
-	public static readonly string TotalHeight = "F0000078";
-	/// <summary>
-	/// ACå†…å¾„
-	/// </summary>
-	public static readonly string ACInnerDiameter = "F0000083";
-	/// <summary>
-	/// ACç‰‡åš
-	/// </summary>
-	public static readonly string ACSheetThickness = "F0000085";
+    public static readonly string TableCode = "6b62f7decd924e1e8713025dc6a39aa5";
+    public ProductParameter() { }
+    //AC¿×Êı
+    public static readonly string ACNumberOfHoles = "F0000086";
+    //µ¥Ôş´Ö³µÏÂĞ¼
+    public static readonly string SingleRollingRoughTurningChip = "F0000045";
+    //²à¿×¾¶5£¨Á¢Ãæ£©
+    public static readonly string SideHoleDiameter5 = "F0000063";
+    //ºÏÍ¬³ÉÆ·µ¥ÖØ
+    public static readonly string ContractFinishedProductUnitWeight = "F0000088";
+    //²à¿×Êı4£¨Á¢Ãæ£©
+    public static readonly string NumberOfSideHoles4 = "F0000061";
+    //²à¿×Éî1£¨Æ½Ãæ£©
+    public static readonly string SideSoleSepth1 = "F0000053";
+    //²úÆ·³µ¼Ó¹¤Àà±ğ´úºÅ
+    public static readonly string ProductMachiningCategoryCode = "F0000005";
+    //¼¼Êõ¹æ·¶
+    public static readonly string TechnicalSpecification = "F0000072";
+    //ÆÂ¿ÚÍ¼
+    public static readonly string GrooveDiagram = "F0000071";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //¿×Êı
+    public static readonly string NumberOfHoles = "F0000080";
+    //¿×¾¶
+    public static readonly string HoleDiameter = "F0000081";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //²ÄÖÊ
+    public static readonly string Material = "F0000068";
+    //ÏÂÁÏµ¥ÖØ
+    public static readonly string BlankingUnitWeight = "F0000015";
+    //¹æ¸ñºÅ
+    public static readonly string SpecificationNumber = "F0000066";
+    //×ê¿×ÏÂĞ¼
+    public static readonly string DrillingChip = "F0000074";
+    //²úÆ·³µ¼Ó¹¤Àà±ğ
+    public static readonly string ProductMachiningCategory = "F0000004";
+    //Ë«Ôş´Ö³µÏÂĞ¼
+    public static readonly string DoubleRollingRoughingChip = "F0000046";
+    //²à¿×Êı5£¨Á¢Ãæ£©
+    public static readonly string NumberOfSideHoles5 = "F0000064";
+    //²à¿×¾¶2£¨Æ½Ãæ£©
+    public static readonly string SideHoleDiameter2 = "F0000054";
+    //²úÆ·¹æ¸ñ
+    public static readonly string ProductSpecification = "F0000003";
+    //²à¿×Éî2£¨Æ½Ãæ£©
+    public static readonly string SideHoleDepth2 = "F0000056";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //ACÍâ¾¶
+    public static readonly string ACOuterDiameter = "F0000082";
+    //AC¿×¾¶
+    public static readonly string ACHoleDiameter = "F0000087";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //¾«³µÏÂĞ¼
+    public static readonly string FinishingChip = "F0000047";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000067";
+    //²à¿×¾¶3£¨Æ½Ãæ£©
+    public static readonly string SideHoleDiameter3 = "F0000057";
+    //Status
+    public static readonly string Status = "Status";
+    //ÄÚ¾¶
+    public static readonly string InnerDiameter = "F0000077";
+    //²à¿×Êı3£¨Æ½Ãæ£©
+    public static readonly string SideHoleNumber3 = "F0000058";
+    //µ¥Ôş´Ö³µ¹¤Ê±
+    public static readonly string SingleRoughingMaNHour = "F0000048";
+    //Æ¬ºñ
+    public static readonly string SliceThickness = "F0000079";
+    //ËÄÃæ¼û¹â´Ö³µ¹¤Ê±
+    public static readonly string FoursidesRoughingManHour = "F0000050";
+    //²à¿×Éî5£¨Á¢Ãæ£©
+    public static readonly string SideHoleDepth5 = "F0000065";
+    //×ê¿×¹¤Ê±
+    public static readonly string DrillingManHour = "F0000052";
+    //Íâ¾¶
+    public static readonly string OuterDiameter = "F0000076";
+    //²à¿×Êı2£¨Æ½Ãæ£©
+    public static readonly string SideHoleNumber2 = "F0000055";
+    //Ë«Ôş´Ö³µ¹¤Ê±
+    public static readonly string DoubleRoughingManhour = "F0000049";
+    //²à¿×Éî3£¨Æ½Ãæ£©
+    public static readonly string SideHoleDepth3 = "F0000059";
+    //³ÉÆ·µ¥ÖØ
+    public static readonly string FinishedProductUnitWeight = "F0000014";
+    //²à¿×¾¶4£¨Á¢Ãæ£©
+    public static readonly string SideHoleDiameter4 = "F0000060";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000073";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //AC×Ü¸ß
+    public static readonly string ACTotalHeight = "F0000084";
+    //²úÆ·×ê¼Ó¹¤Àà±ğ´úºÅ
+    public static readonly string ProductDrillingCategoryCode = "F0000007";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //²úÆ·×ê¼Ó¹¤Àà±ğ
+    public static readonly string ProductDrillingCategory = "F0000006";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //Í¼Æ¬
+    public static readonly string Picture = "MainDrawing";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "ProductCode";
+    //²à¿×Éî4£¨Á¢Ãæ£©
+    public static readonly string SIdeHoleDepth4 = "F0000062";
+    //¾«³µ¹¤Ê±
+    public static readonly string FinishingManHour = "F0000051";
+    //×Ü¸ß
+    public static readonly string TotalHeight = "F0000078";
+    //ACÄÚ¾¶
+    public static readonly string ACInnerDiameter = "F0000083";
+    //ACÆ¬ºñ
+    public static readonly string ACSheetThickness = "F0000085";
 }
 /// <summary>
-/// æŠ€æœ¯å·¥è‰ºç®¡ç†,è®¾å¤‡å·¥æ—¶ç³»æ•°è¡¨
+/// ¼¼Êõ¹¤ÒÕ¹ÜÀí,Éè±¸¹¤Ê±ÏµÊı±í
 /// </summary>
+[Table("Éè±¸¹¤Ê±ÏµÊı±í")]
 public class DeviceWorkingHour
 {
-	public static readonly string TableCode = "D0014195ed7e837ecee4f97800877820d9a2f05";
-	public DeviceWorkingHour() { }
-	/// <summary>
-	/// äº§å“è½¦åŠ å·¥ç±»åˆ«
-	/// </summary>
-	public static readonly string ProductMachiningCategory = "F0000002";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string ObjectId = "ObjectId";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// äº§å“é’»åŠ å·¥ç±»åˆ«
-	/// </summary>
-	public static readonly string ProductDrillingCategory = "F0000003";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string Datatitle = "Name";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// å·¥åºåç§°
-	/// </summary>
-	public static readonly string OperationName = "F0000001";
-	/// <summary>
-	/// å­è¡¨
-	/// </summary>
-	public static readonly string SubTable = "D001419Fbb7854d117af4bba8eff4de46d128f63";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// å•è¡Œæ–‡æœ¬
-	/// </summary>
-	public static readonly string SingleLineText = "F0000009";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
+    public static readonly string TableCode = "5ed7e837ecee4f97800877820d9a2f05";
+    public DeviceWorkingHour() { }
+    //²úÆ·³µ¼Ó¹¤Àà±ğ
+    public static readonly string ProductMachiningCategory = "F0000002";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //²úÆ·×ê¼Ó¹¤Àà±ğ
+    public static readonly string ProductDrillingCategory = "F0000003";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //¹¤ĞòÃû³Æ
+    public static readonly string OperationName = "F0000001";
+    //×Ó±í
+    public static readonly string SubTable = "D001419Fbb7854d117af4bba8eff4de46d128f63";
+    //Status
+    public static readonly string Status = "Status";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //µ¥ĞĞÎÄ±¾
+    public static readonly string SingleLineText = "F0000009";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
 }
 /// <summary>
-/// æŠ€æœ¯å·¥è‰ºç®¡ç†,å·¥åºè¡¨
+/// ¼¼Êõ¹¤ÒÕ¹ÜÀí,¹¤Ğò±í
 /// </summary>
+[Table("¹¤Ğò±í")]
 public class ProcessTable
 {
-	public static readonly string TableCode = "D0014199016d53506b44f7d95ebbab5a05faf50";
-	public ProcessTable() { }
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// å·¥åºç¼–å·
-	/// </summary>
-	public static readonly string OperationNumber = "F0000001";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// å·¥åºåç§°
-	/// </summary>
-	public static readonly string OperationName = "F0000002";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
+    public static readonly string TableCode = "9016d53506b44f7d95ebbab5a05faf50";
+    public ProcessTable() { }
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //¹¤Ğò±àºÅ
+    public static readonly string OperationNumber = "F0000001";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //Status
+    public static readonly string Status = "Status";
+    //¹¤ĞòÃû³Æ
+    public static readonly string OperationName = "F0000002";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
 }
 /// <summary>
-/// æŠ€æœ¯å·¥è‰ºç®¡ç†,é’»åŠ å·¥ç±»åˆ«
+/// ¼¼Êõ¹¤ÒÕ¹ÜÀí,×ê¼Ó¹¤Àà±ğ
 /// </summary>
+[Table("×ê¼Ó¹¤Àà±ğ")]
 public class DrillMachiningType
 {
-	public static readonly string TableCode = "D00141931e1fc7e25d8417dbe2f54a5bf6218bf";
-	public DrillMachiningType() { }
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// å°ç±»ä»£å·
-	/// </summary>
-	public static readonly string SubclassCode = "F0000001";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// å°ç±»åç§°
-	/// </summary>
-	public static readonly string SubclassName = "F0000002";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
+    public static readonly string TableCode = "31e1fc7e25d8417dbe2f54a5bf6218bf";
+    public DrillMachiningType() { }
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //Ğ¡Àà´úºÅ
+    public static readonly string SubclassCode = "F0000001";
+    //Status
+    public static readonly string Status = "Status";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //Ğ¡ÀàÃû³Æ
+    public static readonly string SubclassName = "F0000002";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
 }
 /// <summary>
-/// æŠ€æœ¯å·¥è‰ºç®¡ç†,è½¦åŠ å·¥ç±»åˆ«
+/// ¼¼Êõ¹¤ÒÕ¹ÜÀí,³µ¼Ó¹¤Àà±ğ
 /// </summary>
+[Table("³µ¼Ó¹¤Àà±ğ")]
 public class LatheMachiningType
 {
-	public static readonly string TableCode = "D00141950a743c942da4709821d273780730402";
-	public LatheMachiningType() { }
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// ç±»åˆ«åç§°
-	/// </summary>
-	public static readonly string CategoryName = "F0000002";
-	/// <summary>
-	/// ç±»åˆ«ä»£å·
-	/// </summary>
-	public static readonly string CategoryCode = "F0000001";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
+    public static readonly string TableCode = "50a743c942da4709821d273780730402";
+    public LatheMachiningType() { }
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //Status
+    public static readonly string Status = "Status";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //Àà±ğÃû³Æ
+    public static readonly string CategoryName = "F0000002";
+    //Àà±ğ´úºÅ
+    public static readonly string CategoryCode = "F0000001";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
 }
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,é’»å­”
+/// Éú²úÖÆÔìÁ÷³Ì,×ê¿×
 /// </summary>
+[Table("×ê¿×")]
 public class Drill
 {
-	public static readonly string TableCode = "D001419Sugyf7m5q744eyhe45o26haop4";
-	public Drill() { }
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// å®é™…å¤–å¾„
-	/// </summary>
-	public static readonly string ActualOuterDiameter = "F0000091";
-	/// <summary>
-	/// è¿”ä¿®ç±»å‹
-	/// </summary>
-	public static readonly string RepairType = "F0000119";
-	/// <summary>
-	/// é”™è¯¯æ¶ˆæ¯
-	/// </summary>
-	public static readonly string TheErrorMessage = "Message";
-	/// <summary>
-	/// äº§å“å‚æ•°è¡¨
-	/// </summary>
-	public static readonly string ProductParameterTable = "F0000090";
-	/// <summary>
-	/// åŠ å·¥å®¡æ‰¹æƒé™äºº
-	/// </summary>
-	public static readonly string Worker = "F0000060";
-	/// <summary>
-	/// æ€»è®¡åˆ’å‘˜
-	/// </summary>
-	public static readonly string TotalPlanner = "F0000229";
-	/// <summary>
-	/// å½“å‰å·¥åº
-	/// </summary>
-	public static readonly string CurrentOperation = "F0000056";
-	/// <summary>
-	/// æ¢ä¼¤è¡¨
-	/// </summary>
-	public static readonly string FlawDetectionTable = "F0000167";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º
-	/// </summary>
-	public static readonly string QualityInspectionConclusion = "F0000111";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000002";
-	/// <summary>
-	/// é’»å­”æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string DrillingAssignmentInformation = "D001419F8fbb65b863804a5dbad51c9fc80e2a71";
-	/// <summary>
-	/// å½“å‰å·¥æ­¥
-	/// </summary>
-	public static readonly string CurrentWorkStep = "F0000054";
-	/// <summary>
-	/// æ´¾å·¥è®¡åˆ’
-	/// </summary>
-	public static readonly string DispatchingPlan = "DiapatchPlan";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000001";
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string CurrentLocation = "F0000053";
-	/// <summary>
-	/// å…³è”å…¶å®ƒå¼‚å¸¸å·¥ä»¶
-	/// </summary>
-	public static readonly string AssociatedWithOtherAbnormalWorkpieces = "F0000199";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string ProcessingUnit = "F0000049";
-	/// <summary>
-	/// å®é™…å†…å¾„
-	/// </summary>
-	public static readonly string ActualInnerDiameter = "F0000092";
-	/// <summary>
-	/// å®¡æ‰¹äºº
-	/// </summary>
-	public static readonly string Approver = "Approver";
-	/// <summary>
-	/// å®é™…æ€»é«˜
-	/// </summary>
-	public static readonly string ActualTotalHeight = "F0000093";
-	/// <summary>
-	/// å‘èµ·å¼‚å¸¸
-	/// </summary>
-	public static readonly string InitiateException = "F0000045";
-	/// <summary>
-	/// è½¬è‡³å·¥æ­¥
-	/// </summary>
-	public static readonly string GoToWorkStep = "F0000046";
-	/// <summary>
-	/// å¼‚å¸¸æè¿°
-	/// </summary>
-	public static readonly string ExceptionDescription = "F0000100";
-	/// <summary>
-	/// é’»å­”é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string DrillingLimitsTheOrderOfDispatch = "F0000211";
-	/// <summary>
-	/// é’»åŠ å·¥ç±»åˆ«
-	/// </summary>
-	public static readonly string DrillingCategory = "F0000103";
-	/// <summary>
-	/// å®Œæˆæ€»é‡
-	/// </summary>
-	public static readonly string TotalAmountCompleted = "F0000073";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// é’»å­”åŠ å·¥è€…
-	/// </summary>
-	public static readonly string DrillWorker = "F0000226";
-	/// <summary>
-	/// æ£€éªŒç»“æœ
-	/// </summary>
-	public static readonly string InspectionResults = "F0000020";
-	/// <summary>
-	/// å›è‡³è½¬è¿
-	/// </summary>
-	public static readonly string WhetherTransshipmentIsRequired = "F0000224";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string CurrentWorkshop = "F0000052";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000029";
-	/// <summary>
-	/// è½¦åŠ å·¥ç±»åˆ«
-	/// </summary>
-	public static readonly string MachiningCategory = "F0000107";
-	/// <summary>
-	/// å®é™…å­”å¾„
-	/// </summary>
-	public static readonly string ActualHoleDiameter = "F0000096";
-	/// <summary>
-	/// æ˜¯å¦åˆ’çº¿ç»æ‰£
-	/// </summary>
-	public static readonly string ScribingAndWringing = "F0000022";
-	/// <summary>
-	/// é’»å­”ç­ç»„é•¿
-	/// </summary>
-	public static readonly string DrillTeamLeader = "F0000227";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string ProductSpecification = "F0000003";
-	/// <summary>
-	/// å¼‚å¸¸ä»£è¡¨
-	/// </summary>
-	public static readonly string ExceptionRepresentative = "F0000171";
-	/// <summary>
-	/// ç‰ˆæœ¬å·
-	/// </summary>
-	public static readonly string TheVersionNumber = "F0000184";
-	/// <summary>
-	/// äº§å“æ ‡å‡†å·¥æ—¶
-	/// </summary>
-	public static readonly string ProductStandardWorkingHours = "F0000180";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// é’»å­”éœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string DrillingPlannedCompletionTime = "F0000174";
-	/// <summary>
-	/// å®é™…åŠ å·¥è€—æ—¶
-	/// </summary>
-	public static readonly string ActualProcessingTime = "CountTime";
-	/// <summary>
-	/// æ˜¯å¦è°ƒæ•´è‡³å…¶ä»–å·¥åº
-	/// </summary>
-	public static readonly string WhetherToAdjustToOtherOperation = "F0000051";
-	/// <summary>
-	/// æ›´æ–°å¼‚å¸¸æ—¥å¿—objectID
-	/// </summary>
-	public static readonly string ObjectIDForUpdateTheExceptionLog = "F0000169";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000014";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000016";
-	/// <summary>
-	/// éƒ¨é—¨ä»£ç 
-	/// </summary>
-	public static readonly string DepartmentCode = "F0000186";
-	/// <summary>
-	/// éƒ¨é—¨å¤šé€‰
-	/// </summary>
-	public static readonly string DepartmentOfAlternative = "F0000185";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000012";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string TheAmountOfScrap = "F0000179";
-	/// <summary>
-	/// ä»»åŠ¡åç§°
-	/// </summary>
-	public static readonly string TaskName = "F0000166";
-	/// <summary>
-	/// å®é™…ç‰‡åš
-	/// </summary>
-	public static readonly string ActualSheetThickness = "F0000094";
-	/// <summary>
-	/// å®é™…å­”æ•°
-	/// </summary>
-	public static readonly string ActualNumberOfHoles = "F0000095";
-	/// <summary>
-	/// åŠ å·¥éš¾åº¦
-	/// </summary>
-	public static readonly string ProcessingDifficulty = "F0000182";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperation = "F0000071";
-	/// <summary>
-	/// è®¢å•è§„æ ¼è¡¨
-	/// </summary>
-	public static readonly string OrderSpecificationTable = "F0000098";
-	/// <summary>
-	/// è¿›åº¦ç®¡ç†ä¿¡æ¯
-	/// </summary>
-	public static readonly string ScheduleManagementInformation = "Progress";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// ç­ç»„
-	/// </summary>
-	public static readonly string Team = "F0000070";
-	/// <summary>
-	/// å®é™…å•é‡
-	/// </summary>
-	public static readonly string ActualUnitWeight = "F0000097";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000048";
-	/// <summary>
-	/// å·¥åºè®¡åˆ’è¡¨
-	/// </summary>
-	public static readonly string OperationSchedule = "F0000173";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000042";
-	/// <summary>
-	/// å•é‡
-	/// </summary>
-	public static readonly string UnitWeight = "F0000089";
-	/// <summary>
-	/// å†·åŠ å·¥ç§‘é•¿
-	/// </summary>
-	public static readonly string ColdWorkingSectionChief = "F0000228";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000055";
-	/// <summary>
-	/// é’»å­”æœºåŠ å·¥
-	/// </summary>
-	public static readonly string MachiningInformation = "D001419F790f3a6b004e4988abe9511380792293";
-	/// <summary>
-	/// å›è‡³ä¸Šæœº
-	/// </summary>
-	public static readonly string WhetherToEnterTheNodeAgain = "F0000225";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
+    public static readonly string TableCode = "Sugyf7m5q744eyhe45o26haop4";
+    public Drill() { }
+    //±¸×¢
+    public static readonly string Remarks = "F0000101";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //Êµ¼ÊÍâ¾¶
+    public static readonly string ActualOuterDiameter = "F0000091";
+    //·µĞŞÀàĞÍ
+    public static readonly string RepairType = "F0000119";
+    //²úÆ·²ÎÊı±í
+    public static readonly string ProductParameterTable = "F0000090";
+    //¹¤ÈË
+    public static readonly string Worker = "F0000060";
+    //µ±Ç°¹¤Ğò
+    public static readonly string CurrentOperation = "F0000056";
+    //Ì½ÉË±í
+    public static readonly string FlawDetectionTable = "F0000167";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //ÖÊ¼ì½áÂÛ
+    public static readonly string QualityInspectionConclusion = "F0000111";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000002";
+    //µ±Ç°¹¤²½
+    public static readonly string CurrentWorkStep = "F0000054";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000001";
+    //µ±Ç°Î»ÖÃ
+    public static readonly string CurrentLocation = "F0000053";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //¼Ó¹¤µ¥Î»
+    public static readonly string ProcessingUnit = "F0000049";
+    //Êµ¼ÊÄÚ¾¶
+    public static readonly string ActualInnerDiameter = "F0000092";
+    //Êµ¼Ê×Ü¸ß
+    public static readonly string ActualTotalHeight = "F0000093";
+    //·¢ÆğÒì³£
+    public static readonly string InitiateException = "F0000045";
+    //×ªÖÁ¹¤²½
+    public static readonly string GoToWorkStep = "F0000046";
+    //Òì³£ÃèÊö
+    public static readonly string ExceptionDescription = "F0000100";
+    //×ê¼Ó¹¤Àà±ğ
+    public static readonly string DrillingCategory = "F0000103";
+    //Íê³É×ÜÁ¿
+    public static readonly string TotalAmountCompleted = "F0000073";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //¼ìÑé½á¹û
+    public static readonly string InspectionResults = "F0000020";
+    //µ±Ç°³µ¼ä
+    public static readonly string CurrentWorkshop = "F0000052";
+    //ID
+    public static readonly string ID = "F0000029";
+    //³µ¼Ó¹¤Àà±ğ
+    public static readonly string MachiningCategory = "F0000107";
+    //Êµ¼Ê¿×¾¶
+    public static readonly string ActualHoleDiameter = "F0000096";
+    //ÊÇ·ñ»®Ïß½Ê¿Û
+    public static readonly string ScribingAndWringing = "F0000022";
+    //²úÆ·¹æ¸ñ
+    public static readonly string ProductSpecification = "F0000003";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //Êµ¼Ê¼Ó¹¤ºÄÊ±
+    public static readonly string ActualProcessingTime = "CountTime";
+    //ÊÇ·ñµ÷ÕûÖÁÆäËû¹¤Ğò
+    public static readonly string WhetherToAdjustToOtherOperation = "F0000051";
+    //¹¤Ê±
+    public static readonly string ManHour = "F0000058";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000014";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000016";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000012";
+    //ÈÎÎñÃû³Æ
+    public static readonly string TaskName = "F0000166";
+    //Êµ¼ÊÆ¬ºñ
+    public static readonly string ActualSheetThickness = "F0000094";
+    //×ªÔË³µ¼ä
+    public static readonly string TransferWorkshop = "F0000117";
+    //Êµ¼Ê¿×Êı
+    public static readonly string ActualNumberOfHoles = "F0000095";
+    //ÉÏ»ú»¥¼ì½á¹û
+    public static readonly string ResultsOfMutualInspectionOnMachine = "F0000109";
+    //Status
+    public static readonly string Status = "Status";
+    //±¾¹¤ĞòĞèÇóÆÚ
+    public static readonly string DemandPeriodOfThisOperation = "F0000071";
+    //¶©µ¥¹æ¸ñ±í
+    public static readonly string OrderSpecificationTable = "F0000098";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //°à×é
+    public static readonly string Team = "F0000070";
+    //Êµ¼Êµ¥ÖØ
+    public static readonly string ActualUnitWeight = "F0000097";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000048";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000042";
+    //µ¥ÖØ
+    public static readonly string UnitWeight = "F0000089";
+    //Òì³£Àà±ğ
+    public static readonly string ExceptionCategory = "F0000055";
+    //»ú¼Ó¹¤ĞÅÏ¢
+    public static readonly string MachiningInformation = "D001419F790f3a6b004e4988abe9511380792293";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //ÉÏ»úÇ°»¥¼ì×ê¿×
+    public static readonly string MutualInspectionBeforeMachineDrilling = "F0000108";
+    //×ªÔËÎ»ÖÃ
+    public static readonly string TransferTransportationLocation = "F0000118";
 }
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,ç²¾è½¦
+/// Éú²úÖÆÔìÁ÷³Ì,¾«³µ
 /// </summary>
+[Table("¾«³µ")]
 public class Finishing
 {
-	public static readonly string TableCode = "D001419Sqy2b1uy8h8cahh17u9kn0jk10";
-	public Finishing() { }
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string CurrentLocation = "F0000067";
-	/// <summary>
-	/// å‘èµ·å¼‚å¸¸
-	/// </summary>
-	public static readonly string InitiateException = "F0000059";
-	/// <summary>
-	/// è½¬è¿ä½ç½®
-	/// </summary>
-	public static readonly string TransferLocation = "F0000128";
-	/// <summary>
-	/// ç²¾è½¦é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string TheOrderOfDispatchIsLimited = "F0000201";
-	/// <summary>
-	/// å®é™…åŠ å·¥è€—æ—¶
-	/// </summary>
-	public static readonly string ActualProcessingTime = "CountTime";
-	/// <summary>
-	/// é’»å­”æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string DrillingAssignmentInformation = "D001419F06c8fa4adf4c443f927667fb6f01a714";
-	/// <summary>
-	/// é’»å­”ç­ç»„é•¿
-	/// </summary>
-	public static readonly string DrillTeamLeader = "F0000250";
-	/// <summary>
-	/// å¼‚å¸¸ä»£è¡¨
-	/// </summary>
-	public static readonly string ExceptionRepresentative = "F0000176";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string TheAmountOfScrap = "F0000185";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// å·¥åºè®¡åˆ’è¡¨
-	/// </summary>
-	public static readonly string OperationSchedule = "F0000179";
-	/// <summary>
-	/// å®Œæˆæ€»é‡
-	/// </summary>
-	public static readonly string TotalAmountCompleted = "F0000086";
-	/// <summary>
-	/// é”™è¯¯æ¶ˆæ¯
-	/// </summary>
-	public static readonly string TheErrorMessage = "Message";
-	/// <summary>
-	/// åŠ å·¥å®¡æ‰¹æƒé™äºº
-	/// </summary>
-	public static readonly string Worker = "F0000073";
-	/// <summary>
-	/// äº§å“æ ‡å‡†å·¥æ—¶
-	/// </summary>
-	public static readonly string ProductStandardWorkingHours = "F0000186";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// ç²¾è½¦éœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string FinishTurningPlannedCompletionTime = "F0000180";
-	/// <summary>
-	/// å®é™…å•é‡
-	/// </summary>
-	public static readonly string ActualUnitWeight = "F0000109";
-	/// <summary>
-	/// è¿›åº¦ç®¡ç†ä¿¡æ¯
-	/// </summary>
-	public static readonly string ScheduleManagementInformation = "Progress";
-	/// <summary>
-	/// éƒ¨é—¨å¤šé€‰
-	/// </summary>
-	public static readonly string DepartmentOfAlternative = "F0000191";
-	/// <summary>
-	/// å®é™…æ€»é«˜
-	/// </summary>
-	public static readonly string ActualTotalHeight = "F0000107";
-	/// <summary>
-	/// è®¢å•è§„æ ¼è¡¨
-	/// </summary>
-	public static readonly string OrderSpecificationTable = "F0000110";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è®¡åˆ’åŠ å·¥é‡
-	/// </summary>
-	public static readonly string PlanWorkLoad = "PlanWorkLoad";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// å®é™…å†…å¾„
-	/// </summary>
-	public static readonly string ActualInnerDiameter = "F0000106";
-	/// <summary>
-	/// å®é™…ç‰‡åš
-	/// </summary>
-	public static readonly string ActualFilmThickness = "F0000108";
-	/// <summary>
-	/// ç²¾è½¦åŠ å·¥è€…
-	/// </summary>
-	public static readonly string FinishingWorker = "F0000246";
-	/// <summary>
-	/// å®¡æ‰¹äºº
-	/// </summary>
-	public static readonly string Approver = "Approver";
-	/// <summary>
-	/// è½¬è‡³å·¥æ­¥
-	/// </summary>
-	public static readonly string TransferToWorkStep = "F0000117";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000052";
-	/// <summary>
-	/// é’»å­”åŠ å·¥è€…
-	/// </summary>
-	public static readonly string DrillWorker = "F0000245";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º
-	/// </summary>
-	public static readonly string QualityInspectionConclusion = "F0000120";
-	/// <summary>
-	/// å‘èµ·æ¢ä¼¤
-	/// </summary>
-	public static readonly string InitiateFlawDetection = "F0000168";
-	/// <summary>
-	/// è®¡åˆ’å·¥æ—¶
-	/// </summary>
-	public static readonly string PlanMonHour = "PlanMonHour";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string Datatitle = "Name";
-	/// <summary>
-	/// å¼‚å¸¸æè¿°
-	/// </summary>
-	public static readonly string ExceptionDescription = "F0000115";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string CurrentWorkshop = "F0000066";
-	/// <summary>
-	/// äº§å“å‚æ•°è¡¨
-	/// </summary>
-	public static readonly string ProductParameterTable = "F0000104";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// å›å¾…ä¸Šæœº
-	/// </summary>
-	public static readonly string WhetherToEnterTheNodeAgain = "F0000213";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000002";
-	/// <summary>
-	/// å›å¾…è½¬è¿
-	/// </summary>
-	public static readonly string WhetherTransshipmentIsRequired = "F0000212";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string ProductSpecification = "F0000003";
-	/// <summary>
-	/// æ˜¯å¦è°ƒæ•´è‡³å…¶ä»–å·¥åº
-	/// </summary>
-	public static readonly string YesnoAdjustToOtherOperation = "F0000065";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000053";
-	/// <summary>
-	/// ä»»åŠ¡åç§°
-	/// </summary>
-	public static readonly string TaskName = "F0000118";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000062";
-	/// <summary>
-	/// ç²¾è½¦ç­ç»„é•¿
-	/// </summary>
-	public static readonly string FinishingTeamLeader = "F0000247";
-	/// <summary>
-	/// æ£€éªŒç»“æœ
-	/// </summary>
-	public static readonly string InspectionResults = "F0000018";
-	/// <summary>
-	/// ç²¾è½¦æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string PrecisionVehicleDispatchInformation = "D001419Fb0b1377c38b14d0498f902cac5491fda";
-	/// <summary>
-	/// å½“å‰å·¥åº
-	/// </summary>
-	public static readonly string CurrentOperation = "F0000069";
-	/// <summary>
-	/// è¿”ä¿®ç±»å‹
-	/// </summary>
-	public static readonly string RepairType = "F0000121";
-	/// <summary>
-	/// ç­ç»„
-	/// </summary>
-	public static readonly string Team = "F0000083";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// è½¦åŠ å·¥ç±»åˆ«
-	/// </summary>
-	public static readonly string ProductCategory = "F0000111";
-	/// <summary>
-	/// å…³è”å…¶å®ƒå¼‚å¸¸å·¥ä»¶
-	/// </summary>
-	public static readonly string AssociatedWithOtherAbnormalWorkpieces = "F0000199";
-	/// <summary>
-	/// åŠ å·¥éš¾åº¦
-	/// </summary>
-	public static readonly string ProcessingDifficulty = "F0000188";
-	/// <summary>
-	/// å·²åŠ å·¥é‡
-	/// </summary>
-	public static readonly string ProcessedQuantity = "F0000170";
-	/// <summary>
-	/// è®¡åˆ’è®¾å¤‡
-	/// </summary>
-	public static readonly string PlanDevices = "PlanDevices";
-	/// <summary>
-	/// åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string ProcessingUnit = "F0000063";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000012";
-	/// <summary>
-	/// å†·åŠ å·¥ç§‘é•¿
-	/// </summary>
-	public static readonly string ColdWorkingSectionChief = "F0000248";
-	/// <summary>
-	/// æ´¾å·¥è®¡åˆ’
-	/// </summary>
-	public static readonly string DispatchingPlan = "DispatchPlan";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000014";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperation = "F0000084";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000055";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000001";
-	/// <summary>
-	/// ç²¾è½¦æœºåŠ å·¥
-	/// </summary>
-	public static readonly string MachiningInformation = "D001419Fd25eb8064b424ed9855ced1923841f1c";
-	/// <summary>
-	/// è½¬è¿è½¦é—´
-	/// </summary>
-	public static readonly string TransferWorkshop = "F0000127";
-	/// <summary>
-	/// é’»å­”é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string DrillingLimitsTheOrderOfDispatch = "F0000234";
-	/// <summary>
-	/// éƒ¨é—¨ä»£ç 
-	/// </summary>
-	public static readonly string DepartmentCode = "F0000192";
-	/// <summary>
-	/// æ€»è®¡åˆ’å‘˜
-	/// </summary>
-	public static readonly string TotalPlanner = "F0000249";
-	/// <summary>
-	/// è½¬è¿äººå‘˜
-	/// </summary>
-	public static readonly string TransportPersonnel = "F0000200";
-	/// <summary>
-	/// æ›´æ–°å¼‚å¸¸æ—¥å¿—objectID
-	/// </summary>
-	public static readonly string ObjectIDForUpdateTheExceptionLog = "F0000177";
-	/// <summary>
-	/// æ¢ä¼¤è®¤å®š
-	/// </summary>
-	public static readonly string FlawDetectionIdentification = "F0000138";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000016";
-	/// <summary>
-	/// ç‰ˆæœ¬å·
-	/// </summary>
-	public static readonly string TheVersionNumber = "F0000190";
-	/// <summary>
-	/// å½“å‰å·¥æ­¥
-	/// </summary>
-	public static readonly string CurrentWorkStep = "F0000068";
-	/// <summary>
-	/// æ¢ä¼¤è¡¨
-	/// </summary>
-	public static readonly string FlawDetectionTable = "F0000167";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// å®é™…å¤–å¾„
-	/// </summary>
-	public static readonly string ActualOuterDiameter = "F0000105";
+    public static readonly string TableCode = "Sqy2b1uy8h8cahh17u9kn0jk10";
+    public Finishing() { }
+    //µ±Ç°Î»ÖÃ
+    public static readonly string CurrentLocation = "F0000067";
+    //·¢ÆğÒì³£
+    public static readonly string InitiateException = "F0000059";
+    //×ªÔËÎ»ÖÃ
+    public static readonly string TransferLocation = "F0000128";
+    //Êµ¼Ê¼Ó¹¤ºÄÊ±
+    public static readonly string ActualProcessingTime = "CountTime";
+    //²úÆ·Àà±ğ2
+    public static readonly string ProductCategory2 = "F0000124";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //»¥¼ìÈË
+    public static readonly string MutualInspector = "F0000173";
+    //Íê³É×ÜÁ¿
+    public static readonly string TotalAmountCompleted = "F0000086";
+    //¹¤ÈË
+    public static readonly string Worker = "F0000073";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //Êµ¼Êµ¥ÖØ
+    public static readonly string ActualUnitWeight = "F0000109";
+    //Êµ¼Ê×Ü¸ß
+    public static readonly string ActualTotalHeight = "F0000107";
+    //¶©µ¥¹æ¸ñ±í
+    public static readonly string OrderSpecificationTable = "F0000110";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //Êµ¼ÊÄÚ¾¶
+    public static readonly string ActualInnerDiameter = "F0000106";
+    //Êµ¼ÊÆ¬ºñ
+    public static readonly string ActualFilmThickness = "F0000108";
+    //×ªÖÁ¹¤²½
+    public static readonly string TransferToWorkStep = "F0000117";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000052";
+    //ÖÊ¼ì½áÂÛ
+    public static readonly string QualityInspectionConclusion = "F0000120";
+    //·¢ÆğÌ½ÉË
+    public static readonly string InitiateFlawDetection = "F0000168";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //Òì³£ÃèÊö
+    public static readonly string ExceptionDescription = "F0000115";
+    //µ±Ç°³µ¼ä
+    public static readonly string CurrentWorkshop = "F0000066";
+    //²úÆ·²ÎÊı±í
+    public static readonly string ProductParameterTable = "F0000104";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //»¥¼ì½á¹û
+    public static readonly string MutualInspectionResults = "F0000174";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000002";
+    //²úÆ·¹æ¸ñ
+    public static readonly string ProductSpecification = "F0000003";
+    //ÊÇ·ñµ÷ÕûÖÁÆäËû¹¤Ğò
+    public static readonly string YesnoAdjustToOtherOperation = "F0000065";
+    //ID
+    public static readonly string ID = "F0000053";
+    //ÈÎÎñÃû³Æ
+    public static readonly string TaskName = "F0000118";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000062";
+    //¼ìÑé½á¹û
+    public static readonly string InspectionResults = "F0000018";
+    //µ±Ç°¹¤Ğò
+    public static readonly string CurrentOperation = "F0000069";
+    //·µĞŞÀàĞÍ
+    public static readonly string RepairType = "F0000121";
+    //ÖØ´¦ÀíÀàĞÍ
+    public static readonly string ReprocessingType = "F0000129";
+    //°à×é
+    public static readonly string Team = "F0000083";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //²úÆ·Àà±ğ
+    public static readonly string ProductCategory = "F0000111";
+    //ÒÑ¼Ó¹¤Á¿
+    public static readonly string ProcessedQuantity = "F0000170";
+    //¼Ó¹¤µ¥Î»
+    public static readonly string ProcessingUnit = "F0000063";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000012";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000014";
+    //±¾¹¤ĞòĞèÇóÆÚ
+    public static readonly string ThisoperationDemandPeriod = "F0000084";
+    //Òì³£Àà±ğ
+    public static readonly string ExceptionCategory = "F0000055";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000001";
+    //»ú¼Ó¹¤ĞÅÏ¢
+    public static readonly string MachiningInformation = "D001419Fd25eb8064b424ed9855ced1923841f1c";
+    //×ªÔË³µ¼ä
+    public static readonly string TransferWorkshop = "F0000127";
+    //±¸×¢
+    public static readonly string Remarks = "F0000116";
+    //Ì½ÉËÈÏ¶¨
+    public static readonly string FlawDetectionIdentification = "F0000138";
+    //ÉÏ»úÇ°»¥¼ì
+    public static readonly string MutualInspectionBeforeMachineOperation = "F0000172";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000016";
+    //µ±Ç°¹¤²½
+    public static readonly string CurrentWorkStep = "F0000068";
+    //Ì½ÉË±í
+    public static readonly string FlawDetectionTable = "F0000167";
+    //Status
+    public static readonly string Status = "Status";
+    //Êµ¼ÊÍâ¾¶
+    public static readonly string ActualOuterDiameter = "F0000105";
 }
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,ç²—è½¦
+/// Éú²úÖÆÔìÁ÷³Ì,´Ö³µ
 /// </summary>
+[Table("´Ö³µ")]
 public class Roughing
 {
-	public static readonly string TableCode = "D001419Szzswrfsp91x3heen4dykgwus0";
-	public Roughing() { }
-	/// <summary>
-	/// è½¬è¿è½¦é—´
-	/// </summary>
-	public static readonly string TransferWorkshop = "F0000154";
-	/// <summary>
-	/// è½¬è‡³å·¥æ­¥
-	/// </summary>
-	public static readonly string GoToWorkStep = "F0000068";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string CurrentLocation = "F0000081";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000067";
-	/// <summary>
-	/// è®¡åˆ’è®¾å¤‡
-	/// </summary>
-	public static readonly string ProjectEquipment = "PlanDevices";
-	/// <summary>
-	/// ç²—è½¦éœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string RoughTurningPlanCompletionTime = "F0000192";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000066";
-	/// <summary>
-	/// äº§å“æ ‡å‡†å·¥æ—¶
-	/// </summary>
-	public static readonly string ProductStandardWorkingHours = "F0000200";
-	/// <summary>
-	/// ç²—è½¦é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string HeavyTruckLimitsTheOrderOfDispatch = "F0000216";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// å‘èµ·å¼‚å¸¸
-	/// </summary>
-	public static readonly string InitiateException = "F0000075";
-	/// <summary>
-	/// è¿›åº¦ç®¡ç†ä¿¡æ¯
-	/// </summary>
-	public static readonly string ScheduleManagementInformation = "Progress";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// å®é™…å•é‡
-	/// </summary>
-	public static readonly string ActualUnitWeight = "F0000115";
-	/// <summary>
-	/// ç²¾è½¦ç­ç»„é•¿
-	/// </summary>
-	public static readonly string FinishingTeamLeader = "F0000254";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000012";
-	/// <summary>
-	/// è½¬è¿äººå‘˜
-	/// </summary>
-	public static readonly string TransportPersonnel = "F0000207";
-	/// <summary>
-	/// ä»»åŠ¡åç§°
-	/// </summary>
-	public static readonly string TaskBusinessName = "F0000133";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000033";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000076";
-	/// <summary>
-	/// å½“å‰å·¥åº
-	/// </summary>
-	public static readonly string CurrentOperation = "F0000083";
-	/// <summary>
-	/// æ¢ä¼¤è®¤å®š
-	/// </summary>
-	public static readonly string FlawDetectionIdentification = "F0000138";
-	/// <summary>
-	/// å®é™…å†…å¾„
-	/// </summary>
-	public static readonly string ActualInnerDiameter = "F0000112";
-	/// <summary>
-	/// è½¬è¿ä½ç½®
-	/// </summary>
-	public static readonly string TransferLocation = "F0000155";
-	/// <summary>
-	/// è®¢å•è§„æ ¼è¡¨
-	/// </summary>
-	public static readonly string OrderSpecificationTable = "F0000117";
-	/// <summary>
-	/// å‚åŒºä½ç½®
-	/// </summary>
-	public static readonly string FactoryLocation = "F0000190";
-	/// <summary>
-	/// ç²—è½¦æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string RoughVehicleDispatchInformation = "D001419F58e740c91ed94897a7ec260f666efb2b";
-	/// <summary>
-	/// å¼‚å¸¸æè¿°
-	/// </summary>
-	public static readonly string ExceptionDescription = "F0000140";
-	/// <summary>
-	/// äº§å“å‚æ•°è¡¨
-	/// </summary>
-	public static readonly string ProductParameterTable = "F0000116";
-	/// <summary>
-	/// æ˜¯å¦å››é¢å…‰
-	/// </summary>
-	public static readonly string WhetherFourSidesArePolished = "F0000186";
-	/// <summary>
-	/// ç²—è½¦ç­ç»„é•¿
-	/// </summary>
-	public static readonly string RoughingTeamLeader = "F0000251";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// å®Œæˆæœ¬å–
-	/// </summary>
-	public static readonly string CompleteThisAcquisition = "F0000134";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º
-	/// </summary>
-	public static readonly string QualityInspectionConclusion = "F0000142";
-	/// <summary>
-	/// å®¡æ‰¹äºº
-	/// </summary>
-	public static readonly string Approver = "Approver";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000070";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000016";
-	/// <summary>
-	/// å†·åŠ å·¥ç§‘é•¿
-	/// </summary>
-	public static readonly string ColdWorkingSectionChief = "F0000252";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperation = "F0000088";
-	/// <summary>
-	/// ä¸‹å±‘é‡
-	/// </summary>
-	public static readonly string TheAmountOfScrap = "F0000198";
-	/// <summary>
-	/// å·²åŠ å·¥é‡
-	/// </summary>
-	public static readonly string ProcessedQuantity = "F0000169";
-	/// <summary>
-	/// ç²¾è½¦åŠ å·¥è€…
-	/// </summary>
-	public static readonly string FinishingWorker = "F0000249";
-	/// <summary>
-	/// å®é™…åŠ å·¥è€—æ—¶
-	/// </summary>
-	public static readonly string ActualProcessingTime = "CountTime";
-	/// <summary>
-	/// æ¢ä¼¤è¡¨
-	/// </summary>
-	public static readonly string FlawDetectionTable = "F0000167";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000002";
-	/// <summary>
-	/// å®é™…æ€»é«˜
-	/// </summary>
-	public static readonly string ActualTotalHeight = "F0000113";
-	/// <summary>
-	/// åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string ProcessingUnit = "F0000077";
-	/// <summary>
-	/// ç²—è½¦åŠ å·¥è€…
-	/// </summary>
-	public static readonly string RoughingWorker = "F0000250";
-	/// <summary>
-	/// å››é¢å…‰
-	/// </summary>
-	public static readonly string FourSideLight = "D0014199e58919544424654bcc75ef1dc953be6";
-	/// <summary>
-	/// å¼‚å¸¸ä»£è¡¨
-	/// </summary>
-	public static readonly string ExceptionRepresentative = "F0000189";
-	/// <summary>
-	/// å®Œæˆæ€»é‡
-	/// </summary>
-	public static readonly string TotalAmountCompleted = "F0000090";
-	/// <summary>
-	/// æ˜¯å¦é‡æ–°è¿›å…¥æœ¬èŠ‚ç‚¹
-	/// </summary>
-	public static readonly string WhetherToEnterTheNodeAgain = "F0000242";
-	/// <summary>
-	/// å½“å‰å·¥æ­¥
-	/// </summary>
-	public static readonly string CurrentWorkStep = "F0000082";
-	/// <summary>
-	/// æ›´æ–°å¼‚å¸¸æ—¥å¿—objectID
-	/// </summary>
-	public static readonly string ObjectIDForUpdateTheExceptionLog = "F0000187";
-	/// <summary>
-	/// åŠ å·¥éš¾åº¦
-	/// </summary>
-	public static readonly string ProcessingDifficulty = "F0000105";
-	/// <summary>
-	/// ç‰ˆæœ¬å·
-	/// </summary>
-	public static readonly string TheVersionNumber = "F0000203";
-	/// <summary>
-	/// ç²—è½¦æœºåŠ å·¥
-	/// </summary>
-	public static readonly string RoughProcessing = "D001419F8cbba24c57a74ad99bd809ab8e262996";
-	/// <summary>
-	/// å‘èµ·æ¢ä¼¤
-	/// </summary>
-	public static readonly string InitiateFlawDetection = "F0000139";
-	/// <summary>
-	/// è¿”ä¿®ç±»å‹
-	/// </summary>
-	public static readonly string RepairType = "F0000149";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000014";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string Specification = "F0000003";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è½¦åŠ å·¥ç±»åˆ«
-	/// </summary>
-	public static readonly string ProductCategory = "F0000121";
-	/// <summary>
-	/// è®¡åˆ’å·¥æ—¶
-	/// </summary>
-	public static readonly string PlanTime = "PlanMonHour";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// å…³è”å…¶å®ƒå¼‚å¸¸å·¥ä»¶
-	/// </summary>
-	public static readonly string AssociatedWithOtherAbnormalWorkpieces = "F0000199";
-	/// <summary>
-	/// ç­ç»„
-	/// </summary>
-	public static readonly string Team = "OwnerDeptId";
-	/// <summary>
-	/// ç²¾è½¦æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string PrecisionVehicleDispatchInformation = "D001419F6dd1cc155f624fc494b7335d1b781b75";
-	/// <summary>
-	/// éƒ¨é—¨å¤šé€‰
-	/// </summary>
-	public static readonly string DepartmentOfAlternative = "F0000204";
-	/// <summary>
-	/// å®é™…å¤–å¾„
-	/// </summary>
-	public static readonly string ActualOuterDiameter = "F0000111";
-	/// <summary>
-	/// æ£€éªŒç»“æœ
-	/// </summary>
-	public static readonly string InspectionResult = "F0000023";
-	/// <summary>
-	/// åŠ å·¥å®¡æ‰¹æƒé™äºº
-	/// </summary>
-	public static readonly string Worker = "F0000084";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string CurrentWorkshop = "F0000080";
-	/// <summary>
-	/// æ€»è®¡åˆ’å‘˜
-	/// </summary>
-	public static readonly string TotalPlanner = "F0000253";
-	/// <summary>
-	/// è½§åˆ¶æ–¹å¼
-	/// </summary>
-	public static readonly string RollingMethod = "F0000122";
-	/// <summary>
-	/// å·¥åºè®¡åˆ’è¡¨
-	/// </summary>
-	public static readonly string OperationSchedule = "F0000191";
-	/// <summary>
-	/// ç²¾è½¦é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string TheOrderOfDispatchIsLimited = "F0000243";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// éƒ¨é—¨ä»£ç 
-	/// </summary>
-	public static readonly string DepartmentCode = "F0000205";
-	/// <summary>
-	/// é”™è¯¯æ¶ˆæ¯
-	/// </summary>
-	public static readonly string TheErrorMessage = "Message";
-	/// <summary>
-	/// æ˜¯å¦è°ƒæ•´è‡³å…¶ä»–å·¥åº
-	/// </summary>
-	public static readonly string WhetherToAdjustToOtherProcesses = "F0000079";
-	/// <summary>
-	/// å®é™…ç‰‡åš
-	/// </summary>
-	public static readonly string ActualSheetThickness = "F0000114";
-	/// <summary>
-	/// æ´¾å·¥è®¡åˆ’
-	/// </summary>
-	public static readonly string DispatchingPlan = "DispatchPlan";
-	/// <summary>
-	/// è®¡åˆ’åŠ å·¥é‡
-	/// </summary>
-	public static readonly string PlanWorkLoad = "PlanWorkLoad";
+    public static readonly string TableCode = "Szzswrfsp91x3heen4dykgwus0";
+    public Roughing() { }
+    //×ªÔË³µ¼ä
+    public static readonly string TransportWorkshop = "F0000154";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //µ±Ç°Î»ÖÃ
+    public static readonly string CurrentPosition = "F0000081";
+    //ID
+    public static readonly string ID = "F0000067";
+    //±¸×¢
+    public static readonly string Remarks = "F0000141";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //·¢ÆğÒì³£
+    public static readonly string ApplyException = "F0000075";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //Êµ¼Êµ¥ÖØ
+    public static readonly string ActualUintWeight = "F0000115";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000012";
+    //ÈÎÎñÃû³Æ
+    public static readonly string TaskName = "F0000133";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000033";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //µ±Ç°¹¤Ğò
+    public static readonly string CurrentProcess = "F0000083";
+    //»¥¼ì½á¹û
+    public static readonly string MutualInspectionResult = "F0000183";
+    //Êµ¼ÊÄÚ¾¶
+    public static readonly string ActualInsideDiameter = "F0000112";
+    //×ªÔËÎ»ÖÃ
+    public static readonly string TransportPlace = "F0000155";
+    //Òì³£ÃèÊö
+    public static readonly string ExceptionDescription = "F0000140";
+    //²úÆ·²ÎÊı±í
+    public static readonly string ParameterList = "F0000116";
+    //ÊÇ·ñËÄÃæ¹â
+    public static readonly string IsFourScale = "F0000186";
+    //Íê³É±¾È¡
+    public static readonly string FinishSampling = "F0000134";
+    //ÖÊ¼ì½áÂÛ
+    public static readonly string CheckoutConclusion = "F0000142";
+    //ÖØ´¦ÀíÀàĞÍ
+    public static readonly string ReprocessingType = "F0000156";
+    //Òì³£Àà±ğ
+    public static readonly string ExceptionType = "F0000070";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000016";
+    //±¾¹¤ĞòĞèÇóÆÚ
+    public static readonly string ProcessNecessityPeriod = "F0000088";
+    //»¥¼ìÈË
+    public static readonly string MutualInspection = "F0000182";
+    //ÒÑ¼Ó¹¤Á¿
+    public static readonly string Manufactured = "F0000169";
+    //Message
+    public static readonly string Message = "Message";
+    //Êµ¼Ê¼Ó¹¤ºÄÊ±
+    public static readonly string ActualTimeConsuming = "CountTime";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000002";
+    //Êµ¼Ê×Ü¸ß
+    public static readonly string ActualTotalHeight = "F0000113";
+    //ËÄÃæ¹â
+    public static readonly string FourScale = "D0014199e58919544424654bcc75ef1dc953be6";
+    //Íê³É×ÜÁ¿
+    public static readonly string TotalManufactured = "F0000090";
+    //µ±Ç°¹¤²½
+    public static readonly string CurrentProcessStep = "F0000082";
+    //¼Ó¹¤ÄÑ¶È
+    public static readonly string ProcessingDifficulty = "F0000105";
+    //´Ö¼Ó¹¤
+    public static readonly string RoughMachining = "D001419F8cbba24c57a74ad99bd809ab8e262996";
+    //·¢ÆğÌ½ÉË
+    public static readonly string ApplyUltrasonic = "F0000139";
+    //·µĞŞÀàĞÍ
+    public static readonly string RepairType = "F0000149";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000014";
+    //²úÆ·¹æ¸ñ
+    public static readonly string Specification = "F0000003";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //²úÆ·Àà±ğ
+    public static readonly string ProductType = "F0000121";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //Êµ¼ÊÍâ¾¶
+    public static readonly string ActualOutsideDiameter = "F0000111";
+    //¼ìÑé½á¹û
+    public static readonly string InspectionResult = "F0000023";
+    //¹¤ÈË
+    public static readonly string Worker = "F0000084";
+    //µ±Ç°³µ¼ä
+    public static readonly string CurrentWorkshop = "F0000080";
+    //ÔşÖÆ·½Ê½
+    public static readonly string RollingMethod = "F0000122";
+    //Status
+    public static readonly string Status = "Status";
+    //Êµ¼ÊÆ¬ºñ
+    public static readonly string ActualThickness = "F0000114";
 }
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,æ¯›å¯
+/// Éú²úÖÆÔìÁ÷³Ì,Ã«Å÷
 /// </summary>
+[Table("Ã«Å÷")]
 public class RoughCast
 {
-	public static readonly string TableCode = "D001419Sgx7flbvwu9r0u3hail6512uq4";
-	public RoughCast() { }
-	/// <summary>
-	/// å·¥æ—¶
-	/// </summary>
-	public static readonly string ManHour = "F0000139";
-	/// <summary>
-	/// å¼‚å¸¸æè¿°
-	/// </summary>
-	public static readonly string ExceptionDescription = "F0000079";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000014";
-	/// <summary>
-	/// æ¯›å¯éœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperationBlank = "F0000179";
-	/// <summary>
-	/// æ¢ä¼¤ç»“æœ
-	/// </summary>
-	public static readonly string FlawDetectionResults = "F0000105";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000058";
-	/// <summary>
-	/// è®¾å¤‡ç±»å‹
-	/// </summary>
-	public static readonly string EquipmentType = "F0000137";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000070";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// äº§å“å‚æ•°è¡¨
-	/// </summary>
-	public static readonly string ProductParameterTable = "F0000103";
-	/// <summary>
-	/// é”™è¯¯æ¶ˆæ¯
-	/// </summary>
-	public static readonly string TheErrorMessage = "Message";
-	/// <summary>
-	/// ä½¿ç”¨è®¾å¤‡
-	/// </summary>
-	public static readonly string EquipmentUsed = "F0000136";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// åŒè½§å·¥ä»¶å·
-	/// </summary>
-	public static readonly string DoubleTieWorkpieceNumber = "F0000183";
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string CurrentLocation = "F0000068";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperation = "F0000073";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string CurrentWorkshop = "F0000067";
-	/// <summary>
-	/// å†·åŠ å·¥ç§‘é•¿
-	/// </summary>
-	public static readonly string ColdWorkingSectionChief = "F0000217";
-	/// <summary>
-	/// å–æ ·æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string SamplingAssignmentInformation = "D0014194a44f0404f864f0dbfbe630064922ac9";
-	/// <summary>
-	/// ç†åŒ–ç»“æœ
-	/// </summary>
-	public static readonly string PhysicalAndChemicalResults = "F0000122";
-	/// <summary>
-	/// ç²—è½¦ç­ç»„é•¿
-	/// </summary>
-	public static readonly string RoughingTeamLeader = "F0000220";
-	/// <summary>
-	/// ç¡®è®¤ç‚‰æ¬¡ç¼–å·
-	/// </summary>
-	public static readonly string ConfirmationHeatNumber = "F0000074";
-	/// <summary>
-	/// ç²—è½¦æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string RoughVehicleDispatchInformation = "D001419F550f0900f370420cb3346c763f61538f";
-	/// <summary>
-	/// å‘èµ·å¼‚å¸¸
-	/// </summary>
-	public static readonly string InitiateException = "F0000060";
-	/// <summary>
-	/// åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string ProcessingUnit = "F0000061";
-	/// <summary>
-	/// å¼‚å¸¸ä»£è¡¨
-	/// </summary>
-	public static readonly string ExceptionRepresentative = "F0000176";
-	/// <summary>
-	/// å®é™…åŠ å·¥è€—æ—¶
-	/// </summary>
-	public static readonly string ActualProcessingTime = "CountTime";
-	/// <summary>
-	/// è®¢å•è§„æ ¼è¡¨
-	/// </summary>
-	public static readonly string OrderSpecificationTable = "F0000102";
-	/// <summary>
-	/// å®Œæˆæ€»é‡
-	/// </summary>
-	public static readonly string TotalCompletion = "F0000104";
-	/// <summary>
-	/// éƒ¨é—¨ä»£ç 
-	/// </summary>
-	public static readonly string DepartmentCode = "F0000190";
-	/// <summary>
-	/// å…³è”å…¶å®ƒå¼‚å¸¸å·¥ä»¶
-	/// </summary>
-	public static readonly string AssociatedWithOtherAbnormalWorkpieces = "F0000199";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000138";
-	/// <summary>
-	/// ç²—è½¦åŠ å·¥è€…
-	/// </summary>
-	public static readonly string RoughingWorker = "F0000216";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string ProductSpecification = "F0000003";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º
-	/// </summary>
-	public static readonly string QualityInspectionConclusion = "qualityResult";
-	/// <summary>
-	/// æ£€éªŒç»“æœ
-	/// </summary>
-	public static readonly string InspectionResults = "F0000041";
-	/// <summary>
-	/// è½¬è‡³å·¥æ­¥
-	/// </summary>
-	public static readonly string TransferToWorkStep = "F0000072";
-	/// <summary>
-	/// æ´¾å·¥è®¡åˆ’
-	/// </summary>
-	public static readonly string DispatchingPlan = "F0000185";
-	/// <summary>
-	/// å½“å‰å·¥æ­¥
-	/// </summary>
-	public static readonly string CurrentWorkStep = "F0000069";
-	/// <summary>
-	/// ç­ç»„é•¿
-	/// </summary>
-	public static readonly string TeamLeader = "F0000128";
-	/// <summary>
-	/// å·¥äºº
-	/// </summary>
-	public static readonly string Worker = "F0000135";
-	/// <summary>
-	/// å•é‡
-	/// </summary>
-	public static readonly string UnitWeight = "F0000045";
-	/// <summary>
-	/// åŒè½§åˆ‡å‰²çŠ¶æ€
-	/// </summary>
-	public static readonly string DoubleRollingCutting = "F0000173";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string Datatitle = "Name";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// å–æ ·åŠ å·¥è€…
-	/// </summary>
-	public static readonly string SamplingWorker = "F0000215";
-	/// <summary>
-	/// è¿›åº¦ç®¡ç†ä¿¡æ¯
-	/// </summary>
-	public static readonly string ScheduleManagementInformation = "Progress";
-	/// <summary>
-	/// å½“å‰æœ¬å–åŠ å·¥è€…
-	/// </summary>
-	public static readonly string CurrentProcessor = "F0000129";
-	/// <summary>
-	/// å½“å‰å·¥åº
-	/// </summary>
-	public static readonly string CurrentOperation = "F0000071";
-	/// <summary>
-	/// ç¡®è®¤çƒ­å¤„ç†ç‚‰å·
-	/// </summary>
-	public static readonly string ConfirmationheatTreatmentFurnaceNumber = "F0000076";
-	/// <summary>
-	/// å®Œæˆæœ¬å–
-	/// </summary>
-	public static readonly string CostOfCompletion = "F0000106";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000012";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// äº§å“ç±»åˆ«
-	/// </summary>
-	public static readonly string ProductCategory = "F0000088";
-	/// <summary>
-	/// ç¡®è®¤æœ¬å–
-	/// </summary>
-	public static readonly string ConfirmationBookRetrieval = "F0000040";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000057";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000064";
-	/// <summary>
-	/// éƒ¨é—¨å¤šé€‰
-	/// </summary>
-	public static readonly string DepartmentOfAlternative = "F0000189";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000025";
-	/// <summary>
-	/// æ•°é‡_åˆ‡å‰²å‰
-	/// </summary>
-	public static readonly string QuantitybeforeCutting = "F0000184";
-	/// <summary>
-	/// æ€»è®¡åˆ’å‘˜
-	/// </summary>
-	public static readonly string TotalPlanner = "F0000218";
-	/// <summary>
-	/// å®¡æ‰¹äºº
-	/// </summary>
-	public static readonly string Approver = "Approver";
-	/// <summary>
-	/// åŒæ‰åˆ†å‰²å‰å·¥ä»¶
-	/// </summary>
-	public static readonly string DoubleTieTheWorkpieceBeforeSegmentation = "F0000187";
-	/// <summary>
-	/// æ›´æ–°å¼‚å¸¸æ—¥å¿—objectID
-	/// </summary>
-	public static readonly string ObjectIDForUpdateTheExceptionLog = "F0000174";
-	/// <summary>
-	/// ç‰ˆæœ¬å·
-	/// </summary>
-	public static readonly string TheVersionNumber = "F0000188";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000002";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000016";
-	/// <summary>
-	/// ç²—è½¦é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string HeavyTruckLimitsTheOrderOfDispatch = "F0000212";
-	/// <summary>
-	/// æ˜¯å¦å¿½ç•¥ç†åŒ–ç»“æœæµè½¬
-	/// </summary>
-	public static readonly string WhetherToIgnorePhysicalAndChemicalResultsresultFlow = "advanceTransfer";
-	/// <summary>
-	/// å·¥åºè®¡åˆ’è¡¨
-	/// </summary>
-	public static readonly string OperationSchedule = "F0000178";
-	/// <summary>
-	/// è¯•æ ·ç±»å‹
-	/// </summary>
-	public static readonly string SampleType = "F0000119";
-	/// <summary>
-	/// å–æ ·é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string SamplingLimitsTheOrderOfDispatch = "F0000211";
-	/// <summary>
-	/// å–æ ·ç­ç»„é•¿
-	/// </summary>
-	public static readonly string SamplingTeamLeader = "F0000219";
-	/// <summary>
-	/// è½§åˆ¶æ–¹å¼
-	/// </summary>
-	public static readonly string RollingMethod = "F0000039";
-	/// <summary>
-	/// æ˜¯å¦è°ƒæ•´è‡³å…¶ä»–å·¥åº
-	/// </summary>
-	public static readonly string WhetherToAdjustToOtherProcesses = "F0000066";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// ç†åŒ–ç»“æœä¸åˆæ ¼
-	/// </summary>
-	public static readonly string UnqualifiedPhysicalAndChemicalResults = "F0000170";
-	/// <summary>
-	/// è®¡åˆ’æœ¬å–
-	/// </summary>
-	public static readonly string PlanBookRetrieval = "F0000077";
-	/// <summary>
-	/// åŒè½§å…³è”è¡¨å•
-	/// </summary>
-	public static readonly string DoubleRolledAssociativeForm = "F0000182";
-	/// <summary>
-	/// ç‚‰æ¬¡è®¡åˆ’
-	/// </summary>
-	public static readonly string HeatPlan = "F0000075";
+    public static readonly string TableCode = "Sgx7flbvwu9r0u3hail6512uq4";
+    public RoughCast() { }
+    //¹¤Ê±
+    public static readonly string ManHour = "F0000139";
+    //Òì³£ÃèÊö
+    public static readonly string ExceptionDescription = "F0000079";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000014";
+    //Ì½ÉË½á¹û
+    public static readonly string FlawDetectionResults = "F0000105";
+    //ID
+    public static readonly string ID = "F0000058";
+    //Éè±¸ÀàĞÍ
+    public static readonly string EquipmentType = "F0000137";
+    //Òì³£Àà±ğ
+    public static readonly string ExceptionCategory = "F0000070";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //²úÆ·²ÎÊı±í
+    public static readonly string ProductParameterTable = "F0000103";
+    //Ê¹ÓÃÉè±¸
+    public static readonly string EquipmentUsed = "F0000136";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //ÖØ´¦ÀíÀàĞÍ
+    public static readonly string ReprocessingType = "F0000140";
+    //Status
+    public static readonly string Status = "Status";
+    //µ±Ç°Î»ÖÃ
+    public static readonly string CurrentLocation = "F0000068";
+    //±¾¹¤ĞòĞèÇóÆÚ
+    public static readonly string DemandPeriodOfThisProcedure = "F0000073";
+    //ËùÓĞÕß
+    public static readonly string Owner = "F0000126";
+    //µ±Ç°³µ¼ä
+    public static readonly string CurrentWorkshop = "F0000067";
+    //Àí»¯½á¹û
+    public static readonly string PhysicalAndChemicalResults = "F0000122";
+    //È·ÈÏÂ¯´Î±àºÅ
+    public static readonly string ConfirmationHeatNumber = "F0000074";
+    //·¢ÆğÒì³£
+    public static readonly string InitiateException = "F0000060";
+    //¼Ó¹¤µ¥Î»
+    public static readonly string ProcessingUnit = "F0000061";
+    //Êµ¼Ê¼Ó¹¤ºÄÊ±
+    public static readonly string ActualProcessingTime = "CountTime";
+    //¶©µ¥¹æ¸ñ±í
+    public static readonly string OrderSpecificationTable = "F0000102";
+    //Íê³É×ÜÁ¿
+    public static readonly string TotalCompletion = "F0000104";
+    //Éè±¸±àºÅ
+    public static readonly string EquipmentNumber = "F0000138";
+    //²úÆ·¹æ¸ñ
+    public static readonly string ProductSpecification = "F0000003";
+    //·µĞŞÀàĞÍ
+    public static readonly string RepairType = "F0000127";
+    //±¸×¢
+    public static readonly string Remarks = "F0000080";
+    //ÖÊ¼ì½áÂÛ
+    public static readonly string QualityInspectionConclusion = "qualityResult";
+    //¼ìÑé½á¹û
+    public static readonly string InspectionResults = "F0000041";
+    //×ªÖÁ¹¤²½
+    public static readonly string TransferToWorkStep = "F0000072";
+    //µ±Ç°¹¤²½
+    public static readonly string CurrentWorkStep = "F0000069";
+    //°à×é³¤
+    public static readonly string TeamLeader = "F0000128";
+    //¹¤ÈË
+    public static readonly string Worker = "F0000135";
+    //µ¥ÖØ
+    public static readonly string UnitWeight = "F0000045";
+    //Ë«ÔşÇĞ¸î
+    public static readonly string DoubleRollingCutting = "F0000173";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //µ±Ç°±¾È¡¼Ó¹¤Õß
+    public static readonly string CurrentProcessor = "F0000129";
+    //µ±Ç°¹¤Ğò
+    public static readonly string CurrentProcedure = "F0000071";
+    //È·ÈÏÈÈ´¦ÀíÂ¯ºÅ
+    public static readonly string ConfirmationheatTreatmentFurnaceNumber = "F0000076";
+    //×ªÔË³µ¼ä
+    public static readonly string TransferWorkshop = "F0000133";
+    //Íê³É±¾È¡
+    public static readonly string CostOfCompletion = "F0000106";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000012";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //¼ìÑé¼ÇÂ¼
+    public static readonly string InspectionRecord = "D001419Fbae2fac51c2f4957aaa45430960bfda8";
+    //²úÆ·Àà±ğ
+    public static readonly string ProductCategory = "F0000088";
+    //È·ÈÏ±¾È¡
+    public static readonly string ConfirmationBookRetrieval = "F0000040";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000057";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000064";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000025";
+    //×ªÔËÎ»ÖÃ
+    public static readonly string TransferLocation = "F0000134";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000002";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000016";
+    //ÊÇ·ñ¿ªÆôÖÆÑùÁ÷³Ì
+    public static readonly string WhetherToStartTheSamplePreparationProcess = "F0000124";
+    //ÊÇ·ñºöÂÔÀí»¯½á¹ûÁ÷×ª
+    public static readonly string WhetherToIgnorePhysicalAndChemicalResultsresultFlow = "advanceTransfer";
+    //ÊÔÑùÀàĞÍ
+    public static readonly string SampleType = "F0000119";
+    //ÔşÖÆ·½Ê½
+    public static readonly string RollingMethod = "F0000039";
+    //ÊÇ·ñµ÷ÕûÖÁÆäËû¹¤Ğò
+    public static readonly string WhetherToAdjustToOtherProcesses = "F0000066";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //Àí»¯½á¹û²»ºÏ¸ñ
+    public static readonly string UnqualifiedPhysicalAndChemicalResults = "F0000170";
+    //¼Æ»®±¾È¡
+    public static readonly string PlanBookRetrieval = "F0000077";
+    //Â¯´Î¼Æ»®
+    public static readonly string HeatPlan = "F0000075";
 }
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,çƒ­å¤„ç†
+/// Éú²úÖÆÔìÁ÷³Ì,ÈÈ´¦Àí
 /// </summary>
+[Table("ÈÈ´¦Àí")]
 public class HeatTreatment
 {
-	public static readonly string TableCode = "D001419Siizvpn3x17wj6jj3pifsmbic3";
-	public HeatTreatment() { }
-	/// <summary>
-	/// éƒ¨é—¨å¤šé€‰
-	/// </summary>
-	public static readonly string DepartmentOfAlternative = "F0000104";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// ç¡®è®¤ç‚‰æ¬¡ç¼–å·
-	/// </summary>
-	public static readonly string ConfirmedHeatNumber = "F0000068";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000014";
-	/// <summary>
-	/// å½“å‰å·¥åº
-	/// </summary>
-	public static readonly string CurrentOperation = "F0000050";
-	/// <summary>
-	/// è£…ç‚‰å‰æ£€éªŒ
-	/// </summary>
-	public static readonly string CheckBeforeLoading = "F0000074";
-	/// <summary>
-	/// ç‚‰æ¬¡è®¡åˆ’
-	/// </summary>
-	public static readonly string HeatPlan = "F0000052";
-	/// <summary>
-	/// æµç¨‹å‚ä¸è€…
-	/// </summary>
-	public static readonly string TheCirculationDepartment = "Participants";
-	/// <summary>
-	/// å›ç«_å·¥äºº
-	/// </summary>
-	public static readonly string TemperingWorker = "F0000088";
-	/// <summary>
-	/// è¿›åº¦ç®¡ç†ä¿¡æ¯
-	/// </summary>
-	public static readonly string ScheduleManagementInformation = "Progress";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// å›ç«_ç¡®è®¤çƒ­å¤„ç†ç‚‰å·
-	/// </summary>
-	public static readonly string TemperingConfirmedHeatTreatmentHeatNumber = "F0000094";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string ProductSpecification = "F0000003";
-	/// <summary>
-	/// æ›´æ–°å¼‚å¸¸æ—¥å¿—objectID
-	/// </summary>
-	public static readonly string ObjectIDForUpdateTheExceptionLog = "F0000082";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// è®¡åˆ’æœ¬å–
-	/// </summary>
-	public static readonly string PlanEntry = "F0000056";
-	/// <summary>
-	/// éƒ¨é—¨ä»£ç 
-	/// </summary>
-	public static readonly string DepartmentCode = "F0000105";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperation = "F0000051";
-	/// <summary>
-	/// å›ç«_ç¡®è®¤ç‚‰æ¬¡ç¼–å·
-	/// </summary>
-	public static readonly string TemperingConfirmedHeatNumber = "F0000093";
-	/// <summary>
-	/// å–æ ·æ´¾å·¥ä¿¡æ¯
-	/// </summary>
-	public static readonly string SamplingAssignmentInformation = "D001419F4e6f2f8e3bbd40eb92aab2152acd96c7";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000037";
-	/// <summary>
-	/// æµ‹è¯•ç”¨objectID
-	/// </summary>
-	public static readonly string DataCode = "F0000080";
-	/// <summary>
-	/// æ£€éªŒç»“æœ-å¤„ç†å‰
-	/// </summary>
-	public static readonly string InspectionResultBeforeTreatment = "F0000075";
-	/// <summary>
-	/// çƒ­å¤„ç†éœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperationHeatTreatment = "F0000096";
-	/// <summary>
-	/// è®¡åˆ’çƒ­å¤„ç†ç‚‰å·
-	/// </summary>
-	public static readonly string PlannedHeatTreatmentHeatNumber = "F0000055";
-	/// <summary>
-	/// è®¡åˆ’ç‚‰æ¬¡ç¼–å·
-	/// </summary>
-	public static readonly string PlannedHeatNumber = "F0000054";
-	/// <summary>
-	/// å›ç«_ç‚‰å†…ä½ç½®å·
-	/// </summary>
-	public static readonly string TemperingHeatInternalPositionNumber = "F0000092";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000038";
-	/// <summary>
-	/// ç‰ˆæœ¬å·
-	/// </summary>
-	public static readonly string TheVersionNumber = "F0000103";
-	/// <summary>
-	/// ç‚‰å†…ä½ç½®å·
-	/// </summary>
-	public static readonly string HeatInternalPositionNumber = "F0000071";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º
-	/// </summary>
-	public static readonly string InspectionBeforeCharging = "F0000072";
-	/// <summary>
-	/// å¼‚å¸¸ä»£è¡¨
-	/// </summary>
-	public static readonly string ExceptionRepresentative = "F0000084";
-	/// <summary>
-	/// å›ç«_è®¡åˆ’çƒ­å¤„ç†ç‚‰å·
-	/// </summary>
-	public static readonly string TemperingPlannedHeatTreatmentHeatNumber = "F0000091";
-	/// <summary>
-	/// å‚åŒºä½ç½®
-	/// </summary>
-	public static readonly string FactoryLocation = "F0000085";
-	/// <summary>
-	/// (æ˜¯/å¦)ç²¾æ•´
-	/// </summary>
-	public static readonly string IsFinishing = "F0000073";
-	/// <summary>
-	/// ç¡®è®¤çƒ­å¤„ç†ç‚‰å·
-	/// </summary>
-	public static readonly string ConfirmedHeatTreatmentHeatNumber = "F0000069";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000049";
-	/// <summary>
-	/// å·¥åºè®¡åˆ’è¡¨
-	/// </summary>
-	public static readonly string OperationSchedule = "F0000095";
-	/// <summary>
-	/// æ˜¯å¦è°ƒæ•´è‡³å…¶ä»–å·¥åº
-	/// </summary>
-	public static readonly string WhetherToAdjustToOtherProcesses = "F0000045";
-	/// <summary>
-	/// å·¥äºº
-	/// </summary>
-	public static readonly string Worker = "F0000028";
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string ProductLocation = "F0000047";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000012";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string GoToWorkStep = "F0000044";
-	/// <summary>
-	/// å®¡æ‰¹äºº
-	/// </summary>
-	public static readonly string Approver = "Approver";
-	/// <summary>
-	/// è½§åˆ¶æ–¹å¼
-	/// </summary>
-	public static readonly string RollingMethod = "F0000031";
-	/// <summary>
-	/// å½“å‰å·¥æ­¥
-	/// </summary>
-	public static readonly string CurrentWorkStep = "F0000048";
-	/// <summary>
-	/// åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string ProcessingUnit = "F0000041";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000016";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string WorkshopLocation = "F0000046";
-	/// <summary>
-	/// å›ç«_ç‚‰æ¬¡è®¡åˆ’
-	/// </summary>
-	public static readonly string TemperingHeatPlan = "F0000089";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000002";
-	/// <summary>
-	/// è£…ç‚‰ç¡®è®¤æœ¬å–
-	/// </summary>
-	public static readonly string ChargingConfirmationCopy = "F0000062";
-	/// <summary>
-	/// æ•°é‡_åˆ‡å‰²å‰
-	/// </summary>
-	public static readonly string NumberOfDoubleRolledProducts = "F0000101";
-	/// <summary>
-	/// å¼‚å¸¸æè¿°
-	/// </summary>
-	public static readonly string ExceptionDescription = "F0000058";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000018";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// å…³è”å…¶å®ƒå¼‚å¸¸å·¥ä»¶
-	/// </summary>
-	public static readonly string AssociatedWithOtherAbnormalWorkpieces = "F0000199";
-	/// <summary>
-	/// é”™è¯¯æ¶ˆæ¯
-	/// </summary>
-	public static readonly string TheErrorMessage = "Message";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// è½¬è‡³å·¥æ­¥
-	/// </summary>
-	public static readonly string WhetherToAdjustToOtherOperation = "F0000039";
-	/// <summary>
-	/// (æ˜¯/å¦)å›ç«
-	/// </summary>
-	public static readonly string IsTempering = "F0000087";
-	/// <summary>
-	/// å¸‚åœºéœ€æ±‚å˜æ›´
-	/// </summary>
-	public static readonly string ChangeInMarketDemand = "F0000102";
-	/// <summary>
-	/// å–æ ·é™åˆ¶æ´¾å·¥é¡ºåº
-	/// </summary>
-	public static readonly string SamplingLimitsTheOrderOfDispatch = "F0000211";
-	/// <summary>
-	/// å‘èµ·å¼‚å¸¸
-	/// </summary>
-	public static readonly string InitiateException = "F0000040";
-	/// <summary>
-	/// åŒè½§å…³è”è¡¨å•
-	/// </summary>
-	public static readonly string DoubleRolledAssociativeForm = "F0000099";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// å•é‡
-	/// </summary>
-	public static readonly string SingleWeight = "F0000035";
-	/// <summary>
-	/// å›ç«_è®¡åˆ’ç‚‰æ¬¡ç¼–å·
-	/// </summary>
-	public static readonly string TemperingPlannedHeatNumber = "F0000090";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-    internal static string TaskName;
+    public static readonly string TableCode = "Siizvpn3x17wj6jj3pifsmbic3";
+    public HeatTreatment() { }
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //È·ÈÏÈÈ´¦ÀíÂ¯ºÅ
+    public static readonly string ConfirmedHeatTreatmentHeatNumber = "F0000069";
+    //²âÊÔÓÃobjectID
+    public static readonly string DataCode = "F0000080";
+    //¼Æ»®±¾È¡
+    public static readonly string PlanEntry = "F0000056";
+    //¼Ó¹¤µ¥Î»
+    public static readonly string ProcessingUnit = "F0000041";
+    //Òì³£Àà±ğ
+    public static readonly string IssueStartException = "F0000049";
+    //ÖÊ¼ì½áÂÛ
+    public static readonly string InspectionBeforeCharging = "F0000072";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000012";
+    //³µ¼äÎ»ÖÃ
+    public static readonly string WorkshopLocation = "F0000046";
+    //È·ÈÏÂ¯´Î±àºÅ
+    public static readonly string ConfirmedHeatNumber = "F0000068";
+    //ËùÓĞÕß
+    public static readonly string Owner = "F0000077";
+    //±¨·ÏÔ­Òò
+    public static readonly string ScrapReason = "F0000064";
+    //Â¯´Î¼Æ»®
+    public static readonly string HeatPlan = "F0000052";
+    //±¾¹¤ĞòĞèÇóÆÚ
+    public static readonly string DemandPeriodOfThisOperation = "F0000051";
+    //¹¤ÈË
+    public static readonly string Worker = "F0000028";
+    //±¸×¢
+    public static readonly string ExceptionDescription = "F0000059";
+    //¼ìÑé½á¹û
+    public static readonly string InspectionResult = "F0000067";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //¼ìÑéÈ·ÈÏ±¾È¡
+    public static readonly string CheckAndConfirmTheCopy = "F0000061";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //×°Â¯Ç°¼ìÑé
+    public static readonly string CheckBeforeLoading = "F0000074";
+    //ÔşÖÆ·½Ê½
+    public static readonly string RollingMethod = "F0000031";
+    //¼Æ»®Â¯´Î±àºÅ
+    public static readonly string PlannedHeatNumber = "F0000054";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //¼Æ»®ÈÈ´¦ÀíÂ¯ºÅ
+    public static readonly string PlannedHeatTreatmentHeatNumber = "F0000055";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //¼ìÑé½á¹û´¦ÀíÇ°
+    public static readonly string InspectionResultBeforeTreatment = "F0000075";
+    //¼ìÑé½á¹û2
+    public static readonly string InspectionResult2 = "F0000065";
+    //ÊÇ·ñµ÷ÕûÖÁÆäËû¹¤Ğò
+    public static readonly string Remarks = "F0000045";
+    //Status
+    public static readonly string Status = "Status";
+    //×ªÖÁ¹¤²½
+    public static readonly string WhetherToAdjustToOtherOperation = "F0000039";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000002";
+    //µ¥ÖØ
+    public static readonly string SingleWeight = "F0000035";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000018";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000016";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000014";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000037";
+    //Ë«Ôş±àºÅ
+    public static readonly string DoubleRollingNumber = "F0000079";
+    //²úÆ·Î»ÖÃ
+    public static readonly string ProductLocation = "F0000047";
+    //¼ìÑé½á¹û1
+    public static readonly string InspectionResult1 = "F0000042";
+    //×°Â¯È·ÈÏ±¾È¡
+    public static readonly string ChargingConfirmationCopy = "F0000062";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //µ±Ç°¹¤Ğò
+    public static readonly string CurrentOperation = "F0000050";
+    //µ±Ç°¹¤²½
+    public static readonly string CurrentWorkStep = "F0000048";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //·µĞŞÀàĞÍ
+    public static readonly string RepairType = "F0000078";
+    //ID
+    public static readonly string ID = "F0000038";
+    //·µĞŞÀàĞÍ1
+    public static readonly string RepairType1 = "F0000060";
+    //·µĞŞÀàĞÍ2
+    public static readonly string RepairType2 = "F0000066";
+    //²úÆ·¹æ¸ñ
+    public static readonly string ProductSpecification = "F0000003";
+    //ÈÎÎñÃû³Æ
+    public static readonly string TaskName = "F0000081";
+    //·¢ÆğÒì³£
+    public static readonly string QualityInspectionConclusion = "F0000040";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //Òì³£ÃèÊö
+    public static readonly string ExceptionCategory = "F0000058";
+    //Êı¾İ´úÂë
+    public static readonly string GoToWorkStep = "F0000044";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //(ÊÇ/·ñ)¾«Õû
+    public static readonly string IsFinishing = "F0000073";
+
+    //Â¯ÄÚÎ»ÖÃºÅ
+    public static readonly string HeatInternalPositionNumber = "F0000071";
 }
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,è¾—ç¯
+/// Éú²úÖÆÔìÁ÷³Ì,Õ·»·
 /// </summary>
+[Table("Õ·»·")]
 public class RollingRing
 {
-	public static readonly string TableCode = "D001419Saesg17flbcod0mvbdha0kkk44";
-	public RollingRing() { }
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000012";
-	/// <summary>
-	/// è¾—ç¯éœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperationRingRolling = "F0000088";
-	/// <summary>
-	/// åŠ å·¥æ€»é‡
-	/// </summary>
-	public static readonly string TotalProcessingQuantity = "F0000078";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000002";
-	/// <summary>
-	/// å•é‡
-	/// </summary>
-	public static readonly string SingleWeight = "F0000040";
-	/// <summary>
-	/// è¾—ç¯å·¥äººç»„
-	/// </summary>
-	public static readonly string RingRollingWorkerGroup = "F0000032";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º
-	/// </summary>
-	public static readonly string QualityInspectionConclusion = "F0000064";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000067";
-	/// <summary>
-	/// å¸‚åœºéœ€æ±‚å˜æ›´
-	/// </summary>
-	public static readonly string ChangeInMarketDemand = "F0000094";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperation = "F0000058";
-	/// <summary>
-	/// å…³è”å…¶å®ƒå¼‚å¸¸å·¥ä»¶
-	/// </summary>
-	public static readonly string AssociatedWithOtherAbnormalWorkpieces = "F0000199";
-	/// <summary>
-	/// å½“å‰å·¥åº
-	/// </summary>
-	public static readonly string CurrentOperation = "F0000056";
-	/// <summary>
-	/// åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string ProcessingUnit = "F0000049";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// ä»»åŠ¡åç§°
-	/// </summary>
-	public static readonly string TaskName = "F0000077";
-	/// <summary>
-	/// è½§åˆ¶æ–¹å¼
-	/// </summary>
-	public static readonly string DetermineRollingMethod = "F0000036";
-	/// <summary>
-	/// è¾—ç¯ä¿¡æ¯
-	/// </summary>
-	public static readonly string HotProcessingInformation = "D001419Fc33fc9abe5f2451e83ce06a5edc1669f";
-	/// <summary>
-	/// å¼‚å¸¸ä»£è¡¨
-	/// </summary>
-	public static readonly string ExceptionRepresentative = "F0000082";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ç‚‰å·
-	/// </summary>
-	public static readonly string HeatNumber = "F0000035";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// è¿›åº¦ç®¡ç†ä¿¡æ¯
-	/// </summary>
-	public static readonly string ScheduleManagementInformation = "Progress";
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string ProductLocation = "F0000053";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// é”»è¾—ç‚‰æ¬¡
-	/// </summary>
-	public static readonly string ForgingRollingFurnace = "F0000084";
-	/// <summary>
-	/// å·¥åºè®¡åˆ’è¡¨
-	/// </summary>
-	public static readonly string OperationSchedule = "F0000087";
-	/// <summary>
-	/// ç‚‰å†…ä½ç½®
-	/// </summary>
-	public static readonly string LocationInTheFurnace = "F0000085";
-	/// <summary>
-	/// æµç¨‹å‚ä¸è€…
-	/// </summary>
-	public static readonly string TheCirculationDepartment = "Participants";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000050";
-	/// <summary>
-	/// åŒè½§å…³è”è¡¨å•
-	/// </summary>
-	public static readonly string DoubleRolledAssociativeForm = "F0000091";
-	/// <summary>
-	/// è½¬è‡³å·¥æ­¥
-	/// </summary>
-	public static readonly string TransferToWorkStep = "F0000047";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000043";
-	/// <summary>
-	/// æ•°é‡_åˆ‡å‰²å‰
-	/// </summary>
-	public static readonly string NumberOfDoubleRolledProducts = "F0000093";
-	/// <summary>
-	/// å½“å‰å·¥æ­¥
-	/// </summary>
-	public static readonly string CurrentWorkStep = "F0000054";
-	/// <summary>
-	/// å‘èµ·å¼‚å¸¸
-	/// </summary>
-	public static readonly string InitiateException = "F0000048";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// å®¡æ‰¹äºº
-	/// </summary>
-	public static readonly string Approver = "Approver";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string WorkshopLocation = "F0000052";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// æ˜¯å¦è°ƒæ•´è‡³å…¶ä»–å·¥åº
-	/// </summary>
-	public static readonly string AdjustToOtherOperation = "F0000060";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000044";
-	/// <summary>
-	/// è®¡åˆ’ç‚‰æ¬¡ç¼–å·
-	/// </summary>
-	public static readonly string PlannedHeatNumber = "F0000059";
-	/// <summary>
-	/// æ›´æ–°å¼‚å¸¸æ—¥å¿—objectID
-	/// </summary>
-	public static readonly string ObjectIDForUpdateTheExceptionLog = "F0000080";
-	/// <summary>
-	/// ç‰ˆæœ¬å·
-	/// </summary>
-	public static readonly string TheVersionNumber = "F0000097";
-	/// <summary>
-	/// å¼‚å¸¸æè¿°
-	/// </summary>
-	public static readonly string ExceptionDescription = "F0000062";
-	/// <summary>
-	/// éƒ¨é—¨å¤šé€‰
-	/// </summary>
-	public static readonly string DepartmentOfAlternative = "F0000098";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000018";
-	/// <summary>
-	/// æµ‹è¯•ç”¨objectID
-	/// </summary>
-	public static readonly string ObjectidForTest = "F0000069";
-	/// <summary>
-	/// éƒ¨é—¨ä»£ç 
-	/// </summary>
-	public static readonly string DepartmentCode = "F0000099";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string ProductSpecification = "F0000003";
-	/// <summary>
-	/// è£…ç‚‰çŠ¶æ€
-	/// </summary>
-	public static readonly string FurnaceChargingState = "F0000086";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000014";
-	/// <summary>
-	/// å‚åŒºä½ç½®
-	/// </summary>
-	public static readonly string FactoryLocation = "F0000083";
-	/// <summary>
-	/// æ£€éªŒç»“æœ
-	/// </summary>
-	public static readonly string InspectionResult = "F0000045";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000066";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000055";
-	/// <summary>
-	/// é”™è¯¯æ¶ˆæ¯
-	/// </summary>
-	public static readonly string TheErrorMessage = "Message";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000016";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
+    public static readonly string TableCode = "Saesg17flbcod0mvbdha0kkk44";
+    public RollingRing() { }
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000012";
+    //¼Ó¹¤×ÜÁ¿
+    public static readonly string TotalProcessingQuantity = "F0000078";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000002";
+    //µ¥ÖØ
+    public static readonly string SingleWeight = "F0000040";
+    //Õ·»·¹¤ÈË×é
+    public static readonly string RingRollingWorkerGroup = "F0000032";
+    //ÖÊ¼ì½áÂÛ
+    public static readonly string QualityInspectionConclusion = "F0000064";
+    //Éè±¸Ãû³Æ
+    public static readonly string EquipmentName = "F0000067";
+    //±¾¹¤ĞòĞèÇóÆÚ
+    public static readonly string CurrentOperationDemandPeriod = "F0000058";
+    //µ±Ç°¹¤Ğò
+    public static readonly string CurrentOperation = "F0000056";
+    //¼Ó¹¤µ¥Î»
+    public static readonly string ProcessingUnit = "F0000049";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //ÈÎÎñÃû³Æ
+    public static readonly string TaskName = "F0000077";
+    //È·¶¨ÔşÖÆ·½Ê½
+    public static readonly string DetermineRollingMethod = "F0000036";
+    //ÈÈ¼Ó¹¤ĞÅÏ¢
+    public static readonly string HotProcessingInformation = "D001419Fc33fc9abe5f2451e83ce06a5edc1669f";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //Â¯ºÅ
+    public static readonly string HeatNumber = "F0000035";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //²úÆ·Î»ÖÃ
+    public static readonly string ProductLocation = "F0000053";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //Status
+    public static readonly string Status = "Status";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000050";
+    //×ªÖÁ¹¤²½
+    public static readonly string TransferToWorkStep = "F0000047";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000043";
+    //µ±Ç°¹¤²½
+    public static readonly string CurrentWorkStep = "F0000054";
+    //·¢ÆğÒì³£
+    public static readonly string InitiateException = "F0000048";
+    //±¸×¢
+    public static readonly string Remarks = "F0000063";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //³µ¼äÎ»ÖÃ
+    public static readonly string WorkshopLocation = "F0000052";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //ÊÇ·ñµ÷ÕûÖÁÆäËû¹¤Ğò
+    public static readonly string AdjustToOtherOperation = "F0000060";
+    //ID
+    public static readonly string ID = "F0000044";
+    //¼Æ»®Â¯´Î±àºÅ
+    public static readonly string PlannedHeatNumber = "F0000059";
+    //Ë«Ôş±àºÅ
+    public static readonly string DoubleRollingNumber = "F0000068";
+    //Òì³£ÃèÊö
+    public static readonly string ExceptionDescription = "F0000062";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000018";
+    //²âÊÔÓÃobjectID
+    public static readonly string ObjectidForTest = "F0000069";
+    //²úÆ·¹æ¸ñ
+    public static readonly string ProductSpecification = "F0000003";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000014";
+    //¼ìÑé½á¹û
+    public static readonly string InspectionResult = "F0000045";
+    //Éè±¸±àºÅ
+    public static readonly string EquipmentNumber = "F0000066";
+    //Òì³£Àà±ğ
+    public static readonly string ExceptionCategory = "F0000055";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000016";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
 }
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,é”»å‹
+/// Éú²úÖÆÔìÁ÷³Ì,¶ÍÑ¹
 /// </summary>
+[Table("¶ÍÑ¹")]
 public class Forge
 {
-	public static readonly string TableCode = "D001419Sdoly16pnqd5z66wl60hc4y1u1";
-	public Forge() { }
-	/// <summary>
-	/// ç‰ˆæœ¬å·
-	/// </summary>
-	public static readonly string TheVersionNumber = "F0000102";
-	/// <summary>
-	/// é”»å‹ä¿¡æ¯
-	/// </summary>
-	public static readonly string HotProcessingInformation = "D001419Fe6ad4c9956ed4788927c31123893dc9e";
-	/// <summary>
-	/// å·¥åºè®¡åˆ’è¡¨
-	/// </summary>
-	public static readonly string OperationSchedule = "F0000092";
-	/// <summary>
-	/// è®¾å¤‡åç§°
-	/// </summary>
-	public static readonly string EquipmentName = "F0000060";
-	/// <summary>
-	/// å½“å‰å·¥åº
-	/// </summary>
-	public static readonly string CurrentOperation = "F0000053";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000018";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000040";
-	/// <summary>
-	/// é”»å‹ç­ç»„
-	/// </summary>
-	public static readonly string ForgingTeam = "F0000031";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000048";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000046";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000012";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// ç‚‰å·
-	/// </summary>
-	public static readonly string HeatNumber = "F0000063";
-	/// <summary>
-	/// å•é‡
-	/// </summary>
-	public static readonly string SingleWeight = "F0000037";
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string ProductLocation = "F0000051";
-	/// <summary>
-	/// å¸‚åœºéœ€æ±‚å˜æ›´
-	/// </summary>
-	public static readonly string ChangeInMarketDemand = "F0000099";
-	/// <summary>
-	/// è½§åˆ¶æ–¹å¼
-	/// </summary>
-	public static readonly string RollingMethod = "F0000032";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// è½¬è‡³å·¥æ­¥
-	/// </summary>
-	public static readonly string TransferToWorkStep = "F0000044";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// æµç¨‹å‚ä¸è€…
-	/// </summary>
-	public static readonly string TheCirculationDepartment = "Participants";
-	/// <summary>
-	/// é”™è¯¯æ¶ˆæ¯
-	/// </summary>
-	public static readonly string TheErrorMessage = "Message";
-	/// <summary>
-	/// å®Œæˆæ€»é‡
-	/// </summary>
-	public static readonly string TotalAmountCompleted = "F0000082";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000016";
-	/// <summary>
-	/// å¼‚å¸¸æè¿°
-	/// </summary>
-	public static readonly string ExceptionDescription = "F0000058";
-	/// <summary>
-	/// åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string ProcessingUnit = "F0000047";
-	/// <summary>
-	/// å‚åŒºä½ç½®
-	/// </summary>
-	public static readonly string FactoryLocation = "F0000088";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000041";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º
-	/// </summary>
-	public static readonly string QualityInspectionConclusion = "F0000061";
-	/// <summary>
-	/// è®¡åˆ’ç‚‰æ¬¡ç¼–å·
-	/// </summary>
-	public static readonly string PlannedHeatNumber = "F0000056";
-	/// <summary>
-	/// æ›´æ–°å¼‚å¸¸æ—¥å¿—objectID
-	/// </summary>
-	public static readonly string ObjectIDForUpdateTheExceptionLog = "F0000085";
-	/// <summary>
-	/// éƒ¨é—¨å¤šé€‰
-	/// </summary>
-	public static readonly string DepartmentOfAlternative = "F0000103";
-	/// <summary>
-	/// æ˜¯å¦è°ƒæ•´è‡³å…¶ä»–å·¥åº
-	/// </summary>
-	public static readonly string AdjustToOtherOperations = "F0000049";
-	/// <summary>
-	/// è£…ç‚‰çŠ¶æ€
-	/// </summary>
-	public static readonly string FurnaceChargingState = "F0000091";
-	/// <summary>
-	/// åŒè½§å…³è”è¡¨å•
-	/// </summary>
-	public static readonly string DoubleRolledAssociativeForm = "F0000096";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string ProductSpecification = "F0000003";
-	/// <summary>
-	/// é”»å‹éœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperationForging = "F0000093";
-	/// <summary>
-	/// é”»è¾—ç‚‰æ¬¡
-	/// </summary>
-	public static readonly string ForgingRollingFurnace = "F0000089";
-	/// <summary>
-	/// ä»»åŠ¡åç§°
-	/// </summary>
-	public static readonly string TaskName = "F0000081";
-	/// <summary>
-	/// å½“å‰å·¥æ­¥
-	/// </summary>
-	public static readonly string CurrentWorkStep = "F0000052";
-	/// <summary>
-	/// å…³è”å…¶ä»–å¼‚å¸¸å·¥ä»¶
-	/// </summary>
-	public static readonly string AssociatedWithOtherAbnormalWorkpieces = "F0000199";
-	/// <summary>
-	/// æ£€éªŒç»“æœ
-	/// </summary>
-	public static readonly string InspectionResult = "F0000042";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string WorkshopLocation = "F0000050";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperation = "F0000055";
-	/// <summary>
-	/// è¿›åº¦ç®¡ç†ä¿¡æ¯
-	/// </summary>
-	public static readonly string ScheduleManagementInformation = "Progress";
-	/// <summary>
-	/// è®¾å¤‡ç¼–å·
-	/// </summary>
-	public static readonly string EquipmentNumber = "F0000007";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// æ•°é‡_åˆ‡å‰²å‰
-	/// </summary>
-	public static readonly string NumberOfDoubleRolledProducts = "F0000098";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000014";
-	/// <summary>
-	/// å‘èµ·å¼‚å¸¸
-	/// </summary>
-	public static readonly string InitiateException = "F0000045";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000002";
-	/// <summary>
-	/// å®¡æ‰¹äºº
-	/// </summary>
-	public static readonly string Approver = "Approver";
-	/// <summary>
-	/// åŒè½§å·¥ä»¶å·
-	/// </summary>
-	public static readonly string DoubleRolledPartNumber = "F0000097";
-	/// <summary>
-	/// éƒ¨é—¨ä»£ç 
-	/// </summary>
-	public static readonly string DepartmentCode = "F0000104";
-	/// <summary>
-	/// ç‚‰å†…ä½ç½®
-	/// </summary>
-	public static readonly string LocationInTheFurnace = "F0000090";
-	/// <summary>
-	/// å¼‚å¸¸ä»£è¡¨
-	/// </summary>
-	public static readonly string ExceptionRepresentative = "F0000200";
+    public static readonly string TableCode = "Sdoly16pnqd5z66wl60hc4y1u1";
+    public Forge() { }
+    //Ë«Ôş±àºÅ
+    public static readonly string DoubleRollingNumber = "F0000064";
+    //ÈÈ¼Ó¹¤ĞÅÏ¢
+    public static readonly string HotProcessingInformation = "D001419Fe6ad4c9956ed4788927c31123893dc9e";
+    //Éè±¸Ãû³Æ
+    public static readonly string EquipmentName = "F0000060";
+    //µ±Ç°¹¤Ğò
+    public static readonly string CurrentOperation = "F0000053";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000018";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000040";
+    //¶ÍÑ¹°à×é
+    public static readonly string ForgingTeam = "F0000031";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //±¸×¢
+    public static readonly string Remarks = "F0000059";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000048";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //Òì³£Àà±ğ
+    public static readonly string ExceptionCategory = "F0000046";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000012";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //Â¯ºÅ
+    public static readonly string HeatNumber = "F0000063";
+    //µ¥ÖØ
+    public static readonly string SingleWeight = "F0000037";
+    //²úÆ·Î»ÖÃ
+    public static readonly string ProductLocation = "F0000051";
+    //ÔşÖÆ·½Ê½
+    public static readonly string RollingMethod = "F0000032";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //×ªÖÁ¹¤²½
+    public static readonly string TransferToWorkStep = "F0000044";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //Íê³É×ÜÁ¿
+    public static readonly string TotalAmountCompleted = "F0000082";
+    //Status
+    public static readonly string Status = "Status";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000016";
+    //Òì³£ÃèÊö
+    public static readonly string ExceptionDescription = "F0000058";
+    //¼Ó¹¤µ¥Î»
+    public static readonly string ProcessingUnit = "F0000047";
+    //ID
+    public static readonly string ID = "F0000041";
+    //ÖÊ¼ì½áÂÛ
+    public static readonly string QualityInspectionConclusion = "F0000061";
+    //¼Æ»®Â¯´Î±àºÅ
+    public static readonly string PlannedHeatNumber = "F0000056";
+    //ÊÇ·ñµ÷ÕûÖÁÆäËû¹¤Ğò
+    public static readonly string AdjustToOtherOperations = "F0000049";
+    //²âÊÔÓÃobjectID
+    public static readonly string ObjectidForTest = "F0000065";
+    //²úÆ·¹æ¸ñ
+    public static readonly string ProductSpecification = "F0000003";
+    //ÈÎÎñÃû³Æ
+    public static readonly string TaskName = "F0000081";
+    //µ±Ç°¹¤²½
+    public static readonly string CurrentWorkStep = "F0000052";
+    //¼ìÑé½á¹û
+    public static readonly string InspectionResult = "F0000042";
+    //³µ¼äÎ»ÖÃ
+    public static readonly string WorkshopLocation = "F0000050";
+    //±¾¹¤ĞòĞèÇóÆÚ
+    public static readonly string ThisOperationDemandPeriod = "F0000055";
+    //Éè±¸±àºÅ
+    public static readonly string EquipmentNumber = "F0000007";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000014";
+    //·¢ÆğÒì³£
+    public static readonly string InitiateException = "F0000045";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000002";
 }
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,é”¯åˆ‡
+/// Éú²úÖÆÔìÁ÷³Ì,¾âÇĞ
 /// </summary>
+[Table("¾âÇĞ")]
 public class SawCut
 {
-	public static readonly string TableCode = "D001419So3cw528p3w543tqpt12v28o31";
-	public SawCut() { }
-	/// <summary>
-	/// æ›´æ–°å¼‚å¸¸æ—¥å¿—objectID
-	/// </summary>
-	public static readonly string ObjectIDForUpdateTheExceptionLog = "F0000080";
-	/// <summary>
-	/// è½¦é—´ä½ç½®
-	/// </summary>
-	public static readonly string WorkshopLocation = "F0000007";
-	/// <summary>
-	/// é”¯åˆ‡éœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string DemandPeriodOfThisProcedureSawing = "F0000097";
-	/// <summary>
-	/// ç‰ˆæœ¬å·
-	/// </summary>
-	public static readonly string TheVersionNumber = "F0000106";
-	/// <summary>
-	/// éƒ¨é—¨ä»£ç 
-	/// </summary>
-	public static readonly string DepartmentCode = "F0000107";
-	/// <summary>
-	/// åŒºåŸŸä½ç½®
-	/// </summary>
-	public static readonly string ProductLocation = "F0000065";
-	/// <summary>
-	/// éƒ¨é—¨å¤šé€‰
-	/// </summary>
-	public static readonly string DepartmentOfAlternative = "F0000105";
-	/// <summary>
-	/// é”¯åŠ å·¥è®°å½•
-	/// </summary>
-	public static readonly string SawProcessingRecord = "D001419Fff99042207274f8da1c422c807b2e7f0";
-	/// <summary>
-	/// é”™è¯¯æ¶ˆæ¯
-	/// </summary>
-	public static readonly string TheErrorMessage = "Message";
-	/// <summary>
-	/// å·¥ä»¶å·
-	/// </summary>
-	public static readonly string WorkpieceNumber = "F0000018";
-	/// <summary>
-	/// å½“å‰å·¥åº
-	/// </summary>
-	public static readonly string CurrentOperation = "F0000067";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// è®¢å•è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderSpecificationNumber = "F0000016";
-	/// <summary>
-	/// è¿›åº¦ç®¡ç†ä¿¡æ¯
-	/// </summary>
-	public static readonly string ScheduleManagementInformation = "Progress";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "F0000030";
-	/// <summary>
-	/// æ•°é‡_åˆ‡å‰²å‰
-	/// </summary>
-	public static readonly string NumberOfDoubleRolledProducts = "F0000102";
-	/// <summary>
-	/// å®¡æ‰¹äºº
-	/// </summary>
-	public static readonly string Approver = "Approver";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// å¼‚å¸¸ä»£è¡¨
-	/// </summary>
-	public static readonly string ExceptionRepresentative = "F000085";
-	/// <summary>
-	/// åŒè½§å…³è”è¡¨å•
-	/// </summary>
-	public static readonly string DoubleRolledAssociativeForm = "F0000100";
-	/// <summary>
-	/// æµ‹è¯•ç”¨ID
-	/// </summary>
-	public static readonly string TestID = "F0000078";
-	/// <summary>
-	/// å·¥åºè®¡åˆ’è¡¨
-	/// </summary>
-	public static readonly string OperationSchedule = "F0000096";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "F0000058";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡å·
-	/// </summary>
-	public static readonly string OrderBatchNumber = "F0000014";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// å…³è”å…¶å®ƒå¼‚å¸¸å·¥ä»¶
-	/// </summary>
-	public static readonly string AssociatedWithOtherAbnormalWorkpieces = "F0000199";
-	/// <summary>
-	/// è½§åˆ¶æ–¹å¼
-	/// </summary>
-	public static readonly string RollingMethod = "F0000031";
-	/// <summary>
-	/// å¼‚å¸¸æè¿°
-	/// </summary>
-	public static readonly string ExceptionDescription = "F0000071";
-	/// <summary>
-	/// å‚åŒºä½ç½®
-	/// </summary>
-	public static readonly string FactoryLocation = "F0000086";
-	/// <summary>
-	/// è®¡åˆ’ç‚‰æ¬¡ç¼–å·
-	/// </summary>
-	public static readonly string PlannedHeatNumber = "F0000070";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// åŠ å·¥å•ä½
-	/// </summary>
-	public static readonly string ProcessingUnit = "F0000045";
-	/// <summary>
-	/// æ˜¯å¦è°ƒæ•´è‡³å…¶ä»–å·¥åº
-	/// </summary>
-	public static readonly string WhetherToAdjustToOtherOperations = "F0000063";
-	/// <summary>
-	/// æµç¨‹å‚ä¸è€…
-	/// </summary>
-	public static readonly string TheCirculationDepartment = "F0000103";
-	/// <summary>
-	/// èŠ‚ç‚¹åç§°
-	/// </summary>
-	public static readonly string NodeName = "F0000076";
-	/// <summary>
-	/// è´¨æ£€ç»“è®º
-	/// </summary>
-	public static readonly string QualityInspectionConclusion = "F0000077";
-	/// <summary>
-	/// æœ¬å·¥åºéœ€æ±‚æœŸ
-	/// </summary>
-	public static readonly string DemandPeriodOfThisOperation = "F0000068";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// å¸‚åœºéœ€æ±‚å˜æ›´
-	/// </summary>
-	public static readonly string hangeInMarketDemand = "F0000104";
-	/// <summary>
-	/// æ£€éªŒç»“æœ
-	/// </summary>
-	public static readonly string InspectionResult = "F0000043";
-	/// <summary>
-	/// æ•°æ®ä»£ç 
-	/// </summary>
-	public static readonly string DataCode = "F0000061";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// äº§å“åç§°
-	/// </summary>
-	public static readonly string ProductName = "F0000002";
-	/// <summary>
-	/// å½“å‰å·¥æ­¥
-	/// </summary>
-	public static readonly string CurrentWorkStep = "F0000056";
-	/// <summary>
-	/// è½¬è‡³å·¥æ­¥
-	/// </summary>
-	public static readonly string TransferToWorkStep = "F0000073";
-	/// <summary>
-	/// å®¡æ‰¹å•ä»£è¡¨
-	/// </summary>
-	public static readonly string ApprovalRepresentative = "F0000200";
-	/// <summary>
-	/// åŠ å·¥è€…
-	/// </summary>
-	public static readonly string Processor = "Processor";
-	/// <summary>
-	/// å‘èµ·å¼‚å¸¸
-	/// </summary>
-	public static readonly string InitiateException = "F0000057";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// äº§å“è§„æ ¼
-	/// </summary>
-	public static readonly string ProductSpecification = "F0000003";
-	/// <summary>
-	/// è®¢å•æ‰¹æ¬¡è§„æ ¼å·
-	/// </summary>
-	public static readonly string OrderBatchSpecificationNumber = "F0000040";
-	/// <summary>
-	/// åŸææ–™å·
-	/// </summary>
-	public static readonly string RawMaterialNumber = "F0000009";
-	/// <summary>
-	/// å•é‡
-	/// </summary>
-	public static readonly string SingleWeight = "F0000032";
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// è®¢å•å·
-	/// </summary>
-	public static readonly string OrderNumber = "F0000012";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
+    public static readonly string TableCode = "So3cw528p3w543tqpt12v28o31";
+    public SawCut() { }
+    //²âÊÔÓÃobjectID
+    public static readonly string ObjectidForTest = "F0000080";
+    //³µ¼äÎ»ÖÃ
+    public static readonly string WorkshopLocation = "F0000007";
+    //²úÆ·Î»ÖÃ
+    public static readonly string ProductLocation = "F0000065";
+    //±¸×¢
+    public static readonly string Remarks = "F0000072";
+    //¹¤¼şºÅ
+    public static readonly string WorkpieceNumber = "F0000018";
+    //Éè±¸Ãû³Æ
+    public static readonly string EquipmentName = "F0000075";
+    //µ±Ç°¹¤Ğò
+    public static readonly string CurrentOperation = "F0000067";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //¶©µ¥¹æ¸ñºÅ
+    public static readonly string OrderSpecificationNumber = "F0000016";
+    //ID
+    public static readonly string ID = "F0000030";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //²âÊÔÓÃID
+    public static readonly string IDForTest = "F0000078";
+    //Òì³£Àà±ğ
+    public static readonly string ExceptionCategory = "F0000058";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //¶©µ¥Åú´ÎºÅ
+    public static readonly string OrderBatchNumber = "F0000014";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //ÔşÖÆ·½Ê½
+    public static readonly string RollingMethod = "F0000031";
+    //Òì³£ÃèÊö
+    public static readonly string ExceptionDescription = "F0000071";
+    //Ë«Ôş±àºÅ
+    public static readonly string DoubleRollingNumber = "F0000079";
+    //¼Æ»®Â¯´Î±àºÅ
+    public static readonly string PlannedHeatNumber = "F0000070";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //¼Ó¹¤µ¥Î»
+    public static readonly string ProcessingUnit = "F0000045";
+    //ÊÇ·ñµ÷ÕûÖÁÆäËû¹¤Ğò
+    public static readonly string AdjustToOtherOperation = "F0000063";
+    //½ÚµãÃû³Æ
+    public static readonly string NodeName = "F0000076";
+    //ÖÊ¼ì½áÂÛ
+    public static readonly string QualityInspectionConclusion = "F0000077";
+    //±¾¹¤ĞòĞèÇóÆÚ
+    public static readonly string ThisOperationDemandPeriod = "F0000068";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //¼ìÑé½á¹û
+    public static readonly string InspectionResult = "F0000043";
+    //Êı¾İ´úÂë
+    public static readonly string DataCode = "F0000061";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //ËùÓĞÕß
+    public static readonly string Owner = "F0000028";
+    //²úÆ·Ãû³Æ
+    public static readonly string ProductName = "F0000002";
+    //µ±Ç°¹¤²½
+    public static readonly string CurrentWorkStep = "F0000056";
+    //×ªÖÁ¹¤²½
+    public static readonly string TransferToWorkStep = "F0000073";
+    //·¢ÆğÒì³£
+    public static readonly string InitiateException = "F0000057";
+    //Status
+    public static readonly string Status = "Status";
+    //ÊÇ·ñÈ¡Ñù
+    public static readonly string SampleOrNot = "F0000036";
+    //Éè±¸±àºÅ
+    public static readonly string EquipmentNumber = "F0000066";
+    //²úÆ·¹æ¸ñ
+    public static readonly string ProductSpecification = "F0000003";
+    //¶©µ¥Åú´Î¹æ¸ñºÅ
+    public static readonly string OrderBatchSpecificationNumber = "F0000040";
+    //Ô­²ÄÁÏºÅ
+    public static readonly string RawMaterialNumber = "F0000009";
+    //µ¥ÖØ
+    public static readonly string SingleWeight = "F0000032";
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //¶©µ¥ºÅ
+    public static readonly string OrderNumber = "F0000012";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
 }
 /// <summary>
-/// ç”Ÿäº§åˆ¶é€ æµç¨‹,å¼‚å¸¸å·¥æ­¥è®°å½•è¡¨
+/// Éú²úÖÆÔìÁ÷³Ì,Òì³£¹¤²½¼ÇÂ¼±í
 /// </summary>
+[Table("Òì³£¹¤²½¼ÇÂ¼±í")]
 public class AbNormalWorkStep
 {
-	public static readonly string TableCode = "D00141943239d1b3ebf4ab9b43457e95b2657a7";
-	public AbNormalWorkStep() { }
-	/// <summary>
-	/// ModifiedBy
-	/// </summary>
-	public static readonly string Modifiedby = "ModifiedBy";
-	/// <summary>
-	/// å·¥æ­¥æ¥æº
-	/// </summary>
-	public static readonly string StepSource = "workStepSource";
-	/// <summary>
-	/// Status
-	/// </summary>
-	public static readonly string Status = "Status";
-	/// <summary>
-	/// æ‰€å±éƒ¨é—¨
-	/// </summary>
-	public static readonly string Department = "OwnerDeptId";
-	/// <summary>
-	/// ä¿®æ”¹æ—¶é—´
-	/// </summary>
-	public static readonly string ModificationTime = "ModifiedTime";
-	/// <summary>
-	/// æ•°æ®æ ‡é¢˜
-	/// </summary>
-	public static readonly string DataTitle = "Name";
-	/// <summary>
-	/// ID
-	/// </summary>
-	public static readonly string ID = "ID";
-	/// <summary>
-	/// ObjectId
-	/// </summary>
-	public static readonly string Objectid = "ObjectId";
-	/// <summary>
-	/// åˆ›å»ºæ—¶é—´
-	/// </summary>
-	public static readonly string CreationTime = "CreatedTime";
-	/// <summary>
-	/// æ‹¥æœ‰è€…
-	/// </summary>
-	public static readonly string Owner = "OwnerId";
-	/// <summary>
-	/// åˆ›å»ºäºº
-	/// </summary>
-	public static readonly string Creator = "CreatedBy";
-	/// <summary>
-	/// å¤„ç†è€—æ—¶
-	/// </summary>
-	public static readonly string ProcessingTime = "F0000001";
-	/// <summary>
-	/// WorkflowInstanceId
-	/// </summary>
-	public static readonly string Workflowinstanceid = "WorkflowInstanceId";
-	/// <summary>
-	/// å¼‚å¸¸ç±»åˆ«
-	/// </summary>
-	public static readonly string ExceptionCategory = "abNormalType";
-	/// <summary>
-	/// å¼‚å¸¸æè¿°
-	/// </summary>
-	public static readonly string ExceptionDescription = "abNormalDescibe";
-	/// <summary>
-	/// å·¥åºæ¥æº
-	/// </summary>
-	public static readonly string OperationSource = "processSource";
+    public static readonly string TableCode = "43239d1b3ebf4ab9b43457e95b2657a7";
+    public AbNormalWorkStep() { }
+    //ModifiedBy
+    public static readonly string ModifiedBy = "ModifiedBy";
+    //¹¤²½À´Ô´
+    public static readonly string StepSource = "workStepSource";
+    //Status
+    public static readonly string Status = "Status";
+    //ËùÊô²¿ÃÅ
+    public static readonly string OwnerDeptId = "OwnerDeptId";
+    //ĞŞ¸ÄÊ±¼ä
+    public static readonly string ModifiedTime = "ModifiedTime";
+    //Êı¾İ±êÌâ
+    public static readonly string Name = "Name";
+    //ID
+    public static readonly string ID = "ID";
+    //ObjectId
+    public static readonly string ObjectId = "ObjectId";
+    //´´½¨Ê±¼ä
+    public static readonly string CreatedTime = "CreatedTime";
+    //ÓµÓĞÕß
+    public static readonly string OwnerId = "OwnerId";
+    //´´½¨ÈË
+    public static readonly string CreatedBy = "CreatedBy";
+    //´¦ÀíºÄÊ±
+    public static readonly string ProcessingTime = "F0000001";
+    //WorkflowInstanceId
+    public static readonly string WorkflowInstanceId = "WorkflowInstanceId";
+    //Òì³£Àà±ğ
+    public static readonly string ExceptionCategory = "abNormalType";
+    //Òì³£ÃèÊö
+    public static readonly string ExceptionDescription = "abNormalDescibe";
+    //¹¤ĞòÀ´Ô´
+    public static readonly string OperationSource = "processSource";
 }
+
