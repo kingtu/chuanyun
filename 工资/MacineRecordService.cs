@@ -78,7 +78,7 @@ public class MacineRecordService
         //完成总量
         decimal totalAmountCompleted = samplingSubFlow[SamplingSubFlow_TotalAmountCompleted] + string.Empty
             != string.Empty ? decimal.Parse(samplingSubFlow[SamplingSubFlow_TotalAmountCompleted] + string.Empty) : 0;
-        int taskNum = 0;
+        int taskNum;
         if (totalAmountCompleted >= 1)                                      //当前子表行数
         {
             taskNum = samplingMachiningSubtable.Length - 1;
@@ -563,6 +563,8 @@ public class MacineRecordService
         recordObj[MachiningTaskRecord_FillingWeight] = hoursAndChip["FillingWeight"];                                                                     //任务下屑量
         recordObj.Update();
     }
+
+
 
     string SamplingSubFlow_TableCode = "D001419Sgljz62e1rneytbqjckbe1vu25";                 //取样子流程
     string SamplingSubFlow_Sampling = "D001419Fj7nrmbgha1j10v5zst0zg7hi1";                  //取样子流程 子表

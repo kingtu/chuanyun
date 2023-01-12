@@ -1,14 +1,3 @@
-//using System;
-//using System.Collections.Generic;
-//using System.Text;
-
-//namespace Chuanyun.AutoTool
-//{
-//    class TableInfo
-//    {
-//    }
-//}
-
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -1809,6 +1798,9 @@ public class MachiningTaskRecord
     public static readonly string Thickness = "F0000019";
     //设备编号
     public static readonly string DeviceNumber = "F0000014";
+
+    public static string ActualElapsedTime { get; internal set; }
+    public static string Processor { get; internal set; }
 }
 /// <summary>
 /// 生产计划,再生库

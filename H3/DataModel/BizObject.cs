@@ -10,7 +10,7 @@ namespace H3.DataModel
         private string userId;
         public  string  ObjectId;
 
-        public object Status { get; internal set; }
+        public object Status { get;  set; }
         public string WorkflowInstanceId { get; internal set; }
         public H3.DataModel.BizObjectSchema Schema { get; internal set; }
         public object State { get; internal set; }
@@ -23,12 +23,12 @@ namespace H3.DataModel
             this.userId = userId;
         }
 
-        internal static BizObject Load(string userId, IEngine engine, string v1, string bizObjectId, bool v2)
+        public static BizObject Load(string userId, IEngine engine, string v1, string bizObjectId, bool v2)
         {
             throw new NotImplementedException();
         }
 
-        internal static BizObject[] GetList(IEngine engine, string userId, BizObjectSchema tableSchema, object globalAll, Filter filter)
+        public static BizObject[] GetList(IEngine engine, string userId, BizObjectSchema tableSchema, object globalAll, Filter filter)
         {
             throw new NotImplementedException();
         }
@@ -39,17 +39,17 @@ namespace H3.DataModel
             set { }
         }
 
-        internal void Update()
+        public void Update()
         {
             throw new NotImplementedException();
         }
 
-        internal void Create()
+        public void Create()
         {
             throw new NotImplementedException();
         }
 
-        internal void Remove()
+        public void Remove()
         {
             throw new NotImplementedException();
         }

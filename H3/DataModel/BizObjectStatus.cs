@@ -1,7 +1,7 @@
 ﻿namespace H3.DataModel
 {
-    internal class BizObjectStatus
+    public class BizObjectStatus
     {
-        public static object Effective { get; internal set; }
+        public static object Effective { get;  set; }
     }
 }
