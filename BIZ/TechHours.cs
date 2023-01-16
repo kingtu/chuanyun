@@ -245,6 +245,9 @@ public class TechHours//: H3.SmartForm.RestApiController
         return equipmentCoeff;
     }
 
+
+ 
+
     //产品参数表
     string ProductParameter_TableCode = "D0014196b62f7decd924e1e8713025dc6a39aa5";
     string ProductParameter_SingeRollingTechHours = "F0000048";             //单轧粗车工时   

@@ -464,3 +464,9 @@ public class D001419Siizvpn3x17wj6jj3pifsmbic3 : H3.SmartForm.SmartFormControlle
     //A-C订单规格表    
     string OrderSpecification_ProductFinishingConfiguration = "F0000130"; //产品精整配置
 }
+
+//internal class QAConfig
+//{
+//    public static string PriorityLevelInspectionBeforeCharging { get; internal set; }
+//    public static string GlobalInspectionBeforeCharging { get; internal set; }
+//}

@@ -192,7 +192,6 @@ public class MacineRecordService
                 }
                 else
                 {
-
                     recordObj[MachiningTaskRecord_TaskType] = "本取后粗车";    //任务类型
                 }
             }

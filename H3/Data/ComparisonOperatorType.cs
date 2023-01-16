@@ -2,12 +2,12 @@
 {
     public class ComparisonOperatorType
     {
-        internal static ComparisonOperatorType Equal;
-        internal static ComparisonOperatorType Above;
-        internal static ComparisonOperatorType Below;
-        internal static ComparisonOperatorType NotBelow;
-        internal static ComparisonOperatorType NotAbove;
-        internal static ComparisonOperatorType In;
-        internal static ComparisonOperatorType NotEqual;
+        public  static ComparisonOperatorType Equal;
+        public static ComparisonOperatorType Above;
+        public static ComparisonOperatorType Below;
+        public static ComparisonOperatorType NotBelow;
+        public static ComparisonOperatorType NotAbove;
+        public static ComparisonOperatorType In;
+        public static ComparisonOperatorType NotEqual;
     }
 }

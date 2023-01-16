@@ -2,7 +2,7 @@
 
 namespace H3.Workflow.Template
 {     
-        internal class WorkflowTemplate
+        public class WorkflowTemplate
         {
             public object WorkflowVersion { get; internal set; }
 

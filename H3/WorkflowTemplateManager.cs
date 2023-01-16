@@ -5,7 +5,7 @@ namespace H3
 {
     public class WorkflowTemplateManager
     {
-        internal Template.WorkflowTemplate GetDefaultWorkflow(object schemaCode)
+        public Workflow.Template.WorkflowTemplate GetDefaultWorkflow(object schemaCode)
         {
             throw new NotImplementedException();
         }
