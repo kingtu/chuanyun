@@ -6,5 +6,6 @@
 
         public static  object UnspecifiedId { get;  set; }
         public string[] Participants { get;  set; }
+        public string Activity { get;  set; }
     }
 }

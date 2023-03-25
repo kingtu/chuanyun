@@ -13,7 +13,7 @@ namespace H3.DataModel
         public object Status { get;  set; }
         public string WorkflowInstanceId { get; internal set; }
         public H3.DataModel.BizObjectSchema Schema { get; internal set; }
-        public object State { get; internal set; }
+        public H3.DataModel.BizObjectState State { get; internal set; }
         
 
         public BizObject(IEngine engine, BizObjectSchema tableSchema, string userId)
@@ -33,7 +33,7 @@ namespace H3.DataModel
             throw new NotImplementedException();
         }
         //public string Item;
-        public object this[string day]
+        public object this[string itemName]
         {
             get { return null; }
             set { }

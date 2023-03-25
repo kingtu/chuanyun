@@ -1,11 +1,11 @@
-﻿using Chuanyun;
+﻿//using Chuanyun;
 using H3.Data;
 using System;
 
 namespace H3.Workflow.Instance
 {
 
-    internal interface IToken
+    public interface IToken
     {
         string Activity { get; set; }
         string[] Participants { get; set; }
@@ -27,17 +27,17 @@ namespace H3.Workflow.Instance
         public string InstanceId { get;  set; }
         public bool IsFinished { get;  set; }
         public object FinishTime { get;  set; }
-        public string SchemaCode { get; internal set; }
-        public string WorkflowDisplayName { get; internal set; }
-        public string ParentInstanceId { get; internal set; }
-        public string ObjectId { get; internal set; }
+        public string SchemaCode { get;  set; }
+        public string WorkflowDisplayName { get;  set; }
+        public string ParentInstanceId { get;  set; }
+        public string ObjectId { get;  set; }
 
-        internal Token GetRunningToken(object activityCode)
+        public Token GetRunningToken(object activityCode)
         {
             throw new NotImplementedException();
         }
 
-        internal IToken GetLastToken()
+        public IToken GetLastToken()
         {
             throw new NotImplementedException();
         }

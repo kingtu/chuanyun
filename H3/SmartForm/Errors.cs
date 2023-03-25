@@ -2,9 +2,9 @@
 
 namespace H3
 {
-    internal class Errors
+    public  class Errors
     {
-        internal void Add(string v)
+        public void Add(string v)
         {
             throw new NotImplementedException();
         }

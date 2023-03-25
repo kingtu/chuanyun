@@ -7,28 +7,6 @@ using System.Text;
 using H3;
 using H3.DataModel;
 
-
-
-public class OperatorType
-{
-    private string Operator;
-    public OperatorType() { }
-
-    public static H3.Data.ComparisonOperatorType Get(string Operator)
-    {
-        if (Operator == "=") { return H3.Data.ComparisonOperatorType.Equal; }
-        //add by zzx
-        if (Operator == "!=") { return H3.Data.ComparisonOperatorType.NotEqual; }
-        if (Operator == ">") { return H3.Data.ComparisonOperatorType.Above; }
-        if (Operator == "<") { return H3.Data.ComparisonOperatorType.Below; }
-        if (Operator == ">=") { return H3.Data.ComparisonOperatorType.NotBelow; }
-        if (Operator == "<=") { return H3.Data.ComparisonOperatorType.NotAbove; }
-        if (Operator == "in") { return H3.Data.ComparisonOperatorType.In; }
-        return H3.Data.ComparisonOperatorType.Equal;
-    }
-}
-
-
 public class Schema
 {
 
@@ -121,9 +99,7 @@ public class Schema
     private void Init(bool toGetTableSchema = true)
     {
         Columns = GetColumns(tableName);
-
-        if (toGetTableSchema) { TableSchema = Get(); }
-        return;
+        if (toGetTableSchema) { TableSchema = Get(); }        
     }
 
     /// <summary>
@@ -212,6 +188,9 @@ public class Schema
         }
         return true;
     }
+
+
+
     public string Cell(string columnName)
     {
         CheckColumnName(columnName);
@@ -313,17 +292,13 @@ public class Schema
         var fullName = IsLongID ? tableID : appID + tableID;
         return Engine.BizObjectManager.GetPublishedSchema(fullName);
     }
+    
 
-    // public H3.DataModel.BizObjectSchema Get(H3.IEngine Engine, string appID, string tableID)
-    // {
-    //     return Engine.BizObjectManager.GetPublishedSchema(appID + tableID);
-    // }
 
     public Schema ClearFilter()
     {
         Filter = new H3.Data.Filter.Filter();
         return this;
-
     }
 
     public Schema And(string columnName, string Operator, object value)
@@ -599,4 +574,23 @@ public class Schema
     //    if (!o.Name.StartsWith("Nullable")) return false;
     //    return o.GetGenericArguments()[0].IsNumericType();
     //}
+}
+
+public class OperatorType
+{
+    private string Operator;
+    public OperatorType() { }
+
+    public static H3.Data.ComparisonOperatorType Get(string Operator)
+    {
+        if (Operator == "=") { return H3.Data.ComparisonOperatorType.Equal; }
+        //add by zzx
+        if (Operator == "!=") { return H3.Data.ComparisonOperatorType.NotEqual; }
+        if (Operator == ">") { return H3.Data.ComparisonOperatorType.Above; }
+        if (Operator == "<") { return H3.Data.ComparisonOperatorType.Below; }
+        if (Operator == ">=") { return H3.Data.ComparisonOperatorType.NotBelow; }
+        if (Operator == "<=") { return H3.Data.ComparisonOperatorType.NotAbove; }
+        if (Operator == "in") { return H3.Data.ComparisonOperatorType.In; }
+        return H3.Data.ComparisonOperatorType.Equal;
+    }
 }

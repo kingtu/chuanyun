@@ -1,6 +1,6 @@
 ﻿namespace H3.Workflow.Messages
 {
-    internal class AdjustParticipantMessage
+    public class AdjustParticipantMessage
     {
         public AdjustParticipantMessage(string workflowInstanceId, string activityCode, string[] participant)
         {

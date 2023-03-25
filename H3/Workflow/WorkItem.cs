@@ -1,6 +1,4 @@
-﻿using Chuanyun;
-
-namespace H3.Workflow
+﻿namespace H3.Workflow
 {
     public class WorkItem
     {

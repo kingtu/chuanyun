@@ -4,7 +4,7 @@ using System.Text;
 
 namespace H3.Workflow.Messages
 {
-    class CancelActivityMessage
+    public class CancelActivityMessage
     {
         private string workflowInstanceId;
         private string currentActivityCode;

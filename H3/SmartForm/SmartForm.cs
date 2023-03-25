@@ -18,11 +18,11 @@ namespace H3
         }
         public class SubmitSmartFormResponse
         {
-            internal Errors Errors;
+            public  Errors Errors;
 
             public string Message { get; internal set; }
             public bool ClosePage { get; internal set; }
-            public Dictionary<string, object> ReturnData { get; internal set; }
+            public Dictionary<string, object> ReturnData { get;  set; }
             public List< object> Infos { get; set; }
             public bool IsMobile { get; internal set; }
         }

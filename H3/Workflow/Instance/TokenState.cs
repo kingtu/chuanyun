@@ -1,6 +1,6 @@
 ﻿namespace H3.Workflow.Instance
 {
-    internal enum TokenState
+    public enum TokenState
     {
         Running
     }

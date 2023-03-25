@@ -4,7 +4,7 @@ using System.Text;
 
 namespace H3.Workflow.Messages
 {
-    class ActivateActivityMessage
+    public class  ActivateActivityMessage
     {
         private string workflowInstanceId;
         private string nextActivityCode;

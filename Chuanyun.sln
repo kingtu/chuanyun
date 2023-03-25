@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chuanyun", "Chuanyun.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H3SH", "..\H3SH\H3SH.csproj", "{60E12F6E-8C1C-43EC-B944-6CADC85128D8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APITest", "..\APITest\APITest.csproj", "{5D2F7F5C-E3CB-4E89-9C65-109A85973E18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H3CodeSubmiter", "..\APITest\H3CodeSubmiter.csproj", "{5D2F7F5C-E3CB-4E89-9C65-109A85973E18}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "..\WebAPI\WebAPI.csproj", "{B2296182-81CE-4FC4-8374-67C8222283D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChuanyunWebAPI", "..\ChuanyunWebAPI\ChuanyunWebAPI.csproj", "{03E4C60B-4683-4DF8-8427-F493E422D2E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChuanyunWebAPI", "..\ChuanyunWebAPI\ChuanyunWebAPI.csproj", "{03E4C60B-4683-4DF8-8427-F493E422D2E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChuanyunTests", "..\ChuanyunTests\ChuanyunTests.csproj", "{06CF0CBF-744D-4AEF-8B0D-5B8799E3E622}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{03E4C60B-4683-4DF8-8427-F493E422D2E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03E4C60B-4683-4DF8-8427-F493E422D2E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03E4C60B-4683-4DF8-8427-F493E422D2E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06CF0CBF-744D-4AEF-8B0D-5B8799E3E622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06CF0CBF-744D-4AEF-8B0D-5B8799E3E622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06CF0CBF-744D-4AEF-8B0D-5B8799E3E622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06CF0CBF-744D-4AEF-8B0D-5B8799E3E622}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

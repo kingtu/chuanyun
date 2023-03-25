@@ -7,21 +7,21 @@ namespace H3
 {
     public class WorkflowInstanceManager
     {
-        internal WorkflowInstance GetWorkflowInstance(string workflowInstanceId)
+        public WorkflowInstance GetWorkflowInstance(string workflowInstanceId)
         {
             throw new NotImplementedException();
         }
 
-        internal void SendMessage(ActivateActivityMessage activiteMessage)
+        public void SendMessage(ActivateActivityMessage activiteMessage)
         {
             throw new NotImplementedException();
         }
-        internal void SendMessage(H3.Workflow.Messages.CancelActivityMessage cancelActivityMessage)
+        public void SendMessage(H3.Workflow.Messages.CancelActivityMessage cancelActivityMessage)
         {
             throw new NotImplementedException();
         }
 
-        internal void SendMessage(AdjustParticipantMessage adjustMessage)
+        public void SendMessage(AdjustParticipantMessage adjustMessage)
         {
             throw new NotImplementedException();
         }
