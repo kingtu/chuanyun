@@ -1,20 +1,20 @@
 ﻿using System;
 
 namespace H3.Workflow.Template
-{     
-        public class WorkflowTemplate
-        {
-            public object WorkflowVersion { get; internal set; }
+{
+    public class WorkflowTemplate
+    {
+        public object WorkflowVersion { get; set; }
 
-            internal Activity GetActivityByCode(string v)
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        internal class Activity
+        public Activity GetActivityByCode(string v)
         {
-            public string DisplayName { get; internal set; }
+            throw new NotImplementedException();
         }
-     
+    }
+
+    public class Activity
+    {
+        public string DisplayName { get; set; }
+    }
+
 }

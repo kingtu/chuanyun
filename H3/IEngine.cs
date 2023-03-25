@@ -26,12 +26,12 @@ namespace H3
             throw new NotImplementedException();
         }
 
-        internal DataTable QueryChildInstance(string instanceId, object unspecifiedId, WorkflowInstanceState running, BoolValue unspecified)
+        public DataTable QueryChildInstance(string instanceId, object unspecifiedId, WorkflowInstanceState running, BoolValue unspecified)
         {
             throw new NotImplementedException();
         }
 
-        internal DataTable QueryWorkItemDisplayAndParticipant(string[] vs, WorkItemState unfinished)
+        public DataTable QueryWorkItemDisplayAndParticipant(string[] vs, WorkItemState unfinished)
         {
             throw new NotImplementedException();
         }

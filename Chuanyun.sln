@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChuanyunWebAPI", "..\Chuany
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChuanyunTests", "..\ChuanyunTests\ChuanyunTests.csproj", "{06CF0CBF-744D-4AEF-8B0D-5B8799E3E622}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H3SH2020", "..\H3SH2020\H3SH2020.csproj", "{810727C6-E6B4-4B19-B9D9-59D3525DB788}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{06CF0CBF-744D-4AEF-8B0D-5B8799E3E622}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06CF0CBF-744D-4AEF-8B0D-5B8799E3E622}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06CF0CBF-744D-4AEF-8B0D-5B8799E3E622}.Release|Any CPU.Build.0 = Release|Any CPU
+		{810727C6-E6B4-4B19-B9D9-59D3525DB788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{810727C6-E6B4-4B19-B9D9-59D3525DB788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{810727C6-E6B4-4B19-B9D9-59D3525DB788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{810727C6-E6B4-4B19-B9D9-59D3525DB788}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -20,20 +20,20 @@ namespace H3
         {
             public  Errors Errors;
 
-            public string Message { get; internal set; }
-            public bool ClosePage { get; internal set; }
+            public string Message { get;  set; }
+            public bool ClosePage { get;  set; }
             public Dictionary<string, object> ReturnData { get;  set; }
             public List< object> Infos { get; set; }
-            public bool IsMobile { get; internal set; }
+            public bool IsMobile { get;  set; }
         }
 
         public class LoadSmartFormResponse
         {
-            internal Errors Errors;
+            public Errors Errors;
 
-            public Dictionary <string ,object> ReturnData { get; internal set; }
-            public List <object> Infos { get; internal set; }
-            public bool IsMobile { get; internal set; }
+            public Dictionary <string ,object> ReturnData { get;  set; }
+            public List <object> Infos { get;  set; }
+            public bool IsMobile { get;  set; }
         }
 
         public class SmartFormController
@@ -99,26 +99,26 @@ namespace H3
         public class ListViewRequest: H3.SmartForm.RequestContext
         {
             public string SchemaCode { get; internal set; }
-            public UserContext UserContext { get; internal set; }
-            public H3.IEngine Engine { get; internal set; }
-            public string DisplayName { get; internal set; }
-            public object ListScene { get; internal set; }
-            public object CurrentUserId { get; internal set; }
+            public UserContext UserContext { get;  set; }
+            public H3.IEngine Engine { get;  set; }
+            public string DisplayName { get;  set; }
+            public object ListScene { get;  set; }
+            public object CurrentUserId { get;  set; }
         }
 
         public class LoadListViewResponse
         {
-            public string SchemaCode { get; internal set; }
+            public string SchemaCode { get;  set; }
             public List<object> Errors { get; set; }
             public List<object> Infos { get;  set; }
-            public bool IsMobile { get; internal set; }
+            public bool IsMobile { get;  set; }
         }
 
         public class SubmitListViewResponse
         {
-            public string Message { get; internal set; }
-            public List<object> Errors { get; internal set; }
-            public bool IsMobile { get; internal set; }
+            public string Message { get;  set; }
+            public List<object> Errors { get;  set; }
+            public bool IsMobile { get;  set; }
         }
 
         public class RestApiController
@@ -130,7 +130,7 @@ namespace H3
 
         public class RestApiRequest
         {
-            internal T GetValue<T>(T key, T empty)
+            public T GetValue<T>(T key, T empty)
             {
                 throw new NotImplementedException();
             }
@@ -143,19 +143,19 @@ namespace H3
 
         public class RequestContext
         {
-            internal Dictionary<string, object> CreateLog()
+            public Dictionary<string, object> CreateLog()
             {
                 throw new NotImplementedException();
             }
         }
 
-        internal class SmartFormResponseDataItem
+        public class SmartFormResponseDataItem
         {
             public SmartFormResponseDataItem()
             {
             }
 
-            public string Value { get; internal set; }
+            public string Value { get; set; }
         }
     }
     public class SmartFormController

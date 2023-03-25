@@ -1,7 +1,7 @@
 ﻿namespace H3.DataModel
 {
-    internal class GetListScopeType
+    public class GetListScopeType
     {
-        public static object GlobalAll { get; internal set; }
+        public static object GlobalAll { get; set; }
     }
 }

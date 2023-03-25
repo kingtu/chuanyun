@@ -5,9 +5,9 @@ namespace H3
 {
     public class BizBus
     {
-        public static AccessPointType AccessPointType { get; internal set; }
+        public static AccessPointType AccessPointType { get; set; }
 
-        internal BizBus.InvokeResult InvokeApi(string systemUserId, object thirdConnection, string v1, string v2, string v3, Dictionary<string, string> headers, Dictionary<string, string> querys, Dictionary<string, object> data, BizStructureSchema structureSchema)
+        public BizBus.InvokeResult InvokeApi(string systemUserId, object thirdConnection, string v1, string v2, string v3, Dictionary<string, string> headers, Dictionary<string, string> querys, Dictionary<string, object> data, BizStructureSchema structureSchema)
         {
             throw new NotImplementedException();
         }
@@ -26,7 +26,7 @@ namespace H3
 
         public class BizStructureSchema
         {
-            internal void Add(BizBus.ItemSchema itemSchema)
+            public void Add(BizBus.ItemSchema itemSchema)
             {
                 throw new NotImplementedException();
             }
@@ -48,9 +48,9 @@ namespace H3
             }
         }
 
-        internal class InvokeResult
+        public class InvokeResult
         {
-            public BizStructure Data { get; internal set; }
+            public BizStructure Data { get; set; }
         }
     }
 }

@@ -6,11 +6,11 @@ namespace H3.DataModel
 {
     public class BizObjectSchema
     {
-        public IEnumerable<PropertySchema> Properties { get; internal set; }
+        public IEnumerable<PropertySchema> Properties { get; set; }
         public string  SchemaCode { get; internal set; }
         public string DisplayName { get; internal set; }
 
-        internal BizObjectSchema GetChildSchema(string v)
+        public BizObjectSchema GetChildSchema(string v)
         {
             throw new NotImplementedException();
         }

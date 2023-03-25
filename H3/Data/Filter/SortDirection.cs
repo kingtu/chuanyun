@@ -1,7 +1,7 @@
 ﻿namespace H3.Data.Filter
 {
-    internal class SortDirection
+    public class SortDirection
     {
-        public static object Descending { get; internal set; }
+        public static object Descending { get;  set; }
     }
 }

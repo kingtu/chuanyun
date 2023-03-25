@@ -11,9 +11,9 @@ namespace H3.DataModel
         public  string  ObjectId;
 
         public object Status { get;  set; }
-        public string WorkflowInstanceId { get; internal set; }
-        public H3.DataModel.BizObjectSchema Schema { get; internal set; }
-        public H3.DataModel.BizObjectState State { get; internal set; }
+        public string WorkflowInstanceId { get;  set; }
+        public H3.DataModel.BizObjectSchema Schema { get;  set; }
+        public H3.DataModel.BizObjectState State { get;  set; }
         
 
         public BizObject(IEngine engine, BizObjectSchema tableSchema, string userId)
