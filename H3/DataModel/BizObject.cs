@@ -1,5 +1,6 @@
 ﻿using H3.Data.Filter;
 using System;
+using System.Collections.Generic;
 
 namespace H3.DataModel
 {
@@ -9,6 +10,9 @@ namespace H3.DataModel
         private BizObjectSchema tableSchema;
         private string userId;
         public  string  ObjectId;
+
+        private Dictionary <string ,object > inner =new Dictionary <string ,object > ();
+        //private Loginer DataProxy;
 
         public object Status { get;  set; }
         public string WorkflowInstanceId { get;  set; }
@@ -35,8 +39,8 @@ namespace H3.DataModel
         //public string Item;
         public object this[string itemName]
         {
-            get { return null; }
-            set { }
+            get { return inner[itemName]; }
+            set { inner[itemName] = value; }
         }
 
         public void Update()
